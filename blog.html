@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com — blog.html             ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html ✅ Done                       ║
+    ║  blog.html     ✅ Done                       ║
+    ║  contact.html  🔲 Queued                     ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sajjadur Rahman's blog — চিন্তা, গল্প, ইতিহাস, বিজ্ঞান, ধারণা। Writing in Bengali on history, science, ideas, poetry, and current affairs. 13,000+ readers on Blogger."/>
+  <title>Blog — Sajjadur Rahman</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+
+    /* ══════════════════════════════════
+       BLOG HERO — distinctive dark style
+       ══════════════════════════════════ */
+    .blog-hero {
+      background: var(--ink-soft);
+      padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .blog-hero::before {
+      content: '✒';
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 260px;
+      opacity: 0.04;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .blog-hero .eyebrow { color: var(--gold); }
+    .blog-hero h1 {
+      font-family: var(--font-head);
+      font-size: 44px;
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.12;
+      margin-bottom: 12px;
+    }
+    .blog-tagline {
+      font-family: var(--font-bn);
+      font-size: 17px;
+      color: var(--gold-light);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    .blog-hero-desc {
+      font-size: 14.5px;
+      color: var(--text-light);
+      font-style: italic;
+      max-width: 540px;
+      margin: 0 auto 28px;
+      line-height: 1.8;
+    }
+    .blog-hero-stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .bhs-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 22px;
+      border-right: 1px solid rgba(200,191,160,0.15);
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .bhs-item:last-child { border-right: none; }
+    .bhs-item strong {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    /* ══════════════════════════════════
+       MAIN LAYOUT — posts + sidebar
+       ══════════════════════════════════ */
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ══════════════════════════════════
+       RECENT POSTS
+       ══════════════════════════════════ */
+    .posts-label {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 22px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .post-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+    .post-card:last-child { margin-bottom: 0; }
+    .post-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .post-card-inner {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      align-items: stretch;
+    }
+    .post-date-col {
+      background: var(--parchment2);
+      border-right: 0.5px solid var(--gold-pale);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 10px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .post-day {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .post-month {
+      font-family: var(--font-ui);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+    .post-year {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-top: 1px;
+    }
+    .post-content { padding: 18px 20px; }
+    .post-cat {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .post-title {
+      font-family: var(--font-bn);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 7px;
+      transition: color .2s;
+    }
+    .post-card:hover .post-title { color: var(--gold); }
+    .post-excerpt {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .post-read {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap .2s;
+    }
+    .post-read::after { content: '→'; }
+    .post-card:hover .post-read { gap: 9px; }
+
+    /* Featured post (first) — full width style */
+    .post-card.featured .post-card-inner {
+      grid-template-columns: 110px 1fr;
+    }
+    .post-card.featured .post-date-col {
+      background: var(--ink-soft);
+    }
+    .post-card.featured .post-day { font-size: 32px; color: var(--gold-light); }
+    .post-card.featured .post-month { color: var(--text-light); }
+    .post-card.featured .post-year { color: var(--text-light); }
+    .post-card.featured .post-title { font-size: 18px; }
+    .post-card.featured .post-excerpt { -webkit-line-clamp: 3; }
+
+    /* ══════════════════════════════════
+       SIDEBAR
+       ══════════════════════════════════ */
+    .sidebar { position: sticky; top: 90px; }
+
+    .sidebar-block {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .sidebar-block:last-child { margin-bottom: 0; }
+    .sb-head {
+      background: var(--parchment2);
+      padding: 12px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Visit CTA block */
+    .sb-visit {
+      background: var(--ink-soft);
+      border-color: transparent;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .sb-visit h3 {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .sb-visit h3 em { font-style: italic; color: var(--gold); }
+    .sb-visit p {
+      font-size: 12.5px;
+      color: var(--text-light);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* Categories */
+    .cat-list { padding: 8px 0; }
+    .cat-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .cat-row:last-child { border-bottom: none; }
+    .cat-row:hover { background: var(--parchment2); }
+    .cat-name {
+      font-family: var(--font-bn);
+      font-size: 14px;
+      color: var(--ink-muted);
+    }
+    .cat-count {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--gold);
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      padding: 2px 7px;
+      border-radius: 20px;
+    }
+
+    /* Popular posts */
+    .popular-list { padding: 4px 0; }
+    .popular-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 16px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .popular-item:last-child { border-bottom: none; }
+    .popular-item:hover { background: var(--parchment2); }
+    .pop-num {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold-pale);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 22px;
+    }
+    .pop-title {
+      font-family: var(--font-bn);
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+      transition: color .2s;
+    }
+    .popular-item:hover .pop-title { color: var(--gold); }
+
+    /* Social */
+    .social-row {
+      display: flex;
+      justify-content: space-around;
+      padding: 16px 18px;
+      gap: 8px;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 7px 12px;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: border-color .2s, color .2s, background .2s;
+      flex: 1;
+      justify-content: center;
+    }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--parchment2); }
+
+    /* ══════════════════════════════════
+       POPULAR POSTS (full width grid)
+       ══════════════════════════════════ */
+    .popular-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .pg-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .pg-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .pg-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+    .pg-cat {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .pg-title {
+      font-family: var(--font-bn);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 10px;
+      transition: color .2s;
+    }
+    .pg-card:hover .pg-title { color: var(--gold); }
+    .pg-read {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap .2s;
+    }
+    .pg-read::after { content: '→'; }
+    .pg-card:hover .pg-read { gap: 8px; }
+
+    /* ══════════════════════════════════
+       CTA BAND
+       ══════════════════════════════════ */
+    .blog-cta {
+      background: var(--ink-soft);
+      padding: 56px 0;
+    }
+    .blog-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .bci-text h2 {
+      font-family: var(--font-head);
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .bci-text h2 em { font-style: italic; color: var(--gold); }
+    .bci-text p { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+    .bci-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .bci-link {
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(200,191,160,0.18);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .bci-link:hover { border-color: var(--gold); background: rgba(139,126,90,0.08); }
+    .bci-link .bl-icon { font-size: 18px; flex-shrink: 0; }
+    .bci-link .bl-label {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .bci-link .bl-val { font-size: 13px; color: var(--text-light); }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .blog-layout { grid-template-columns: 1fr; gap: 36px; }
+      .sidebar { position: static; }
+      .popular-grid { grid-template-columns: 1fr 1fr; }
+      .blog-cta-inner { grid-template-columns: 1fr; gap: 28px; }
+      .bhs-item { border-right: none; border-bottom: 1px solid rgba(200,191,160,0.15); width: 100%; justify-content: center; }
+      .bhs-item:last-child { border-bottom: none; }
+    }
+    @media (max-width: 680px) {
+      .post-card.featured .post-card-inner,
+      .post-card-inner { grid-template-columns: 70px 1fr; }
+      .popular-grid { grid-template-columns: 1fr; }
+      .blog-hero h1 { font-size: 32px; }
+    }
+    @media (max-width: 420px) {
+      .post-card-inner { grid-template-columns: 1fr; }
+      .post-date-col { flex-direction: row; gap: 8px; padding: 10px 16px; border-right: none; border-bottom: 0.5px solid var(--gold-pale); justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    Researcher · Editor · Consultant · Dhaka, Bangladesh
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ════════════════════════
+         BLOG HERO
+         ════════════════════════ -->
+    <div class="blog-hero">
+      <div class="container">
+        <span class="eyebrow">Sajjadur Rahman's Thoughts...</span>
+        <h1>চিন্তা, গল্প, ইতিহাস,<br/>বিজ্ঞান ও ধারণা</h1>
+        <span class="blog-tagline">লেখালেখির জগতে স্বাগতম</span>
+        <p class="blog-hero-desc">Writing in Bengali on history, science, ideas, poetry, current affairs, and everything in between — since 2020, read by 13,000+ readers on Blogger.</p>
+        <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:28px;">
+          <a href="https://sajjadur-rahman.blogspot.com" class="btn btn-gold btn-arrow" target="_blank" rel="noopener">Visit Full Blog on Blogger</a>
+        </div>
+        <div class="blog-hero-stats">
+          <div class="bhs-item"><strong>13K+</strong> Readers</div>
+          <div class="bhs-item"><strong>180+</strong> Posts</div>
+          <div class="bhs-item"><strong>20</strong> Categories</div>
+          <div class="bhs-item"><strong>Since</strong> 2020</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         POSTS + SIDEBAR
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="blog-layout">
+
+          <!-- POSTS COLUMN -->
+          <div class="posts-col">
+            <span class="posts-label">Recent Posts</span>
+
+            <!-- Post 1 — Featured -->
+            <a href="https://sajjadur-rahman.blogspot.com/2026/04/--.html"
+               target="_blank" rel="noopener" class="post-card featured">
+              <div class="post-card-inner">
+                <div class="post-date-col">
+                  <span class="post-day">২৮</span>
+                  <span class="post-month">এপ্রিল</span>
+                  <span class="post-year">২০২৬</span>
+                </div>
+                <div class="post-content">
+                  <span class="post-cat">চিন্তা-খোরাক</span>
+                  <div class="post-title">দাস্তান-ই-বাওবাব - ০১</div>
+                  <p class="post-excerpt">মানুষের ধর্মই কিনা শিকড় গেড়ে বসা। ধীরে ধীরে উপরে বাড়া, মায়া জন্মানো, দৃষ্টিচুরি, সবশেষে ছেড়ে যাওয়া। প্রশ্ন তো থেকেই যায় আসলে মানুষকে মানুষ হতে কে শেখাল?</p>
+                  <span class="post-read">Read on Blogger</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Post 2 -->
+            <a href="https://sajjadur-rahman.blogspot.com/2025/08/36july.html"
+               target="_blank" rel="noopener" class="post-card">
+              <div class="post-card-inner">
+                <div class="post-date-col">
+                  <span class="post-day">০৪</span>
+                  <span class="post-month">আগস্ট</span>
+                  <span class="post-year">২০২৫</span>
+                </div>
+                <div class="post-content">
+                  <span class="post-cat">ইতিহাস</span>
+                  <div class="post-title">স্মৃতিতে ৩৬শে জুলাই</div>
+                  <p class="post-excerpt">৫ই আগস্ট সর্বপ্রথম পুলিশী হামলাটা হয় শহীদ মিনারে। ফজর পড়েই সিএনজি নিয়ে মহাখালী, তারপর শহীদ মিনার। রাস্তাজুড়ে আর্মির সাঁজোয়া বহর।</p>
+                  <span class="post-read">Read on Blogger</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Post 3 -->
+            <a href="https://sajjadur-rahman.blogspot.com/2025/07/Dr%20A%20Q%20Khan.html"
+               target="_blank" rel="noopener" class="post-card">
+              <div class="post-card-inner">
+                <div class="post-date-col">
+                  <span class="post-day">০৫</span>
+                  <span class="post-month">জুলাই</span>
+                  <span class="post-year">২০২৫</span>
+                </div>
+                <div class="post-content">
+                  <span class="post-cat">জীবনী</span>
+                  <div class="post-title">ড. খান: একজন পারমাণবিক বিপ্লবী</div>
+                  <p class="post-excerpt">একটি নীরব কামরা। বাইরে ইউরোপের শীতের তুষারপাত। নেদারল্যান্ডসের ইউরেনকো গবেষণা কেন্দ্রের হিমশীতল পরিবেশেও একজন মানুষের মনে উষ্ণ স্বপ্নের আগুন।</p>
+                  <span class="post-read">Read on Blogger</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Post 4 -->
+            <a href="https://sajjadur-rahman.blogspot.com/2025/04/blog-post_19.html"
+               target="_blank" rel="noopener" class="post-card">
+              <div class="post-card-inner">
+                <div class="post-date-col">
+                  <span class="post-day">০৬</span>
+                  <span class="post-month">এপ্রিল</span>
+                  <span class="post-year">২০২৫</span>
+                </div>
+                <div class="post-content">
+                  <span class="post-cat">চিন্তা-খোরাক</span>
+                  <div class="post-title">বিষাক্ত ছাত্র-রাজনীতিঃ উত্তরণ এবং অবনমন</div>
+                  <p class="post-excerpt">মিল্লাতে ছাত্রদলের ঘটনাকে অন্যদিকে ঘুরানোর অপচেষ্টা নতুন ধারার ছাত্ররাজনীতির কফিনে শেষ পেরেক ঠুকল। নতুন ধারা হতে পারত নতুন জেন্টলম্যানস অ্যাগ্রিমেন্টের মাধ্যমে।</p>
+                  <span class="post-read">Read on Blogger</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Post 5 -->
+            <a href="https://sajjadur-rahman.blogspot.com/2025/04/the-palestine-question.html"
+               target="_blank" rel="noopener" class="post-card">
+              <div class="post-card-inner">
+                <div class="post-date-col">
+                  <span class="post-day">০৬</span>
+                  <span class="post-month">এপ্রিল</span>
+                  <span class="post-year">২০২৫</span>
+                </div>
+                <div class="post-content">
+                  <span class="post-cat">Bangladesh · English</span>
+                  <div class="post-title" style="font-family:var(--font-head);">The Palestine Question</div>
+                  <p class="post-excerpt">Bangladesh should step up for Palestine. It's time to take a bold stand — working beyond the usual frameworks to build real coalitions for justice.</p>
+                  <span class="post-read">Read on Blogger</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Post 6 -->
+            <a href="https://sajjadur-rahman.blogspot.com/2025/03/blog-post.html"
+               target="_blank" rel="noopener" class="post-card">
+              <div class="post-card-inner">
+                <div class="post-date-col">
+                  <span class="post-day">০২</span>
+                  <span class="post-month">মার্চ</span>
+                  <span class="post-year">২০২৫</span>
+                </div>
+                <div class="post-content">
+                  <span class="post-cat">কবিতা</span>
+                  <div class="post-title">অপকবিতা শীর্ষক তিনটি বয়ান</div>
+                  <p class="post-excerpt">হঠাৎ মোড় ঘুরতেই দেয়ালে চাকুরীর বিজ্ঞাপন। কাজ খুবই কম, এক্কাদোক্কা করে মাথা গুণা — কে যায়, কে যেতে চায়।</p>
+                  <span class="post-read">Read on Blogger</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Post 7 -->
+            <a href="https://sajjadur-rahman.blogspot.com/2025/01/blog-post_67.html"
+               target="_blank" rel="noopener" class="post-card">
+              <div class="post-card-inner">
+                <div class="post-date-col">
+                  <span class="post-day">১০</span>
+                  <span class="post-month">জানু.</span>
+                  <span class="post-year">২০২৫</span>
+                </div>
+                <div class="post-content">
+                  <span class="post-cat">কবিতা</span>
+                  <div class="post-title">মৃত্যুর গানঃ নিনাদ, খোয়াবনামা এবং অন্যান্য</div>
+                  <p class="post-excerpt">মৃত্যুর মত সুন্দর — কথাটাতে ঠিক ধরণের বার্তা আপনারা পান? মৃত্যুকে মহিমান্বিত করা হল, নাকি সৌন্দর্যকে একটা নির্দিষ্ট সীমানায় আটকে সংজ্ঞায়ন করা হল?</p>
+                  <span class="post-read">Read on Blogger</span>
+                </div>
+              </div>
+            </a>
+
+            <div class="text-center mt-32">
+              <a href="https://sajjadur-rahman.blogspot.com" class="btn btn-outline btn-arrow" target="_blank" rel="noopener">Load More on Blogger</a>
+            </div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+
+            <!-- Visit CTA -->
+            <div class="sidebar-block sb-visit">
+              <h3>Read the full blog<br/><em>on Blogger ↗</em></h3>
+              <p>180+ posts across history, science, poetry, and ideas — all in Bengali. Updated regularly.</p>
+              <a href="https://sajjadur-rahman.blogspot.com" class="btn btn-gold" target="_blank" rel="noopener" style="width:100%;justify-content:center;">sajjadur-rahman.blogspot.com</a>
+            </div>
+
+            <!-- Categories -->
+            <div class="sidebar-block">
+              <div class="sb-head">Categories</div>
+              <div class="cat-list">
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%9A%E0%A6%BF%E0%A6%A8%E0%A7%8D%E0%A6%A4%E0%A6%BE-%E0%A6%96%E0%A7%8B%E0%A6%B0%E0%A6%BE%E0%A6%95" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">চিন্তা-খোরাক</span>
+                  <span class="cat-count">63</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%87%E0%A6%A4%E0%A6%BF%E0%A6%B9%E0%A6%BE%E0%A6%B8" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">ইতিহাস</span>
+                  <span class="cat-count">32</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%95%E0%A6%AC%E0%A6%BF%E0%A6%A4%E0%A6%BE" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">কবিতা</span>
+                  <span class="cat-count">18</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%97%E0%A6%B2%E0%A7%8D%E0%A6%AA" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">গল্প</span>
+                  <span class="cat-count">18</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">বিজ্ঞান</span>
+                  <span class="cat-count">14</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%9C%E0%A7%80%E0%A6%AC%E0%A6%A8%E0%A7%80" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">জীবনী</span>
+                  <span class="cat-count">12</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%AC%E0%A6%BE%E0%A6%A6" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">অনুবাদ</span>
+                  <span class="cat-count">10</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%AC%E0%A7%81%E0%A6%95%20%E0%A6%B0%E0%A6%BF%E0%A6%AD%E0%A6%BF%E0%A6%89" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">বুক রিভিউ</span>
+                  <span class="cat-count">7</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%E0%A7%80" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">বিজ্ঞানী</span>
+                  <span class="cat-count">6</span>
+                </a>
+                <a href="https://sajjadur-rahman.blogspot.com/search/label/%E0%A6%AE%E0%A7%81%E0%A6%B8%E0%A6%B2%E0%A6%BF%E0%A6%AE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%E0%A7%80" class="cat-row" target="_blank" rel="noopener">
+                  <span class="cat-name">মুসলিম বিজ্ঞানী</span>
+                  <span class="cat-count">5</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Social links -->
+            <div class="sidebar-block">
+              <div class="sb-head">Follow</div>
+              <div class="social-row">
+                <a href="https://www.facebook.com/sajjad.rahman68/" class="social-btn" target="_blank" rel="noopener">📘 FB</a>
+                <a href="https://twitter.com/sajjadrahman68" class="social-btn" target="_blank" rel="noopener">𝕏 TW</a>
+                <a href="https://www.instagram.com/sajjadur_rahman_68/" class="social-btn" target="_blank" rel="noopener">📷 IG</a>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         ALL-TIME POPULAR POSTS
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Reader Favourites</span>
+          <h2>Most-Read Posts</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+
+        <div class="popular-grid">
+
+          <a href="https://sajjadur-rahman.blogspot.com/2021/12/pirireis.html"
+             target="_blank" rel="noopener" class="pg-card">
+            <span class="pg-icon">🗺️</span>
+            <span class="pg-cat">ইতিহাস</span>
+            <div class="pg-title">একজন পিরি রইস, মানচিত্রবিদ্যা এবং অন্যান্য পর্যালোচনা</div>
+            <span class="pg-read">Read</span>
+          </a>
+
+          <a href="https://sajjadur-rahman.blogspot.com/2020/07/blog-post.html"
+             target="_blank" rel="noopener" class="pg-card">
+            <span class="pg-icon">⚔️</span>
+            <span class="pg-cat">ইতিহাস</span>
+            <div class="pg-title">আইন জালুত : ফিরে আসার প্রান্তর</div>
+            <span class="pg-read">Read</span>
+          </a>
+
+          <a href="https://sajjadur-rahman.blogspot.com/2020/05/blog-post.html"
+             target="_blank" rel="noopener" class="pg-card">
+            <span class="pg-icon">✈️</span>
+            <span class="pg-cat">ইতিহাস · জীবনী</span>
+            <div class="pg-title">হিজরত : ভিন্ন চোখে</div>
+            <span class="pg-read">Read</span>
+          </a>
+
+          <a href="https://sajjadur-rahman.blogspot.com/2020/07/blog-post_23.html"
+             target="_blank" rel="noopener" class="pg-card">
+            <span class="pg-icon">🎬</span>
+            <span class="pg-cat">চলচ্চিত্র · জীবনী</span>
+            <div class="pg-title">মাজিদ মাজিদী: সব্যসাচী বাজপাখি</div>
+            <span class="pg-read">Read</span>
+          </a>
+
+          <a href="https://sajjadur-rahman.blogspot.com/2021/08/blog-post_91.html"
+             target="_blank" rel="noopener" class="pg-card">
+            <span class="pg-icon">🔭</span>
+            <span class="pg-cat">বিজ্ঞান · ইতিহাস</span>
+            <div class="pg-title">সভ্যতার আযান, তারিখ-ই-গোয়েবলস এবং আরবীয় বিজ্ঞান</div>
+            <span class="pg-read">Read</span>
+          </a>
+
+          <a href="https://sajjadur-rahman.blogspot.com/2022/03/blog-post_17.html"
+             target="_blank" rel="noopener" class="pg-card">
+            <span class="pg-icon">📜</span>
+            <span class="pg-cat">কবিতা</span>
+            <div class="pg-title">কবিতা নাম্নী অ-কবিতামালা</div>
+            <span class="pg-read">Read</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         BLOG CTA BAND
+         ════════════════════════ -->
+    <div class="blog-cta reveal">
+      <div class="container">
+        <div class="blog-cta-inner">
+          <div class="bci-text">
+            <h2>The writing lives<br/><em>on Blogger.</em></h2>
+            <p>This page shows a selection — the full archive of 180+ posts, all categories, and new writing is always on Blogger. Every link here opens there directly.</p>
+          </div>
+          <div class="bci-links">
+            <a href="https://sajjadur-rahman.blogspot.com" class="bci-link" target="_blank" rel="noopener">
+              <span class="bl-icon">✍️</span>
+              <div>
+                <span class="bl-label">Full Blog Archive</span>
+                <span class="bl-val">sajjadur-rahman.blogspot.com</span>
+              </div>
+            </a>
+            <a href="https://www.facebook.com/sajjad.rahman68/" class="bci-link" target="_blank" rel="noopener">
+              <span class="bl-icon">📘</span>
+              <div>
+                <span class="bl-label">Facebook</span>
+                <span class="bl-val">facebook.com/sajjad.rahman68</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/sajjadurrahman68/" class="bci-link" target="_blank" rel="noopener">
+              <span class="bl-icon">💼</span>
+              <div>
+                <span class="bl-label">LinkedIn</span>
+                <span class="bl-val">linkedin.com/in/sajjadurrahman68</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting services.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="research.html">Research</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Writing</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#">Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com — about.html            ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html 🔲 Queued                     ║
+    ║  research.html 🔲 Queued                     ║
+    ║  blog.html     🔲 Queued                     ║
+    ║  contact.html  🔲 Queued                     ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About Sajjadur Rahman — MSc Researcher at University of Dhaka, NST Fellow, soil scientist, academic editor, and freelance consultant based in Dhaka, Bangladesh."/>
+  <title>About — Sajjadur Rahman</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+
+    /* ══════════════════════════════════
+       BIO SECTION
+       ══════════════════════════════════ */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .bio-photo-col { position: relative; }
+    .bio-photo-frame {
+      border-radius: 2px;
+      overflow: hidden;
+      border: 0.5px solid var(--gold-light);
+      box-shadow: var(--shadow-lg);
+      background: var(--parchment3);
+    }
+    .bio-photo-frame img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .bio-photo-accent {
+      position: absolute;
+      bottom: -12px; right: -12px;
+      width: 64px; height: 64px;
+      border: 1.5px solid var(--gold-light);
+      border-radius: 2px;
+      z-index: -1;
+    }
+    .bio-contact-card {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-top: 20px;
+    }
+    .bio-contact-card h4 {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 5px 0;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row .ci { font-size: 12px; width: 16px; text-align: center; flex-shrink: 0; }
+    .contact-row a,
+    .contact-row span {
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      word-break: break-word;
+    }
+    .contact-row a:hover { color: var(--gold); }
+
+    .bio-text h2 {
+      font-family: var(--font-head);
+      font-size: 34px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .bio-text h2 em { font-style: italic; color: var(--gold); }
+    .bio-text .bio-role {
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+      display: block;
+    }
+    .bio-text p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .bio-text p:last-of-type { margin-bottom: 28px; }
+    .bio-tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; }
+    .bio-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+    /* ORCID row */
+    .orcid-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+    .orcid-row a { color: var(--gold); border-bottom: 1px solid var(--gold-pale); }
+    .orcid-row a:hover { color: var(--ink); }
+
+    /* ══════════════════════════════════
+       EDUCATION TIMELINE
+       ══════════════════════════════════ */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .edu-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-card.featured {
+      border-color: var(--gold-light);
+      box-shadow: var(--shadow-md);
+    }
+    .edu-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+    }
+    .edu-year {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .edu-card h3 {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .edu-inst {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .edu-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .edu-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(90,122,74,0.08);
+      border: 0.5px solid var(--accent-light);
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-top: 12px;
+    }
+    .edu-cgpa {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-light);
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-top: 12px;
+      margin-left: 6px;
+    }
+
+    /* Course pills */
+    .course-list {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    /* ══════════════════════════════════
+       RESEARCH EXPERIENCE TIMELINE
+       ══════════════════════════════════ */
+    .exp-timeline { position: relative; padding-left: 28px; }
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 6px; bottom: 6px;
+      width: 1px;
+      background: var(--gold-light);
+    }
+    .exp-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -33px; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--parchment);
+      box-shadow: 0 0 0 1px var(--gold-light);
+    }
+    .exp-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .exp-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .exp-period {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+    .exp-org {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .exp-item ul {
+      list-style: none;
+      padding: 0;
+    }
+    .exp-item ul li {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      padding: 4px 0 4px 16px;
+      position: relative;
+    }
+    .exp-item ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold-light);
+      font-family: var(--font-head);
+    }
+
+    /* ══════════════════════════════════
+       AFFILIATIONS
+       ══════════════════════════════════ */
+    .affil-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .affil-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    .affil-card .ac-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+    .affil-card h3 {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .affil-card .ac-full {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .affil-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════
+       AWARDS & FELLOWSHIPS
+       ══════════════════════════════════ */
+    .awards-list { display: flex; flex-direction: column; gap: 14px; }
+    .award-row {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      align-items: start;
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s;
+    }
+    .award-row:hover { box-shadow: var(--shadow-md); }
+    .award-row.highlight {
+      border-color: var(--gold-light);
+      background: var(--parchment2);
+    }
+    .award-year {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .award-row h4 {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .award-row p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════
+       CONFERENCES
+       ══════════════════════════════════ */
+    .conf-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 0.5px solid var(--gold-pale);
+      box-shadow: var(--shadow-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 13.5px;
+    }
+    thead tr {
+      background: var(--ink-soft);
+    }
+    thead th {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding: 13px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    tbody tr {
+      border-bottom: 0.5px solid var(--gold-pale);
+      transition: background .15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--parchment2); }
+    tbody td {
+      padding: 13px 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      vertical-align: top;
+    }
+    tbody td:first-child {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    tbody td strong {
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+    .conf-flag { font-size: 14px; margin-right: 5px; }
+
+    /* ══════════════════════════════════
+       SKILLS
+       ══════════════════════════════════ */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .skill-group {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+    .skill-group h4 {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-group h4 .sk-icon { font-size: 14px; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-pill {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--ink-muted);
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ══════════════════════════════════
+       LANGUAGES
+       ══════════════════════════════════ */
+    .lang-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .lang-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .lang-card h4 {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .lang-level {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .lang-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+    /* ══════════════════════════════════
+       LEADERSHIP
+       ══════════════════════════════════ */
+    .leadership-list { display: flex; flex-direction: column; gap: 16px; }
+    .leader-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      box-shadow: var(--shadow-sm);
+    }
+    .leader-icon {
+      width: 40px; height: 40px;
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .leader-item h4 {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .leader-org {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .leader-item p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+    /* ══════════════════════════════════
+       CV DOWNLOAD BAND
+       ══════════════════════════════════ */
+    .cv-band {
+      background: var(--ink-soft);
+      padding: 48px 0;
+    }
+    .cv-band-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .cv-band h3 {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.2;
+    }
+    .cv-band h3 em { font-style: italic; color: var(--gold); }
+    .cv-band p {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .bio-grid { grid-template-columns: 1fr; }
+      .bio-photo-col { max-width: 260px; }
+      .affil-cards { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .lang-grid { grid-template-columns: 1fr; }
+      .cv-band-inner { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 680px) {
+      .edu-grid { grid-template-columns: 1fr; }
+      .award-row { grid-template-columns: 48px 1fr; gap: 14px; }
+      .leader-item { grid-template-columns: 1fr; }
+      .leader-icon { display: none; }
+      table { font-size: 12px; }
+      thead th, tbody td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    Researcher · Writer · Consultant · Dhaka, Bangladesh
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ════════════════════════
+         PAGE HERO
+         ════════════════════════ -->
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">About</span>
+        <h1>Sajjadur Rahman</h1>
+        <p>MSc Researcher · Academic Editor · Freelance Consultant · Dhaka, Bangladesh</p>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         BIO + PHOTO
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="bio-grid">
+
+          <div class="bio-photo-col">
+            <div class="bio-photo-frame">
+              <img src="assets/img/sajjadur.jpg" alt="Sajjadur Rahman"/>
+            </div>
+            <div class="bio-photo-accent"></div>
+            <div class="bio-contact-card">
+              <h4>Contact &amp; Links</h4>
+              <div class="contact-row">
+                <span class="ci">✉️</span>
+                <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+              </div>
+              <div class="contact-row">
+                <span class="ci">💬</span>
+                <a href="https://wa.me/8801941582285">+880 1941-582285</a>
+              </div>
+              <div class="contact-row">
+                <span class="ci">🔬</span>
+                <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" target="_blank" rel="noopener">ResearchGate Profile</a>
+              </div>
+              <div class="contact-row">
+                <span class="ci">🆔</span>
+                <a href="https://orcid.org/0009-0004-5985-8105" target="_blank" rel="noopener">ORCID 0009-0004-5985-8105</a>
+              </div>
+              <div class="contact-row">
+                <span class="ci">💼</span>
+                <a href="https://linkedin.com/in/sajjadurrahman68" target="_blank" rel="noopener">linkedin.com/in/sajjadurrahman68</a>
+              </div>
+              <div class="contact-row">
+                <span class="ci">📍</span>
+                <span>Dhaka, Bangladesh</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bio-text">
+            <span class="bio-role">MSc Student · Soil, Water &amp; Environment · University of Dhaka</span>
+            <h2>Soil Scientist.<br/><em>Academic Editor.</em></h2>
+
+            <p>
+              I am an MSc researcher in the Department of Soil, Water and Environment at the
+              University of Dhaka, where I am investigating bentonite-biochar coated urea (BBCU)
+              as a climate-smart slow-release fertilizer for improved nitrogen use efficiency
+              in South Asian rice and vegetable systems. I hold a BSc from the same department
+              with a CGPA of 3.60/4.00, and I am a recipient of the National Science and
+              Technology Fellowship from Bangladesh's Ministry of Science and Technology.
+            </p>
+            <p>
+              Alongside my thesis work, I hold active research affiliations at the Bangladesh
+              Council of Scientific and Industrial Research (BCSIR), where I study urban air
+              quality and heavy metal contamination, and at the Dhaka University Nanotechnology
+              Centre (DUNTC), where I completed a nano-fertilizer experiment on wheat. I also
+              developed <strong>SPADE</strong> — an open-source Python/Streamlit platform for
+              standardised nitrogen use efficiency statistical analysis.
+            </p>
+            <p>
+              As a freelance professional, I work with MSc and PhD students to improve
+              their manuscript structure, language, and journal formatting; analyse research
+              datasets; and guide thesis writing from proposal to final chapter. I bring both
+              technical depth and genuine enthusiasm to every project I take on.
+            </p>
+
+            <div class="bio-tag-row">
+              <span class="tag-pill">Soil Chemistry</span>
+              <span class="tag-pill">Nitrogen Cycling</span>
+              <span class="tag-pill">Slow-release Fertilizers</span>
+              <span class="tag-pill">NUE</span>
+              <span class="tag-pill">Heavy Metal Analysis</span>
+              <span class="tag-pill">Nano Fertilizers</span>
+              <span class="tag-pill">SPSS · R · Python</span>
+              <span class="tag-pill">Academic Editing</span>
+              <span class="tag-pill">IELTS</span>
+            </div>
+
+            <div class="bio-actions">
+              <a href="services.html" class="btn btn-primary btn-arrow">See My Services</a>
+              <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         EDUCATION
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Academic Background</span>
+          <h2>Education</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+
+        <div class="edu-grid">
+
+          <div class="edu-card featured">
+            <span class="edu-year">Apr 2025 – Present</span>
+            <h3>Master of Science — Soil Science</h3>
+            <span class="edu-inst">University of Dhaka</span>
+            <p>Thesis: <em>Optimizing Nitrogen Efficiency Using Bentonite–Biochar–Coated Urea (BBCU) in Rice and Eggplant Systems.</em> Designing CRD-based pot and field experiments with 8 treatments × 3 replications, quantifying four NUE indices, and developing field-scalable fertilizer management strategies.</p>
+            <div>
+              <span class="edu-badge">NST Fellow</span>
+              <span class="edu-cgpa">In Progress</span>
+            </div>
+            <div class="course-list">
+              <span class="tag-pill">Advanced Soil Physics</span>
+              <span class="tag-pill">Soil Carbon Dynamics</span>
+              <span class="tag-pill">Analytical Techniques</span>
+              <span class="tag-pill">Experimental Design</span>
+              <span class="tag-pill">Environmental Biotechnology</span>
+            </div>
+          </div>
+
+          <div class="edu-card">
+            <span class="edu-year">Jan 2020 – Jan 2025</span>
+            <h3>Bachelor of Science — Soil, Water &amp; Environment</h3>
+            <span class="edu-inst">University of Dhaka</span>
+            <p>Comprehensive undergraduate training in soil physics, pedology, soil chemistry, hydrology, GIS &amp; remote sensing, plant nutrition, agronomy, and climate change mitigation. Seminar paper on IoT in Agriculture 5.0.</p>
+            <div>
+              <span class="edu-cgpa">CGPA 3.60 / 4.00</span>
+              <span class="edu-badge">Government Scholarship</span>
+            </div>
+            <div class="course-list">
+              <span class="tag-pill">GIS &amp; Remote Sensing</span>
+              <span class="tag-pill">Biostatistics (R)</span>
+              <span class="tag-pill">Soil Microbiology</span>
+              <span class="tag-pill">Hydrology</span>
+              <span class="tag-pill">Soil Chemistry</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         RESEARCH EXPERIENCE
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Experience</span>
+          <h2>Research Roles</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+
+        <div class="exp-timeline">
+
+          <div class="exp-item">
+            <div class="exp-head">
+              <span class="exp-title">MSc Thesis Researcher — BBCU &amp; Nitrogen Use Efficiency</span>
+              <span class="exp-period">May 2025 – Present</span>
+            </div>
+            <span class="exp-org">Department of Soil, Water &amp; Environment · University of Dhaka</span>
+            <ul>
+              <li>Designing CRD-based pot and field experiments (8 treatments × 3 replications) evaluating BBCU as a climate-smart slow-release fertilizer for South Asian rice–vegetable systems.</li>
+              <li>Quantifying four NUE indices: Agronomic Efficiency (AE), Recovery Efficiency (RE), Physiological Efficiency (PE), and Nitrogen Harvest Index (NHI).</li>
+              <li>Post-harvest soil analysis: residual NH₄⁺/NO₃⁻ via KCl extraction, Walkley-Black OC, pH, and EC.</li>
+              <li>Awarded National Science and Technology Fellowship (Ministry of Science and Technology) for this research.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-head">
+              <span class="exp-title">Research Assistant — Nano Fertilizer on Wheat</span>
+              <span class="exp-period">Apr 2025 – Apr 2026</span>
+            </div>
+            <span class="exp-org">Dhaka University Nanotechnology Centre (DUNTC)</span>
+            <ul>
+              <li>Conducted a CRD pot experiment (8 treatments × 3 replications, 24 pots) comparing nano-urea versus conventional urea on wheat growth and soil health.</li>
+              <li>After hail damage, redirected focus to plant tissue nutrient quality (Kjeldahl N, P/K/S/Ca/B via AAS and ICP-OES) and NUE indices.</li>
+              <li>Developed <strong>SPADE</strong> — an open-source Python/Streamlit application for integrated NUE computation, factorial ANOVA with Tukey HSD, outlier detection, and publication-ready figure export. Manuscript in preparation.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-head">
+              <span class="exp-title">Research Trainee — Atmospheric Pollution &amp; Metal Analysis</span>
+              <span class="exp-period">Nov 2025 – Present</span>
+            </div>
+            <span class="exp-org">Bangladesh Council of Scientific and Industrial Research (BCSIR)</span>
+            <ul>
+              <li>Ultrafine particulate matter (PM₀.₁) sampling in Dhaka's urban environment using Nanosampler II (Model 3182, Kanomax, Japan).</li>
+              <li>Heavy-metal characterisation via AAS (Varian AA 240 FS) to assess atmospheric contamination and ecological risk indices.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-head">
+              <span class="exp-title">Research Assistant — Phytoremediation &amp; Indoor Air Quality</span>
+              <span class="exp-period">2025 – Present</span>
+            </div>
+            <span class="exp-org">Department of Soil, Water &amp; Environment · University of Dhaka</span>
+            <ul>
+              <li>Assisting with study design for evaluating phytoremediation potential of indoor plant species under controlled conditions.</li>
+              <li>Contributed to plant procurement, air quality monitoring, data collection, and ongoing analysis.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-head">
+              <span class="exp-title">Principal Investigator — Heavy Metal Contamination, Dhaka</span>
+              <span class="exp-period">Jan 2025</span>
+            </div>
+            <span class="exp-org">Independent Research Team · Dhaka</span>
+            <ul>
+              <li>Led a four-member team collecting and analysing 40+ soil, dust, and leaf samples from industrial zones surrounding Dhaka.</li>
+              <li>Assessed spatial distribution, geo-accumulation index, enrichment factor, and ecological risk of heavy metals in peri-urban agro-ecosystems.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         AFFILIATIONS
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Institutions</span>
+          <h2>Affiliations</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="affil-cards">
+          <div class="affil-card">
+            <span class="ac-icon">🎓</span>
+            <h3>University of Dhaka</h3>
+            <span class="ac-full">Dept. of Soil, Water &amp; Environment</span>
+            <p>Home department for both BSc and MSc studies. MSc thesis on BBCU slow-release fertilizers. NST Fellowship awardee. Class Representative for MS Session 2023-24.</p>
+          </div>
+          <div class="affil-card">
+            <span class="ac-icon">🔬</span>
+            <h3>BCSIR</h3>
+            <span class="ac-full">Bangladesh Council of Scientific &amp; Industrial Research</span>
+            <p>Research Trainee in atmospheric science. Working on ultrafine particulate matter (PM₀.₁) characterisation and heavy metal analysis in Dhaka's urban environment.</p>
+          </div>
+          <div class="affil-card">
+            <span class="ac-icon">⚗️</span>
+            <h3>DUNTC</h3>
+            <span class="ac-full">Dhaka University Nanotechnology Centre</span>
+            <p>Research Fellowship for nano-fertilizer experiment on wheat. Developed SPADE software platform for NUE statistical analysis. Completion report submitted.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         AWARDS & FELLOWSHIPS
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Recognition</span>
+          <h2>Awards &amp; Fellowships</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="awards-list">
+
+          <div class="award-row highlight">
+            <div class="award-year">2026</div>
+            <div>
+              <h4>National Science and Technology Fellowship</h4>
+              <p>Ministry of Science and Technology, Government of Bangladesh — awarded for MSc thesis research on BBCU slow-release fertilizers and nitrogen use efficiency.</p>
+            </div>
+          </div>
+
+          <div class="award-row highlight">
+            <div class="award-year">2026</div>
+            <div>
+              <h4>Government Scholarship for BSc Academic Excellence</h4>
+              <p>Government of Bangladesh — awarded for outstanding academic performance during undergraduate studies (CGPA 3.60/4.00).</p>
+            </div>
+          </div>
+
+          <div class="award-row highlight">
+            <div class="award-year">2025</div>
+            <div>
+              <h4>Academic Admission — Wageningen University &amp; Research</h4>
+              <p>MSc Soil Science, The Netherlands (Student No. 1841033). Academic admission confirmed; self-funding not viable, deferral to 2027 being explored.</p>
+            </div>
+          </div>
+
+          <div class="award-row">
+            <div class="award-year">2025</div>
+            <div>
+              <h4>Research Fellowship — DUNTC</h4>
+              <p>Dhaka University Nanotechnology Centre fellowship for nano-fertilizer research on wheat (BARI Gom 33).</p>
+            </div>
+          </div>
+
+          <div class="award-row">
+            <div class="award-year">2025</div>
+            <div>
+              <h4>Transforming Dhaka into an Eco-Friendly Megacity</h4>
+              <p>Preliminary Round Winner — Ministry of Youth &amp; Sports, Government of Bangladesh.</p>
+            </div>
+          </div>
+
+          <div class="award-row">
+            <div class="award-year">2023</div>
+            <div>
+              <h4>Project GreenZen — Top 10%</h4>
+              <p>Seaweed-based biodegradable packaging proposal — placed in top 10% of 50 competing teams.</p>
+            </div>
+          </div>
+
+          <div class="award-row">
+            <div class="award-year">2022</div>
+            <div>
+              <h4>Gold Award — 2nd International Competition for Young Researchers</h4>
+              <p>Top 10% recognition for research contribution on agricultural technology assessment in Bangladesh.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         CONFERENCES
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Presentations</span>
+          <h2>Conferences &amp; Proceedings</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>Eight presentations at international and national conferences across four countries — Bangladesh, Thailand, Turkey, and Kazakhstan.</p>
+        </div>
+
+        <div class="conf-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Conference</th>
+                <th>Location</th>
+                <th>Topic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2025</td>
+                <td><strong>International Conference</strong></td>
+                <td><span class="conf-flag">🇧🇩</span>Bangladesh</td>
+                <td>Nano-fertilizers in wheat cultivation: a comprehensive review and strategic framework for sustainable productivity</td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td><strong>AIT International Conference</strong></td>
+                <td><span class="conf-flag">🇹🇭</span>Bangkok, Thailand</td>
+                <td>Economic viability and sustainability of hydroponics in flood-prone Bangladesh</td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td><strong>3rd International Ege Congress on Scientific Research</strong></td>
+                <td><span class="conf-flag">🇹🇷</span>Turkey</td>
+                <td>IoT on the development of Agriculture 5.0: prospects and challenges (published proceedings)</td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td><strong>International Congress on Food, Agriculture &amp; Environmental Research</strong></td>
+                <td><span class="conf-flag">🌐</span>International</td>
+                <td>Climate change and resilient farming approaches in Bangladesh</td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td><strong>HODJA AKHMET YASSAWI 8th International Congress</strong></td>
+                <td><span class="conf-flag">🇰🇿</span>Kazakhstan</td>
+                <td>Smart, sustainable agriculture initiative in Bangladesh: a data-driven approach to food security</td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td><strong>International Congress on Sustainable Agriculture</strong></td>
+                <td><span class="conf-flag">🌐</span>International</td>
+                <td>Organic fertilizer adoption and challenges among farmers in the Dhaka region</td>
+              </tr>
+              <tr>
+                <td>2023</td>
+                <td><strong>IEEE SIGHT "Ideas for Life" Conference</strong></td>
+                <td><span class="conf-flag">🇧🇩</span>Dhaka</td>
+                <td>Improving crop productivity in Bangladesh through advanced yield prediction techniques</td>
+              </tr>
+              <tr>
+                <td>2022</td>
+                <td><strong>2nd International Competition for Young Researchers</strong></td>
+                <td><span class="conf-flag">🌐</span>International</td>
+                <td>Assessment and analysis of Bangladesh's agricultural approach based on technology</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         SKILLS
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Expertise</span>
+          <h2>Technical Skills</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="skills-grid">
+
+          <div class="skill-group">
+            <h4><span class="sk-icon">🧪</span> Laboratory Instrumentation</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">Nanosampler II (Kanomax 3182)</span>
+              <span class="skill-pill">AAS (Varian AA 240 FS)</span>
+              <span class="skill-pill">ICP-OES</span>
+              <span class="skill-pill">Kjeldahl N digestion</span>
+              <span class="skill-pill">Walkley-Black OC</span>
+              <span class="skill-pill">Indophenol blue colorimetry</span>
+              <span class="skill-pill">KCl soil extraction</span>
+              <span class="skill-pill">EC/pH measurement</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4><span class="sk-icon">📊</span> Data &amp; Statistics</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">Python (pandas, scipy, statsmodels)</span>
+              <span class="skill-pill">Streamlit</span>
+              <span class="skill-pill">R (ANOVA, regression)</span>
+              <span class="skill-pill">SPSS</span>
+              <span class="skill-pill">Minitab</span>
+              <span class="skill-pill">Excel (advanced)</span>
+              <span class="skill-pill">SPADE (developer)</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4><span class="sk-icon">🌍</span> Spatial &amp; Field Analysis</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">QGIS</span>
+              <span class="skill-pill">ArcGIS (basic)</span>
+              <span class="skill-pill">Remote Sensing</span>
+              <span class="skill-pill">Soil morphological analysis</span>
+              <span class="skill-pill">CRD &amp; RCBD design</span>
+              <span class="skill-pill">Leaching column experiments</span>
+              <span class="skill-pill">N-release kinetics modelling</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4><span class="sk-icon">✍️</span> Scientific Communication</h4>
+            <div class="skill-pills">
+              <span class="skill-pill">Manuscript editing &amp; formatting</span>
+              <span class="skill-pill">Journal submission (Elsevier / MDPI / Wiley)</span>
+              <span class="skill-pill">Zotero</span>
+              <span class="skill-pill">LaTeX (basic)</span>
+              <span class="skill-pill">Stanford Writing in the Sciences</span>
+              <span class="skill-pill">Wiley Researcher Academy (certified)</span>
+              <span class="skill-pill">Google Suite · Microsoft Office</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         LANGUAGES
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Communication</span>
+          <h2>Languages</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="lang-grid">
+          <div class="lang-card">
+            <h4>English</h4>
+            <span class="lang-level">Proficient — IELTS 7.5</span>
+            <p>Listening 8.0 · Reading 8.0 · Speaking 7.5 · Writing 6.5. Used daily for research writing, manuscript editing, and academic communication.</p>
+          </div>
+          <div class="lang-card">
+            <h4>Bangla (বাংলা)</h4>
+            <span class="lang-level">Native</span>
+            <p>Primary language for personal writing, blogging, and community engagement. Bengali blog at Blogger with 13,000+ readers across science, history, and culture.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         LEADERSHIP
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Community &amp; Service</span>
+          <h2>Leadership Roles</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="leadership-list">
+
+          <div class="leader-item">
+            <div class="leader-icon">🌱</div>
+            <div>
+              <h4>President — Soil Club, University of Dhaka Chapter</h4>
+              <span class="leader-org">Nov 2025 – Present</span>
+              <p>Conceptualised and coordinated the 'Healthy Soils for Healthy Cities' World Soil Day 2025 campaign — 50,000+ outreach. Delivered a technical presentation on organic fertilizer adaptation for urban soil sustainability to an international audience.</p>
+            </div>
+          </div>
+
+          <div class="leader-item">
+            <div class="leader-icon">🎓</div>
+            <div>
+              <h4>Class Representative — MS Session 2023-24</h4>
+              <span class="leader-org">University of Dhaka · Mar 2025 – Present</span>
+              <p>Representing 120+ students; coordinating between students, faculty, and administration; assisting professors with scheduling and departmental communications.</p>
+            </div>
+          </div>
+
+          <div class="leader-item">
+            <div class="leader-icon">📰</div>
+            <div>
+              <h4>Magazine Editor — Byapon, Youth Science Magazine</h4>
+              <span class="leader-org">Jan 2022 – Dec 2024</span>
+              <p>Edited and authored science content; led editorial and design strategy for a publication reaching 5,000+ youth readers in Bangladesh.</p>
+            </div>
+          </div>
+
+          <div class="leader-item">
+            <div class="leader-icon">🏫</div>
+            <div>
+              <h4>Research Intern &amp; Workshop Organiser — UniV</h4>
+              <span class="leader-org">Dec 2021 – Sep 2024</span>
+              <p>Organised 30+ workshops on research methods, R, bioinformatics, IELTS, and Python for 500+ students. Collaborated with 20+ researchers on academic and environmental seminars.</p>
+            </div>
+          </div>
+
+          <div class="leader-item">
+            <div class="leader-icon">💡</div>
+            <div>
+              <h4>Student Mentor &amp; Counsellor</h4>
+              <span class="leader-org">University of Dhaka · Jan 2021 – Present</span>
+              <p>Mentored 100+ students in academic guidance, research skills, and idea development.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         PROFESSIONAL DEVELOPMENT
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Continuous Learning</span>
+          <h2>Professional Development</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="grid-3">
+
+          <div class="card">
+            <div class="card-icon">🖊️</div>
+            <h3>Writing in the Sciences</h3>
+            <p>Stanford University via Coursera. Completed August 2025. Focused on clarity, structure, and precision in scientific communication.</p>
+            <span class="card-price">Stanford · Coursera</span>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📄</div>
+            <h3>Key Components of a Research Article</h3>
+            <p>Wiley Researcher Academy. Completed December 2025. Covers manuscript anatomy, peer review, and submission best practices.</p>
+            <span class="card-price">Wiley Researcher Academy</span>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🌿</div>
+            <h3>Green Skills &amp; Social Accountability</h3>
+            <p>Global Youth Leadership Center. Completed September 2024. Focused on environmental leadership and community-level sustainability.</p>
+            <span class="card-price">GYLC · 2024</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         CV DOWNLOAD BAND
+         ════════════════════════ -->
+    <div class="cv-band reveal">
+      <div class="container">
+        <div class="cv-band-inner">
+          <div>
+            <h3>Want the full picture?<br/><em>Download my CV.</em></h3>
+            <p>Last updated May 2026 · PDF format · Full academic and professional record</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+            <a href="assets/docs/Sajjadur_Rahman_CV.pdf" class="btn btn-gold btn-arrow" download>Download CV</a>
+            <a href="contact.html" class="btn btn-white">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting services.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="research.html">Research</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Writing</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#">Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank">💬</a>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

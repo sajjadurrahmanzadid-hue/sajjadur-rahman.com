@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com — index.html  v3        ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html 🔲 Queued                     ║
+    ║  research.html 🔲 Queued                     ║
+    ║  blog.html     🔲 Queued                     ║
+    ║  contact.html  🔲 Queued                     ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sajjadur Rahman — MSc Researcher at University of Dhaka, NST Fellow, and freelance academic consultant. Manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting."/>
+  <meta property="og:title" content="Sajjadur Rahman — Researcher · Editor · Consultant"/>
+  <meta property="og:description" content="MSc Researcher at University of Dhaka. Scientific manuscript editing, data analysis, thesis consultation, IELTS tutoring, and more."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com"/>
+  <title>Sajjadur Rahman — Researcher · Editor · Consultant</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+
+    /* ══════════════════════════════════
+       HERO
+       ══════════════════════════════════ */
+    .hero {
+      background: var(--parchment2);
+      padding: 72px 0 68px;
+      border-bottom: 1px solid var(--gold-pale);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -100px;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* Badge */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(90,122,74,0.09);
+      border: 0.5px solid var(--accent-light);
+      padding: 5px 13px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero-badge::before { content: '●'; font-size: 6px; }
+
+    /* Subtitle / role */
+    .hero-role {
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    /* Name */
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: 54px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+      margin-bottom: 22px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+
+    /* Description */
+    .hero-desc {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+
+    /* Buttons */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    /* Meta strip */
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hero-meta-item .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* Photo column */
+    .hero-photo-wrap { position: relative; }
+    .hero-photo-frame {
+      border-radius: 2px;
+      overflow: hidden;
+      background: var(--parchment3);
+      border: 0.5px solid var(--gold-light);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-photo-frame img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .hero-photo-accent {
+      position: absolute;
+      bottom: -14px; right: -14px;
+      width: 80px; height: 80px;
+      border: 1.5px solid var(--gold-light);
+      border-radius: 2px;
+      z-index: -1;
+    }
+    .hero-affil-tag {
+      position: absolute;
+      bottom: 22px; left: -14px;
+      background: var(--ink-soft);
+      color: var(--gold-light);
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 7px 13px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════
+       CREDENTIALS STRIP
+       ══════════════════════════════════ */
+    .cred-strip {
+      background: var(--parchment3);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 18px 0;
+    }
+    .cred-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 24px;
+      border-right: 1px solid var(--gold-pale);
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .cred-item:last-child { border-right: none; }
+    .cred-item .ci { font-size: 13px; }
+
+    /* ══════════════════════════════════
+       SERVICES
+       ══════════════════════════════════ */
+    .svc-card-link { display: block; text-decoration: none; color: inherit; height: 100%; }
+    .svc-card-link .card { height: 100%; display: flex; flex-direction: column; }
+    .svc-card-link:hover .card {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .card-footer { margin-top: auto; padding-top: 16px; }
+    .card-cta {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap .2s;
+    }
+    .card-cta::after { content: '→'; }
+    .svc-card-link:hover .card-cta { gap: 9px; }
+
+    /* ══════════════════════════════════
+       PACKAGES TEASER
+       ══════════════════════════════════ */
+    .packages-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .pkg-card {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 22px;
+      text-align: center;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .pkg-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .pkg-card .pk-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+    .pkg-card h4 {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+    .pkg-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 12px; }
+    .pkg-save {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(90,122,74,0.08);
+      border: 0.5px solid var(--accent-light);
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    /* ══════════════════════════════════
+       ABOUT TEASER
+       ══════════════════════════════════ */
+    .about-teaser {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-text h2 {
+      font-family: var(--font-head);
+      font-size: 34px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .about-text h2 em { font-style: italic; color: var(--gold); }
+    .about-text p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+    .about-affil {
+      margin: 22px 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .aff-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+    }
+    .aff-icon { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+    .aff-body {
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .aff-body span {
+      display: block;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    /* Thesis / award panel */
+    .about-panel { display: flex; flex-direction: column; gap: 16px; }
+    .thesis-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow-md);
+    }
+    .tc-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 9px;
+    }
+    .tc-title {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.45;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+    .tc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .tc-meta {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-top: 0.5px solid var(--gold-pale);
+      padding-top: 12px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .tc-meta .dot { color: var(--gold); }
+
+    .award-strip {
+      background: var(--ink-soft);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .award-strip .aw-icon { font-size: 22px; flex-shrink: 0; }
+    .award-strip-text {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .award-strip-text span {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 0;
+      text-transform: none;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .spade-strip {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .spade-strip .sp-icon { font-size: 20px; flex-shrink: 0; }
+    .spade-text {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .spade-text span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-top: 3px;
+    }
+
+    /* ══════════════════════════════════
+       RESEARCH HIGHLIGHTS
+       ══════════════════════════════════ */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .research-feature {
+      background: var(--ink-soft);
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      color: var(--gold-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .research-feature::after {
+      content: '⚗';
+      position: absolute;
+      bottom: -12px; right: 8px;
+      font-size: 80px;
+      opacity: 0.05;
+      line-height: 1;
+    }
+    .research-feature .re-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .research-feature h3 {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.3;
+      margin-bottom: 11px;
+      font-style: italic;
+    }
+    .research-feature p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .research-mini {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+    .research-mini .re-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 7px;
+    }
+    .research-mini h3 {
+      font-family: var(--font-head);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .research-mini p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+    .research-mini .ricon { font-size: 22px; margin-bottom: 9px; display: block; }
+
+    /* ══════════════════════════════════
+       BLOG PREVIEW
+       ══════════════════════════════════ */
+    .blog-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+    .blog-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .blog-header {
+      background: var(--parchment2);
+      padding: 18px 20px 14px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+    }
+    .blog-num {
+      font-family: var(--font-head);
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--gold-pale);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .blog-cat {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .blog-card h3 {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .blog-body { padding: 14px 20px 18px; }
+    .blog-body p { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+    .blog-read {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap .2s;
+    }
+    .blog-read::after { content: '→'; }
+    .blog-card:hover .blog-read { gap: 9px; }
+
+    /* ══════════════════════════════════
+       QUOTE
+       ══════════════════════════════════ */
+    .quote-section {
+      background: var(--ink-soft);
+      padding: 60px 0;
+      text-align: center;
+    }
+    .blockquote-wrap { max-width: 680px; margin: 0 auto; }
+    .quote-mark {
+      font-family: var(--font-head);
+      font-size: 60px;
+      color: var(--gold);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 18px;
+      opacity: 0.4;
+    }
+    blockquote {
+      font-family: var(--font-head);
+      font-size: 21px;
+      font-style: italic;
+      color: var(--parchment);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+    .quote-attr {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ══════════════════════════════════
+       CTA
+       ══════════════════════════════════ */
+    .cta-section {
+      background: var(--parchment2);
+      border-top: 1px solid var(--gold-pale);
+      padding: 72px 0;
+    }
+    .cta-inner {
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .cta-inner h2 {
+      font-family: var(--font-head);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .cta-inner h2 em { font-style: italic; color: var(--gold); }
+    .cta-inner p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo-wrap { max-width: 240px; margin: 0 auto; }
+      .hero h1 { font-size: 40px; }
+      .about-teaser { grid-template-columns: 1fr; gap: 40px; }
+      .research-grid { grid-template-columns: 1fr; }
+      .packages-row { grid-template-columns: 1fr; }
+      .cred-item { border-right: none; border-bottom: 1px solid var(--gold-pale); }
+      .cred-item:last-child { border-bottom: none; }
+    }
+    @media (max-width: 680px) {
+      .hero { padding: 48px 0 44px; }
+      .hero h1 { font-size: 32px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      blockquote { font-size: 17px; }
+      .cta-inner h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    Researcher · Editor · Consultant · Dhaka, Bangladesh
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ════════════════════════
+         HERO
+         ════════════════════════ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+
+          <div class="fade-up">
+            <div class="hero-badge">Available for Projects</div>
+            <span class="hero-role">MSc Researcher · University of Dhaka · NST Fellow</span>
+            <h1>Sajjadur<br/><em>Rahman</em></h1>
+            <p class="hero-desc">
+              Soil and environmental scientist, academic editor, and freelance consultant based
+              in Dhaka. I help students and researchers sharpen manuscripts, make sense of data,
+              build stronger CVs, and prepare for IELTS — grounded in active laboratory and
+              field research across three institutions.
+            </p>
+            <div class="hero-actions">
+              <a href="services.html" class="btn btn-primary btn-arrow">View Services</a>
+              <a href="about.html" class="btn btn-outline">About Me</a>
+              <a href="https://wa.me/8801941582285" class="btn btn-gold" target="_blank" rel="noopener">💬 WhatsApp</a>
+            </div>
+            <div class="hero-meta">
+              <div class="hero-meta-item">
+                <span class="dot"></span>
+                CGPA 3.60 / 4.00 — University of Dhaka
+              </div>
+              <div class="hero-meta-item">
+                <span class="dot"></span>
+                NST Fellowship Awardee
+              </div>
+              <div class="hero-meta-item">
+                <span class="dot"></span>
+                IELTS 7.5
+              </div>
+              <div class="hero-meta-item">
+                <span class="dot"></span>
+                8 Intl. Conferences
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-photo-wrap fade-up-2">
+            <div class="hero-photo-frame">
+              <img src="assets/img/sajjadur.jpg" alt="Sajjadur Rahman — MSc Researcher, University of Dhaka"/>
+            </div>
+            <div class="hero-photo-accent"></div>
+            <div class="hero-affil-tag">University of Dhaka</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         CREDENTIALS STRIP
+         ════════════════════════ -->
+    <div class="cred-strip">
+      <div class="container">
+        <div class="cred-inner">
+          <div class="cred-item"><span class="ci">🎓</span> University of Dhaka — MSc Ongoing</div>
+          <div class="cred-item"><span class="ci">🏆</span> NST Fellowship — MoST Bangladesh</div>
+          <div class="cred-item"><span class="ci">🔬</span> BCSIR Research Trainee</div>
+          <div class="cred-item"><span class="ci">⚗️</span> DUNTC Research Fellow</div>
+          <div class="cred-item"><span class="ci">🌍</span> 8 Intl. Conferences · 4 Countries</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         STATS BAR
+         ════════════════════════ -->
+    <div class="stats-bar reveal">
+      <div class="container">
+        <div class="stats-inner">
+          <div class="stat">
+            <span class="stat-num count-up" data-target="13000">0</span>
+            <span class="stat-label">Blog Readers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num count-up" data-target="8">0</span>
+            <span class="stat-label">Intl. Conferences</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num count-up" data-target="3">0</span>
+            <span class="stat-label">Research Institutions</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num count-up" data-target="7">0</span>
+            <span class="stat-label">Services Offered</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         SERVICES PREVIEW
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What I Offer</span>
+          <h2>Seven Ways I Can Help</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>Every service draws on active research experience across soil science, environmental chemistry, and data analysis. I work with your ideas — not instead of them.</p>
+        </div>
+
+        <div class="grid-3">
+
+          <a href="services.html" class="svc-card-link">
+            <div class="card">
+              <div class="card-icon">📝</div>
+              <h3>Manuscript Editing &amp; Formatting</h3>
+              <p>Language correction, structural editing, and journal-style formatting for Elsevier, MDPI, Wiley, and Springer submissions. One revision round included.</p>
+              <div class="card-footer">
+                <span class="card-price">From $20</span>
+                <div class="card-cta" style="margin-top:10px;">Learn more</div>
+              </div>
+            </div>
+          </a>
+
+          <a href="services.html" class="svc-card-link">
+            <div class="card">
+              <div class="card-icon">📊</div>
+              <h3>Data Analysis &amp; Statistics</h3>
+              <p>SPSS, R, and Python for descriptive stats, ANOVA, regression, correlation, and publication-ready figures. Full written report included.</p>
+              <div class="card-footer">
+                <span class="card-price">From $15</span>
+                <div class="card-cta" style="margin-top:10px;">Learn more</div>
+              </div>
+            </div>
+          </a>
+
+          <a href="services.html" class="svc-card-link">
+            <div class="card">
+              <div class="card-icon">🎓</div>
+              <h3>Thesis Consultation</h3>
+              <p>One-on-one guidance on research design, methodology, literature review, and chapter feedback. For undergraduate and MSc students.</p>
+              <div class="card-footer">
+                <span class="card-price">From $10/hr</span>
+                <div class="card-cta" style="margin-top:10px;">Learn more</div>
+              </div>
+            </div>
+          </a>
+
+          <a href="services.html" class="svc-card-link">
+            <div class="card">
+              <div class="card-icon">🗣️</div>
+              <h3>IELTS Tutoring</h3>
+              <p>All four skills for Academic and General Training. Targeted practice, mock tests, and score strategy. Fully online, flexible scheduling.</p>
+              <div class="card-footer">
+                <span class="card-price">From $8/hr</span>
+                <div class="card-cta" style="margin-top:10px;">Learn more</div>
+              </div>
+            </div>
+          </a>
+
+          <a href="services.html" class="svc-card-link">
+            <div class="card">
+              <div class="card-icon">📄</div>
+              <h3>CV Writing</h3>
+              <p>Academic CVs for graduate school and professional CVs for jobs. Add-ons: cover letter, Statement of Purpose, and LinkedIn summary.</p>
+              <div class="card-footer">
+                <span class="card-price">From $20</span>
+                <div class="card-cta" style="margin-top:10px;">Learn more</div>
+              </div>
+            </div>
+          </a>
+
+          <a href="services.html" class="svc-card-link">
+            <div class="card">
+              <div class="card-icon">🌱</div>
+              <h3>Soil &amp; Environment Consulting</h3>
+              <p>Science-backed soil health assessments and fertilizer recommendations for NGOs, agricultural startups, and development organisations.</p>
+              <div class="card-footer">
+                <span class="card-price">Negotiated</span>
+                <div class="card-cta" style="margin-top:10px;">Learn more</div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Packages teaser -->
+        <div style="margin-top:48px;">
+          <div class="section-head" style="margin-bottom:24px;">
+            <span class="eyebrow">Save More</span>
+            <h2 style="font-size:26px;">Popular Bundles</h2>
+          </div>
+          <div class="packages-row">
+            <a href="services.html" class="pkg-card" style="text-decoration:none;color:inherit;">
+              <span class="pk-icon">🎓</span>
+              <h4>Student Launchpad</h4>
+              <p>Data analysis + thesis review + academic CV + cover letter. Best for students finishing their MSc.</p>
+              <span class="pkg-save">Save 28%</span>
+            </a>
+            <a href="services.html" class="pkg-card" style="text-decoration:none;color:inherit;">
+              <span class="pk-icon">🌍</span>
+              <h4>Study Abroad Pack</h4>
+              <p>Academic CV + SOP + cover letter + 3 IELTS sessions. Best for international university applications.</p>
+              <span class="pkg-save">Save 31%</span>
+            </a>
+            <a href="services.html" class="pkg-card" style="text-decoration:none;color:inherit;">
+              <span class="pk-icon">⚡</span>
+              <h4>Quick Turnaround Pack</h4>
+              <p>CV + cover letter + LinkedIn summary. Delivered in 48 hours guaranteed.</p>
+              <span class="pkg-save">Save 30%</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center mt-32">
+          <a href="services.html" class="btn btn-outline btn-arrow">All Services &amp; Pricing</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         ABOUT TEASER
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="about-teaser">
+
+          <div class="about-text">
+            <span class="eyebrow" style="font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;">Who I Am</span>
+            <h2>Researcher by Training,<br/><em>Editor by Practice</em></h2>
+            <p>
+              I am an MSc student in the Department of Soil, Water and Environment at the
+              University of Dhaka (CGPA 3.60/4.00) and a recipient of the National Science and
+              Technology Fellowship. My thesis investigates bentonite-biochar coated urea as a
+              climate-smart slow-release fertilizer for South Asian cropping systems.
+            </p>
+            <p>
+              Alongside my thesis, I hold active research roles at BCSIR (atmospheric PM
+              characterisation and heavy metal analysis) and recently completed a nano-fertilizer
+              experiment at DUNTC. I also built <strong>SPADE</strong> — an open-source Python
+              platform for standardised nitrogen use efficiency analysis.
+            </p>
+            <div class="about-affil">
+              <div class="aff-row">
+                <span class="aff-icon">🎓</span>
+                <div class="aff-body">University of Dhaka
+                  <span>MSc — Soil, Water &amp; Environment · Ongoing</span>
+                </div>
+              </div>
+              <div class="aff-row">
+                <span class="aff-icon">🔬</span>
+                <div class="aff-body">BCSIR
+                  <span>PM₀.₁ characterisation &amp; heavy metal analysis, Dhaka</span>
+                </div>
+              </div>
+              <div class="aff-row">
+                <span class="aff-icon">⚗️</span>
+                <div class="aff-body">DUNTC
+                  <span>Nano urea vs. conventional urea on wheat (BARI Gom 33)</span>
+                </div>
+              </div>
+            </div>
+            <a href="about.html" class="btn btn-primary btn-arrow">Full Profile &amp; CV</a>
+          </div>
+
+          <div class="about-panel">
+            <div class="thesis-card">
+              <span class="tc-eyebrow">Current Thesis · NST Funded</span>
+              <div class="tc-title">
+                Bentonite-Biochar Coated Urea (BBCU) as a Slow-Release, Climate-Smart Fertilizer for Improved Nitrogen Use Efficiency
+              </div>
+              <div class="tc-tags">
+                <span class="tag-pill">Slow-release N</span>
+                <span class="tag-pill">Biochar</span>
+                <span class="tag-pill">NUE</span>
+                <span class="tag-pill">N-release kinetics</span>
+                <span class="tag-pill">Climate-smart</span>
+              </div>
+              <div class="tc-meta">
+                University of Dhaka
+                <span class="dot">·</span>
+                Ongoing
+              </div>
+            </div>
+            <div class="award-strip">
+              <span class="aw-icon">🏆</span>
+              <div class="award-strip-text">
+                NST Fellowship
+                <span>National Science &amp; Technology Fellowship — Ministry of Science &amp; Technology, Bangladesh</span>
+              </div>
+            </div>
+            <div class="spade-strip">
+              <span class="sp-icon">🐍</span>
+              <div class="spade-text">
+                SPADE — Open-source Software
+                <span>Python/Streamlit platform for NUE computation, Tukey HSD, outlier detection &amp; figure export. Manuscript in preparation.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         RESEARCH HIGHLIGHTS
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Research Portfolio</span>
+          <h2>Three Active Fronts</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>Soil fertility, nano-technology, and urban air quality — simultaneous research across Bangladesh's leading institutions.</p>
+        </div>
+
+        <div class="research-grid">
+
+          <div class="research-feature">
+            <span class="re-eyebrow">MSc Thesis · Featured</span>
+            <h3>Bentonite-Biochar Coated Urea &amp; Nitrogen Use Efficiency</h3>
+            <p>
+              Synthesising BBCU from rice husk biochar (pyrolysed at 550°C), sodium bentonite,
+              and corn starch binder. N-release kinetics modelled via Higuchi and
+              Korsmeyer-Peppas equations. Running soil incubation, 50 cm leaching columns,
+              and jar-based volatilisation experiments simultaneously.
+            </p>
+            <a href="research.html" class="btn btn-white btn-arrow">Full Research Details</a>
+          </div>
+
+          <div class="research-mini">
+            <span class="ricon">🌾</span>
+            <span class="re-eyebrow">DUNTC · Nano Fertilizer</span>
+            <h3>Nano Urea vs. Conventional Urea on Wheat</h3>
+            <p>
+              24-pot CRD experiment on BARI Gom 33. Comprehensive NUE indices, Kjeldahl N,
+              tissue nutrient quality (AAS + ICP-OES), and post-harvest soil dynamics
+              despite a hailstorm mid-experiment.
+            </p>
+          </div>
+
+          <div class="research-mini">
+            <span class="ricon">💨</span>
+            <span class="re-eyebrow">BCSIR · Atmospheric Science</span>
+            <h3>PM₀.₁ &amp; Heavy Metal Characterisation</h3>
+            <p>
+              Ultrafine particulate matter sampling with Nanosampler II (Kanomax 3182) and
+              heavy metal analysis via AAS in Dhaka's urban environment. Ecological risk
+              index assessment ongoing.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-32">
+          <a href="research.html" class="btn btn-outline btn-arrow">Full Research Portfolio</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         BLOG PREVIEW
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">From the Blog</span>
+          <h2>Words from the Field</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>Writing across soil science, urban ecology, field notes, and personal reflection — on Blogger, with 13,000+ readers.</p>
+        </div>
+
+        <div class="grid-3">
+
+          <a href="https://sajjadur-rahman.blogspot.com" target="_blank" rel="noopener" class="blog-card">
+            <div class="blog-header">
+              <span class="blog-num">01</span>
+              <div>
+                <span class="blog-cat">Soil Science</span>
+                <h3>The Slow Chemistry of Soil Nitrogen</h3>
+              </div>
+            </div>
+            <div class="blog-body">
+              <p>How nitrogen moves through soil, how it is lost to the atmosphere and waterways, and why slow-release coatings are changing the equation for South Asian rice paddies.</p>
+              <span class="blog-read">Read on Blogger</span>
+            </div>
+          </a>
+
+          <a href="https://sajjadur-rahman.blogspot.com" target="_blank" rel="noopener" class="blog-card">
+            <div class="blog-header">
+              <span class="blog-num">02</span>
+              <div>
+                <span class="blog-cat">Field Notes</span>
+                <h3>When a Hailstorm Hits Your Experimental Plots</h3>
+              </div>
+            </div>
+            <div class="blog-body">
+              <p>A first-person account of watching a hailstorm destroy months of field work — and how a research pivot turned disruption into a richer dataset.</p>
+              <span class="blog-read">Read on Blogger</span>
+            </div>
+          </a>
+
+          <a href="https://sajjadur-rahman.blogspot.com" target="_blank" rel="noopener" class="blog-card">
+            <div class="blog-header">
+              <span class="blog-num">03</span>
+              <div>
+                <span class="blog-cat">Urban Ecology</span>
+                <h3>Why Dhaka's Urban Farmers Are Choosing Organic</h3>
+              </div>
+            </div>
+            <div class="blog-body">
+              <p>Urban farmers across Dhaka are turning away from synthetic inputs. A ground-level look at the economics, the soil science, and the culture behind the shift.</p>
+              <span class="blog-read">Read on Blogger</span>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="text-center mt-32">
+          <a href="blog.html" class="btn btn-outline btn-arrow">All Posts</a>
+          &nbsp;&nbsp;
+          <a href="https://sajjadur-rahman.blogspot.com" class="btn btn-gold" target="_blank" rel="noopener">Visit Blogger ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         QUOTE
+         ════════════════════════ -->
+    <div class="quote-section reveal">
+      <div class="container">
+        <div class="blockquote-wrap">
+          <span class="quote-mark">"</span>
+          <blockquote>
+            Science does not move in a straight line. It loops, it backtracks,
+            it survives hailstorms. What matters is that you keep measuring.
+          </blockquote>
+          <span class="quote-attr">Sajjadur Rahman — Field Notes, 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         CTA
+         ════════════════════════ -->
+    <section class="cta-section reveal">
+      <div class="container">
+        <div class="cta-inner">
+          <span class="eyebrow" style="font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px;">Let's Work Together</span>
+          <h2>Your Research Deserves<br/><em>Expert Attention</em></h2>
+          <p>Whether you need a manuscript edited, data analysed, or a thesis guided — I bring both academic rigour and genuine care to every project.</p>
+          <div class="cta-actions">
+            <a href="services.html" class="btn btn-primary btn-arrow">See All Services</a>
+            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+            <a href="https://wa.me/8801941582285" class="btn btn-gold" target="_blank" rel="noopener">💬 WhatsApp Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting services.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="research.html">Research</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Writing</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#">Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

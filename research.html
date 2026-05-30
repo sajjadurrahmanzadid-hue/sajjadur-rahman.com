@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com — research.html         ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html ✅ Done                       ║
+    ║  blog.html     🔲 Queued                     ║
+    ║  contact.html  🔲 Queued                     ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Research portfolio of Sajjadur Rahman — BBCU slow-release fertilizer thesis, nano-fertilizer experiment at DUNTC, atmospheric PM characterisation at BCSIR, SPADE software, publications, and conference presentations."/>
+  <title>Research — Sajjadur Rahman</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+
+    /* ══════════════════════════════════
+       RESEARCH ANCHOR NAV
+       ══════════════════════════════════ */
+    .research-nav {
+      background: var(--parchment3);
+      border-bottom: 1px solid var(--gold-pale);
+      position: sticky;
+      top: 56px;
+      z-index: 100;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .research-nav-inner {
+      display: flex;
+      align-items: stretch;
+      min-width: max-content;
+      padding: 0 24px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .rn-link {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 13px 16px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rn-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* ══════════════════════════════════
+       BBCU THESIS — FEATURED SECTION
+       ══════════════════════════════════ */
+    .bbcu-hero {
+      background: var(--ink-soft);
+      padding: 72px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .bbcu-hero::before {
+      content: '⚗';
+      position: absolute;
+      right: -20px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 320px;
+      opacity: 0.04;
+      color: var(--gold-light);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .bbcu-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+      align-items: start;
+    }
+    .bbcu-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .bbcu-hero h2 {
+      font-family: var(--font-head);
+      font-size: 34px;
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .bbcu-hero h2 em { font-style: italic; color: var(--gold); }
+    .bbcu-subtitle {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 22px;
+      display: block;
+      line-height: 1.6;
+    }
+    .bbcu-hero p {
+      font-size: 14.5px;
+      color: var(--text-light);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .bbcu-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 20px 0 28px; }
+    .bbcu-tag {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(200,191,160,0.1);
+      border: 0.5px solid rgba(200,191,160,0.2);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* BBCU sidebar panel */
+    .bbcu-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .bbcu-info-card {
+      background: rgba(255,255,255,0.05);
+      border: 0.5px solid rgba(200,191,160,0.18);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .bic-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .bic-list { list-style: none; }
+    .bic-list li {
+      font-size: 13px;
+      color: var(--text-light);
+      padding: 3px 0 3px 16px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .bic-list li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--gold);
+      font-family: var(--font-head);
+    }
+    .bic-value {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* NUE indices grid */
+    .nue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .nue-item {
+      background: rgba(139,126,90,0.12);
+      border: 0.5px solid rgba(200,191,160,0.2);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      text-align: center;
+    }
+    .nue-abbr {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .nue-full {
+      font-family: var(--font-ui);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      line-height: 1.3;
+    }
+
+    /* ══════════════════════════════════
+       RESEARCH BLOCKS
+       ══════════════════════════════════ */
+    .research-block {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .research-block:nth-child(even) { background: var(--parchment2); }
+    .research-block:last-child { border-bottom: none; }
+
+    .rb-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 52px;
+      align-items: start;
+    }
+    .rb-layout.flip { direction: rtl; }
+    .rb-layout.flip > * { direction: ltr; }
+
+    .rb-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .rb-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+    .rb-icon {
+      font-size: 28px;
+      width: 52px; height: 52px;
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rb-header h2 {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .rb-header h2 em { font-style: italic; color: var(--gold); }
+    .rb-inst {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rb-inst .period { color: var(--gold-light); }
+    .rb-body p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .rb-bullets { list-style: none; margin: 16px 0 22px; }
+    .rb-bullets li {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      padding: 5px 0 5px 20px;
+      position: relative;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .rb-bullets li:last-child { border-bottom: none; }
+    .rb-bullets li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--gold);
+      font-size: 11px;
+      top: 8px;
+    }
+    .rb-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+
+    /* Side info panel */
+    .rb-panel {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      position: sticky;
+      top: 90px;
+    }
+    .rbp-head {
+      background: var(--parchment2);
+      padding: 14px 20px;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .rbp-head h4 {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .rbp-row {
+      padding: 12px 20px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .rbp-row:last-child { border-bottom: none; }
+    .rbp-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .rbp-val {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════════
+       SPADE SOFTWARE
+       ══════════════════════════════════ */
+    .spade-section {
+      background: var(--parchment2);
+      padding: 72px 0;
+      border-top: 1px solid var(--gold-pale);
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .spade-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .spade-text h2 {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .spade-text h2 em { font-style: italic; color: var(--gold); }
+    .spade-text p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .spade-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 22px 0 28px;
+    }
+    .spade-feat {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .spade-feat .sf-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .spade-feat-text {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+    .spade-feat-text span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 2px;
+    }
+
+    .spade-visual {
+      background: var(--ink-soft);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .spade-visual::before {
+      content: '🐍';
+      position: absolute;
+      right: -10px; bottom: -10px;
+      font-size: 100px;
+      opacity: 0.07;
+      line-height: 1;
+    }
+    .sv-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .sv-title {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 6px;
+    }
+    .sv-full {
+      font-size: 12px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .sv-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .sv-pill {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(200,191,160,0.1);
+      border: 0.5px solid rgba(200,191,160,0.2);
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+    .sv-status {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(90,122,74,0.15);
+      border: 0.5px solid rgba(90,122,74,0.3);
+      padding: 5px 12px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    /* ══════════════════════════════════
+       PUBLICATIONS
+       ══════════════════════════════════ */
+    .pub-list { display: flex; flex-direction: column; gap: 16px; }
+    .pub-item {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: start;
+      transition: box-shadow .2s;
+    }
+    .pub-item:hover { box-shadow: var(--shadow-md); }
+    .pub-num {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold-pale);
+      line-height: 1;
+      min-width: 32px;
+      text-align: right;
+    }
+    .pub-type {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .pub-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+    .pub-authors {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+    .pub-authors strong { color: var(--ink-muted); font-weight: 600; }
+    .pub-meta {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+    .pub-doi {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--gold);
+      word-break: break-all;
+    }
+    .pub-doi:hover { color: var(--ink); }
+    .pub-status {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 6px;
+    }
+    .pub-status.prep {
+      color: var(--accent);
+      background: rgba(90,122,74,0.08);
+      border: 0.5px solid var(--accent-light);
+    }
+    .pub-status.published {
+      color: var(--gold);
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-light);
+    }
+
+    /* ══════════════════════════════════
+       CONFERENCES TABLE
+       ══════════════════════════════════ */
+    .conf-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 0.5px solid var(--gold-pale);
+      box-shadow: var(--shadow-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 13.5px;
+    }
+    thead tr { background: var(--ink-soft); }
+    thead th {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding: 13px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    tbody tr { border-bottom: 0.5px solid var(--gold-pale); transition: background .15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--parchment2); }
+    tbody td { padding: 13px 16px; color: var(--text-muted); line-height: 1.55; vertical-align: top; }
+    tbody td:first-child {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    tbody td strong { color: var(--ink-muted); font-weight: 600; }
+    .cf { font-size: 15px; margin-right: 4px; }
+    .conf-link {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--gold);
+      display: block;
+      margin-top: 4px;
+      word-break: break-all;
+    }
+    .conf-link:hover { color: var(--ink); }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .bbcu-layout { grid-template-columns: 1fr; gap: 36px; }
+      .rb-layout, .rb-layout.flip { grid-template-columns: 1fr; direction: ltr; gap: 28px; }
+      .rb-panel { position: static; }
+      .spade-layout { grid-template-columns: 1fr; }
+      .pub-item { grid-template-columns: 1fr; gap: 8px; }
+      .pub-num { font-size: 14px; }
+    }
+    @media (max-width: 680px) {
+      .spade-features { grid-template-columns: 1fr; }
+      .nue-grid { grid-template-columns: 1fr 1fr; }
+      table { font-size: 12px; }
+      thead th, tbody td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    Researcher · Editor · Consultant · Dhaka, Bangladesh
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Research Portfolio</span>
+        <h1>Work at the Frontier</h1>
+        <p>Soil fertility, nanotechnology, atmospheric science, and open-source software — active research across three institutions in Dhaka.</p>
+      </div>
+    </div>
+
+    <!-- RESEARCH ANCHOR NAV -->
+    <nav class="research-nav" aria-label="Jump to research section">
+      <div class="research-nav-inner">
+        <a href="#bbcu"         class="rn-link">⚗️ BBCU Thesis</a>
+        <a href="#duntc"        class="rn-link">🌾 DUNTC Nano</a>
+        <a href="#bcsir"        class="rn-link">💨 BCSIR Air Quality</a>
+        <a href="#independent"  class="rn-link">🔩 Heavy Metals Study</a>
+        <a href="#spade"        class="rn-link">🐍 SPADE Software</a>
+        <a href="#publications" class="rn-link">📄 Publications</a>
+        <a href="#conferences"  class="rn-link">🌍 Conferences</a>
+      </div>
+    </nav>
+
+    <!-- ════════════════════════════════════
+         BBCU THESIS — DARK FEATURED SECTION
+         ════════════════════════════════════ -->
+    <section id="bbcu" class="bbcu-hero reveal">
+      <div class="container">
+        <div class="bbcu-layout">
+
+          <div class="bbcu-left">
+            <span class="bbcu-eyebrow">MSc Thesis · Featured Research · NST Funded</span>
+            <h2>Bentonite-Biochar<br/>Coated Urea &amp;<br/><em>Nitrogen Use Efficiency</em></h2>
+            <span class="bbcu-subtitle">Optimizing Nitrogen Efficiency Using Bentonite–Biochar–Coated Urea (BBCU) in Rice and Eggplant Systems — University of Dhaka, 2025–Ongoing</span>
+
+            <p>
+              Nitrogen is the most yield-limiting nutrient in South Asian agriculture — and
+              the most wasted. Conventional urea loses up to 70% of applied nitrogen through
+              leaching, volatilisation, and denitrification before crops can absorb it.
+              This thesis investigates whether a locally manufactured slow-release coating —
+              combining rice husk biochar, sodium bentonite, and corn starch — can
+              significantly reduce those losses while improving crop performance and soil health.
+            </p>
+            <p>
+              The fertilizer (BBCU) is synthesised from entirely local, low-cost materials:
+              rice husk biochar pyrolysed at 550°C, sodium bentonite clay, and corn starch
+              as a biodegradable binder. N-release kinetics are modelled using four
+              mathematical models — zero-order, first-order, Higuchi, and Korsmeyer-Peppas —
+              across soil incubation experiments, 50 cm leaching columns, and jar-based
+              volatilisation setups running simultaneously.
+            </p>
+            <p>
+              The study evaluates four NUE indices against an unfertilized control and
+              conventional urea, with post-harvest soil analysis covering residual NH₄⁺/NO₃⁻
+              (KCl extraction), Walkley-Black organic carbon, pH, and EC. This work was
+              awarded the National Science and Technology Fellowship by Bangladesh's
+              Ministry of Science and Technology.
+            </p>
+            <div class="bbcu-tags">
+              <span class="bbcu-tag">Slow-release fertilizer</span>
+              <span class="bbcu-tag">Biochar</span>
+              <span class="bbcu-tag">Bentonite</span>
+              <span class="bbcu-tag">NUE</span>
+              <span class="bbcu-tag">N-release kinetics</span>
+              <span class="bbcu-tag">Korsmeyer-Peppas</span>
+              <span class="bbcu-tag">Higuchi model</span>
+              <span class="bbcu-tag">Rice · Eggplant</span>
+              <span class="bbcu-tag">Climate-smart</span>
+              <span class="bbcu-tag">NST Fellowship</span>
+            </div>
+            <a href="contact.html" class="btn btn-gold btn-arrow">Research Collaboration Enquiries</a>
+          </div>
+
+          <div class="bbcu-panel">
+
+            <div class="bbcu-info-card">
+              <span class="bic-label">Synthesis Materials</span>
+              <ul class="bic-list">
+                <li>Rice husk biochar — pyrolysed at 550°C</li>
+                <li>Sodium bentonite clay</li>
+                <li>Corn starch binder (biodegradable)</li>
+              </ul>
+            </div>
+
+            <div class="bbcu-info-card">
+              <span class="bic-label">Experimental Design</span>
+              <div class="bic-value">CRD — 8 treatments × 3 replications<br/>Pot and field experiments<br/>50 cm leaching columns<br/>Jar-based volatilisation</div>
+            </div>
+
+            <div class="bbcu-info-card">
+              <span class="bic-label">N-Release Kinetics Models</span>
+              <ul class="bic-list">
+                <li>Zero-order</li>
+                <li>First-order</li>
+                <li>Higuchi</li>
+                <li>Korsmeyer-Peppas</li>
+              </ul>
+            </div>
+
+            <div class="bbcu-info-card">
+              <span class="bic-label">NUE Indices Measured</span>
+              <div class="nue-grid">
+                <div class="nue-item">
+                  <span class="nue-abbr">AE</span>
+                  <span class="nue-full">Agronomic Efficiency</span>
+                </div>
+                <div class="nue-item">
+                  <span class="nue-abbr">RE</span>
+                  <span class="nue-full">Recovery Efficiency</span>
+                </div>
+                <div class="nue-item">
+                  <span class="nue-abbr">PE</span>
+                  <span class="nue-full">Physiological Efficiency</span>
+                </div>
+                <div class="nue-item">
+                  <span class="nue-abbr">NHI</span>
+                  <span class="nue-full">N Harvest Index</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bbcu-info-card">
+              <span class="bic-label">Post-harvest Soil Analysis</span>
+              <ul class="bic-list">
+                <li>Residual NH₄⁺ / NO₃⁻ (KCl extraction)</li>
+                <li>Walkley-Black organic carbon</li>
+                <li>Available nutrients</li>
+                <li>pH and EC</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         DUNTC — NANO FERTILIZER
+         ════════════════════════ -->
+    <div id="duntc" class="research-block">
+      <div class="container">
+        <div class="rb-layout flip reveal">
+          <div>
+            <span class="rb-eyebrow">DUNTC · Research Fellowship · Apr 2025 – Apr 2026</span>
+            <div class="rb-header">
+              <div class="rb-icon">🌾</div>
+              <h2>Nano Urea vs. Conventional Urea<br/><em>on Wheat (BARI Gom 33)</em></h2>
+            </div>
+            <div class="rb-inst">
+              Dhaka University Nanotechnology Centre (DUNTC)
+              <span class="period">· Fellowship Completed</span>
+            </div>
+            <p>
+              A CRD pot experiment (8 treatments × 3 replications, 24 pots) comparing
+              nano-urea versus conventional urea application methods on the growth, yield,
+              and nutrient quality of wheat variety BARI Gom 33. The experiment was designed
+              to establish whether nano-scale nitrogen delivery can reduce application rates
+              while maintaining or improving agronomic performance.
+            </p>
+            <p>
+              A significant hailstorm mid-experiment destroyed most grain yield across
+              multiple pots, making conventional yield-based analysis impossible. Rather
+              than abandoning the dataset, the study was strategically redirected to focus
+              on plant tissue nutrient quality and post-harvest soil dynamics — areas where
+              the data remained intact and scientifically valuable.
+            </p>
+            <ul class="rb-bullets">
+              <li>Plant tissue analysis: Kjeldahl N digestion, protein estimation (N% × 5.7)</li>
+              <li>Multi-element analysis: P, K, S, Ca, B via AAS and ICP-OES</li>
+              <li>NUE indices: AE, RE, PE, NHI, and Partial Factor Productivity (PFP)</li>
+              <li>Post-harvest soil: residual mineral N, available nutrients, pH, EC, Walkley-Black OC</li>
+              <li>Developed SPADE software platform for integrated NUE analysis (see below)</li>
+              <li>Master sample log maintained across 24-pot tissue and soil datasets</li>
+              <li>Project completion report submitted to DUNTC</li>
+            </ul>
+            <div class="rb-tags">
+              <span class="tag-pill">Nano-urea</span>
+              <span class="tag-pill">BARI Gom 33</span>
+              <span class="tag-pill">ICP-OES</span>
+              <span class="tag-pill">Kjeldahl N</span>
+              <span class="tag-pill">AAS</span>
+              <span class="tag-pill">NUE</span>
+              <span class="tag-pill">Nanotechnology</span>
+            </div>
+          </div>
+          <div>
+            <div class="rb-panel">
+              <div class="rbp-head"><h4>Study Details</h4></div>
+              <div class="rbp-row">
+                <span class="rbp-label">Institution</span>
+                <span class="rbp-val">Dhaka University Nanotechnology Centre (DUNTC)</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Duration</span>
+                <span class="rbp-val">April 2025 – April 2026</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Crop</span>
+                <span class="rbp-val">Wheat — BARI Gom 33</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Design</span>
+                <span class="rbp-val">CRD · 8 treatments · 3 replications · 24 pots</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Treatments</span>
+                <span class="rbp-val">Nano-urea (foliar + soil) vs conventional urea at varying rates</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Status</span>
+                <span class="rbp-val">Completed · Report submitted · Manuscript in preparation</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Output</span>
+                <span class="rbp-val">SPADE software platform developed from this dataset</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         BCSIR — AIR QUALITY
+         ════════════════════════ -->
+    <div id="bcsir" class="research-block">
+      <div class="container">
+        <div class="rb-layout reveal">
+          <div>
+            <span class="rb-eyebrow">BCSIR · Research Trainee · Nov 2025 – Present</span>
+            <div class="rb-header">
+              <div class="rb-icon">💨</div>
+              <h2>Ultrafine PM &amp; Heavy Metal<br/><em>Characterisation in Dhaka</em></h2>
+            </div>
+            <div class="rb-inst">
+              Bangladesh Council of Scientific and Industrial Research (BCSIR)
+              <span class="period">· Ongoing</span>
+            </div>
+            <p>
+              Dhaka is among the most polluted cities in the world by particulate matter
+              concentration. This research focuses on the ultrafine end of the size spectrum —
+              PM₀.₁ (particles below 0.1 micrometers) — which penetrate deepest into the
+              respiratory system and carry the highest toxic metal loads. Using the
+              Nanosampler II (Model 3182, Kanomax, Japan), particulate matter is collected
+              at representative urban sites across Dhaka for heavy metal characterisation
+              and ecological risk assessment.
+            </p>
+            <ul class="rb-bullets">
+              <li>PM₀.₁ sampling using Nanosampler II (Kanomax Model 3182, Japan)</li>
+              <li>Heavy metal analysis via AAS (Varian AA 240 FS) — Cd, Pb, Cr, Cu, Zn, Ni, Fe, Mn</li>
+              <li>Contamination indices: geo-accumulation index and enrichment factor</li>
+              <li>Ecological risk index assessment for urban atmospheric contamination</li>
+              <li>Spatial distribution mapping across Dhaka urban zones</li>
+            </ul>
+            <div class="rb-tags">
+              <span class="tag-pill">PM₀.₁</span>
+              <span class="tag-pill">Nanosampler II</span>
+              <span class="tag-pill">AAS</span>
+              <span class="tag-pill">Heavy Metals</span>
+              <span class="tag-pill">Ecological Risk</span>
+              <span class="tag-pill">Dhaka Air Quality</span>
+              <span class="tag-pill">Urban Pollution</span>
+            </div>
+          </div>
+          <div>
+            <div class="rb-panel">
+              <div class="rbp-head"><h4>Study Details</h4></div>
+              <div class="rbp-row">
+                <span class="rbp-label">Institution</span>
+                <span class="rbp-val">Bangladesh Council of Scientific and Industrial Research (BCSIR)</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Duration</span>
+                <span class="rbp-val">November 2025 – Present</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Focus</span>
+                <span class="rbp-val">Ultrafine PM (PM₀.₁) &amp; heavy metal speciation</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Instrument</span>
+                <span class="rbp-val">Nanosampler II — Model 3182, Kanomax, Japan</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Analysis</span>
+                <span class="rbp-val">AAS — Varian AA 240 FS</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Location</span>
+                <span class="rbp-val">Urban monitoring sites across Dhaka</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Status</span>
+                <span class="rbp-val">Ongoing data collection &amp; analysis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         INDEPENDENT — HEAVY METALS
+         ════════════════════════ -->
+    <div id="independent" class="research-block">
+      <div class="container">
+        <div class="rb-layout flip reveal">
+          <div>
+            <span class="rb-eyebrow">Independent Research · Principal Investigator · Jan 2025</span>
+            <div class="rb-header">
+              <div class="rb-icon">🔩</div>
+              <h2>Heavy Metal Contamination<br/><em>in Industrial Dhaka</em></h2>
+            </div>
+            <div class="rb-inst">
+              Self-funded · Independent Research Team, Dhaka
+              <span class="period">· Completed</span>
+            </div>
+            <p>
+              An integrated, self-funded assessment of heavy metal contamination in the
+              industrial zones surrounding Dhaka, led by a four-member research team.
+              Over 40 soil, dust, and leaf samples were collected from sites representing
+              different industrial categories — tanneries, garment factories, light
+              engineering, and food processing — to build a spatial picture of contamination
+              levels and ecological risk across the peri-urban agricultural fringe.
+            </p>
+            <ul class="rb-bullets">
+              <li>40+ soil, dust, and leaf samples collected from Dhaka industrial zones</li>
+              <li>Metals analysed: Pb, Cd, Cr, Cu, Zn, Ni, As, Fe, Mn</li>
+              <li>Spatial distribution and contamination index mapping</li>
+              <li>Geo-accumulation index (Igeo) and enrichment factor (EF) calculated</li>
+              <li>Ecological risk factor (RI) assessed for surrounding agro-ecosystems</li>
+              <li>Research team of four members co-led through full study cycle</li>
+            </ul>
+            <div class="rb-tags">
+              <span class="tag-pill">Heavy Metals</span>
+              <span class="tag-pill">Industrial Pollution</span>
+              <span class="tag-pill">Geo-accumulation Index</span>
+              <span class="tag-pill">Enrichment Factor</span>
+              <span class="tag-pill">Peri-urban Agriculture</span>
+              <span class="tag-pill">Dhaka</span>
+            </div>
+          </div>
+          <div>
+            <div class="rb-panel">
+              <div class="rbp-head"><h4>Study Details</h4></div>
+              <div class="rbp-row">
+                <span class="rbp-label">Type</span>
+                <span class="rbp-val">Self-funded independent research</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Role</span>
+                <span class="rbp-val">Principal Investigator — team of 4</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Samples</span>
+                <span class="rbp-val">40+ soil, atmospheric dust, and leaf samples</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Coverage</span>
+                <span class="rbp-val">Industrial zones surrounding Dhaka city</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Indices</span>
+                <span class="rbp-val">Igeo · EF · Ecological Risk Index (RI)</span>
+              </div>
+              <div class="rbp-row">
+                <span class="rbp-label">Status</span>
+                <span class="rbp-val">Completed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         SPADE SOFTWARE
+         ════════════════════════ -->
+    <section id="spade" class="spade-section reveal">
+      <div class="container">
+        <div class="spade-layout">
+          <div class="spade-text">
+            <span class="eyebrow">Open-source Software</span>
+            <h2>SPADE —<br/><em>Built from the Research</em></h2>
+            <p>
+              During the DUNTC wheat experiment, I found that calculating and reporting the
+              five standard nitrogen use efficiency indices — each with their own formula,
+              statistical assumptions, and figure requirements — was repetitive, error-prone,
+              and consumed a disproportionate amount of analysis time. So I built SPADE.
+            </p>
+            <p>
+              SPADE (Statistical Platform for Agronomic Data Evaluation) is an open-source
+              Python/Streamlit application that automates the full NUE analysis pipeline:
+              computing all five indices, running factorial ANOVA with Tukey HSD and compact
+              letter display, detecting outliers, and exporting publication-ready figures
+              in PNG or JPG format. It was written to serve small-plot agricultural
+              experiments of the type common in South Asian research institutions where
+              specialised software is often unavailable or unaffordable.
+            </p>
+            <p>
+              A software manuscript describing SPADE is in preparation, targeting
+              <em>Computers and Electronics in Agriculture</em> (Elsevier) or <em>SoftwareX</em>.
+            </p>
+            <div class="spade-features">
+              <div class="spade-feat">
+                <span class="sf-icon">📐</span>
+                <div class="spade-feat-text">NUE Computation
+                  <span>AE, RE, PE, NHI, PFP — all five indices from raw data</span>
+                </div>
+              </div>
+              <div class="spade-feat">
+                <span class="sf-icon">📊</span>
+                <div class="spade-feat-text">Factorial ANOVA
+                  <span>Tukey HSD with compact letter display (CLD)</span>
+                </div>
+              </div>
+              <div class="spade-feat">
+                <span class="sf-icon">🔍</span>
+                <div class="spade-feat-text">Outlier Detection
+                  <span>Dixon's Q test and Grubbs' test</span>
+                </div>
+              </div>
+              <div class="spade-feat">
+                <span class="sf-icon">🖼️</span>
+                <div class="spade-feat-text">Publication Figures
+                  <span>PNG / JPG export at print resolution</span>
+                </div>
+              </div>
+            </div>
+            <a href="contact.html" class="btn btn-primary btn-arrow">Enquire About SPADE</a>
+          </div>
+
+          <div class="spade-visual">
+            <span class="sv-label">Open-source Software · v1.0</span>
+            <div class="sv-title">SPADE</div>
+            <span class="sv-full">Statistical Platform for Agronomic Data Evaluation</span>
+            <div class="sv-stack">
+              <span class="sv-pill">Python</span>
+              <span class="sv-pill">Streamlit</span>
+              <span class="sv-pill">pandas</span>
+              <span class="sv-pill">scipy</span>
+              <span class="sv-pill">statsmodels</span>
+              <span class="sv-pill">matplotlib</span>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">NUE Indices Supported</div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                <span class="sv-pill">AE</span>
+                <span class="sv-pill">RE</span>
+                <span class="sv-pill">PE</span>
+                <span class="sv-pill">NHI</span>
+                <span class="sv-pill">PFP</span>
+              </div>
+            </div>
+            <div style="margin-bottom:16px;">
+              <div style="font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Repository</div>
+              <div style="font-size:13px;color:var(--text-light);">GitHub — forthcoming on publication</div>
+            </div>
+            <span class="sv-status">Manuscript in preparation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         PUBLICATIONS
+         ════════════════════════ -->
+    <section id="publications" class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Scholarly Output</span>
+          <h2>Publications &amp; Manuscripts</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+
+        <div class="pub-list">
+
+          <div class="pub-item">
+            <span class="pub-num">01</span>
+            <div>
+              <span class="pub-type">Journal Article · Manuscript in Preparation</span>
+              <div class="pub-title">Organic Fertilizer Adoption Completeness Among Urban Growers in Dhaka: Site Type as a Determinant of Exclusive Versus Mixed Organic-Synthetic Practice</div>
+              <div class="pub-authors"><strong>Rahman, S.</strong>, Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., &amp; Islam, R.</div>
+              <div class="pub-meta">Target: Urban Agriculture &amp; Regional Food Systems (Wiley/ASA-CSSA) or Sustainability (MDPI)</div>
+              <span class="pub-status prep">In Preparation</span>
+            </div>
+          </div>
+
+          <div class="pub-item">
+            <span class="pub-num">02</span>
+            <div>
+              <span class="pub-type">Conference Paper · Manuscript in Preparation</span>
+              <div class="pub-title">Environmental and Agricultural Governance in Post-July Bangladesh: Accountability, Reform and Sustainable Futures</div>
+              <div class="pub-authors"><strong>Rahman, S.</strong></div>
+              <div class="pub-meta">Prepared for 2nd International Conference on the July Revolution (ICJR-II) — 19 July 2026 · University of Dhaka</div>
+              <span class="pub-status prep">In Preparation</span>
+            </div>
+          </div>
+
+          <div class="pub-item">
+            <span class="pub-num">03</span>
+            <div>
+              <span class="pub-type">Software Paper · Manuscript in Preparation</span>
+              <div class="pub-title">SPADE: An Integrated Open-Source Framework for Standardised Nitrogen Use Efficiency Analysis in Small-Plot Agricultural Experiments</div>
+              <div class="pub-authors"><strong>Rahman, S.</strong></div>
+              <div class="pub-meta">Target: Computers and Electronics in Agriculture (Elsevier) or SoftwareX</div>
+              <span class="pub-status prep">In Preparation</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-32">
+          <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" class="btn btn-outline btn-arrow" target="_blank" rel="noopener">View on ResearchGate</a>
+          &nbsp;&nbsp;
+          <a href="https://orcid.org/0009-0004-5985-8105" class="btn btn-gold" target="_blank" rel="noopener">ORCID Profile ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         CONFERENCES
+         ════════════════════════ -->
+    <section id="conferences" class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Presentations</span>
+          <h2>Conferences &amp; Proceedings</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>Eight presentations at international and national conferences across four countries — Bangladesh, Thailand, Turkey, and Kazakhstan.</p>
+        </div>
+
+        <div class="conf-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Conference &amp; Location</th>
+                <th>Title &amp; Authors</th>
+                <th>DOI / Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2025</td>
+                <td>
+                  <strong>International Conference</strong><br/>
+                  <span class="cf">🇧🇩</span>Bangladesh
+                </td>
+                <td><strong>Rahman, S.</strong> — Nano-fertilizers in wheat cultivation: a comprehensive review and strategic framework for sustainable productivity and biofortification</td>
+                <td><a href="https://doi.org/10.13140/RG.2.2.29613.35043" class="conf-link" target="_blank" rel="noopener">10.13140/RG.2.2.29613.35043</a></td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td>
+                  <strong>AIT International Conference</strong><br/>
+                  <span class="cf">🇹🇭</span>Bangkok, Thailand
+                </td>
+                <td><strong>Rahman, S.</strong>, Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., &amp; Islam, R. — Economic viability and sustainability of hydroponics in flood-prone Bangladesh</td>
+                <td><span style="color:var(--text-light);font-size:12px;">Proceedings</span></td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td>
+                  <strong>3rd Intl. Ege Congress on Scientific Research</strong><br/>
+                  <span class="cf">🇹🇷</span>Turkey
+                </td>
+                <td><strong>Rahman, S.</strong> — IoT on the development of Agriculture 5.0: prospects and challenges. In G. N. Günay (Ed.), Proceedings (pp. 170–178). IKSAD Publishing House.</td>
+                <td><a href="https://doi.org/10.13140/RG.2.2.17269.69600" class="conf-link" target="_blank" rel="noopener">10.13140/RG.2.2.17269.69600</a></td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td>
+                  <strong>Intl. Congress on Food, Agriculture &amp; Environmental Research</strong><br/>
+                  <span class="cf">🌐</span>International
+                </td>
+                <td><strong>Rahman, S.</strong>, Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., &amp; Islam, R. — Climate change and resilient farming approaches in Bangladesh: a review</td>
+                <td><a href="https://doi.org/10.13140/RG.2.2.33718.72005" class="conf-link" target="_blank" rel="noopener">10.13140/RG.2.2.33718.72005</a></td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td>
+                  <strong>HODJA AKHMET YASSAWI 8th Intl. Congress</strong><br/>
+                  <span class="cf">🇰🇿</span>Kazakhstan
+                </td>
+                <td><strong>Rahman, S.</strong>, Hossain Rubab, M. M., &amp; Payal, M. P. — Smart, sustainable agriculture in Bangladesh: a data-driven approach to food security</td>
+                <td><a href="https://doi.org/10.13140/RG.2.2.35396.44165" class="conf-link" target="_blank" rel="noopener">10.13140/RG.2.2.35396.44165</a></td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td>
+                  <strong>Intl. Congress on Sustainable Agriculture</strong><br/>
+                  <span class="cf">🌐</span>International
+                </td>
+                <td><strong>Rahman, S.</strong>, Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., &amp; Islam, R. — Organic fertilizer adoption and challenges among farmers in the Dhaka region</td>
+                <td><a href="https://doi.org/10.13140/RG.2.2.21075.55849" class="conf-link" target="_blank" rel="noopener">10.13140/RG.2.2.21075.55849</a></td>
+              </tr>
+              <tr>
+                <td>2023</td>
+                <td>
+                  <strong>IEEE SIGHT "Ideas for Life" Conference</strong><br/>
+                  <span class="cf">🇧🇩</span>Dhaka, Bangladesh
+                </td>
+                <td><strong>Rahman, S.</strong>, Hossain Rubab, M. M., &amp; Payal, M. P. — Improving crop productivity in Bangladesh through advanced yield prediction techniques</td>
+                <td><a href="https://doi.org/10.13140/RG.2.2.16907.36644" class="conf-link" target="_blank" rel="noopener">10.13140/RG.2.2.16907.36644</a></td>
+              </tr>
+              <tr>
+                <td>2022</td>
+                <td>
+                  <strong>2nd Intl. Competition for Young Researchers</strong><br/>
+                  <span class="cf">🌐</span>International
+                </td>
+                <td><strong>Rahman, S.</strong>, Hossain Rubab, M. M., &amp; Payal, M. P. — An assessment and analysis of Bangladesh's agricultural approach based on technology</td>
+                <td><a href="https://doi.org/10.13140/RG.2.2.13587.96809" class="conf-link" target="_blank" rel="noopener">10.13140/RG.2.2.13587.96809</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         CLOSING CTA
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div style="max-width:640px;margin:0 auto;text-align:center;">
+          <span class="eyebrow">Collaborate</span>
+          <h2 style="font-family:var(--font-head);font-size:32px;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:12px;">Interested in the Work?</h2>
+          <span class="ornament">— ❧ —</span>
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.85;margin:16px 0 28px;font-style:italic;">
+            I am open to research collaborations, data sharing on published experiments,
+            and discussions about slow-release fertilizers, NUE methodology, and urban
+            environmental science. I am also actively seeking fully funded postgraduate
+            and research opportunities abroad.
+          </p>
+          <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;">
+            <a href="mailto:info@sajjadur-rahman.com" class="btn btn-primary btn-arrow">Email Me</a>
+            <a href="https://wa.me/8801941582285" class="btn btn-gold" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" class="btn btn-outline" target="_blank" rel="noopener">ResearchGate ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting services.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="research.html">Research</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Research</h4>
+          <a href="#bbcu">BBCU Thesis</a>
+          <a href="#duntc">DUNTC Nano Fertilizer</a>
+          <a href="#bcsir">BCSIR Air Quality</a>
+          <a href="#spade">SPADE Software</a>
+          <a href="#publications">Publications</a>
+          <a href="#conferences">Conferences</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#">Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

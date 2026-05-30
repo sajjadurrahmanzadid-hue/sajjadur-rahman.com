@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com — services.html         ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html 🔲 Queued                     ║
+    ║  blog.html     🔲 Queued                     ║
+    ║  contact.html  🔲 Queued                     ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Services by Sajjadur Rahman — manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, research proposal guidance, and soil consulting. Pricing in BDT and USD."/>
+  <title>Services — Sajjadur Rahman</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+
+    /* ══════════════════════════════════
+       SERVICE NAV (anchor jump)
+       ══════════════════════════════════ */
+    .svc-nav {
+      background: var(--parchment3);
+      border-bottom: 1px solid var(--gold-pale);
+      position: sticky;
+      top: 56px;
+      z-index: 100;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .svc-nav-inner {
+      display: flex;
+      align-items: stretch;
+      min-width: max-content;
+      padding: 0 24px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .svc-nav-link {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 13px 16px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .svc-nav-link:hover {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ══════════════════════════════════
+       INDIVIDUAL SERVICE CARDS
+       ══════════════════════════════════ */
+    .svc-block {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .svc-block:nth-child(even) { background: var(--parchment2); }
+    .svc-block:last-child { border-bottom: none; }
+
+    .svc-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 56px;
+      align-items: start;
+    }
+    .svc-layout.flip { direction: rtl; }
+    .svc-layout.flip > * { direction: ltr; }
+
+    /* Left — description */
+    .svc-icon-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .svc-icon-big {
+      font-size: 36px;
+      width: 62px; height: 62px;
+      background: var(--parchment3);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .svc-head-text .svc-num {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .svc-head-text h2 {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+    .svc-tagline {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .svc-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    /* Includes list */
+    .includes-label {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .includes-list {
+      list-style: none;
+      margin-bottom: 26px;
+    }
+    .includes-list li {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      padding: 5px 0 5px 22px;
+      position: relative;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .includes-list li:last-child { border-bottom: none; }
+    .includes-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 11px;
+      top: 7px;
+    }
+
+    /* Right — pricing panel */
+    .pricing-panel {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      position: sticky;
+      top: 96px;
+    }
+    .pricing-panel-head {
+      background: var(--ink-soft);
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pricing-panel-head h3 {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .pricing-panel-head .currency-note {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .price-row {
+      padding: 14px 22px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 12px;
+    }
+    .price-row:last-of-type { border-bottom: none; }
+    .price-scope {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+    .price-bdt {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .price-usd {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .price-note {
+      padding: 10px 22px 14px;
+      font-size: 11.5px;
+      color: var(--text-light);
+      font-style: italic;
+      border-top: 0.5px solid var(--gold-pale);
+      background: var(--parchment2);
+    }
+    .pricing-cta {
+      padding: 16px 22px;
+      background: var(--parchment2);
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .target-label {
+      padding: 12px 22px;
+      background: rgba(90,122,74,0.06);
+      border-top: 0.5px solid rgba(90,122,74,0.15);
+    }
+    .target-label span {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ══════════════════════════════════
+       PACKAGES
+       ══════════════════════════════════ */
+    .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+    .pkg-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .pkg-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .pkg-card.featured { border-color: var(--gold-light); box-shadow: var(--shadow-md); }
+
+    .pkg-card-head {
+      background: var(--parchment2);
+      padding: 22px 22px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .pkg-card.featured .pkg-card-head { background: var(--ink-soft); }
+
+    .pkg-emoji { font-size: 28px; display: block; margin-bottom: 10px; }
+    .pkg-card h3 {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .pkg-card.featured h3 { color: var(--parchment); }
+    .pkg-best {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .pkg-card.featured .pkg-best { color: var(--text-light); }
+
+    .pkg-card-body { padding: 20px 22px; flex: 1; }
+    .pkg-includes {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .pkg-list { list-style: none; margin-bottom: 18px; }
+    .pkg-list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 4px 0 4px 18px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pkg-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold-light);
+      font-size: 10px;
+      top: 6px;
+    }
+
+    .pkg-card-foot {
+      padding: 16px 22px;
+      border-top: 0.5px solid var(--gold-pale);
+      background: var(--parchment2);
+    }
+    .pkg-pricing {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+    .pkg-price-main {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .pkg-price-bdt {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .pkg-strike {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+    .pkg-save-badge {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(90,122,74,0.1);
+      border: 0.5px solid var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .pkg-delivery {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* ══════════════════════════════════
+       POLICIES
+       ══════════════════════════════════ */
+    .policy-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .policy-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    .policy-card .pc-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+    .policy-card h4 {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .policy-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+    /* ══════════════════════════════════
+       FAQ
+       ══════════════════════════════════ */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .faq-q span {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .faq-arrow {
+      font-size: 18px;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform .25s;
+      font-style: normal;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(90deg); }
+    .faq-a {
+      display: none;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.85;
+      padding-bottom: 18px;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ══════════════════════════════════
+       BOOKING CTA
+       ══════════════════════════════════ */
+    .booking-band {
+      background: var(--ink-soft);
+      padding: 60px 0;
+    }
+    .booking-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .booking-text h2 {
+      font-family: var(--font-head);
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .booking-text h2 em { font-style: italic; color: var(--gold); }
+    .booking-text p { font-size: 14.5px; color: var(--text-light); line-height: 1.8; }
+    .booking-options { display: flex; flex-direction: column; gap: 12px; }
+    .booking-option {
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(200,191,160,0.2);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color .2s, background .2s;
+    }
+    .booking-option:hover { border-color: var(--gold); background: rgba(139,126,90,0.08); }
+    .bo-icon { font-size: 20px; flex-shrink: 0; }
+    .bo-label {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .bo-value { font-size: 13.5px; color: var(--text-light); }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .svc-layout,
+      .svc-layout.flip { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+      .pricing-panel { position: static; }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .policy-grid { grid-template-columns: repeat(2, 1fr); }
+      .booking-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 680px) {
+      .policy-grid { grid-template-columns: 1fr; }
+      .price-row { grid-template-columns: 1fr auto; }
+      .price-bdt { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    Researcher · Editor · Consultant · Dhaka, Bangladesh
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Services &amp; Pricing</span>
+        <h1>How I Can Help</h1>
+        <p>Seven specialist services for researchers, students, and organisations — each grounded in active laboratory and field research experience.</p>
+      </div>
+    </div>
+
+    <!-- SERVICE ANCHOR NAV -->
+    <nav class="svc-nav" aria-label="Jump to service">
+      <div class="svc-nav-inner">
+        <a href="#manuscript"  class="svc-nav-link">📝 Manuscript Editing</a>
+        <a href="#data"        class="svc-nav-link">📊 Data Analysis</a>
+        <a href="#thesis"      class="svc-nav-link">🎓 Thesis Consultation</a>
+        <a href="#ielts"       class="svc-nav-link">🗣️ IELTS Tutoring</a>
+        <a href="#cv"          class="svc-nav-link">📄 CV Writing</a>
+        <a href="#proposal"    class="svc-nav-link">📋 Research Proposals</a>
+        <a href="#soil"        class="svc-nav-link">🌱 Soil Consulting</a>
+        <a href="#packages"    class="svc-nav-link">📦 Packages</a>
+      </div>
+    </nav>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 1 — MANUSCRIPT EDITING
+         ════════════════════════════════════════ -->
+    <div id="manuscript" class="svc-block">
+      <div class="container">
+        <div class="svc-layout reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">📝</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 01</span>
+                <h2>Manuscript Editing<br/>&amp; Formatting</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">From draft to journal-ready — your ideas, professionally presented.</span>
+            <p class="svc-desc">
+              Research papers succeed or fail on clarity, structure, and presentation. I provide
+              thorough language correction, structural editing, and journal-specific formatting
+              for manuscripts targeting Elsevier, MDPI, Wiley, Springer, and similar publishers.
+              I work with your existing writing — improving how your ideas are expressed, not
+              replacing them with someone else's voice.
+            </p>
+            <p class="svc-desc">
+              My own training in scientific communication — Stanford Writing in the Sciences
+              and Wiley Researcher Academy certification — informs every edit I make. I
+              specialise in soil science, environmental science, agriculture, and sustainability,
+              but work across all natural and applied sciences.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Full manuscript read-through and structural assessment</li>
+              <li>Grammar, syntax, and academic tone correction throughout</li>
+              <li>Abstract and title optimisation for discoverability</li>
+              <li>Journal-specific formatting (headings, references, figures)</li>
+              <li>Tracked changes returned — you approve every edit</li>
+              <li>One revision round included after delivery</li>
+              <li>Delivery within 5–7 working days (express available)</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">Elsevier</span>
+              <span class="tag-pill">MDPI</span>
+              <span class="tag-pill">Wiley</span>
+              <span class="tag-pill">Springer</span>
+              <span class="tag-pill">Soil Science</span>
+              <span class="tag-pill">Environmental Science</span>
+              <span class="tag-pill">Agriculture</span>
+            </div>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Short paper, minor edits<br/><small style="font-size:11px;color:var(--text-light);">Under 4,000 words</small></span>
+                <span class="price-bdt">৳3,000</span>
+                <span class="price-usd">$35</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full paper, moderate edit<br/><small style="font-size:11px;color:var(--text-light);">4,000 – 7,000 words</small></span>
+                <span class="price-bdt">৳5,000</span>
+                <span class="price-usd">$55</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full paper, major rewrite<br/><small style="font-size:11px;color:var(--text-light);">Any length</small></span>
+                <span class="price-bdt">৳6,500</span>
+                <span class="price-usd">$75</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Response to reviewers<br/><small style="font-size:11px;color:var(--text-light);">Add-on to any package</small></span>
+                <span class="price-bdt">+৳1,500</span>
+                <span class="price-usd">+$15</span>
+              </div>
+              <p class="price-note">BD clients pay in Taka via bKash / Nagad / bank transfer. International clients via PayPal or Wise.</p>
+              <div class="target-label"><span>Best for: MSc &amp; PhD students, early-career researchers, academics</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Discuss on WhatsApp</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 2 — DATA ANALYSIS
+         ════════════════════════════════════════ -->
+    <div id="data" class="svc-block">
+      <div class="container">
+        <div class="svc-layout flip reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">📊</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 02</span>
+                <h2>Data Analysis<br/>&amp; Statistics</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Numbers that tell the right story.</span>
+            <p class="svc-desc">
+              Good data poorly analysed is a wasted opportunity. I provide statistical analysis
+              of research datasets using SPSS, R, and Python — selecting the appropriate tests
+              for your design, running the analysis correctly, producing clear figures, and
+              writing up the results in plain academic language. I also built SPADE, an
+              open-source Python platform for nitrogen use efficiency analysis, so I know
+              what rigorous quantitative research looks like from the inside.
+            </p>
+            <p class="svc-desc">
+              I work across all research areas — not just soil science. If you have a dataset
+              and need it analysed and interpreted, send it over and we can discuss the right
+              approach.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Data cleaning and preparation (handling missing values, outliers)</li>
+              <li>Appropriate statistical tests selected and justified</li>
+              <li>Full analysis run in SPSS, R, or Python — your choice</li>
+              <li>Publication-ready tables and figures (PNG/SVG)</li>
+              <li>Written results section with interpretation</li>
+              <li>One revision round included</li>
+              <li>Delivery within 3–5 working days</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">SPSS</span>
+              <span class="tag-pill">R</span>
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">ANOVA</span>
+              <span class="tag-pill">Regression</span>
+              <span class="tag-pill">Tukey HSD</span>
+              <span class="tag-pill">Descriptive Stats</span>
+              <span class="tag-pill">Data Visualisation</span>
+            </div>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Basic descriptives + frequency<br/><small style="font-size:11px;color:var(--text-light);">SPSS</small></span>
+                <span class="price-bdt">৳2,000</span>
+                <span class="price-usd">$25</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full analysis + written report<br/><small style="font-size:11px;color:var(--text-light);">SPSS or R</small></span>
+                <span class="price-bdt">৳3,500</span>
+                <span class="price-usd">$40</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Advanced analysis + visualisation<br/><small style="font-size:11px;color:var(--text-light);">R or Python</small></span>
+                <span class="price-bdt">৳5,000</span>
+                <span class="price-usd">$60</span>
+              </div>
+              <p class="price-note">50% advance required for projects over ৳5,000 / $50.</p>
+              <div class="target-label"><span>Best for: Undergraduate &amp; MSc students, researchers needing quantitative support</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Discuss on WhatsApp</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 3 — THESIS CONSULTATION
+         ════════════════════════════════════════ -->
+    <div id="thesis" class="svc-block">
+      <div class="container">
+        <div class="svc-layout reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">🎓</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 03</span>
+                <h2>Thesis &amp; Dissertation<br/>Consultation</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Research guidance from an active researcher.</span>
+            <p class="svc-desc">
+              Thesis writing is hard because it requires simultaneous mastery of a subject,
+              a methodology, and an academic genre — often for the first time. I offer
+              one-on-one consultation sessions to help you work through research design,
+              sharpen your methodology, structure your chapters, and write with clarity and
+              confidence. I am currently doing exactly this work myself, which means I
+              understand the practical pressures, not just the theory.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>One-hour session via Google Meet or WhatsApp call</li>
+              <li>Pre-session review of submitted material (chapter, outline, or draft)</li>
+              <li>Written feedback notes delivered after each session</li>
+              <li>Follow-up questions answered within 24 hours</li>
+              <li>Guidance on research design, methodology, and literature review</li>
+              <li>Chapter-by-chapter feedback and academic writing coaching</li>
+            </ul>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Per hour session<br/><small style="font-size:11px;color:var(--text-light);">Live call + written notes</small></span>
+                <span class="price-bdt">৳1,500</span>
+                <span class="price-usd">$15</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full chapter review<br/><small style="font-size:11px;color:var(--text-light);">Written feedback, no call required</small></span>
+                <span class="price-bdt">৳2,000</span>
+                <span class="price-usd">$20</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Research design consultation<br/><small style="font-size:11px;color:var(--text-light);">2-hour deep dive</small></span>
+                <span class="price-bdt">৳2,800</span>
+                <span class="price-usd">$28</span>
+              </div>
+              <p class="price-note">Sessions are fully online, flexible scheduling, and conducted in English or Bengali.</p>
+              <div class="target-label"><span>Best for: Undergraduate final-year students, MSc students, junior researchers</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Book a Session</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 4 — IELTS TUTORING
+         ════════════════════════════════════════ -->
+    <div id="ielts" class="svc-block">
+      <div class="container">
+        <div class="svc-layout flip reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">🗣️</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 04</span>
+                <h2>IELTS Tutoring</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Score higher with targeted preparation.</span>
+            <p class="svc-desc">
+              I scored IELTS 7.5 (Listening 8.0, Reading 8.0, Speaking 7.5, Writing 6.5)
+              and I know exactly what the test rewards and where most candidates lose marks.
+              My tutoring covers all four skills for both Academic and General Training
+              modules, with a focus on where you specifically need to improve rather than
+              working through generic material that wastes your time.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Needs assessment in the first session to identify weak areas</li>
+              <li>Targeted practice materials shared before each session</li>
+              <li>Mock tasks and real-time feedback on performance</li>
+              <li>Score improvement strategy tailored to your target band</li>
+              <li>All four skills: Reading, Writing, Listening, Speaking</li>
+              <li>Academic and General Training both covered</li>
+              <li>Fully online, flexible scheduling around your timetable</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">IELTS Academic</span>
+              <span class="tag-pill">IELTS General</span>
+              <span class="tag-pill">Writing Task 1 &amp; 2</span>
+              <span class="tag-pill">Speaking Practice</span>
+              <span class="tag-pill">Reading Strategy</span>
+            </div>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Per hour session<br/><small style="font-size:11px;color:var(--text-light);">Standard</small></span>
+                <span class="price-bdt">৳1,000</span>
+                <span class="price-usd">$12</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Per hour — intensive<br/><small style="font-size:11px;color:var(--text-light);">2+ sessions per week</small></span>
+                <span class="price-bdt">৳1,200</span>
+                <span class="price-usd">$15</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Writing task assessment<br/><small style="font-size:11px;color:var(--text-light);">Detailed written feedback, no call</small></span>
+                <span class="price-bdt">৳800</span>
+                <span class="price-usd">$10</span>
+              </div>
+              <p class="price-note">My own IELTS: 7.5 overall · L 8.0 · R 8.0 · S 7.5 · W 6.5</p>
+              <div class="target-label"><span>Best for: Study abroad applicants, immigration IELTS, working professionals</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Book a Session</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 5 — CV WRITING
+         ════════════════════════════════════════ -->
+    <div id="cv" class="svc-block">
+      <div class="container">
+        <div class="svc-layout reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">📄</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 05</span>
+                <h2>CV Writing<br/>&amp; Development</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">A CV that opens doors.</span>
+            <p class="svc-desc">
+              A strong CV is not just a list of experiences — it is a carefully structured
+              argument for why you are the right candidate. I write and develop academic CVs
+              for graduate school applications and professional CVs for jobs and consultancies,
+              tailoring each document to the specific program, institution, or employer being
+              targeted. Cover letters, Statements of Purpose, and LinkedIn summaries are
+              available as add-ons.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Intake form to gather all experience, education, and goal details</li>
+              <li>Professionally structured and written CV from scratch</li>
+              <li>Tailored to specific purpose — grad school, job, or consultancy</li>
+              <li>One revision round after delivery</li>
+              <li>Delivery within 2–3 working days</li>
+              <li>Add-ons: cover letter, Statement of Purpose (SOP), LinkedIn summary</li>
+            </ul>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Professional CV<br/><small style="font-size:11px;color:var(--text-light);">Jobs &amp; consultancies</small></span>
+                <span class="price-bdt">৳2,000</span>
+                <span class="price-usd">$20</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Academic CV<br/><small style="font-size:11px;color:var(--text-light);">Graduate school applications</small></span>
+                <span class="price-bdt">৳3,000</span>
+                <span class="price-usd">$35</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">CV + Cover Letter</span>
+                <span class="price-bdt">৳3,800</span>
+                <span class="price-usd">$42</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">CV + Cover Letter + SOP</span>
+                <span class="price-bdt">৳5,500</span>
+                <span class="price-usd">$65</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">LinkedIn summary<br/><small style="font-size:11px;color:var(--text-light);">Add-on to any package</small></span>
+                <span class="price-bdt">+৳800</span>
+                <span class="price-usd">+$10</span>
+              </div>
+              <p class="price-note">Delivery 2–3 working days. Express (24 hr) available at +30%.</p>
+              <div class="target-label"><span>Best for: Graduating students, job applicants, researchers applying abroad</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Discuss on WhatsApp</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 6 — RESEARCH PROPOSALS
+         ════════════════════════════════════════ -->
+    <div id="proposal" class="svc-block">
+      <div class="container">
+        <div class="svc-layout flip reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">📋</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 06</span>
+                <h2>Research Proposal<br/>Writing &amp; Guidance</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Proposals that get funded — and proposals you can defend.</span>
+            <p class="svc-desc">
+              Writing a research proposal is a distinct skill — different from writing a thesis
+              or a journal article. I provide guided support for thesis proposals, small grant
+              applications, and full international funding applications, helping you structure
+              your argument, sharpen your research questions, and present your methodology
+              convincingly. I have experience with NST, BCSIR, DAAD, and USAID application
+              frameworks. I guide the process — the ideas and the research remain yours.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Proposal structure and outline development</li>
+              <li>Research question and hypothesis refinement</li>
+              <li>Literature review section (or feedback on your draft)</li>
+              <li>Methodology and research design guidance</li>
+              <li>Budget narrative support where required</li>
+              <li>One revision round after delivery</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">NST</span>
+              <span class="tag-pill">DAAD</span>
+              <span class="tag-pill">USAID</span>
+              <span class="tag-pill">BCSIR</span>
+              <span class="tag-pill">Thesis Proposals</span>
+              <span class="tag-pill">Grant Writing</span>
+            </div>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">MSc thesis proposal</span>
+                <span class="price-bdt">৳2,500</span>
+                <span class="price-usd">$30</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Small grant application</span>
+                <span class="price-bdt">৳4,000</span>
+                <span class="price-usd">$50</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full international funding proposal<br/><small style="font-size:11px;color:var(--text-light);">DAAD, NST, USAID, etc.</small></span>
+                <span class="price-bdt">৳6,500</span>
+                <span class="price-usd">$80</span>
+              </div>
+              <p class="price-note">50% advance for projects over ৳5,000 / $50. NDAs available at no charge.</p>
+              <div class="target-label"><span>Best for: MSc &amp; PhD students, junior researchers applying for funding</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Discuss on WhatsApp</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 7 — SOIL CONSULTING
+         ════════════════════════════════════════ -->
+    <div id="soil" class="svc-block">
+      <div class="container">
+        <div class="svc-layout reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">🌱</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 07</span>
+                <h2>Soil &amp; Environment<br/>Consulting</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Science-backed recommendations for land and environment.</span>
+            <p class="svc-desc">
+              My research at the University of Dhaka, BCSIR, and DUNTC gives me direct,
+              hands-on expertise in soil health assessment, fertilizer management,
+              nitrogen cycling, and atmospheric heavy metal contamination. I provide
+              professional consulting for NGOs, agricultural startups, development
+              organisations, and farms that need credible, evidence-based recommendations
+              rather than generic advice.
+            </p>
+            <p class="svc-desc">
+              Initial needs assessment (30 minutes) is always free — I only take on projects
+              where I can genuinely add value.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Free initial needs assessment (30-minute call)</li>
+              <li>Site-specific recommendations based on your context</li>
+              <li>Written report with findings and clear action plan</li>
+              <li>One follow-up consultation included</li>
+              <li>Referral to laboratory services where applicable</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">Soil Health Assessment</span>
+              <span class="tag-pill">Fertilizer Management</span>
+              <span class="tag-pill">Nitrogen Cycling</span>
+              <span class="tag-pill">Environmental Impact</span>
+              <span class="tag-pill">NGO / Development Orgs</span>
+            </div>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Soil health assessment report</span>
+                <span class="price-bdt">৳8,000</span>
+                <span class="price-usd">$80</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Fertilizer recommendation plan</span>
+                <span class="price-bdt">৳6,000</span>
+                <span class="price-usd">$65</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full environmental assessment</span>
+                <span class="price-bdt">৳15,000</span>
+                <span class="price-usd">$140</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Daily consultancy rate</span>
+                <span class="price-bdt">৳5,000/day</span>
+                <span class="price-usd">$100/day</span>
+              </div>
+              <p class="price-note">Initial 30-minute needs assessment is always free. Large projects negotiated directly.</p>
+              <div class="target-label"><span>Best for: NGOs, agricultural startups, farms, FAO/CGIAR-level orgs</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Book Free Assessment</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         PACKAGES
+         ════════════════════════ -->
+    <section id="packages" class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Bundles</span>
+          <h2>Service Packages</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>Combining services saves you money and reduces the back-and-forth of booking each one separately. All packages include the same quality and revision rounds as individual services.</p>
+        </div>
+
+        <div class="pkg-grid">
+
+          <!-- Package 1 -->
+          <div class="pkg-card featured">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">🎓</span>
+              <h3>Student Launchpad</h3>
+              <span class="pkg-best">Best for: MSc students finishing thesis or applying abroad</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>Data Analysis — full, any tool</li>
+                <li>Thesis Chapter Review — 1 chapter, written feedback</li>
+                <li>Academic CV</li>
+                <li>Cover Letter</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$65</span>
+                <span class="pkg-price-bdt">৳8,500</span>
+                <span class="pkg-strike">was $110</span>
+              </div>
+              <span class="pkg-save-badge">Save 28% — $45</span>
+              <span class="pkg-delivery">📅 Delivery: 7–10 working days</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-gold btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+          <!-- Package 2 -->
+          <div class="pkg-card">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">📚</span>
+              <h3>Publication Ready</h3>
+              <span class="pkg-best">Best for: Researchers submitting to journals</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>Full Manuscript Editing &amp; Formatting</li>
+                <li>Response to Reviewers — 1 round</li>
+                <li>Research Proposal for follow-up study</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$110</span>
+                <span class="pkg-price-bdt">৳12,000</span>
+                <span class="pkg-strike">was $155</span>
+              </div>
+              <span class="pkg-save-badge">Save 29% — $45</span>
+              <span class="pkg-delivery">📅 Delivery: 10–14 working days</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-outline btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+          <!-- Package 3 -->
+          <div class="pkg-card featured">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">🌍</span>
+              <h3>Study Abroad Pack</h3>
+              <span class="pkg-best">Best for: Students applying to international universities</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>Academic CV — tailored per program</li>
+                <li>Statement of Purpose (SOP)</li>
+                <li>Cover Letter</li>
+                <li>IELTS Tutoring — 3 sessions × 1 hour</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$90</span>
+                <span class="pkg-price-bdt">৳10,000</span>
+                <span class="pkg-strike">was $125</span>
+              </div>
+              <span class="pkg-save-badge">Save 31% — $35</span>
+              <span class="pkg-delivery">📅 CV+SOP+Letter: 5 days · IELTS: flexible</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-gold btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+          <!-- Package 4 -->
+          <div class="pkg-card">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">🌱</span>
+              <h3>NGO &amp; Startup Pack</h3>
+              <span class="pkg-best">Best for: Organisations needing soil &amp; environment expertise</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>Soil Health Assessment Report</li>
+                <li>Fertilizer Recommendation Plan</li>
+                <li>1 Follow-up Consultation — 1 hour</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$160</span>
+                <span class="pkg-price-bdt">৳18,000</span>
+                <span class="pkg-strike">was $220</span>
+              </div>
+              <span class="pkg-save-badge">Save 28% — $60</span>
+              <span class="pkg-delivery">📅 Delivery: 10–15 working days</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-outline btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+          <!-- Package 5 -->
+          <div class="pkg-card">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">⚡</span>
+              <h3>Quick Turnaround Pack</h3>
+              <span class="pkg-best">Best for: Anyone needing fast professional documents</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>CV — professional or academic</li>
+                <li>Cover Letter</li>
+                <li>LinkedIn Summary</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$35</span>
+                <span class="pkg-price-bdt">৳3,500</span>
+                <span class="pkg-strike">was $50</span>
+              </div>
+              <span class="pkg-save-badge">Save 30% — $15</span>
+              <span class="pkg-delivery">⚡ Guaranteed 48-hour delivery</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-outline btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         POLICIES
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How It Works</span>
+          <h2>Policies &amp; Payment</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="policy-grid">
+          <div class="policy-card">
+            <span class="pc-icon">💳</span>
+            <h4>Payment</h4>
+            <p><strong>BD clients:</strong> bKash, Nagad, or bank transfer.<br/><strong>International:</strong> PayPal or Wise. 50% advance for projects over ৳5,000 / $50.</p>
+          </div>
+          <div class="policy-card">
+            <span class="pc-icon">🔄</span>
+            <h4>Revisions</h4>
+            <p>All services include one revision round at no extra charge. Additional rounds are ৳500 / $8 each. Revisions are responded to within 48 hours.</p>
+          </div>
+          <div class="policy-card">
+            <span class="pc-icon">🕐</span>
+            <h4>Turnaround</h4>
+            <p>Standard delivery times are listed per service. Express delivery (50% faster) is available at a +30% surcharge. Timing confirmed before work begins.</p>
+          </div>
+          <div class="policy-card">
+            <span class="pc-icon">🔒</span>
+            <h4>Confidentiality</h4>
+            <p>All client documents and data are kept strictly confidential. NDAs are available on request at no charge. I do not share client work under any circumstances.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         FAQ
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Common Questions</span>
+          <h2>FAQ</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>Do you write the research paper or thesis for the client?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">No. I edit, improve, structure, and format work that you have written — not replace your voice or ideas with someone else's. Academic integrity matters, and all my services are designed to strengthen your writing, not substitute for it. For thesis consultation, I guide your thinking and give feedback; you do the writing.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>How do I start — what information do you need?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">Send me a WhatsApp message or use the contact form with a brief description of what you need. For manuscript editing, I'll ask for the draft and the target journal. For data analysis, the dataset and a description of your study. For IELTS, your current level and target score. For CV work, I'll send a short intake form. We agree on scope and timeline before any payment.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>Can you work with any research discipline, not just soil science?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">For manuscript editing and data analysis, yes — I work across the natural and applied sciences. My domain expertise is strongest in soil science, environmental science, and agricultural research, but the principles of clear scientific writing and rigorous statistical analysis are universal. For soil and environment consulting, that is necessarily specialist work tied to my research background.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>How are payments made for BD and international clients?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">Bangladeshi clients pay in Taka via bKash, Nagad, or bank transfer. International clients pay in USD via PayPal or Wise. For projects under ৳5,000 / $50, full payment is required upfront. For larger projects, 50% advance before work begins and 50% on delivery.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>What is your refund policy?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">Full refund if work has not started within the agreed timeframe. 50% refund if the client cancels after work has begun. No refund after final delivery and the included revision round have been completed. NDAs are available at no charge on request.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>Do you offer student discounts for BD clients?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">The BDT pricing listed is already set with Bangladeshi students in mind — significantly lower than international rates. For students with genuine financial difficulty, reach out directly on WhatsApp and we can discuss what is possible. I want good work to be accessible.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         BOOKING CTA
+         ════════════════════════ -->
+    <div class="booking-band reveal">
+      <div class="container">
+        <div class="booking-inner">
+          <div class="booking-text">
+            <h2>Ready to get started?<br/><em>Let's talk.</em></h2>
+            <p>The fastest way to begin is a short WhatsApp message. Describe what you need and I will respond within a few hours with a clear scope, timeline, and price — no obligation.</p>
+          </div>
+          <div class="booking-options">
+            <a href="https://wa.me/8801941582285" class="booking-option" target="_blank" rel="noopener">
+              <span class="bo-icon">💬</span>
+              <div>
+                <span class="bo-label">WhatsApp — Fastest</span>
+                <span class="bo-value">+880 1941-582285</span>
+              </div>
+            </a>
+            <a href="mailto:services@sajjadur-rahman.com" class="booking-option">
+              <span class="bo-icon">✉️</span>
+              <div>
+                <span class="bo-label">Email</span>
+                <span class="bo-value">services@sajjadur-rahman.com</span>
+              </div>
+            </a>
+            <a href="contact.html" class="booking-option">
+              <span class="bo-icon">📋</span>
+              <div>
+                <span class="bo-label">Contact Form</span>
+                <span class="bo-value">Structured enquiry with all details</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting services.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="research.html">Research</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#manuscript">Manuscript Editing</a>
+          <a href="#data">Data Analysis</a>
+          <a href="#thesis">Thesis Consultation</a>
+          <a href="#ielts">IELTS Tutoring</a>
+          <a href="#cv">CV Writing</a>
+          <a href="#proposal">Research Proposals</a>
+          <a href="#soil">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#">Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

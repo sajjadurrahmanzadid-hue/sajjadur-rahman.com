@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com — contact.html          ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html ✅ Done                       ║
+    ║  blog.html     ✅ Done                       ║
+    ║  contact.html  ✅ Done  ← ALL PAGES COMPLETE ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Contact Sajjadur Rahman — reach out via WhatsApp, email, or the contact form for manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting enquiries."/>
+  <title>Contact — Sajjadur Rahman</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+
+    /* ══════════════════════════════════
+       CONTACT LAYOUT
+       ══════════════════════════════════ */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ══════════════════════════════════
+       FORM
+       ══════════════════════════════════ */
+    .form-section-title {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .form-section-title em { font-style: italic; color: var(--gold); }
+    .form-section-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .contact-form {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .form-group label .req {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    /* Service select styling */
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b7e5a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    /* Submit button full-width */
+    .btn-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 22px;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* Form note */
+    .form-note {
+      font-size: 12px;
+      color: var(--text-light);
+      font-style: italic;
+      text-align: center;
+      margin-top: 12px;
+    }
+    .form-note a { color: var(--gold); border-bottom: 1px solid var(--gold-pale); }
+
+    /* ══════════════════════════════════
+       CONTACT SIDEBAR
+       ══════════════════════════════════ */
+    .contact-sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+    /* WhatsApp hero card */
+    .wa-card {
+      background: var(--ink-soft);
+      border-radius: var(--radius);
+      padding: 26px;
+      text-align: center;
+    }
+    .wa-card .wa-icon {
+      font-size: 44px;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .wa-card h3 {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 6px;
+    }
+    .wa-card h3 em { font-style: italic; color: var(--gold); }
+    .wa-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25d366;
+      color: var(--white);
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 13px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      width: 100%;
+    }
+    .btn-wa:hover { background: #1da851; transform: translateY(-1px); }
+
+    /* Info cards */
+    .info-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow .2s, transform .15s;
+    }
+    .info-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    .ic-icon {
+      font-size: 20px;
+      width: 40px; height: 40px;
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ic-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .ic-value {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .ic-sub {
+      font-size: 11.5px;
+      color: var(--text-light);
+      font-style: italic;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Availability badge */
+    .avail-card {
+      background: rgba(90,122,74,0.07);
+      border: 0.5px solid var(--accent-light);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .avail-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(90,122,74,0.2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(90,122,74,0.2); }
+      50% { box-shadow: 0 0 0 6px rgba(90,122,74,0.1); }
+    }
+    .avail-text {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .avail-text span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 2px;
+    }
+
+    /* Response time strip */
+    .response-strip {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 13px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rs-icon { font-size: 16px; flex-shrink: 0; }
+    .rs-text {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .rs-text span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 1px;
+    }
+
+    /* ══════════════════════════════════
+       EXTERNAL PROFILES GRID
+       ══════════════════════════════════ */
+    .profiles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .profile-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      color: inherit;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+      display: block;
+    }
+    .profile-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .profile-card .pc-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+    .profile-card h4 {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .profile-card p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .profile-handle {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ══════════════════════════════════
+       FORMSPREE SETUP NOTE
+       ══════════════════════════════════ */
+    .setup-note {
+      background: var(--parchment3);
+      border: 1px dashed var(--gold-light);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+    .setup-note p {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .setup-note ol {
+      list-style: decimal;
+      padding-left: 18px;
+    }
+    .setup-note ol li {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .setup-note code {
+      font-family: monospace;
+      background: var(--parchment2);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 11px;
+      color: var(--ink-muted);
+    }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .profiles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .form-row-2 { grid-template-columns: 1fr; }
+      .contact-form { padding: 22px 18px; }
+      .profiles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    Researcher · Editor · Consultant · Dhaka, Bangladesh
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Get in Touch</span>
+        <h1>Contact</h1>
+        <p>WhatsApp is the fastest way to start. A short message describing what you need is all it takes — I respond within a few hours.</p>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         FORM + SIDEBAR
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- FORM COLUMN -->
+          <div>
+            <h2 class="form-section-title">Send an <em>Enquiry</em></h2>
+            <p class="form-section-desc">Fill in the form and I will respond within 24 hours. For faster replies, WhatsApp is always open.</p>
+
+            <!--
+              ══════════════════════════════════════════
+              FORMSPREE SETUP (for the site owner):
+              1. Go to formspree.io and create a free account
+              2. Create a new form — name it "sajjadur-rahman contact"
+              3. Copy the endpoint URL (looks like: https://formspree.io/f/xxxxxxxx)
+              4. Replace YOUR_FORMSPREE_URL below with that URL
+              5. Delete this comment block once done
+              ══════════════════════════════════════════
+            -->
+            <div class="setup-note">
+              <p>⚙️ Setup required — Formspree</p>
+              <ol>
+                <li>Go to <strong>formspree.io</strong> → sign up free</li>
+                <li>Create a new form → copy the endpoint URL</li>
+                <li>Replace <code>YOUR_FORMSPREE_URL</code> in the form action below</li>
+                <li>Delete this yellow note once done</li>
+              </ol>
+            </div>
+
+            <form id="contactForm"
+                  action="YOUR_FORMSPREE_URL"
+                  method="POST"
+                  class="contact-form">
+
+              <!-- Hidden fields for Formspree -->
+              <input type="hidden" name="_subject" value="New enquiry from sajjadur-rahman.com"/>
+              <input type="text" name="_gotcha" style="display:none;"/>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="name">
+                    Name <span class="req">*</span>
+                  </label>
+                  <input type="text" id="name" name="name"
+                         placeholder="Your full name" required/>
+                </div>
+                <div class="form-group">
+                  <label for="email">
+                    Email <span class="req">*</span>
+                  </label>
+                  <input type="email" id="email" name="email"
+                         placeholder="your@email.com" required/>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="phone">WhatsApp / Phone</label>
+                  <input type="tel" id="phone" name="phone"
+                         placeholder="+880 or international"/>
+                </div>
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <input type="text" id="country" name="country"
+                         placeholder="Bangladesh / India / UK…"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="service">
+                  Service of Interest <span class="req">*</span>
+                </label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select a service…</option>
+                  <option value="Manuscript Editing &amp; Formatting">📝 Manuscript Editing &amp; Formatting</option>
+                  <option value="Data Analysis &amp; Statistics">📊 Data Analysis &amp; Statistics</option>
+                  <option value="Thesis &amp; Dissertation Consultation">🎓 Thesis &amp; Dissertation Consultation</option>
+                  <option value="IELTS Tutoring">🗣️ IELTS Tutoring</option>
+                  <option value="CV Writing &amp; Development">📄 CV Writing &amp; Development</option>
+                  <option value="Research Proposal Writing">📋 Research Proposal Writing &amp; Guidance</option>
+                  <option value="Soil &amp; Environment Consulting">🌱 Soil &amp; Environment Consulting</option>
+                  <option value="Package — Student Launchpad">📦 Package — Student Launchpad</option>
+                  <option value="Package — Study Abroad Pack">📦 Package — Study Abroad Pack</option>
+                  <option value="Package — Quick Turnaround Pack">📦 Package — Quick Turnaround Pack</option>
+                  <option value="Research Collaboration">🔬 Research Collaboration</option>
+                  <option value="Other">Other — I'll explain below</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget">
+                  <option value="" disabled selected>Approximate budget…</option>
+                  <option value="Under ৳2,000 / $20">Under ৳2,000 / $20</option>
+                  <option value="৳2,000–5,000 / $20–50">৳2,000–5,000 / $20–50</option>
+                  <option value="৳5,000–10,000 / $50–100">৳5,000–10,000 / $50–100</option>
+                  <option value="৳10,000+ / $100+">৳10,000+ / $100+</option>
+                  <option value="Let's discuss">Let's discuss</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="deadline">Deadline or Timeline</label>
+                <input type="text" id="deadline" name="deadline"
+                       placeholder="e.g. Within 1 week, by 15 June, flexible…"/>
+              </div>
+
+              <div class="form-group">
+                <label for="message">
+                  Your Message <span class="req">*</span>
+                </label>
+                <textarea id="message" name="message" rows="5"
+                          placeholder="Describe what you need — the more detail, the better I can help. Include your topic, word count, data type, or any other relevant context."
+                          required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-submit">
+                Send Enquiry →
+              </button>
+
+              <p class="form-note">
+                Powered by <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a>.
+                Your data is never sold or shared. NDAs available on request.
+              </p>
+
+            </form>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="contact-sidebar">
+
+            <!-- Availability -->
+            <div class="avail-card">
+              <div class="avail-dot"></div>
+              <div class="avail-text">
+                Available for Projects
+                <span>Currently accepting new clients for all services. Typical turnaround confirmed within 24 hours of enquiry.</span>
+              </div>
+            </div>
+
+            <!-- WhatsApp card -->
+            <div class="wa-card">
+              <span class="wa-icon">💬</span>
+              <h3>Fastest way?<br/><em>WhatsApp.</em></h3>
+              <p>Send a short message describing what you need. I respond within a few hours — usually faster. Available in English and Bengali.</p>
+              <a href="https://wa.me/8801941582285?text=Hello%20Sajjadur%2C%20I%20found%20your%20website%20and%20I%20am%20interested%20in%20your%20services."
+                 class="btn-wa" target="_blank" rel="noopener">
+                💬 Chat on WhatsApp
+              </a>
+              <div style="margin-top:12px;font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-light);">+880 1941-582285</div>
+            </div>
+
+            <!-- Email — general -->
+            <a href="mailto:info@sajjadur-rahman.com" class="info-card">
+              <div class="ic-icon">✉️</div>
+              <div>
+                <span class="ic-label">General Email</span>
+                <span class="ic-value">info@sajjadur-rahman.com</span>
+                <span class="ic-sub">Research, collaborations, general enquiries</span>
+              </div>
+            </a>
+
+            <!-- Email — services -->
+            <a href="mailto:services@sajjadur-rahman.com" class="info-card">
+              <div class="ic-icon">📋</div>
+              <div>
+                <span class="ic-label">Services Email</span>
+                <span class="ic-value">services@sajjadur-rahman.com</span>
+                <span class="ic-sub">Manuscript editing, data analysis, CV, IELTS</span>
+              </div>
+            </a>
+
+            <!-- Location -->
+            <div class="info-card" style="cursor:default;">
+              <div class="ic-icon">📍</div>
+              <div>
+                <span class="ic-label">Location</span>
+                <span class="ic-value">Dhaka, Bangladesh</span>
+                <span class="ic-sub">GMT+6 · Online services worldwide · BD clients in-person available</span>
+              </div>
+            </div>
+
+            <!-- Response time -->
+            <div class="response-strip">
+              <span class="rs-icon">⏱️</span>
+              <div class="rs-text">
+                Typical Response Time
+                <span>WhatsApp: within hours · Email / form: within 24 hours · Project scope confirmed before any payment</span>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         EXTERNAL PROFILES
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Find Me Online</span>
+          <h2>External Profiles</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+
+        <div class="profiles-grid">
+
+          <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6"
+             class="profile-card" target="_blank" rel="noopener">
+            <span class="pc-icon">🔬</span>
+            <h4>ResearchGate</h4>
+            <p>Research profile, publications, and conference papers</p>
+            <span class="profile-handle">Sajjadur-Rahman-6</span>
+          </a>
+
+          <a href="https://orcid.org/0009-0004-5985-8105"
+             class="profile-card" target="_blank" rel="noopener">
+            <span class="pc-icon">🆔</span>
+            <h4>ORCID</h4>
+            <p>Persistent researcher identifier and publication record</p>
+            <span class="profile-handle">0009-0004-5985-8105</span>
+          </a>
+
+          <a href="https://linkedin.com/in/sajjadurrahman68"
+             class="profile-card" target="_blank" rel="noopener">
+            <span class="pc-icon">💼</span>
+            <h4>LinkedIn</h4>
+            <p>Professional profile, experience, and recommendations</p>
+            <span class="profile-handle">/in/sajjadurrahman68</span>
+          </a>
+
+          <a href="https://sajjadur-rahman.blogspot.com"
+             class="profile-card" target="_blank" rel="noopener">
+            <span class="pc-icon">✍️</span>
+            <h4>Blogger</h4>
+            <p>Bengali blog — চিন্তা, গল্প, ইতিহাস, বিজ্ঞান — 13,000+ readers</p>
+            <span class="profile-handle">sajjadur-rahman.blogspot.com</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         WHAT HAPPENS NEXT
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Process</span>
+          <h2>What Happens After You Write</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>A clear, no-obligation process from first message to delivered work.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card" style="text-align:center;">
+            <div class="card-icon">💬</div>
+            <h3>1. You Write</h3>
+            <p>Send a WhatsApp message, email, or fill the form. Describe what you need — no detailed brief required at this stage.</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div class="card-icon">🤝</div>
+            <h3>2. We Discuss</h3>
+            <p>I respond with clarifying questions, a clear scope, timeline, and price. No obligation. No payment yet.</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div class="card-icon">✅</div>
+            <h3>3. You Confirm</h3>
+            <p>You approve the scope and timeline. Advance payment made (50% for projects over ৳5,000 / $50). Work begins.</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div class="card-icon">📦</div>
+            <h3>4. Delivered</h3>
+            <p>Work delivered within the agreed timeline. One revision round included at no extra charge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         CLOSING BAND
+         ════════════════════════ -->
+    <div style="background:var(--ink-soft);padding:56px 0;" class="reveal">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+          <div>
+            <span style="font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;">Still Not Sure?</span>
+            <h2 style="font-family:var(--font-head);font-size:28px;font-weight:600;color:var(--parchment);line-height:1.2;margin-bottom:10px;">See the full list of<br/><em style="color:var(--gold);">services and pricing.</em></h2>
+            <p style="font-size:14px;color:var(--text-light);line-height:1.8;margin-bottom:24px;">Every service is explained in detail — what's included, how long it takes, and exactly what it costs. No hidden fees.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="services.html" class="btn btn-gold btn-arrow">View All Services</a>
+              <a href="https://wa.me/8801941582285" class="btn btn-white" target="_blank" rel="noopener">💬 Quick WhatsApp</a>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="background:rgba(255,255,255,0.04);border:0.5px solid rgba(200,191,160,0.18);border-radius:3px;padding:16px 20px;display:flex;align-items:center;gap:14px;">
+              <span style="font-size:20px;">📝</span>
+              <div>
+                <span style="font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);display:block;margin-bottom:2px;">Manuscript Editing</span>
+                <span style="font-size:13px;color:var(--text-light);">From $35 · 5–7 working days</span>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border:0.5px solid rgba(200,191,160,0.18);border-radius:3px;padding:16px 20px;display:flex;align-items:center;gap:14px;">
+              <span style="font-size:20px;">📊</span>
+              <div>
+                <span style="font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);display:block;margin-bottom:2px;">Data Analysis</span>
+                <span style="font-size:13px;color:var(--text-light);">From $25 · 3–5 working days</span>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border:0.5px solid rgba(200,191,160,0.18);border-radius:3px;padding:16px 20px;display:flex;align-items:center;gap:14px;">
+              <span style="font-size:20px;">⚡</span>
+              <div>
+                <span style="font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);display:block;margin-bottom:2px;">Quick Turnaround Pack</span>
+                <span style="font-size:13px;color:var(--text-light);">CV + Cover Letter + LinkedIn — $35 · 48 hrs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting services.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="research.html">Research</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Writing</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#">Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
