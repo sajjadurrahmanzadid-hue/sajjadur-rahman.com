@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="AE, RE, PE, NHI — the four nitrogen use efficiency indices every agricultural researcher needs to know. Formulas, meanings, a worked example, and the relationship between them."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="NUE indices, agronomic efficiency, recovery efficiency, physiological efficiency, nitrogen harvest index, nitrogen use efficiency, Bangladesh agriculture, rice fertilizer"/>
+  <meta property="og:title" content="Understanding NUE Indices — AE, RE, PE, and NHI Explained — Sajjadur Rahman"/>
+  <meta property="og:description" content="AE, RE, PE, NHI — the four nitrogen use efficiency indices every agricultural researcher needs to know. Formulas, a worked example, and how they connect."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-nue-indices-explained.html"/>
+  <meta property="article:published_time" content="2026-06-15"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>Understanding NUE Indices — AE, RE, PE, and NHI Explained — Sajjadur Rahman</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Raleway:wght@400;500;600;700&amp;family=Noto+Serif+Bengali:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Article hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--parchment3); border: 1.5px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name {
+      font-family: var(--font-ui); font-size: 11.5px;
+      font-weight: 700; color: var(--ink);
+      display: block; letter-spacing: 0.3px;
+    }
+    .meta-author-role {
+      font-family: var(--font-ui); font-size: 10px;
+      color: var(--text-light); display: block;
+    }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 25px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.4em 0 0.75em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 19.5px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.9em 0 0.55em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+
+    /* ── Formula blocks ── */
+    .formula-block {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 26px 30px;
+      margin: 2em 0;
+    }
+    .formula-index-name {
+      font-family: var(--font-ui);
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold-light); display: block;
+      margin-bottom: 10px;
+    }
+    .formula-full-name {
+      font-family: var(--font-head);
+      font-size: 18px; font-weight: 600;
+      color: var(--parchment); display: block;
+      margin-bottom: 18px; line-height: 1.2;
+    }
+    .formula-eq {
+      font-family: 'Georgia', 'Playfair Display', serif;
+      font-size: 15px; color: var(--gold-light);
+      background: rgba(255,255,255,0.05);
+      border: 0.5px solid rgba(200,191,160,0.2);
+      border-radius: 6px; padding: 14px 18px;
+      margin-bottom: 14px; line-height: 1.7;
+      letter-spacing: 0.2px;
+    }
+    .formula-eq .eq-numerator,
+    .formula-eq .eq-denominator {
+      display: block; text-align: center;
+    }
+    .formula-eq .eq-fraction {
+      display: inline-block; vertical-align: middle;
+      text-align: center;
+    }
+    .formula-eq .eq-top {
+      display: block; border-bottom: 1px solid var(--gold);
+      padding-bottom: 4px; margin-bottom: 4px;
+      color: var(--parchment);
+    }
+    .formula-eq .eq-bot {
+      display: block; color: var(--gold-light);
+    }
+    .formula-eq .eq-equals {
+      color: var(--gold); margin: 0 10px;
+      font-size: 18px; vertical-align: middle;
+    }
+    .formula-eq .eq-result {
+      color: var(--gold); font-size: 13px;
+      display: block; margin-top: 8px; font-style: italic;
+    }
+    .formula-unit {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-light);
+      display: inline-block; background: rgba(255,255,255,0.07);
+      border-radius: 4px; padding: 3px 8px;
+      margin-right: 8px;
+    }
+    .formula-meta { margin-bottom: 0; }
+    .formula-interpret {
+      font-size: 13.5px; color: var(--gold-light);
+      line-height: 1.65; margin-top: 10px; display: block;
+      font-style: italic;
+    }
+
+    /* ── Worked example ── */
+    .worked-example {
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      overflow: hidden; margin: 2.2em 0;
+    }
+    .we-head {
+      background: var(--parchment3);
+      padding: 12px 20px;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .we-head span {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .we-body { padding: 20px 22px; background: var(--white); }
+    .we-scenario {
+      font-family: var(--font-body); font-size: 13.5px;
+      color: var(--text-muted); line-height: 1.7;
+      margin-bottom: 18px; font-style: italic;
+    }
+
+    /* Data table for worked example */
+    .we-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--font-body); margin-bottom: 18px;
+    }
+    .we-table thead tr { background: var(--parchment2); }
+    .we-table th {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--text-muted);
+      padding: 9px 12px; text-align: left;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .we-table td {
+      font-size: 13.5px; padding: 10px 12px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      color: var(--ink-soft); vertical-align: top;
+    }
+    .we-table tr:last-child td { border-bottom: none; }
+    .we-table .num { font-family: var(--font-head); color: var(--ink); }
+
+    /* Calculation steps */
+    .calc-step {
+      background: var(--parchment2);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
+    .calc-step:last-child { margin-bottom: 0; }
+    .calc-step-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 6px;
+    }
+    .calc-step-eq {
+      font-family: 'Georgia', serif; font-size: 13.5px;
+      color: var(--ink-soft); line-height: 1.6;
+    }
+    .calc-step-result {
+      font-family: var(--font-head); font-size: 15px;
+      font-weight: 600; color: var(--gold);
+      display: block; margin-top: 4px;
+    }
+
+    /* ── Relationship diagram (HTML-based) ── */
+    .relationship-box {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 24px 26px; margin: 2.2em 0;
+    }
+    .rel-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 16px;
+    }
+    .rel-equation {
+      font-family: 'Georgia', 'Playfair Display', serif;
+      font-size: 17px; color: var(--ink);
+      text-align: center; line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .rel-equation .rel-accent { color: var(--gold); font-weight: bold; }
+    .rel-note {
+      font-size: 13.5px; color: var(--text-muted);
+      line-height: 1.7; text-align: center; font-style: italic;
+    }
+
+    /* ── Benchmark table ── */
+    .bench-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--font-body); margin: 1.4em 0;
+    }
+    .bench-table thead tr { background: var(--parchment3); }
+    .bench-table th {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--text-muted);
+      padding: 10px 14px; text-align: left;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .bench-table td {
+      font-size: 14px; padding: 12px 14px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      color: var(--ink-soft); vertical-align: top; line-height: 1.55;
+    }
+    .bench-table tr:last-child td { border-bottom: none; }
+    .bench-val {
+      font-family: var(--font-head); font-size: 15px;
+      font-weight: 600; color: var(--gold); white-space: nowrap;
+    }
+    .bench-badge {
+      display: inline-block;
+      font-family: var(--font-ui); font-size: 8px;
+      font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; padding: 3px 8px;
+      border-radius: 20px; margin-left: 6px;
+    }
+    .badge-low { background: rgba(200,191,160,0.2); color: var(--text-muted); }
+    .badge-ok  { background: rgba(90,122,74,0.12); color: var(--accent); }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 18.5px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+
+    /* ── SPADE card ── */
+    .spade-card {
+      background: var(--ink-soft); border-radius: var(--radius);
+      padding: 22px 26px; margin: 2.4em 0;
+      display: flex; gap: 18px; align-items: flex-start;
+    }
+    .spade-icon {
+      font-size: 28px; flex-shrink: 0; line-height: 1;
+    }
+    .spade-content h4 {
+      font-family: var(--font-head); font-size: 17px;
+      font-weight: 600; color: var(--parchment);
+      margin-bottom: 5px; line-height: 1.25;
+    }
+    .spade-content p {
+      font-size: 13.5px; color: var(--text-light);
+      line-height: 1.68; margin-bottom: 12px;
+    }
+    .spade-content .btn { display: inline-flex; }
+
+    /* ── Ornament ── */
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 2.8em 0; opacity: 0.55;
+    }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px;
+      text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--parchment3); border: 2px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .bio-inner h4 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink); margin-bottom: 2px;
+    }
+    .bio-role-lbl {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 10px;
+    }
+    .bio-inner p {
+      font-size: 13.5px; color: var(--text-muted);
+      line-height: 1.72; margin-bottom: 14px;
+    }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 12px; border-radius: 20px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card {
+      background: var(--white); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); overflow: hidden;
+      margin-bottom: 18px; box-shadow: var(--shadow-sm);
+    }
+    .sb-head {
+      background: var(--parchment2);
+      border-bottom: 0.5px solid var(--gold-pale);
+      padding: 11px 16px;
+    }
+    .sb-head span {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .sb-body { padding: 14px 16px; }
+
+    /* Quick ref panel */
+    .qr-item {
+      display: flex; align-items: flex-start;
+      gap: 12px; padding: 10px 0;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .qr-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .qr-abbr {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 700; color: var(--gold);
+      flex-shrink: 0; width: 40px; line-height: 1;
+      padding-top: 2px;
+    }
+    .qr-text { flex: 1; }
+    .qr-full {
+      font-family: var(--font-ui); font-size: 10px;
+      font-weight: 700; color: var(--ink); display: block;
+      margin-bottom: 2px; letter-spacing: 0.2px;
+    }
+    .qr-unit {
+      font-size: 11px; color: var(--text-muted);
+      font-style: italic; display: block;
+    }
+
+    /* TOC */
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 9px 2px;
+      font-family: var(--font-ui); font-size: 10.5px;
+      color: var(--text-muted); text-decoration: none;
+      line-height: 1.45; transition: color .18s, padding-left .18s;
+    }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+
+    /* CTA */
+    .sb-cta {
+      background: var(--ink-soft); border-radius: var(--radius);
+      padding: 20px; margin-bottom: 18px;
+    }
+    .sb-cta h4 {
+      font-family: var(--font-head); font-size: 15.5px;
+      font-weight: 600; color: var(--parchment);
+      margin-bottom: 7px; line-height: 1.35;
+    }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+
+    /* Share */
+    .share-btns { display: flex; gap: 6px; }
+    .share-b {
+      flex: 1; display: block;
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale); border-radius: var(--radius);
+      padding: 8px 4px; text-align: center; text-decoration: none;
+      background: var(--white);
+      transition: color .18s, border-color .18s, background .18s;
+    }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* Related */
+    .related-link {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale);
+      text-decoration: none; color: inherit; transition: opacity .18s;
+    }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 25px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .pull-quote p { font-size: 17px; }
+      .spade-card { flex-direction: column; gap: 12px; }
+      .formula-block { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ════ HERO ════ -->
+    <header class="article-hero">
+      <div class="container">
+
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Data Analysis &amp; Research</span>
+        </div>
+
+        <h1 class="article-h1">
+          Understanding NUE Indices —<br/><em>AE, RE, PE, and NHI Explained Clearly</em>
+        </h1>
+
+        <p class="article-deck">Four numbers sit at the heart of every fertilizer efficiency study. Most textbooks define them in a sentence. This post explains what they actually measure, how to compute them from your data, and — more usefully — what they tell you about each other.</p>
+
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · Soil, Water &amp; Environment</span>
+            </div>
+          </div>
+          <span class="meta-chip">June 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">10 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Data Analysis &amp; Research</span>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ════ BODY ════ -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- ─── PROSE ─── -->
+        <article class="article-prose" id="articleBody">
+
+          <p>In every fertilizer experiment I run — whether the BBCU slow-release study for my MSc thesis or the nano-urea pot experiment at DUNTC — I compute four efficiency indices on the final dataset. They are abbreviated AE, RE, PE, and NHI. Together, they form a diagnostic framework: not just whether a fertilizer worked, but <em>how</em> it worked, <em>where</em> the nitrogen went, and <em>which part of the plant-soil system</em> was responsible for whatever result you got.</p>
+
+          <p>If you are writing a thesis, preparing a manuscript, or analysing experimental data involving nitrogen fertilizers, you will encounter these indices. This post explains each one from first principles, shows the formulas, works through a complete numerical example, and reveals the mathematical relationship that links all four together — which is the thing most textbooks skip over.</p>
+
+          <!-- ══ Section 1 ══ -->
+          <h2 id="s1">What NUE Is — and Why One Number Isn't Enough</h2>
+
+          <p>Nitrogen Use Efficiency is a general term for how effectively applied nitrogen is converted into useful plant output. The concept is simple. The measurement is not — because "efficiency" can mean different things depending on what you are trying to optimise.</p>
+
+          <p>Is efficiency about <strong>how much extra yield the fertilizer bought you</strong> per kilogram of N applied? That is one thing. Or is it about <strong>how much of the applied N the plant actually absorbed</strong> before it could escape to the atmosphere or groundwater? That is another. Or is it about <strong>how efficiently the plant converted absorbed N into grain</strong>, as opposed to straw and stems? That is a third. And what fraction of all the N the plant absorbed ended up in the harvested grain — the part that matters to the farmer?</p>
+
+          <p>Each of these questions has its own index. None of them, alone, tells the whole story. Together, they do.</p>
+
+          <div class="pull-quote">
+            <p>"AE tells you the economic story. RE tells you the soil story. PE tells you the plant story. NHI tells you where the nitrogen ended up."</p>
+          </div>
+
+          <!-- ══ Section 2 ══ -->
+          <h2 id="s2">AE — Agronomic Efficiency</h2>
+
+          <p><strong>Agronomic Efficiency</strong> is the index farmers care about most intuitively. It asks the simplest question: for every kilogram of nitrogen I applied, how many additional kilograms of grain did I get?</p>
+
+          <div class="formula-block">
+            <span class="formula-index-name">Index 01 — AE</span>
+            <span class="formula-full-name">Agronomic Efficiency</span>
+            <div class="formula-eq">
+              <span style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <span style="font-size:14px;color:var(--gold-light);">AE</span>
+                <span class="eq-equals">=</span>
+                <span class="eq-fraction">
+                  <span class="eq-top">Grain yield<sub>fertilized</sub> − Grain yield<sub>unfertilized</sub></span>
+                  <span class="eq-bot">Quantity of N applied</span>
+                </span>
+              </span>
+              <span class="eq-result">Where all yield values are in kg/ha and N applied is in kg N/ha</span>
+            </div>
+            <div class="formula-meta">
+              <span class="formula-unit">kg grain · kg N⁻¹</span>
+              <span class="formula-interpret">How many extra kilograms of grain were produced per kilogram of nitrogen applied, compared to an unfertilized control.</span>
+            </div>
+          </div>
+
+          <p>The <strong>unfertilized control</strong> is non-negotiable. AE is always a difference — how much more grain you got compared to what the crop would have produced with no fertilizer at all. Without a control plot, you cannot calculate AE. This is why all properly designed fertilizer experiments include at least one zero-N treatment.</p>
+
+          <p>A typical AE for conventional urea in South Asian rice systems sits between 15 and 25 kg grain per kg N applied. Values below 15 often signal severe N losses — leaching, volatilisation, or denitrification consuming the fertilizer before the crop can reach it. Values above 25 suggest either very responsive crop genetics, good agronomic practices, or a low baseline yield in the control (meaning the N had more "work" to do).</p>
+
+          <p>The limitation of AE is that it doesn't tell you <em>why</em> you got the result you did. High AE could come from the plant absorbing nitrogen very efficiently, or from the plant being very good at converting absorbed nitrogen into grain. You cannot distinguish between these from AE alone — which is where RE and PE come in.</p>
+
+          <!-- ══ Section 3 ══ -->
+          <h2 id="s3">RE — Recovery Efficiency</h2>
+
+          <p><strong>Recovery Efficiency</strong> is the soil scientist's index. It asks: of all the nitrogen I applied, how much did the plant actually absorb? The rest — whatever the plant did not take up — was either lost to the environment or remained in the soil.</p>
+
+          <div class="formula-block">
+            <span class="formula-index-name">Index 02 — RE</span>
+            <span class="formula-full-name">Recovery Efficiency</span>
+            <div class="formula-eq">
+              <span style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <span style="font-size:14px;color:var(--gold-light);">RE</span>
+                <span class="eq-equals">=</span>
+                <span class="eq-fraction">
+                  <span class="eq-top">N uptake<sub>fertilized</sub> − N uptake<sub>unfertilized</sub></span>
+                  <span class="eq-bot">Quantity of N applied</span>
+                </span>
+                <span class="eq-equals">×</span>
+                <span style="color:var(--parchment);font-size:16px;">100</span>
+              </span>
+              <span class="eq-result">N uptake = total nitrogen in aboveground plant biomass (grain + straw), measured at harvest</span>
+            </div>
+            <div class="formula-meta">
+              <span class="formula-unit">% (or kg N · kg N⁻¹ × 100)</span>
+              <span class="formula-interpret">The percentage of applied nitrogen that was recovered in the aboveground biomass of the fertilized crop, above and beyond what the unfertilized control would have taken up.</span>
+            </div>
+          </div>
+
+          <p>Measuring RE requires knowing the <strong>total nitrogen in the whole aboveground plant</strong> at harvest — grain plus straw — not just the grain. This is why nitrogen analysis is done separately on grain and straw samples using Kjeldahl digestion, and the results are summed.</p>
+
+          <p>RE in Bangladeshi rice with conventional urea is typically 30–45%. That means 55–70% of applied nitrogen was never absorbed by the crop — it left via volatilisation, leaching, or denitrification (see the <a href="blog-slow-release-fertilizer.html">previous post on slow-release fertilizer</a> for why this is so high in Bangladeshi conditions). A slow-release fertilizer that raises RE from 35% to 50% has eliminated a third of the nitrogen that was previously being wasted. That is the efficiency gain worth measuring.</p>
+
+          <!-- ══ Section 4 ══ -->
+          <h2 id="s4">PE — Physiological Efficiency</h2>
+
+          <p><strong>Physiological Efficiency</strong> is the plant biologist's index. It asks: given the extra nitrogen the plant absorbed from the fertilizer, how much extra grain did it produce per unit of that absorbed nitrogen? This is entirely about what happens inside the plant — not about what happens in the soil.</p>
+
+          <div class="formula-block">
+            <span class="formula-index-name">Index 03 — PE</span>
+            <span class="formula-full-name">Physiological Efficiency</span>
+            <div class="formula-eq">
+              <span style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <span style="font-size:14px;color:var(--gold-light);">PE</span>
+                <span class="eq-equals">=</span>
+                <span class="eq-fraction">
+                  <span class="eq-top">Grain yield<sub>fertilized</sub> − Grain yield<sub>unfertilized</sub></span>
+                  <span class="eq-bot">N uptake<sub>fertilized</sub> − N uptake<sub>unfertilized</sub></span>
+                </span>
+              </span>
+              <span class="eq-result">The numerator and denominator are the same "extra" quantities from AE and RE — extra yield divided by extra N uptake</span>
+            </div>
+            <div class="formula-meta">
+              <span class="formula-unit">kg grain · kg N uptake⁻¹</span>
+              <span class="formula-interpret">How many extra kilograms of grain were produced for each additional kilogram of nitrogen the fertilized crop absorbed above the unfertilized control.</span>
+            </div>
+          </div>
+
+          <p>PE is determined largely by crop genetics and physiology — varieties bred for high harvest index tend to have higher PE because they partition more of their absorbed nitrogen into grain. It can also be influenced by growing conditions: a crop under water stress may absorb adequate nitrogen but fail to convert it to grain efficiently, showing a depressed PE despite reasonable RE.</p>
+
+          <p>In South Asian rice, PE commonly ranges from 40 to 65 kg grain per kg N uptake. When comparing fertilizer treatments in an experiment, large differences in PE between treatments are informative — they suggest the treatments are affecting internal N metabolism or grain-filling dynamics, not just soil N supply.</p>
+
+          <!-- ══ Section 5 ══ -->
+          <h2 id="s5">NHI — Nitrogen Harvest Index</h2>
+
+          <p><strong>Nitrogen Harvest Index</strong> is perhaps the most interpretively direct of the four. It asks: of all the nitrogen the plant absorbed into its aboveground biomass, what fraction ended up in the grain? The rest remained in the straw — returned to the field or removed as crop residue, but not in the harvested product.</p>
+
+          <div class="formula-block">
+            <span class="formula-index-name">Index 04 — NHI</span>
+            <span class="formula-full-name">Nitrogen Harvest Index</span>
+            <div class="formula-eq">
+              <span style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <span style="font-size:14px;color:var(--gold-light);">NHI</span>
+                <span class="eq-equals">=</span>
+                <span class="eq-fraction">
+                  <span class="eq-top">Nitrogen in grain</span>
+                  <span class="eq-bot">Total nitrogen in aboveground biomass (grain + straw)</span>
+                </span>
+              </span>
+              <span class="eq-result">Unlike AE, RE, and PE, NHI does not require subtraction from the control — it is calculated within each treatment independently</span>
+            </div>
+            <div class="formula-meta">
+              <span class="formula-unit">ratio (0–1) or %</span>
+              <span class="formula-interpret">The proportion of total plant nitrogen that was partitioned into the harvested grain. A higher NHI means the plant directed more of its absorbed N toward the economically useful product.</span>
+            </div>
+          </div>
+
+          <p>NHI is the one index that is computed <strong>per treatment independently</strong>, not as a difference from the control. You simply divide the nitrogen in the grain by the total nitrogen in grain plus straw. For rice, typical values are 0.55–0.70 (55–70%), meaning 55 to 70% of the plant's nitrogen ends up in the grain and the rest remains in the straw and stems.</p>
+
+          <p>NHI is useful for detecting whether a fertilizer treatment is altering how the plant distributes nitrogen internally. If two treatments produce similar total N uptake but one has a higher NHI, that treatment is more efficient in the sense that more of the absorbed N is in a form the farmer can sell. In my BBCU research, comparing NHI across slow-release and conventional urea treatments may reveal whether controlled nitrogen supply during grain-filling improves the partitioning of N to the grain.</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- ══ Section 6 ══ -->
+          <h2 id="s6">A Worked Example with Real Numbers</h2>
+
+          <p>Definitions are clearer with numbers. Here is a complete calculation using data typical of a Bangladesh rice experiment comparing conventional urea to an unfertilized control at a nitrogen application rate of 120 kg N/ha.</p>
+
+          <div class="worked-example">
+            <div class="we-head"><span>Worked Example — Rice, 120 kg N/ha, Bangladesh Conditions</span></div>
+            <div class="we-body">
+              <p class="we-scenario">Scenario: boro rice (Boro season, conventional urea) in a CRD pot experiment with 3 replications. N applied = 120 kg N/ha. Measurements at harvest: grain yield, total N in grain, total N in straw. All values are plot means.</p>
+              <table class="we-table">
+                <thead>
+                  <tr>
+                    <th>Measurement</th>
+                    <th>Fertilized (120 kg N/ha)</th>
+                    <th>Unfertilized control (0 N)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Grain yield</td>
+                    <td><span class="num">6,200 kg/ha</span></td>
+                    <td><span class="num">3,800 kg/ha</span></td>
+                  </tr>
+                  <tr>
+                    <td>N in grain</td>
+                    <td><span class="num">47 kg N/ha</span></td>
+                    <td><span class="num">20 kg N/ha</span></td>
+                  </tr>
+                  <tr>
+                    <td>N in straw</td>
+                    <td><span class="num">31 kg N/ha</span></td>
+                    <td><span class="num">12 kg N/ha</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Total N uptake</strong> (grain + straw)</td>
+                    <td><span class="num">78 kg N/ha</span></td>
+                    <td><span class="num">32 kg N/ha</span></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="calc-step">
+                <span class="calc-step-label">AE — Agronomic Efficiency</span>
+                <span class="calc-step-eq">(6,200 − 3,800) ÷ 120 = 2,400 ÷ 120</span>
+                <span class="calc-step-result">AE = 20 kg grain · kg N⁻¹</span>
+              </div>
+
+              <div class="calc-step">
+                <span class="calc-step-label">RE — Recovery Efficiency</span>
+                <span class="calc-step-eq">(78 − 32) ÷ 120 × 100 = 46 ÷ 120 × 100</span>
+                <span class="calc-step-result">RE = 38.3%</span>
+              </div>
+
+              <div class="calc-step">
+                <span class="calc-step-label">PE — Physiological Efficiency</span>
+                <span class="calc-step-eq">(6,200 − 3,800) ÷ (78 − 32) = 2,400 ÷ 46</span>
+                <span class="calc-step-result">PE = 52.2 kg grain · kg N uptake⁻¹</span>
+              </div>
+
+              <div class="calc-step">
+                <span class="calc-step-label">NHI — Nitrogen Harvest Index (fertilized treatment only)</span>
+                <span class="calc-step-eq">47 ÷ (47 + 31) = 47 ÷ 78</span>
+                <span class="calc-step-result">NHI = 0.60 (60%)</span>
+              </div>
+            </div>
+          </div>
+
+          <p>Reading these four numbers together: the crop recovered 38% of applied nitrogen (RE), converted each absorbed kilogram into 52 kg of grain (PE), directed 60% of that absorbed N into the grain (NHI), and delivered 20 kg of extra grain per kilogram of N applied overall (AE). Each number adds a dimension the others cannot provide.</p>
+
+          <!-- ══ Section 7 ══ -->
+          <h2 id="s7">The Mathematical Relationship Between AE, RE, and PE</h2>
+
+          <p>This is the part textbooks usually omit, but it is genuinely useful. AE is not independent of RE and PE — it is their product:</p>
+
+          <div class="relationship-box">
+            <span class="rel-label">The Fundamental Identity</span>
+            <div class="rel-equation">
+              <span class="rel-accent">AE</span> = <span class="rel-accent">RE</span> × <span class="rel-accent">PE</span> ÷ 100
+            </div>
+            <p class="rel-note">Verification with the worked example: 38.3 × 52.2 ÷ 100 = <strong>20.0</strong> ✓</p>
+          </div>
+
+          <p>This identity is more than a mathematical curiosity. It turns your results into a <strong>diagnosis</strong>. If two fertilizer treatments produce the same AE but through different combinations of RE and PE, the agronomic intervention required to improve each one is different:</p>
+
+          <p>Low AE from <strong>low RE</strong> → the problem is in the soil. Nitrogen is escaping before the plant can absorb it. The solution is better placement, split application, or slow-release coating to reduce losses. This is precisely the problem my BBCU research targets.</p>
+
+          <p>Low AE from <strong>low PE</strong> → the problem is in the plant. The crop is absorbing nitrogen but failing to convert it into grain — possibly due to water stress during grain-filling, disease pressure, or suboptimal variety. Improving RE will not help if PE is the constraint.</p>
+
+          <p>When you report AE alone, you cannot distinguish between these two scenarios. When you report all three, you can.</p>
+
+          <!-- ══ Section 8 ══ -->
+          <h2 id="s8">Benchmark Values for South Asian Rice</h2>
+
+          <p>These ranges are drawn from the published literature on boro and aman rice in Bangladesh, India, and comparable systems. They are not hard thresholds — variety, season, soil type, and management all shift the ranges — but they provide a useful reference frame for interpreting your results.</p>
+
+          <table class="bench-table">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>Typical range — conventional urea</th>
+                <th>What a low value suggests</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>AE</strong></td>
+                <td><span class="bench-val">15–25</span> kg grain · kg N⁻¹ <span class="bench-badge badge-low">Below 15 = poor</span></td>
+                <td>High N losses, poor synchrony between N supply and crop demand</td>
+              </tr>
+              <tr>
+                <td><strong>RE</strong></td>
+                <td><span class="bench-val">30–45%</span> <span class="bench-badge badge-low">Below 30% = high losses</span></td>
+                <td>Leaching, volatilisation, or denitrification removing N before uptake</td>
+              </tr>
+              <tr>
+                <td><strong>PE</strong></td>
+                <td><span class="bench-val">40–65</span> kg grain · kg N uptake⁻¹ <span class="bench-badge badge-ok">Variety-dependent</span></td>
+                <td>Poor grain-filling, water stress, late nitrogen toxicity, or low-HI variety</td>
+              </tr>
+              <tr>
+                <td><strong>NHI</strong></td>
+                <td><span class="bench-val">0.55–0.70</span> (55–70%) <span class="bench-badge badge-ok">Relatively stable</span></td>
+                <td>N accumulating in straw; may indicate excess vegetative N at grain-filling stage</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>NHI is notably more stable across treatments than the other three indices, which is why it is sometimes used as a check on data quality: if NHI varies wildly between treatments with similar genetics and management, it often signals a measurement error in grain or straw N analysis rather than a real biological effect.</p>
+
+          <!-- ══ Section 9 ══ -->
+          <h2 id="s9">How I Use These in My Research</h2>
+
+          <p>Both of my active fertilizer experiments — the BBCU thesis at the University of Dhaka and the nano-urea pot experiment at DUNTC — use all four of these indices as primary outcome measures. The reasoning is the same in both cases: if a new fertilizer formulation improves crop performance, I want to know <em>where in the nitrogen cycle</em> the improvement came from.</p>
+
+          <p>If BBCU raises AE over conventional urea — and early data suggest it does — the next question is whether that comes from improved RE (less N lost to the environment, more reaching the plant) or from improved PE (the plant doing something different with the N it absorbs). Given that BBCU is specifically designed to slow nitrogen release and reduce early-season volatilisation and leaching, I expect the primary mechanism to be RE improvement. If PE also changes, it would suggest that a smoother, more sustained nitrogen supply is improving grain-filling — which would be an interesting secondary finding.</p>
+
+          <p>NHI gives me a quality check: if BBCU is delivering nitrogen more gradually across the season (including during the reproductive stage), I would expect the partitioning of N to grain to be maintained or improved compared to conventional urea, where a front-loaded burst of N may favour vegetative growth at the expense of grain-filling.</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- ══ SPADE card ══ -->
+          <div class="spade-card">
+            <span class="spade-icon">🐍</span>
+            <div class="spade-content">
+              <h4>Computing these indices in your own data? SPADE automates it.</h4>
+              <p>I built SPADE (Statistical Platform for Agronomic Data Evaluation) specifically to handle NUE computation for small-plot agricultural experiments. It calculates AE, RE, PE, NHI, and PFP from your raw data, runs factorial ANOVA with Tukey HSD, detects outliers, and exports publication-ready figures — all from a browser interface, no coding required. The manuscript is in preparation.</p>
+              <a href="research.html#spade" class="btn btn-gold">Learn About SPADE</a>
+            </div>
+          </div>
+
+          <!-- ══ Section 10 ══ -->
+          <h2 id="s10">A Note on PFP — the Fifth Index You'll See</h2>
+
+          <p>You will sometimes encounter a fifth index in the literature: <strong>Partial Factor Productivity (PFP)</strong>, defined as grain yield of the fertilized plot divided by the amount of N applied. Unlike AE, RE, and PE, PFP does not subtract the unfertilized control — it includes the entire yield, not just the increment attributable to the fertilizer. This makes it simpler to calculate (no control plot required) but less precise, since it conflates yield from the soil's own nitrogen reserves with yield from the applied fertilizer. PFP is common in large-scale surveys and farm-level assessments where unfertilized control plots are not practical. In controlled experiments with proper designs, AE is the more informative choice.</p>
+
+          <!-- ══ Final note ══ -->
+          <h2 id="s11">Making the Indices Work for You</h2>
+
+          <p>The four indices are not a bureaucratic reporting requirement — they are a genuine analytical tool. Used together, they allow you to locate the constraint in a nitrogen system: is the problem in the soil (N being lost before the plant can take it up, reflected in low RE)? In the plant's physiology (N being absorbed but not efficiently converted to grain, reflected in low PE)? In the partitioning of absorbed N (too much remaining in straw, reflected in low NHI)? Or in all three combined, showing up as poor AE?</p>
+
+          <p>For anyone running a fertilizer experiment in Bangladesh or a similar South Asian environment, reporting only yield and saying "the new treatment performed better" tells half a story at best. The indices tell the other half: what the fertilizer actually did, and why.</p>
+
+          <p>If you are working with this kind of data and want help with analysis, computation, or interpretation, the <a href="services.html#data">data analysis service</a> on this site is available for exactly this kind of work.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">NUE</a>
+            <a href="blog.html" class="a-tag">Data Analysis</a>
+            <a href="blog.html" class="a-tag">Fertilizer Research</a>
+            <a href="blog.html" class="a-tag">Agronomic Efficiency</a>
+            <a href="blog.html" class="a-tag">Rice</a>
+            <a href="blog.html" class="a-tag">BBCU</a>
+            <a href="blog.html" class="a-tag">SPADE</a>
+            <a href="blog.html" class="a-tag">Bangladesh</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · Soil, Water &amp; Environment · University of Dhaka</span>
+              <p>NST Fellow and soil scientist working on nitrogen use efficiency in Bangladeshi cropping systems. Developer of SPADE — open-source software for NUE computation, ANOVA, and publication-ready figures. Available for data analysis, manuscript editing, thesis guidance, and soil science consulting.</p>
+              <div class="bio-links">
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="research.html" class="bio-lnk">My Research</a>
+                <a href="services.html#data" class="bio-lnk">Data Analysis</a>
+                <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" class="bio-lnk" target="_blank" rel="noopener">ResearchGate</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- ─── SIDEBAR ─── -->
+        <aside class="article-sidebar">
+
+          <!-- Quick reference panel -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Quick Reference</span></div>
+            <div class="sb-body">
+              <div class="qr-item">
+                <span class="qr-abbr">AE</span>
+                <div class="qr-text">
+                  <span class="qr-full">Agronomic Efficiency</span>
+                  <span class="qr-unit">kg grain · kg N applied⁻¹</span>
+                </div>
+              </div>
+              <div class="qr-item">
+                <span class="qr-abbr">RE</span>
+                <div class="qr-text">
+                  <span class="qr-full">Recovery Efficiency</span>
+                  <span class="qr-unit">% of applied N in biomass</span>
+                </div>
+              </div>
+              <div class="qr-item">
+                <span class="qr-abbr">PE</span>
+                <div class="qr-text">
+                  <span class="qr-full">Physiological Efficiency</span>
+                  <span class="qr-unit">kg grain · kg N uptake⁻¹</span>
+                </div>
+              </div>
+              <div class="qr-item">
+                <span class="qr-abbr">NHI</span>
+                <div class="qr-text">
+                  <span class="qr-full">Nitrogen Harvest Index</span>
+                  <span class="qr-unit">ratio 0–1 (grain N ÷ total N)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1" class="toc-link"><span class="toc-n">01</span>Why One Number Isn't Enough</a></li>
+                <li><a href="#s2" class="toc-link"><span class="toc-n">02</span>AE — Agronomic Efficiency</a></li>
+                <li><a href="#s3" class="toc-link"><span class="toc-n">03</span>RE — Recovery Efficiency</a></li>
+                <li><a href="#s4" class="toc-link"><span class="toc-n">04</span>PE — Physiological Efficiency</a></li>
+                <li><a href="#s5" class="toc-link"><span class="toc-n">05</span>NHI — Nitrogen Harvest Index</a></li>
+                <li><a href="#s6" class="toc-link"><span class="toc-n">06</span>Worked Example</a></li>
+                <li><a href="#s7" class="toc-link"><span class="toc-n">07</span>The Relationship: AE = RE × PE</a></li>
+                <li><a href="#s8" class="toc-link"><span class="toc-n">08</span>Benchmark Values</a></li>
+                <li><a href="#s9" class="toc-link"><span class="toc-n">09</span>How I Use These</a></li>
+                <li><a href="#s10" class="toc-link"><span class="toc-n">10</span>A Note on PFP</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Data analysis CTA -->
+          <div class="sb-cta">
+            <h4>Need help with <em>NUE analysis?</em></h4>
+            <p>I run NUE computations, ANOVA, and produce publication-ready figures for fertilizer experiments. Fast turnaround, detailed report included.</p>
+            <a href="services.html#data" class="btn btn-gold">
+              Data Analysis Service →
+            </a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=Understanding%20NUE%20Indices%20%E2%80%94%20AE%2C%20RE%2C%20PE%2C%20and%20NHI%20Explained%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-nue-indices-explained.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-nue-indices-explained.html"
+                   target="_blank" rel="noopener">LinkedIn</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=AE%2C%20RE%2C%20PE%2C%20NHI%20%E2%80%94%20the%20four%20NUE%20indices%20every%20agricultural%20researcher%20needs%20to%20know&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-nue-indices-explained.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-slow-release-fertilizer.html" class="related-link">
+                <span class="rel-icon">🌱</span>
+                <span class="rel-title">What is slow-release fertilizer and why does Bangladesh need it?</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">🐍</span>
+                <span class="rel-title">I built SPADE — an open-source NUE analysis tool. Here's how and why.</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">📊</span>
+                <span class="rel-title">SPSS vs R vs Python for agricultural data analysis — which should you use?</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a>
+          <a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a>
+          <a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Reading progress bar
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    // Smooth TOC scroll + active highlight
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sectionIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11'];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+  </script>
+
+</body>
+</html>
