@@ -590,7 +590,7 @@
           Understanding NUE Indices —<br/><em>AE, RE, PE, and NHI Explained Clearly</em>
         </h1>
 
-        <p class="article-deck">Four numbers sit at the heart of every fertilizer efficiency study. Most textbooks define them in a sentence. This post explains what they actually measure, how to compute them from your data, and — more usefully — what they tell you about each other.</p>
+        <p class="article-deck">Four numbers sit at the heart of every fertilizer efficiency study. Most textbooks define them in a sentence. This post explains what they actually measure, how to compute them from your data, and, more usefully, what they tell you about each other.</p>
 
         <div class="article-meta-bar">
           <div class="meta-author-block">
@@ -617,16 +617,16 @@
         <!-- ─── PROSE ─── -->
         <article class="article-prose" id="articleBody">
 
-          <p>In every fertilizer experiment I run — whether the BBCU slow-release study for my MSc thesis or the nano-urea pot experiment at DUNTC — I compute four efficiency indices on the final dataset. They are abbreviated AE, RE, PE, and NHI. Together, they form a diagnostic framework: not just whether a fertilizer worked, but <em>how</em> it worked, <em>where</em> the nitrogen went, and <em>which part of the plant-soil system</em> was responsible for whatever result you got.</p>
+          <p>In every fertilizer experiment I run, whether the BBCU slow-release study for my MSc thesis or the nano-urea pot experiment at DUNTC, I compute four efficiency indices on the final dataset. They are abbreviated AE, RE, PE, and NHI. Together, they form a diagnostic framework: not just whether a fertilizer worked, but <em>how</em> it worked, <em>where</em> the nitrogen went, and <em>which part of the plant-soil system</em> was responsible for whatever result you got.</p>
 
-          <p>If you are writing a thesis, preparing a manuscript, or analysing experimental data involving nitrogen fertilizers, you will encounter these indices. This post explains each one from first principles, shows the formulas, works through a complete numerical example, and reveals the mathematical relationship that links all four together — which is the thing most textbooks skip over.</p>
+          <p>If you are writing a thesis, preparing a manuscript, or analysing experimental data involving nitrogen fertilizers, you will encounter these indices. This post explains each one from first principles, shows the formulas, works through a complete numerical example, and reveals the mathematical relationship that links all four together, which is what most textbooks skip over.</p>
 
           <!-- ══ Section 1 ══ -->
           <h2 id="s1">What NUE Is — and Why One Number Isn't Enough</h2>
 
-          <p>Nitrogen Use Efficiency is a general term for how effectively applied nitrogen is converted into useful plant output. The concept is simple. The measurement is not — because "efficiency" can mean different things depending on what you are trying to optimise.</p>
+          <p>Nitrogen Use Efficiency is a general term for how effectively applied nitrogen is converted into useful plant output. The concept is simple. The measurement is not simple, because "efficiency" can mean different things depending on what you are trying to optimise.</p>
 
-          <p>Is efficiency about <strong>how much extra yield the fertilizer bought you</strong> per kilogram of N applied? That is one thing. Or is it about <strong>how much of the applied N the plant actually absorbed</strong> before it could escape to the atmosphere or groundwater? That is another. Or is it about <strong>how efficiently the plant converted absorbed N into grain</strong>, as opposed to straw and stems? That is a third. And what fraction of all the N the plant absorbed ended up in the harvested grain — the part that matters to the farmer?</p>
+          <p>Is efficiency about <strong>how much extra yield the fertilizer bought you</strong> per kilogram of N applied? That is one thing. Or is it about <strong>how much of the applied N the plant actually absorbed</strong> before it could escape to the atmosphere or groundwater? That is another. Or is it about <strong>how efficiently the plant converted absorbed N into grain</strong>, as opposed to straw and stems? That is a third. And what fraction of all the N the plant absorbed ended up in the harvested grain (the part that matters to the farmer)?</p>
 
           <p>Each of these questions has its own index. None of them, alone, tells the whole story. Together, they do.</p>
 
@@ -659,16 +659,16 @@
             </div>
           </div>
 
-          <p>The <strong>unfertilized control</strong> is non-negotiable. AE is always a difference — how much more grain you got compared to what the crop would have produced with no fertilizer at all. Without a control plot, you cannot calculate AE. This is why all properly designed fertilizer experiments include at least one zero-N treatment.</p>
+          <p>The <strong>unfertilized control</strong> is non-negotiable. AE is always a difference: how much more grain you got compared to what the crop would have produced with no fertilizer at all. Without a control plot, you cannot calculate AE. This is why all properly designed fertilizer experiments include at least one zero-N treatment.</p>
 
-          <p>A typical AE for conventional urea in South Asian rice systems sits between 15 and 25 kg grain per kg N applied. Values below 15 often signal severe N losses — leaching, volatilisation, or denitrification consuming the fertilizer before the crop can reach it. Values above 25 suggest either very responsive crop genetics, good agronomic practices, or a low baseline yield in the control (meaning the N had more "work" to do).</p>
+          <p>A typical AE for conventional urea in South Asian rice systems sits between 15 and 25 kg grain per kg N applied. Values below 15 often signal severe N losses: leaching, volatilisation, or denitrification consuming the fertilizer before the crop can reach it. Values above 25 suggest either very responsive crop genetics, good agronomic practices, or a low baseline yield in the control (meaning the N had more "work" to do).</p>
 
-          <p>The limitation of AE is that it doesn't tell you <em>why</em> you got the result you did. High AE could come from the plant absorbing nitrogen very efficiently, or from the plant being very good at converting absorbed nitrogen into grain. You cannot distinguish between these from AE alone — which is where RE and PE come in.</p>
+          <p>The limitation of AE is that it doesn't tell you <em>why</em> you got the result you did. High AE could come from the plant absorbing nitrogen very efficiently, or from the plant being very good at converting absorbed nitrogen into grain. You cannot distinguish between these from AE alone, which is where RE and PE come in.</p>
 
           <!-- ══ Section 3 ══ -->
           <h2 id="s3">RE — Recovery Efficiency</h2>
 
-          <p><strong>Recovery Efficiency</strong> is the soil scientist's index. It asks: of all the nitrogen I applied, how much did the plant actually absorb? The rest — whatever the plant did not take up — was either lost to the environment or remained in the soil.</p>
+          <p><strong>Recovery Efficiency</strong> is the soil scientist's index. It asks: of all the nitrogen I applied, how much did the plant actually absorb? The rest (whatever the plant did not take up) was either lost to the environment or stayed in the soil.</p>
 
           <div class="formula-block">
             <span class="formula-index-name">Index 02 — RE</span>
@@ -692,14 +692,14 @@
             </div>
           </div>
 
-          <p>Measuring RE requires knowing the <strong>total nitrogen in the whole aboveground plant</strong> at harvest — grain plus straw — not just the grain. This is why nitrogen analysis is done separately on grain and straw samples using Kjeldahl digestion, and the results are summed.</p>
+          <p>Measuring RE requires knowing the <strong>total nitrogen in the whole aboveground plant</strong> at harvest (grain plus straw), not just the grain. This is why nitrogen analysis is done separately on grain and straw samples using Kjeldahl digestion, and the results are summed.</p>
 
-          <p>RE in Bangladeshi rice with conventional urea is typically 30–45%. That means 55–70% of applied nitrogen was never absorbed by the crop — it left via volatilisation, leaching, or denitrification (see the <a href="blog-slow-release-fertilizer.html">previous post on slow-release fertilizer</a> for why this is so high in Bangladeshi conditions). A slow-release fertilizer that raises RE from 35% to 50% has eliminated a third of the nitrogen that was previously being wasted. That is the efficiency gain worth measuring.</p>
+          <p>RE in Bangladeshi rice with conventional urea is typically 30–45%. That means 55–70% of applied nitrogen was never absorbed by the crop. It left via volatilisation, leaching, or denitrification (see the <a href="blog-slow-release-fertilizer.html">previous post on slow-release fertilizer</a> for why this is so high in Bangladeshi conditions). A slow-release fertilizer that raises RE from 35% to 50% has eliminated a third of the nitrogen that was previously being wasted. That is the efficiency gain worth measuring.</p>
 
           <!-- ══ Section 4 ══ -->
           <h2 id="s4">PE — Physiological Efficiency</h2>
 
-          <p><strong>Physiological Efficiency</strong> is the plant biologist's index. It asks: given the extra nitrogen the plant absorbed from the fertilizer, how much extra grain did it produce per unit of that absorbed nitrogen? This is entirely about what happens inside the plant — not about what happens in the soil.</p>
+          <p><strong>Physiological Efficiency</strong> is the plant biologist's index. It asks: given the extra nitrogen the plant absorbed from the fertilizer, how much extra grain did it produce per unit of that absorbed nitrogen? This is entirely about what happens inside the plant, not what happens in the soil.</p>
 
           <div class="formula-block">
             <span class="formula-index-name">Index 03 — PE</span>
@@ -721,14 +721,14 @@
             </div>
           </div>
 
-          <p>PE is determined largely by crop genetics and physiology — varieties bred for high harvest index tend to have higher PE because they partition more of their absorbed nitrogen into grain. It can also be influenced by growing conditions: a crop under water stress may absorb adequate nitrogen but fail to convert it to grain efficiently, showing a depressed PE despite reasonable RE.</p>
+          <p>PE is determined largely by crop genetics and physiology. Varieties bred for high harvest index tend to have higher PE because they partition more of their absorbed nitrogen into grain. It can also be influenced by growing conditions: a crop under water stress may absorb adequate nitrogen but fail to convert it to grain efficiently, showing a depressed PE despite reasonable RE.</p>
 
-          <p>In South Asian rice, PE commonly ranges from 40 to 65 kg grain per kg N uptake. When comparing fertilizer treatments in an experiment, large differences in PE between treatments are informative — they suggest the treatments are affecting internal N metabolism or grain-filling dynamics, not just soil N supply.</p>
+          <p>In South Asian rice, PE commonly ranges from 40 to 65 kg grain per kg N uptake. When comparing fertilizer treatments in an experiment, large differences in PE between treatments are informative: they suggest the treatments are affecting internal N metabolism or grain-filling dynamics, not just soil N supply.</p>
 
           <!-- ══ Section 5 ══ -->
           <h2 id="s5">NHI — Nitrogen Harvest Index</h2>
 
-          <p><strong>Nitrogen Harvest Index</strong> is perhaps the most interpretively direct of the four. It asks: of all the nitrogen the plant absorbed into its aboveground biomass, what fraction ended up in the grain? The rest remained in the straw — returned to the field or removed as crop residue, but not in the harvested product.</p>
+          <p><strong>Nitrogen Harvest Index</strong> is the most interpretively direct of the four. It asks: of all the nitrogen the plant absorbed into its aboveground biomass, what fraction ended up in the grain? The rest remained in the straw, returned to the field or removed as crop residue, but not in the harvested product.</p>
 
           <div class="formula-block">
             <span class="formula-index-name">Index 04 — NHI</span>
@@ -828,7 +828,7 @@
           <!-- ══ Section 7 ══ -->
           <h2 id="s7">The Mathematical Relationship Between AE, RE, and PE</h2>
 
-          <p>This is the part textbooks usually omit, but it is genuinely useful. AE is not independent of RE and PE — it is their product:</p>
+          <p>This is the part textbooks usually omit, but it is genuinely useful. AE is not independent of RE and PE. It is their product:</p>
 
           <div class="relationship-box">
             <span class="rel-label">The Fundamental Identity</span>
@@ -842,14 +842,14 @@
 
           <p>Low AE from <strong>low RE</strong> → the problem is in the soil. Nitrogen is escaping before the plant can absorb it. The solution is better placement, split application, or slow-release coating to reduce losses. This is precisely the problem my BBCU research targets.</p>
 
-          <p>Low AE from <strong>low PE</strong> → the problem is in the plant. The crop is absorbing nitrogen but failing to convert it into grain — possibly due to water stress during grain-filling, disease pressure, or suboptimal variety. Improving RE will not help if PE is the constraint.</p>
+          <p>Low AE from <strong>low PE</strong> → the problem is in the plant. The crop is absorbing nitrogen but failing to convert it into grain, possibly due to water stress during grain-filling, disease pressure, or suboptimal variety. Improving RE will not help if PE is the constraint.</p>
 
           <p>When you report AE alone, you cannot distinguish between these two scenarios. When you report all three, you can.</p>
 
           <!-- ══ Section 8 ══ -->
           <h2 id="s8">Benchmark Values for South Asian Rice</h2>
 
-          <p>These ranges are drawn from the published literature on boro and aman rice in Bangladesh, India, and comparable systems. They are not hard thresholds — variety, season, soil type, and management all shift the ranges — but they provide a useful reference frame for interpreting your results.</p>
+          <p>These ranges are drawn from the published literature on boro and aman rice in Bangladesh, India, and comparable systems. They are not hard thresholds. Variety, season, soil type, and management all shift the ranges, but they provide a useful reference frame for interpreting your results.</p>
 
           <table class="bench-table">
             <thead>
@@ -888,9 +888,9 @@
           <!-- ══ Section 9 ══ -->
           <h2 id="s9">How I Use These in My Research</h2>
 
-          <p>Both of my active fertilizer experiments — the BBCU thesis at the University of Dhaka and the nano-urea pot experiment at DUNTC — use all four of these indices as primary outcome measures. The reasoning is the same in both cases: if a new fertilizer formulation improves crop performance, I want to know <em>where in the nitrogen cycle</em> the improvement came from.</p>
+          <p>Both of my active fertilizer experiments (the BBCU thesis at the University of Dhaka and the nano-urea pot experiment at DUNTC) use all four of these indices as primary outcome measures. The reasoning is the same in both cases: if a new fertilizer formulation improves crop performance, I want to know <em>where in the nitrogen cycle</em> the improvement came from.</p>
 
-          <p>If BBCU raises AE over conventional urea — and early data suggest it does — the next question is whether that comes from improved RE (less N lost to the environment, more reaching the plant) or from improved PE (the plant doing something different with the N it absorbs). Given that BBCU is specifically designed to slow nitrogen release and reduce early-season volatilisation and leaching, I expect the primary mechanism to be RE improvement. If PE also changes, it would suggest that a smoother, more sustained nitrogen supply is improving grain-filling — which would be an interesting secondary finding.</p>
+          <p>If BBCU raises AE over conventional urea (early data suggest it does), the next question is whether that comes from improved RE (less N lost to the environment, more reaching the plant) or from improved PE (the plant doing something different with the N it absorbs). Given that BBCU is specifically designed to slow nitrogen release and reduce early-season volatilisation and leaching, I expect the primary mechanism to be RE improvement. If PE also changes, it would suggest that a smoother, more sustained nitrogen supply is improving grain-filling, which would be an interesting secondary finding.</p>
 
           <p>NHI gives me a quality check: if BBCU is delivering nitrogen more gradually across the season (including during the reproductive stage), I would expect the partitioning of N to grain to be maintained or improved compared to conventional urea, where a front-loaded burst of N may favour vegetative growth at the expense of grain-filling.</p>
 
@@ -901,7 +901,7 @@
             <span class="spade-icon">🐍</span>
             <div class="spade-content">
               <h4>Computing these indices in your own data? SPADE automates it.</h4>
-              <p>I built SPADE (Statistical Platform for Agronomic Data Evaluation) specifically to handle NUE computation for small-plot agricultural experiments. It calculates AE, RE, PE, NHI, and PFP from your raw data, runs factorial ANOVA with Tukey HSD, detects outliers, and exports publication-ready figures — all from a browser interface, no coding required. The manuscript is in preparation.</p>
+              <p>I built SPADE (Statistical Platform for Agronomic Data Evaluation) specifically to handle NUE computation for small-plot agricultural experiments. It calculates AE, RE, PE, NHI, and PFP from your raw data, runs factorial ANOVA with Tukey HSD, detects outliers, and exports publication-ready figures, all from a browser interface, no coding required. The manuscript is in preparation.</p>
               <a href="research.html#spade" class="btn btn-gold">Learn About SPADE</a>
             </div>
           </div>
@@ -909,12 +909,12 @@
           <!-- ══ Section 10 ══ -->
           <h2 id="s10">A Note on PFP — the Fifth Index You'll See</h2>
 
-          <p>You will sometimes encounter a fifth index in the literature: <strong>Partial Factor Productivity (PFP)</strong>, defined as grain yield of the fertilized plot divided by the amount of N applied. Unlike AE, RE, and PE, PFP does not subtract the unfertilized control — it includes the entire yield, not just the increment attributable to the fertilizer. This makes it simpler to calculate (no control plot required) but less precise, since it conflates yield from the soil's own nitrogen reserves with yield from the applied fertilizer. PFP is common in large-scale surveys and farm-level assessments where unfertilized control plots are not practical. In controlled experiments with proper designs, AE is the more informative choice.</p>
+          <p>You will sometimes encounter a fifth index in the literature: <strong>Partial Factor Productivity (PFP)</strong>, defined as grain yield of the fertilized plot divided by the amount of N applied. Unlike AE, RE, and PE, PFP does not subtract the unfertilized control. It includes the entire yield, not just the increment attributable to the fertilizer. This makes it simpler to calculate (no control plot required) but less precise, since it conflates yield from the soil's own nitrogen reserves with yield from the applied fertilizer. PFP is common in large-scale surveys and farm-level assessments where unfertilized control plots are not practical. In controlled experiments with proper designs, AE is the more informative choice.</p>
 
           <!-- ══ Final note ══ -->
           <h2 id="s11">Making the Indices Work for You</h2>
 
-          <p>The four indices are not a bureaucratic reporting requirement — they are a genuine analytical tool. Used together, they allow you to locate the constraint in a nitrogen system: is the problem in the soil (N being lost before the plant can take it up, reflected in low RE)? In the plant's physiology (N being absorbed but not efficiently converted to grain, reflected in low PE)? In the partitioning of absorbed N (too much remaining in straw, reflected in low NHI)? Or in all three combined, showing up as poor AE?</p>
+          <p>The four indices are not a bureaucratic reporting requirement. They are an analytical tool. Used together, they allow you to locate the constraint in a nitrogen system: is the problem in the soil (N being lost before the plant can take it up, reflected in low RE)? In the plant's physiology (N being absorbed but not efficiently converted to grain, reflected in low PE)? In the partitioning of absorbed N (too much remaining in straw, reflected in low NHI)? Or in all three combined, showing up as poor AE?</p>
 
           <p>For anyone running a fertilizer experiment in Bangladesh or a similar South Asian environment, reporting only yield and saying "the new treatment performed better" tells half a story at best. The indices tell the other half: what the fertilizer actually did, and why.</p>
 
