@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bangladesh loses up to 60% of applied urea nitrogen before crops can use it. Slow-release fertilizers change that equation — and local materials may hold the answer. By Sajjadur Rahman, MSc Researcher."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="slow release fertilizer Bangladesh, BBCU, nitrogen use efficiency, urea loss, rice farming Bangladesh, soil science"/>
+  <meta property="og:title" content="What is Slow-Release Fertilizer and Why Does Bangladesh Need It? — Sajjadur Rahman"/>
+  <meta property="og:description" content="Bangladesh loses up to 60% of applied urea nitrogen before crops can use it. Slow-release fertilizers change that equation."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-slow-release-fertilizer.html"/>
+  <meta property="article:published_time" content="2026-06-01"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>What is Slow-Release Fertilizer and Why Does Bangladesh Need It? — Sajjadur Rahman</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Raleway:wght@400;500;600;700&amp;family=Noto+Serif+Bengali:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ══════════════════════════════════════
+       READING PROGRESS BAR
+       ══════════════════════════════════════ */
+    .read-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--gold);
+      z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ══════════════════════════════════════
+       ARTICLE HERO
+       ══════════════════════════════════════ */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 440px; height: 440px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.16;
+      letter-spacing: -0.4px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      color: var(--text-muted);
+      line-height: 1.78;
+      font-style: italic;
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .meta-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--parchment3);
+      border: 1.5px solid var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .meta-author-name {
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ink);
+      display: block;
+      letter-spacing: 0.3px;
+    }
+    .meta-author-role {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      color: var(--text-light);
+      display: block;
+    }
+    .meta-chip {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      color: var(--text-light);
+      letter-spacing: 0.3px;
+    }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ══════════════════════════════════════
+       BODY LAYOUT: prose + sidebar
+       ══════════════════════════════════════ */
+    .article-wrap { padding: 60px 0 80px; }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 288px;
+      gap: 60px;
+      align-items: start;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ══════════════════════════════════════
+       PROSE
+       ══════════════════════════════════════ */
+    .article-prose {
+      font-family: var(--font-body);
+      font-size: 16.5px;
+      color: var(--ink-soft);
+      line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+
+    .article-prose h2 {
+      font-family: var(--font-head);
+      font-size: 25px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.28;
+      margin: 2.4em 0 0.75em;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .article-prose h3 {
+      font-family: var(--font-head);
+      font-size: 19.5px;
+      font-weight: 600;
+      color: var(--ink);
+      font-style: italic;
+      margin: 1.9em 0 0.55em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px;
+      margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head);
+      font-size: 18.5px;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin-bottom: 0 !important;
+    }
+
+    /* Key facts / callout box */
+    .fact-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 22px 26px;
+      margin: 2.2em 0;
+    }
+    .fact-box-label {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .fact-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .fact-box li {
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .fact-box li:last-child { margin-bottom: 0; }
+
+    /* Loss table */
+    .loss-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2em 0 0;
+      font-family: var(--font-body);
+    }
+    .loss-table thead tr { background: var(--parchment3); }
+    .loss-table th {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .loss-table td {
+      font-size: 14px;
+      padding: 12px 14px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      color: var(--ink-soft);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .loss-table tr:last-child td { border-bottom: none; }
+    .loss-pct {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* Ornament divider */
+    .article-ornament {
+      text-align: center;
+      font-family: var(--font-head);
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 6px;
+      margin: 2.8em 0;
+      opacity: 0.55;
+    }
+
+    /* Article tags */
+    .article-tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 2.8em;
+      padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: var(--parchment2);
+    }
+
+    /* Author bio at foot of article */
+    .article-bio {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      margin-top: 3.2em;
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: var(--parchment3);
+      border: 2px solid var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .bio-inner h4 {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .bio-role-lbl {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .bio-inner p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.72;
+      margin-bottom: 14px;
+    }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       SIDEBAR
+       ══════════════════════════════════════ */
+    .article-sidebar { position: sticky; top: 90px; }
+
+    .sb-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .sb-head {
+      background: var(--parchment2);
+      border-bottom: 0.5px solid var(--gold-pale);
+      padding: 11px 16px;
+    }
+    .sb-head span {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sb-body { padding: 14px 16px; }
+
+    /* TOC */
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li {
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 9px 2px;
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      line-height: 1.45;
+      transition: color .18s, padding-left .18s;
+    }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-n {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+
+    /* CTA */
+    .sb-cta {
+      background: var(--ink-soft);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .sb-cta h4 {
+      font-family: var(--font-head);
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 7px;
+      line-height: 1.35;
+    }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p {
+      font-size: 12.5px;
+      color: var(--text-light);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .sb-cta .btn { display: block; text-align: center; }
+
+    /* Share */
+    .share-btns { display: flex; gap: 6px; }
+    .share-b {
+      flex: 1;
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 8px 4px;
+      text-align: center;
+      text-decoration: none;
+      background: var(--white);
+      transition: color .18s, border-color .18s, background .18s;
+    }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* Related */
+    .related-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--gold-pale);
+      text-decoration: none;
+      color: inherit;
+      transition: opacity .18s;
+    }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+        gap: 44px;
+        padding: 0 20px;
+      }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 25px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .pull-quote p { font-size: 17px; }
+    }
+    @media (max-width: 420px) {
+      .article-meta-bar { gap: 10px; }
+      .loss-table th, .loss-table td { padding: 9px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- ════════ TOP BAR ════════ -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- ════════ NAVBAR ════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════ MOBILE NAV ════════ -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ════════ ARTICLE HERO ════════ -->
+    <header class="article-hero">
+      <div class="container">
+
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span data-en>Research &amp; Science</span>
+          <span data-bn class="bn">গবেষণা ও বিজ্ঞান</span>
+        </div>
+
+        <h1 class="article-h1">
+          <span data-en>What is Slow-Release Fertilizer<br/>and <em>Why Does Bangladesh Need It?</em></span>
+          <span data-bn class="bn">ধীর-নির্গমন সার কী<br/>এবং <em>বাংলাদেশ কেন এটির প্রয়োজন?</em></span>
+        </h1>
+
+        <p class="article-deck" data-en>Bangladesh loses up to 60% of applied urea nitrogen before crops can absorb it. The problem is structural — and slow-release fertilizers, built from local materials, may be the most important solution the country hasn't yet adopted at scale.</p>
+        <p class="article-deck" data-bn class="bn">বাংলাদেশ প্রয়োগকৃত ইউরিয়া নাইট্রোজেনের ৬০% পর্যন্ত ফসল শোষণের আগেই হারায়। সমস্যাটি কাঠামোগত — এবং স্থানীয় উপকরণ থেকে তৈরি ধীর-নির্গমন সার হয়তো সেই সমাধান যা দেশটি এখনও ব্যাপকভাবে গ্রহণ করেনি।</p>
+
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">
+                <span data-en>MSc Researcher · Soil, Water &amp; Environment</span>
+                <span data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ</span>
+              </span>
+            </div>
+          </div>
+          <span class="meta-chip">
+            <span data-en>June 2026</span>
+            <span data-bn class="bn">জুন ২০২৬</span>
+          </span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">
+            <span data-en>9 min read</span>
+            <span data-bn class="bn">৯ মিনিটের পাঠ</span>
+          </span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">
+            <span data-en>Research &amp; Science</span>
+            <span data-bn class="bn">গবেষণা ও বিজ্ঞান</span>
+          </span>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ════════ ARTICLE BODY ════════ -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- ─── PROSE COLUMN ─── -->
+        <article class="article-prose" id="articleBody">
+
+          <p data-en>Every growing season, across the floodplains and char lands of Bangladesh, farmers apply urea to their rice fields. They broadcast it by hand — split into two or three doses through the growing season, dissolved quickly in the shallow standing water of the paddy. Some of it is absorbed by roots. Some volatilises as ammonia into the air. Some leaches downward into groundwater. Some is converted to nitrogen gas by waterlogged soil bacteria and lost to the atmosphere. By the time a grain of rice fills its hull, <strong>less than 40% of the nitrogen that left the farmer's hand has reached it.</strong></p>
+          <p data-bn class="bn">প্রতিটি চাষ মৌসুমে, বাংলাদেশের সমতলভূমি ও চরাঞ্চলে কৃষকরা ধানক্ষেতে ইউরিয়া প্রয়োগ করেন। হাতে ছিটিয়ে দেন — মৌসুম জুড়ে দুই বা তিন ভাগে, ধানের অগভীর দাঁড়ানো পানিতে দ্রুত দ্রবীভূত হয়। কিছুটা শিকড় শোষণ করে। কিছু অ্যামোনিয়া হিসেবে বায়ুতে উড়ে যায়। কিছু ভূগর্ভস্থ পানিতে ধুয়ে যায়। ধান তার শীষ পূর্ণ করার সময়, <strong>কৃষকের হাত থেকে যাওয়া নাইট্রোজেনের ৪০%-এরও কম সেখানে পৌঁছায়।</strong></p>
+
+          <p data-en>This is not a minor inefficiency. It is an economic haemorrhage, an environmental burden, and a food security risk — quietly compounding each year, largely unremarked. And it is precisely the problem that slow-release fertilizer technology was designed to address.</p>
+          <p data-bn class="bn">এটি কোনো ছোটখাটো অদক্ষতা নয়। এটি একটি অর্থনৈতিক ক্ষতি, একটি পরিবেশগত বোঝা এবং একটি খাদ্য নিরাপত্তা ঝুঁকি — প্রতি বছর নীরবে জমে উঠছে। আর এটিই ধীর-নির্গমন সার প্রযুক্তি মোকাবেলা করতে ডিজাইন করা হয়েছে।</p>
+
+          <!-- ── Section 1 ── -->
+          <h2 id="s1">
+            <span data-en>The Problem with Conventional Urea</span>
+            <span data-bn class="bn">প্রচলিত ইউরিয়ার সমস্যা</span>
+          </h2>
+
+          <p data-en>Urea is the world's most widely used synthetic nitrogen fertilizer. It contains 46% nitrogen by weight — the highest concentration of any solid fertilizer — and it is cheap enough to manufacture and distribute at national scale. Bangladesh imports millions of tonnes every year and subsidises it heavily to keep rice production viable. The economics make it an obvious choice. The chemistry is where the problems begin.</p>
+          <p data-bn class="bn">ইউরিয়া বিশ্বের সর্বাধিক ব্যবহৃত সিন্থেটিক নাইট্রোজেন সার। ওজনে ৪৬% নাইট্রোজেন রয়েছে এতে — যেকোনো কঠিন সারের মধ্যে সর্বোচ্চ ঘনত্ব — এবং জাতীয় পর্যায়ে উৎপাদন ও বিতরণ করা সস্তা। অর্থনীতি এটিকে স্পষ্ট পছন্দ করে। সমস্যা শুরু হয় রসায়নে।</p>
+
+          <p data-en>When urea hits moist soil, it dissolves almost immediately. Within 24 to 48 hours, an enzyme called urease — produced by soil bacteria and present in most agricultural soils — breaks it down into ammonium (NH₄⁺). Ammonium is the form of nitrogen that plants absorb most readily. But the window for uptake is short, and the conditions in Bangladeshi paddy fields are particularly hostile to keeping ammonium in the root zone:</p>
+          <p data-bn class="bn">ইউরিয়া আর্দ্র মাটিতে পড়লে প্রায় তাৎক্ষণিকভাবে দ্রবীভূত হয়। ২৪ থেকে ৪৮ ঘণ্টার মধ্যে, ইউরিয়েজ নামক একটি এনজাইম — মাটির ব্যাকটেরিয়া দ্বারা উৎপাদিত — এটিকে অ্যামোনিয়াম (NH₄⁺)-এ ভেঙে দেয়। কিন্তু শিকড়ের এলাকায় অ্যামোনিয়াম ধরে রাখার সুযোগ স্বল্প।</p>
+
+          <div class="fact-box">
+            <span class="fact-box-label" data-en>Three Pathways of Nitrogen Loss from Bangladeshi Paddy Fields</span>
+            <span class="fact-box-label" data-bn class="bn">বাংলাদেশের ধানক্ষেতে নাইট্রোজেন হ্রাসের তিনটি পথ</span>
+            <table class="loss-table">
+              <thead>
+                <tr>
+                  <th data-en>Pathway</th>
+                  <th data-bn class="bn">প্রক্রিয়া</th>
+                  <th data-en>What Happens</th>
+                  <th data-bn class="bn">কী হয়</th>
+                  <th data-en>Est. N Loss</th>
+                  <th data-bn class="bn">আনু. ক্ষতি</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-en><strong>Volatilisation</strong></td>
+                  <td data-bn class="bn"><strong>উদ্বায়ীকরণ</strong></td>
+                  <td data-en>NH₃ gas escapes from the soil surface into the atmosphere; worst in warm, alkaline, flooded conditions</td>
+                  <td data-bn class="bn">NH₃ গ্যাস মাটির পৃষ্ঠ থেকে বায়ুতে পালায়; উষ্ণ, ক্ষারীয়, প্লাবিত অবস্থায় সবচেয়ে বেশি</td>
+                  <td><span class="loss-pct">20–40%</span></td>
+                </tr>
+                <tr>
+                  <td data-en><strong>Leaching</strong></td>
+                  <td data-bn class="bn"><strong>লিচিং</strong></td>
+                  <td data-en>NO₃⁻ moves downward with heavy rain or irrigation water, past the root zone and into groundwater</td>
+                  <td data-bn class="bn">ভারী বৃষ্টি বা সেচের পানিতে NO₃⁻ শিকড়ের গভীরতার নিচে এবং ভূগর্ভস্থ পানিতে চলে যায়</td>
+                  <td><span class="loss-pct">10–25%</span></td>
+                </tr>
+                <tr>
+                  <td data-en><strong>Denitrification</strong></td>
+                  <td data-bn class="bn"><strong>ডিনাইট্রিফিকেশন</strong></td>
+                  <td data-en>Anaerobic soil bacteria convert ammonium and nitrate into N₂ and N₂O gases, lost permanently</td>
+                  <td data-bn class="bn">অবাত মাটির ব্যাকটেরিয়া অ্যামোনিয়াম ও নাইট্রেটকে N₂ ও N₂O গ্যাসে রূপান্তরিত করে, স্থায়ীভাবে হারায়</td>
+                  <td><span class="loss-pct">5–15%</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p data-en>Add these three pathways together under Bangladesh's specific conditions — monsoonal flooding, high temperatures, prolonged waterlogging in paddy — and it becomes clear why Nitrogen Use Efficiency (NUE) in Bangladeshi rice systems often sits between 30 and 40%. The rational farmer's response is to apply <em>more</em> urea to compensate. The losses compound. The costs rise. The soil acidifies from repeated high applications. And the groundwater beneath the rice bowl of Bengal carries the remainder.</p>
+          <p data-bn class="bn">বাংলাদেশের নির্দিষ্ট পরিস্থিতিতে এই তিনটি পথ যোগ করলে — মৌসুমী বন্যা, উচ্চ তাপমাত্রা, ধানে দীর্ঘস্থায়ী জলাবদ্ধতা — স্পষ্ট হয় কেন নাইট্রোজেন ব্যবহার দক্ষতা প্রায়ই ৩০-৪০%-এর মধ্যে থাকে। যুক্তিসঙ্গত কৃষকের প্রতিক্রিয়া হলো আরও বেশি ইউরিয়া প্রয়োগ করা। ক্ষতি বাড়ে। খরচ বাড়ে। মাটি অম্লীয় হয়।</p>
+
+          <!-- ── Section 2 ── -->
+          <h2 id="s2">
+            <span data-en>What Slow-Release Fertilizer Actually Is</span>
+            <span data-bn class="bn">ধীর-নির্গমন সার আসলে কী</span>
+          </h2>
+
+          <p data-en>A slow-release fertilizer — sometimes called a controlled-release fertilizer — is any product that provides a nutrient in a form that either delays its availability after application, or extends the period of supply beyond that of a conventional reference material. In practical terms: instead of delivering all its nitrogen to the soil solution within 24 hours and losing most of it before the plant can respond, it releases nitrogen gradually — steadily, week by week — in closer alignment with the actual uptake pattern of the growing crop.</p>
+          <p data-bn class="bn">একটি ধীর-নির্গমন সার হলো এমন যেকোনো পণ্য যা পুষ্টি এমন আকারে সরবরাহ করে যা প্রয়োগের পরে প্রাপ্যতা বিলম্বিত করে বা সরবরাহের সময়কাল বাড়ায়। ব্যবহারিক অর্থে: ২৪ ঘণ্টার মধ্যে সমস্ত নাইট্রোজেন মাটির দ্রবণে সরবরাহ করার পরিবর্তে, এটি ধীরে ধীরে নির্গত করে — স্থিরভাবে, সপ্তাহে সপ্তাহে।</p>
+
+          <div class="pull-quote">
+            <p data-en>"The goal is not to give the plant less nitrogen — it is to give the right amount at the right time, and waste nothing in between."</p>
+            <p data-bn class="bn">"লক্ষ্য উদ্ভিদকে কম নাইট্রোজেন দেওয়া নয় — সঠিক সময়ে সঠিক পরিমাণ দেওয়া এবং মাঝখানে কিছুই নষ্ট না করা।"</p>
+          </div>
+
+          <p data-en>There are several broad categories of slow-release technology, each working through a different mechanism:</p>
+          <p data-bn class="bn">ধীর-নির্গমন প্রযুক্তির বেশ কয়েকটি বিস্তৃত বিভাগ রয়েছে, প্রতিটি ভিন্ন পদ্ধতিতে কাজ করে:</p>
+
+          <h3 data-en>Polymer-coated fertilizers</h3>
+          <h3 data-bn class="bn">পলিমার-আবৃত সার</h3>
+          <p data-en>A thin synthetic polymer membrane encases each urea granule. Water vapour diffuses slowly through the coating, dissolves the urea inside, and it seeps outward at a controlled rate over weeks or months. These are highly effective and commercially dominant in export markets. They are also expensive — typically three to five times the price of conventional urea — because the polymer coatings are derived from petrochemicals. For the smallholder rice farmer in Sylhet or Mymensingh, they are economically out of reach.</p>
+          <p data-bn class="bn">একটি পাতলা সিন্থেটিক পলিমার ঝিল্লি প্রতিটি ইউরিয়া দানাকে ঘিরে রাখে। অত্যন্ত কার্যকর কিন্তু ব্যয়বহুল — সাধারণত প্রচলিত ইউরিয়ার তিন থেকে পাঁচ গুণ দাম। সিলেট বা ময়মনসিংহের ক্ষুদ্র ধান কৃষকের নাগালের বাইরে।</p>
+
+          <h3 data-en>Sulphur-coated urea</h3>
+          <h3 data-bn class="bn">সালফার-আবৃত ইউরিয়া</h3>
+          <p data-en>A cheaper alternative: urea granules are coated with elemental sulphur, which soil microbes gradually oxidise, releasing nitrogen over time. The sulphur itself provides a secondary nutritional benefit, as many tropical soils are sulphur-deficient. Release rates in continuously flooded paddy are, however, difficult to predict precisely — anaerobic conditions slow the microbial oxidation that drives release, making timing less reliable in Bangladeshi boro conditions.</p>
+          <p data-bn class="bn">একটি সস্তা বিকল্প: ইউরিয়া দানা মৌলিক সালফার দিয়ে আবৃত, যা মাটির অণুজীব ধীরে ধীরে জারণ করে। সালফার নিজেই গৌণ পুষ্টিগত সুবিধা প্রদান করে। তবে ক্রমাগত প্লাবিত ধানক্ষেতে নির্গমনের হার সুনির্দিষ্টভাবে পূর্বানুমান করা কঠিন।</p>
+
+          <h3 data-en>Urease and nitrification inhibitors</h3>
+          <h3 data-bn class="bn">ইউরিয়েজ ও নাইট্রিফিকেশন ইনহিবিটর</h3>
+          <p data-en>Rather than coating the urea, these chemicals are blended with it to slow down specific enzymatic or microbial reactions. NBPT (N-butyl thiophosphoric triamide) inhibits urease activity, slowing hydrolysis and reducing volatilisation. DCD (dicyandiamide) inhibits nitrification bacteria, reducing the conversion of ammonium to leachable nitrate. Both are effective; both require commercial synthesis with supply chains that can be fragile in the context of Bangladesh's import dependency.</p>
+          <p data-bn class="bn">ইউরিয়া আবৃত করার পরিবর্তে, এই রাসায়নিকগুলি মিশ্রিত করা হয় নির্দিষ্ট এনজাইমেটিক বা মাইক্রোবিয়াল প্রতিক্রিয়া ধীর করতে। কার্যকর; কিন্তু বাণিজ্যিক সংশ্লেষণ প্রয়োজন।</p>
+
+          <h3 data-en>Matrix-based biopolymer systems</h3>
+          <h3 data-bn class="bn">ম্যাট্রিক্স-ভিত্তিক বায়োপলিমার সিস্টেম</h3>
+          <p data-en>This is the approach my research follows. Instead of a thin petrochemical coating, the urea is embedded within — or adsorbed onto — a matrix of natural materials: biochar, clay minerals, biopolymers. These materials regulate nitrogen release through physical adsorption, ion exchange, and pore-mediated diffusion. The key advantage over polymer coatings is that the matrix components can frequently be sourced locally and produced at small scale, making the technology potentially viable for countries without large industrial chemical sectors.</p>
+          <p data-bn class="bn">এটিই আমার গবেষণার পদ্ধতি। পেট্রোকেমিক্যাল আবরণের পরিবর্তে, ইউরিয়া প্রাকৃতিক উপকরণের ম্যাট্রিক্সে এমবেড করা হয়: বায়োচার, কাদামাটি খনিজ, বায়োপলিমার। মূল সুবিধা: ম্যাট্রিক্স উপাদানগুলি প্রায়ই স্থানীয়ভাবে সংগ্রহ করা এবং ছোট পরিসরে উৎপাদন করা যায়।</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- ── Section 3 ── -->
+          <h2 id="s3">
+            <span data-en>Why Bangladesh, Specifically</span>
+            <span data-bn class="bn">বিশেষভাবে বাংলাদেশ কেন</span>
+          </h2>
+
+          <p data-en>Bangladesh is not unusual in using urea. It is unusual in how many factors combine to make urea so inefficient here, and how consequential the inefficiency is:</p>
+          <p data-bn class="bn">বাংলাদেশ ইউরিয়া ব্যবহারে অস্বাভাবিক নয়। অস্বাভাবিক হলো কতগুলি কারণ এখানে ইউরিয়াকে এত অদক্ষ করে তোলে:</p>
+
+          <p data-en><strong>Monsoonal flooding.</strong> Bangladesh receives some of the highest annual rainfall totals in Asia, concentrated into a few months of intense downpour. During the aman season, paddy fields are frequently submerged for extended periods, creating exactly the anaerobic, warm, shallow-water conditions that maximise ammonia volatilisation and denitrification. A farmer broadcasting urea during a rainy week may be losing half their application within days.</p>
+          <p data-bn class="bn"><strong>মৌসুমী বন্যা।</strong> বাংলাদেশ এশিয়ায় সর্বোচ্চ বার্ষিক বৃষ্টিপাতের দেশগুলির মধ্যে। আমন মৌসুমে, ধানক্ষেত দীর্ঘ সময় ডুবে থাকে, ঠিক সেই অবাত, উষ্ণ, অগভীর-জলের পরিস্থিতি তৈরি করে যা অ্যামোনিয়া উদ্বায়ীকরণ ও ডিনাইট্রিফিকেশন সর্বাধিক করে।</p>
+
+          <p data-en><strong>Above-recommended urea application rates.</strong> To compensate for losses that are experienced but not fully understood, Bangladeshi farmers routinely apply urea well above official recommendations — 200 to 250 kg N/ha in some areas, against a recommended 150–180 kg/ha. This creates a self-reinforcing cycle: more is applied to account for losses, which increases the concentration gradient driving volatilisation, which increases losses, which prompts more application.</p>
+          <p data-bn class="bn"><strong>সুপারিশের উপরে ইউরিয়া প্রয়োগ।</strong> ক্ষতি পূরণে, কৃষকরা নিয়মিত সুপারিশের উপরে ইউরিয়া প্রয়োগ করেন — কিছু এলাকায় ২০০-২৫০ কেজি N/হেক্টর, সুপারিশকৃত ১৫০-১৮০ কেজি/হেক্টরের বিপরীতে।</p>
+
+          <p data-en><strong>The economics of smallholder farming.</strong> Urea is subsidised, but it still represents a significant cash outlay for the average Bangladeshi rice farmer working two to three hectares. A technology that allows the same yield from 30 or 40% less fertilizer input is not merely an environmental benefit — it is a direct improvement to the household economics of roughly 15 million farming families.</p>
+          <p data-bn class="bn"><strong>ক্ষুদ্র চাষাবাদের অর্থনীতি।</strong> ইউরিয়া ভর্তুকিযুক্ত, তবুও গড় বাংলাদেশি ধান কৃষকের জন্য উল্লেখযোগ্য নগদ ব্যয়। ৩০-৪০% কম সার থেকে একই ফলন দেওয়ার প্রযুক্তি শুধু পরিবেশগত সুবিধা নয় — প্রায় ১৫ মিলিয়ন কৃষক পরিবারের সরাসরি অর্থনৈতিক উন্নতি।</p>
+
+          <div class="pull-quote">
+            <p data-en>"Every kilogram of nitrogen lost to denitrification releases N₂O — a greenhouse gas 273 times more potent than CO₂ over a century. Improving NUE in Bangladesh is not just agronomy. It is climate mitigation."</p>
+            <p data-bn class="bn">"ডিনাইট্রিফিকেশনে হারানো প্রতি কিলোগ্রাম নাইট্রোজেন N₂O নির্গত করে — একটি গ্রিনহাউস গ্যাস যা এক শতাব্দীতে CO₂ এর চেয়ে ২৭৩ গুণ বেশি শক্তিশালী। বাংলাদেশে NUE উন্নত করা শুধু কৃষিবিজ্ঞান নয়। এটি জলবায়ু প্রশমন।"</p>
+          </div>
+
+          <p data-en><strong>Climate change and increasing weather unpredictability.</strong> Bangladesh is among the world's most climate-vulnerable nations. As monsoon rainfall becomes more intense but shorter in duration, and as extreme rain events between dry spells become more common, the leaching risk from conventional urea increases. Fertilizer applied days before an unexpected intense rainfall event may be largely washed away before any uptake occurs. Slow-release formulations, by design, buffer this variability.</p>
+          <p data-bn class="bn"><strong>জলবায়ু পরিবর্তন এবং আবহাওয়ার অনিশ্চয়তা।</strong> মৌসুমী বৃষ্টি আরও তীব্র কিন্তু সংক্ষিপ্ত হওয়ায়, প্রচলিত ইউরিয়া থেকে লিচিং ঝুঁকি বাড়ছে। ধীর-নির্গমন সার, নকশাগতভাবে, এই পরিবর্তনশীলতাকে বাফার করে।</p>
+
+          <!-- ── Section 4 ── -->
+          <h2 id="s4">
+            <span data-en>My Research: Making BBCU from Local Materials</span>
+            <span data-bn class="bn">আমার গবেষণা: স্থানীয় উপকরণ থেকে BBCU তৈরি</span>
+          </h2>
+
+          <p data-en>My MSc thesis at the University of Dhaka, funded by Bangladesh's National Science and Technology Fellowship, investigates this problem from the inside. I am developing and evaluating Bentonite-Biochar Coated Urea — BBCU — a slow-release nitrogen fertilizer constructed from three materials that are either abundant in Bangladesh or widely available:</p>
+          <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয়ে আমার এমএস থিসিস, বাংলাদেশের জাতীয় বিজ্ঞান ও প্রযুক্তি ফেলোশিপ দ্বারা অর্থায়িত, ভেতর থেকে এই সমস্যা অনুসন্ধান করে। আমি তিনটি উপকরণ থেকে নির্মিত BBCU তৈরি ও মূল্যায়ন করছি:</p>
+
+          <div class="fact-box">
+            <span class="fact-box-label" data-en>BBCU — Three Local Materials, One Intelligent Coating</span>
+            <span class="fact-box-label" data-bn class="bn">BBCU — তিনটি স্থানীয় উপকরণ, একটি বুদ্ধিমান আবরণ</span>
+            <ul>
+              <li data-en><strong>Rice husk biochar, pyrolysed at 550°C.</strong> Rice husks are one of Bangladesh's most abundant agricultural waste streams — produced in millions of tonnes per year and currently burned in the open in most areas, contributing to air pollution. When pyrolysed at high temperature in the absence of oxygen, rice husks produce a stable carbon material with an exceptionally porous structure. These pores physically adsorb NH₄⁺ ions, holding them against leaching and releasing them slowly as root activity and soil chemistry create local gradients of demand.</li>
+              <li data-bn class="bn"><strong>ধানের তুষ বায়োচার, ৫৫০°C-এ পাইরোলাইজ করা।</strong> ধানের তুষ বাংলাদেশের সবচেয়ে প্রাচুর্যময় কৃষি বর্জ্যের একটি — বছরে লক্ষ লক্ষ টন উৎপন্ন হয়। উচ্চ তাপমাত্রায় অক্সিজেন-মুক্ত পরিবেশে পাইরোলাইজ করলে ব্যতিক্রমীভাবে ছিদ্রযুক্ত কাঠামোর একটি স্থিতিশীল কার্বন উপাদান তৈরি হয়, যা NH₄⁺ আয়ন শোষণ করে এবং ধীরে ধীরে নির্গত করে।</li>
+              <li data-en><strong>Sodium bentonite.</strong> A clay mineral with one of the highest cation exchange capacities of any naturally occurring material. Bentonite has a layered crystalline structure that intercalates ammonium ions between its sheets. More practically, it swells significantly on contact with water — physically slowing the diffusion of dissolved nitrogen through the coating and buying more time for root uptake. It is widely used in industry and available in Bangladesh at modest cost.</li>
+              <li data-bn class="bn"><strong>সোডিয়াম বেনটোনাইট।</strong> প্রাকৃতিকভাবে প্রাপ্ত যেকোনো উপকরণের মধ্যে সর্বোচ্চ ক্যাটায়ন বিনিময় ক্ষমতা সম্পন্ন একটি কাদামাটি খনিজ। পানির সংস্পর্শে উল্লেখযোগ্যভাবে ফুলে ওঠে — শারীরিকভাবে দ্রবীভূত নাইট্রোজেনের বিসরণকে ধীর করে এবং শিকড় শোষণের জন্য আরও সময় দেয়।</li>
+              <li data-en><strong>Corn starch binder.</strong> A food-grade, fully biodegradable adhesive that holds the biochar-bentonite matrix together on the urea granule surface. It degrades completely in soil within weeks, leaving no synthetic residue and adding negligible carbon to the soil budget. It is inexpensive, locally available, and its biodegradability means the coating does not persist as a microplastic — a critical concern in the era of polymer-coated fertilizer proliferation.</li>
+              <li data-bn class="bn"><strong>ভুট্টার মাড়-বাইন্ডার।</strong> খাদ্য-মানের, সম্পূর্ণ জৈব বিভাজ্য আঠা। সপ্তাহের মধ্যে মাটিতে সম্পূর্ণ বিভাজিত হয়, কোনো সিন্থেটিক অবশেষ রাখে না। পলিমার-আবৃত সারের মাইক্রোপ্লাস্টিক উদ্বেগের যুগে এটি গুরুত্বপূর্ণ।</li>
+            </ul>
+          </div>
+
+          <p data-en>My experimental design includes three parallel study types: soil incubation to track the nitrogen release curve over time; 50 cm soil leaching columns to measure how much nitrogen escapes the root zone under simulated rainfall; and jar-based volatilisation trials to quantify ammonia lost to the atmosphere. I am fitting the release data to four kinetic models — zero-order, first-order, Higuchi, and Korsmeyer-Peppas — to identify the dominant release mechanism and its dependence on temperature and moisture conditions specific to Bangladeshi growing seasons.</p>
+          <p data-bn class="bn">আমার পরীক্ষামূলক নকশায় তিনটি সমান্তরাল অধ্যয়ন রয়েছে: সময়ের সাথে নাইট্রোজেন নির্গমন বক্ররেখা ট্র্যাক করতে মাটি ইনকিউবেশন; সিমুলেটেড বৃষ্টিপাতে শিকড়ের এলাকা থেকে কতটুকু নাইট্রোজেন পালায় পরিমাপ করতে ৫০ সেমি মাটির লিচিং কলাম; এবং বায়ুতে হারানো অ্যামোনিয়া পরিমাণ নির্ধারণে জার-ভিত্তিক উদ্বায়ীকরণ পরীক্ষা।</p>
+
+          <p data-en>Alongside the release trials, I am measuring four Nitrogen Use Efficiency indices in pot experiments with rice and eggplant: Agronomic Efficiency (AE), Recovery Efficiency (RE), Physiological Efficiency (PE), and the Nitrogen Harvest Index (NHI). These indices will tell the agronomic story — whether the nitrogen that BBCU releases more slowly is actually captured more completely by the crop, and whether that translates into a measurable yield or quality improvement.</p>
+          <p data-bn class="bn">নির্গমন পরীক্ষার পাশাপাশি, ধান ও বেগুনের পাত্র পরীক্ষায় চারটি NUE সূচক পরিমাপ করছি: কৃষি দক্ষতা (AE), পুনরুদ্ধার দক্ষতা (RE), শারীরবৃত্তীয় দক্ষতা (PE), এবং নাইট্রোজেন হার্ভেস্ট সূচক (NHI)।</p>
+
+          <p data-en>I will write a detailed post on the early results in the coming months. What I can say at this stage is that the biochar-bentonite matrix meaningfully slows the initial burst release that characterises conventional urea — the spike in soil ammonium concentration that occurs within the first 24–72 hours after application and drives much of the volatilisation loss. Whether that translates directly to improved NUE at the crop level is what the full experiment will determine.</p>
+          <p data-bn class="bn">আগামী মাসগুলিতে প্রাথমিক ফলাফলে একটি বিস্তারিত পোস্ট লিখব। এই পর্যায়ে বলতে পারি যে বায়োচার-বেনটোনাইট ম্যাট্রিক্স প্রচলিত ইউরিয়ার প্রাথমিক বিস্ফোরণ নির্গমনকে অর্থপূর্ণভাবে ধীর করে।</p>
+
+          <!-- ── Section 5 ── -->
+          <h2 id="s5">
+            <span data-en>What This Means for Bangladeshi Farmers</span>
+            <span data-bn class="bn">বাংলাদেশি কৃষকদের জন্য এর মানে কী</span>
+          </h2>
+
+          <p data-en>A technology is only meaningful if it can reach the farmers who need it. Imported polymer-coated urea from Korean or European manufacturers costs three to five times what conventional urea does at the farm gate. It simply is not an option for the smallholder rice farmer growing on two hectares with thin margins. This is precisely why the local materials approach matters.</p>
+          <p data-bn class="bn">একটি প্রযুক্তি তখনই অর্থবহ যখন এটি যে কৃষকদের প্রয়োজন তাদের কাছে পৌঁছাতে পারে। আমদানি করা পলিমার-আবৃত ইউরিয়া প্রচলিত ইউরিয়ার তিন থেকে পাঁচ গুণ বেশি। এটি দুই হেক্টরে চাষ করা ক্ষুদ্র চাষির জন্য বিকল্প নয়। এ কারণেই স্থানীয় উপকরণের পদ্ধতি গুরুত্বপূর্ণ।</p>
+
+          <p data-en>Rice husk biochar can be produced at village scale using simple fixed-bed pyrolysis kilns — technology that exists in Bangladesh already in various forms, and that could produce a value-added agricultural product from a waste stream that currently creates air quality problems when burned in the open. Sodium bentonite is an abundant industrial mineral. Corn starch is a food commodity. The production of BBCU does not require a sophisticated chemical plant. With the right process design, it could be produced at district level and distributed through existing fertilizer channels.</p>
+          <p data-bn class="bn">ধানের তুষ বায়োচার গ্রামীণ পর্যায়ে সহজ পাইরোলাইসিস কিলন ব্যবহার করে উৎপাদন করা যায় — এমন প্রযুক্তি যা বাংলাদেশে বিভিন্ন রূপে বিদ্যমান। সোডিয়াম বেনটোনাইট প্রচুর পরিমাণে শিল্পে পাওয়া যায়। ভুট্টার মাড় একটি খাদ্য পণ্য। BBCU উৎপাদনে অত্যাধুনিক রাসায়নিক কারখানা প্রয়োজন নেই।</p>
+
+          <p data-en>The broader vision — one my research contributes a small part toward — is a Bangladesh where rice and vegetable farmers apply a single basal dose of slow-release fertilizer at planting, rather than three or four split applications of conventional urea during the growing season, achieving the same or better yields with substantially less nitrogen lost to the rivers and the sky. That is not a distant aspiration. It is an engineering and extension challenge that active research is working to resolve right now, in Dhaka, in the fields of Manikganj and Gazipur.</p>
+          <p data-bn class="bn">ব্যাপক দৃষ্টিভঙ্গি — যার একটি ক্ষুদ্র অংশ আমার গবেষণা — হলো একটি বাংলাদেশ যেখানে কৃষকরা মৌসুম জুড়ে তিন-চারটি বিভক্ত প্রয়োগের পরিবর্তে রোপণের সময় একটি বেসাল ডোজ ধীর-নির্গমন সার প্রয়োগ করতে পারেন।</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- ── Final note ── -->
+          <h2 id="s6">
+            <span data-en>A Final Note</span>
+            <span data-bn class="bn">একটি শেষ কথা</span>
+          </h2>
+
+          <p data-en>Bangladesh feeds approximately 170 million people from a land area roughly the size of Greece. Its agricultural soils are among the most intensively worked on earth. Its farmers are skilled, adaptive, and resource-constrained in equal measure. The country does not have a farming problem. It has a fertilizer efficiency problem — one that costs money, degrades soil over time, contaminates groundwater, and contributes, through N₂O emissions, to the very climate instability that threatens the country's future more than perhaps any other risk.</p>
+          <p data-bn class="bn">বাংলাদেশ গ্রীসের আকারের একটি ভূমিতে প্রায় ১৭ কোটি মানুষকে খাওয়ায়। দেশটিতে কৃষি সমস্যা নেই। আছে সার দক্ষতার সমস্যা — যা অর্থ খরচ করায়, মাটি ক্ষয় করে, ভূগর্ভস্থ পানি দূষিত করে এবং N₂O নির্গমনের মাধ্যমে জলবায়ু অস্থিরতায় অবদান রাখে।</p>
+
+          <p data-en>Slow-release fertilizer is not a silver bullet — no single technology ever is. But as one tool within a broader strategy of precision nutrient management, climate-smart agronomy, and locally grounded innovation, it represents something genuinely worth pursuing: a way to do more with less, using materials already here, for a challenge that is becoming more urgent with each monsoon.</p>
+          <p data-bn class="bn">ধীর-নির্গমন সার কোনো রামবাণ নয় — কোনো একক প্রযুক্তি কখনো তা নয়। কিন্তু নির্ভুল পুষ্টি ব্যবস্থাপনা, জলবায়ু-স্মার্ট কৃষিবিজ্ঞান এবং স্থানীয়ভাবে প্রোথিত উদ্ভাবনের একটি বৃহত্তর কৌশলের মধ্যে একটি সরঞ্জাম হিসাবে, এটি সত্যিকারের মূল্য রাখে।</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">Soil Science</a>
+            <a href="blog.html" class="a-tag">Fertilizers</a>
+            <a href="blog.html" class="a-tag">Bangladesh Agriculture</a>
+            <a href="blog.html" class="a-tag">BBCU</a>
+            <a href="blog.html" class="a-tag">NUE</a>
+            <a href="blog.html" class="a-tag">Nitrogen</a>
+            <a href="blog.html" class="a-tag">Climate-Smart</a>
+            <a href="blog.html" class="a-tag">Research</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl" data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka</span>
+              <span class="bio-role-lbl" data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়</span>
+              <p data-en>Soil scientist and NST Fellow working on BBCU slow-release fertilizers and nitrogen use efficiency in Bangladeshi cropping systems. Also a Research Trainee at BCSIR (atmospheric PM and heavy metals) and DUNTC (nano-fertilizers). Developer of SPADE — open-source Python software for standardised NUE analysis. Available for manuscript editing, data analysis, soil consulting, and thesis guidance.</p>
+              <p data-bn class="bn">মৃত্তিকা বিজ্ঞানী ও NST ফেলো, বাংলাদেশি চাষ পদ্ধতিতে BBCU ধীর-নির্গমন সার ও নাইট্রোজেন দক্ষতা নিয়ে কাজ করছেন। পাণ্ডুলিপি সম্পাদনা, ডেটা বিশ্লেষণ, মৃত্তিকা পরামর্শ এবং থিসিস নির্দেশনার জন্য উপলব্ধ।</p>
+              <div class="bio-links">
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="research.html" class="bio-lnk">My Research</a>
+                <a href="services.html#soil" class="bio-lnk">Soil Consulting</a>
+                <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" class="bio-lnk" target="_blank" rel="noopener">ResearchGate</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- ─── SIDEBAR ─── -->
+        <aside class="article-sidebar">
+
+          <!-- Table of contents -->
+          <div class="sb-card">
+            <div class="sb-head">
+              <span data-en>In This Article</span>
+              <span data-bn class="bn">এই প্রবন্ধে</span>
+            </div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li>
+                  <a href="#s1" class="toc-link">
+                    <span class="toc-n">01</span>
+                    <span data-en>The Problem with Conventional Urea</span>
+                    <span data-bn class="bn">প্রচলিত ইউরিয়ার সমস্যা</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#s2" class="toc-link">
+                    <span class="toc-n">02</span>
+                    <span data-en>What Slow-Release Fertilizer Is</span>
+                    <span data-bn class="bn">ধীর-নির্গমন সার কী</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#s3" class="toc-link">
+                    <span class="toc-n">03</span>
+                    <span data-en>Why Bangladesh, Specifically</span>
+                    <span data-bn class="bn">বিশেষভাবে বাংলাদেশ কেন</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#s4" class="toc-link">
+                    <span class="toc-n">04</span>
+                    <span data-en>My Research: BBCU</span>
+                    <span data-bn class="bn">আমার গবেষণা: BBCU</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#s5" class="toc-link">
+                    <span class="toc-n">05</span>
+                    <span data-en>What This Means for Farmers</span>
+                    <span data-bn class="bn">কৃষকদের জন্য অর্থ কী</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#s6" class="toc-link">
+                    <span class="toc-n">06</span>
+                    <span data-en>A Final Note</span>
+                    <span data-bn class="bn">একটি শেষ কথা</span>
+                  </a>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Soil consulting CTA -->
+          <div class="sb-cta">
+            <h4 data-en>Need soil or <em>fertilizer advice?</em></h4>
+            <h4 data-bn class="bn">মাটি বা <em>সার পরামর্শ</em> দরকার?</h4>
+            <p data-en>I offer specialist soil science consulting for researchers, NGOs, farms, and agricultural organisations working in Bangladesh.</p>
+            <p data-bn class="bn">বাংলাদেশে গবেষক, এনজিও, কৃষি খামার ও সংস্থার জন্য বিশেষজ্ঞ মৃত্তিকা বিজ্ঞান পরামর্শ প্রদান করি।</p>
+            <a href="services.html#soil" class="btn btn-gold">
+              <span data-en>View Soil Consulting →</span>
+              <span data-bn class="bn">মাটি পরামর্শ দেখুন →</span>
+            </a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head">
+              <span data-en>Share This Post</span>
+              <span data-bn class="bn">এই পোস্ট শেয়ার করুন</span>
+            </div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=What%20is%20Slow-Release%20Fertilizer%20and%20Why%20Does%20Bangladesh%20Need%20It%3F%20—%20sajjadur-rahman.com%2Fblog-slow-release-fertilizer.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-slow-release-fertilizer.html"
+                   target="_blank" rel="noopener">LinkedIn</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=What%20is%20Slow-Release%20Fertilizer%20and%20Why%20Does%20Bangladesh%20Need%20It%3F&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-slow-release-fertilizer.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head">
+              <span data-en>Related Posts</span>
+              <span data-bn class="bn">সংশ্লিষ্ট পোস্ট</span>
+            </div>
+            <div class="sb-body">
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">🌾</span>
+                <span class="rel-title" data-en>My thesis explained — BBCU and nitrogen use efficiency in rice systems</span>
+                <span class="rel-title" data-bn class="bn">আমার থিসিস ব্যাখ্যা — ধান চাষে BBCU ও নাইট্রোজেন দক্ষতা</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">📊</span>
+                <span class="rel-title" data-en>Understanding NUE indices — AE, RE, PE, and NHI explained</span>
+                <span class="rel-title" data-bn class="bn">NUE সূচক বোঝা — AE, RE, PE এবং NHI ব্যাখ্যা</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">🏭</span>
+                <span class="rel-title" data-en>Heavy metal contamination around Dhaka's industrial zones</span>
+                <span class="rel-title" data-bn class="bn">ঢাকার শিল্প এলাকায় ভারী ধাতু দূষণ</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a>
+          <a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a>
+          <a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html" data-en>Manuscript Editing</a>
+          <a href="services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+          <a href="services.html" data-en>Data Analysis</a>
+          <a href="services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+          <a href="services.html" data-en>Thesis Consultation</a>
+          <a href="services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+          <a href="services.html" data-en>IELTS Tutoring</a>
+          <a href="services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+          <a href="services.html" data-en>CV Development</a>
+          <a href="services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+          <a href="services.html" data-en>Research Proposals</a>
+          <a href="services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+
+  <!-- Shared scripts -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Article-specific scripts -->
+  <script>
+    // ── Reading progress bar ──
+    const bar = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const h   = body.offsetHeight;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / h) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    // ── Smooth TOC scroll + active state ──
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const sections = ['s1','s2','s3','s4','s5','s6'].map(id => document.getElementById(id));
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          const offset = 96;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    // Active TOC highlight on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+
+    sections.forEach(s => { if (s) observer.observe(s); });
+  </script>
+
+</body>
+</html>
