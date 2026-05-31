@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="IMRaD explained clearly — what each section of a scientific paper is actually doing, where most first papers go wrong, and how to fix the most common structural mistakes."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="IMRaD structure, scientific paper structure, how to write research paper, Introduction Methods Results Discussion, manuscript writing Bangladesh, scientific writing guide"/>
+  <meta property="og:title" content="IMRaD Explained: How to Structure a Scientific Research Paper — Sajjadur Rahman"/>
+  <meta property="og:description" content="What each section of a scientific paper is actually doing, where most first papers go wrong, and how to fix the most common structural mistakes."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-imrad-explained.html"/>
+  <meta property="article:published_time" content="2026-07-01"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>IMRaD Explained: How to Structure a Scientific Research Paper — Sajjadur Rahman</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Raleway:wght@400;500;600;700&amp;family=Noto+Serif+Bengali:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Article hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--parchment3); border: 1.5px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name {
+      font-family: var(--font-ui); font-size: 11.5px;
+      font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px;
+    }
+    .meta-author-role {
+      font-family: var(--font-ui); font-size: 10px;
+      color: var(--text-light); display: block;
+    }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 25px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.4em 0 0.75em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 19.5px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.9em 0 0.55em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose em { font-style: italic; }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+
+    /* ── Hourglass diagram ── */
+    .hourglass-wrap {
+      margin: 2.4em 0;
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+    }
+    .hg-section {
+      width: 100%; max-width: 540px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hg-bar {
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+      font-family: var(--font-ui); font-size: 10px;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 11px 20px; text-align: center;
+      transition: opacity .2s;
+    }
+    .hg-bar.wide  { width: 100%; background: var(--parchment3); color: var(--text-muted); border: 0.5px solid var(--gold-pale); }
+    .hg-bar.mid   { width: 75%;  background: var(--parchment2); color: var(--text-muted); border: 0.5px solid var(--gold-pale); }
+    .hg-bar.narrow{ width: 50%;  background: var(--ink-soft);   color: var(--gold-light); border: none; }
+    .hg-bar.core  { width: 36%;  background: var(--ink);        color: var(--gold-light); border: none; font-size: 9px; letter-spacing: 1.5px; }
+    .hg-arrow {
+      font-size: 11px; color: var(--gold); text-align: center;
+      line-height: 1; padding: 3px 0;
+    }
+    .hg-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-light);
+      text-align: center; margin-top: 4px;
+    }
+    .hg-row {
+      display: flex; flex-direction: column; align-items: center;
+      width: 100%; max-width: 540px; margin-bottom: 3px;
+    }
+
+    /* ── Before/after example boxes ── */
+    .compare-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin: 2em 0;
+    }
+    .compare-box {
+      border-radius: var(--radius); padding: 18px 20px;
+      font-family: var(--font-body); font-size: 14px;
+      line-height: 1.7; color: var(--ink-soft);
+    }
+    .compare-box.weak {
+      background: rgba(200,191,160,0.12);
+      border: 0.5px solid var(--gold-pale);
+    }
+    .compare-box.strong {
+      background: rgba(90,122,74,0.06);
+      border: 0.5px solid rgba(90,122,74,0.25);
+    }
+    .compare-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; display: block;
+      margin-bottom: 10px;
+    }
+    .compare-label.weak-lbl { color: var(--text-light); }
+    .compare-label.strong-lbl { color: var(--accent); }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 18.5px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+
+    /* ── Callout box ── */
+    .callout-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px; margin: 2em 0;
+    }
+    .callout-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 10px;
+    }
+    .callout-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+    .callout-box code {
+      font-family: 'Courier New', monospace; font-size: 13px;
+      background: var(--parchment2); padding: 1px 5px;
+      border-radius: 3px; color: var(--ink);
+    }
+
+    /* ── Ornament ── */
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 2.8em 0; opacity: 0.55;
+    }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px;
+      text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--parchment3); border: 2px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .bio-inner h4 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink); margin-bottom: 2px;
+    }
+    .bio-role-lbl {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 10px;
+    }
+    .bio-inner p {
+      font-size: 13.5px; color: var(--text-muted);
+      line-height: 1.72; margin-bottom: 14px;
+    }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 12px; border-radius: 20px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card {
+      background: var(--white); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); overflow: hidden;
+      margin-bottom: 18px; box-shadow: var(--shadow-sm);
+    }
+    .sb-head {
+      background: var(--parchment2);
+      border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px;
+    }
+    .sb-head span {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .sb-body { padding: 14px 16px; }
+
+    /* Section map (sidebar quick ref) */
+    .smap-item {
+      display: flex; align-items: flex-start;
+      gap: 12px; padding: 10px 0;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .smap-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .smap-abbr {
+      font-family: var(--font-head); font-size: 15px;
+      font-weight: 700; color: var(--gold);
+      flex-shrink: 0; width: 32px; line-height: 1; padding-top: 2px;
+    }
+    .smap-text { flex: 1; }
+    .smap-full {
+      font-family: var(--font-ui); font-size: 10.5px;
+      font-weight: 700; color: var(--ink);
+      display: block; margin-bottom: 2px;
+    }
+    .smap-job {
+      font-size: 11.5px; color: var(--text-muted);
+      font-style: italic; display: block; line-height: 1.4;
+    }
+
+    /* TOC */
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px;
+      color: var(--text-muted); text-decoration: none;
+      line-height: 1.45; transition: color .18s, padding-left .18s;
+    }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+
+    /* CTA */
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 {
+      font-family: var(--font-head); font-size: 15.5px;
+      font-weight: 600; color: var(--parchment);
+      margin-bottom: 7px; line-height: 1.35;
+    }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+
+    /* Share */
+    .share-btns { display: flex; gap: 6px; }
+    .share-b {
+      flex: 1; display: block;
+      font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale); border-radius: var(--radius);
+      padding: 8px 4px; text-align: center; text-decoration: none;
+      background: var(--white);
+      transition: color .18s, border-color .18s, background .18s;
+    }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* Related */
+    .related-link {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale);
+      text-decoration: none; color: inherit; transition: opacity .18s;
+    }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+      .compare-wrap { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 25px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .pull-quote p { font-size: 17px; }
+      .hg-bar.wide  { font-size: 9px; }
+      .hg-bar.narrow, .hg-bar.core { font-size: 8px; letter-spacing: 1px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="article-hero">
+      <div class="container">
+
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Scientific Writing</span>
+        </div>
+
+        <h1 class="article-h1">
+          IMRaD Explained: <em>How to Structure a Scientific Research Paper</em>
+        </h1>
+
+        <p class="article-deck">Most manuscripts fail not because the science is weak, but because the structure works against the reader. Here is what each section is actually doing, where first papers most often go wrong, and how to fix it.</p>
+
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · Manuscript Editor · Stanford Writing in the Sciences</span>
+            </div>
+          </div>
+          <span class="meta-chip">July 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">11 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Scientific Writing</span>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <p>Most of the manuscripts I edit share one problem. Not grammar. Not weak data. Structure. A researcher who has spent six months in the field, who has interesting findings, loses the reader before page two because the paper is organised in the order things occurred to the writer, not in the order a reader needs to understand them.</p>
+
+          <p>IMRaD is the fix. It stands for Introduction, Methods, Results, and Discussion. Nearly every natural and applied science journal uses some version of this structure, because it maps the scientific method directly onto the reading experience. First: why the question matters and what nobody has answered yet. Then: exactly how it was tested. Then: what was found. Then: what it means.</p>
+
+          <p>Simple to state. Harder to execute well. Here is what each section is actually doing, and where most first papers fall apart.</p>
+
+          <!-- S1 -->
+          <h2 id="s1">The Hourglass Shape</h2>
+
+          <p>Before the sections, the shape. IMRaD has an hourglass structure. The Introduction opens broad, narrows to a specific gap in knowledge, then narrows further to your specific research objective. The Methods and Results are the thin part: precise, specific, your study only. The Discussion opens back out, moving from your specific results to what they mean for the field.</p>
+
+          <!-- Hourglass diagram -->
+          <div class="hourglass-wrap" aria-label="IMRaD hourglass structure diagram">
+            <div class="hg-row">
+              <div class="hg-bar wide">Introduction — broad context → gap → objective</div>
+            </div>
+            <div class="hg-arrow">↓</div>
+            <div class="hg-row">
+              <div class="hg-bar mid">Methods — your study only</div>
+            </div>
+            <div class="hg-arrow">↓</div>
+            <div class="hg-row">
+              <div class="hg-bar narrow">Results</div>
+            </div>
+            <div class="hg-arrow">↓</div>
+            <div class="hg-row">
+              <div class="hg-bar mid">Discussion — your findings in context</div>
+            </div>
+            <div class="hg-arrow">↓</div>
+            <div class="hg-row">
+              <div class="hg-bar wide">Conclusion — answer + implications for the field</div>
+            </div>
+            <p class="hg-label" style="margin-top:12px;">The IMRaD hourglass: broad → specific → broad</p>
+          </div>
+
+          <p>Draw this shape and hold your draft against it. You will catch most structural problems before any reviewer does.</p>
+
+          <!-- S2 -->
+          <h2 id="s2">Introduction</h2>
+
+          <p>The job of the Introduction is not to summarise the literature. It is to answer one question: why did this study need to exist?</p>
+
+          <p>That requires three moves. First, establish what is already known. Second, identify the gap: what is not yet known or resolved. Third, state what this study did to fill that gap. Three paragraphs, usually. Four if the field needs more groundwork.</p>
+
+          <p>The gap is what most introductions are missing. There is often a strong first paragraph on general background, then a direct jump to "Therefore, the objective of this study was..." with no explanation of what nobody had yet figured out. The reviewer's first question is always: why? If the gap is absent, there is no answer.</p>
+
+          <p>Here is the difference in practice:</p>
+
+          <div class="compare-wrap">
+            <div class="compare-box weak">
+              <span class="compare-label weak-lbl">Without a gap</span>
+              "Nitrogen fertilizer management is important in rice cultivation. Therefore, the objective of this study was to evaluate the effect of BBCU on rice yield."
+            </div>
+            <div class="compare-box strong">
+              <span class="compare-label strong-lbl">With a clear gap</span>
+              "While conventional urea is widely used in Bangladeshi rice systems, nitrogen use efficiency under monsoon conditions remains below 40%, with losses primarily from volatilisation and leaching. Slow-release formulations have shown results in temperate systems but have not been evaluated under continuous flooding using locally available matrix materials. This study tested whether a bentonite-biochar coated urea could improve NUE in boro rice under waterlogged conditions."
+            </div>
+          </div>
+
+          <p>The right-hand version tells the reader exactly why this study exists. The left only announces it.</p>
+
+          <p>One other point: the Introduction should not describe your results. "This study found that BBCU improved NUE by 15%" belongs in the Abstract or Results, not here. The Introduction states the objective, and stops.</p>
+
+          <!-- S3 -->
+          <h2 id="s3">Methods</h2>
+
+          <p>One test determines whether your Methods are written correctly. Could another researcher at a different laboratory, reading only this section, repeat your experiment and expect comparable results? If yes, the Methods are right. If no, something is missing.</p>
+
+          <p>Write in past tense, passive voice (conventional in most journals, though some now accept active). Organise into subsections: study site or materials, experimental design, measurements and data collection, and statistical analysis.</p>
+
+          <p>That last subsection is where most first papers fail. I regularly edit manuscripts where the Results section reports ANOVA outputs and Tukey HSD comparisons, but the Methods never mention that these tests were conducted. Reviewers flag this every time. State your statistical software with version number (SPSS 26.0, R version 4.3.1), the specific tests you ran, and the significance threshold used, typically p &lt; 0.05.</p>
+
+          <div class="callout-box">
+            <span class="callout-label">Common Methods Mistakes</span>
+            <p>Missing statistical section entirely. No version number for software. No mention of significance threshold. Describing results ("the treatment showed higher yield") instead of procedures. Writing "data were analysed using appropriate statistical methods" — name the methods. Inappropriate passive constructions that omit what was done to what.</p>
+          </div>
+
+          <!-- S4 -->
+          <h2 id="s4">Results</h2>
+
+          <p>The Results section has one job: report what happened. No interpretation, no comparison to other studies, no explanation of mechanisms. That belongs in the Discussion.</p>
+
+          <p>Lead with your main finding. Support it with tables and figures. Move to secondary findings. Each paragraph should point the reader to a specific table or figure and tell them what to notice: "Table 2 shows grain yield across all eight treatments. The highest yield was recorded in T4, which was significantly higher than the control (p &lt; 0.05)."</p>
+
+          <p>Text should guide, not reproduce. If the numbers are in Table 2, you do not need to restate them all in the paragraph. Summarise the key pattern and let the table carry the detail.</p>
+
+          <p>Write in past tense throughout. "Grain yield was highest in T4" — not "Grain yield is highest in T4."</p>
+
+          <div class="callout-box">
+            <span class="callout-label">One Phrasing to Cut Immediately</span>
+            <p>"The results are presented in Table 2." This wastes a sentence and tells the reader nothing they cannot see. Say what the table shows instead: "Table 2 shows grain yield across all treatments, with T4 producing the highest mean of 6.2 t/ha."</p>
+          </div>
+
+          <!-- S5 -->
+          <h2 id="s5">Discussion</h2>
+
+          <p>This is the hardest section to write. It is also where most papers either build credibility or quietly lose it.</p>
+
+          <p>The Discussion answers three questions. What do these results mean? Are they consistent with what others have found, and if not, why not? What are the limitations, and what should be studied next?</p>
+
+          <p>Start by restating your main finding in context, without copying it word for word from Results. Then compare against the literature: "The 38% NUE observed here is consistent with values reported by [citation] in flooded paddy systems, and higher than the 31% reported by [citation] under similar conditions, possibly because the biochar matrix delayed the initial-burst release that drives most volatilisation losses." Work through secondary findings the same way.</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <p>Two mistakes to avoid. The first is a Discussion that re-summarises the Results: "Table 2 showed that T4 had the highest yield. Table 3 showed that RE was highest in T4." The reader already read the Results. The second is over-reaching: "This study proves that BBCU should replace conventional urea across Asia." A single pot experiment cannot support that claim.</p>
+
+          <div class="pull-quote">
+            <p>"These findings suggest" is defensible. "These findings prove" rarely is. Be precise about what your data actually supports.</p>
+          </div>
+
+          <!-- S6 -->
+          <h2 id="s6">Conclusion</h2>
+
+          <p>One to three paragraphs. Not a summary of the paper. The direct answer to the research question.</p>
+
+          <div class="callout-box">
+            <span class="callout-label">What a Conclusion Looks Like</span>
+            <p>"This study found that BBCU, applied at 120 kg N/ha, improved agronomic efficiency by 20% and recovery efficiency by 8 percentage points compared to conventional urea in boro rice under waterlogged conditions. The biochar-bentonite matrix reduced initial-burst nitrogen release, confirmed by incubation and volatilisation trials. Local production from rice husk biochar and sodium bentonite is technically feasible and warrants field-scale validation."</p>
+          </div>
+
+          <p>Three sentences. What you found, how it works, what comes next. That is a Conclusion. It is not a re-statement of the abstract, and it does not introduce new data or references.</p>
+
+          <!-- S7 -->
+          <h2 id="s7">Abstract</h2>
+
+          <p>Most journals print the abstract before the Introduction. Most researchers write it last. Both are correct.</p>
+
+          <p>The abstract follows the same IMRaD logic, compressed to 200 or 250 words. Two sentences of background, one sentence naming the gap, one sentence stating the objective, two or three sentences on methods, two or three on key results with specific numbers, and one or two on conclusions. Each sentence earns its place. There is no room for vague scene-setting.</p>
+
+          <p>The abstract is what most readers, including journal editors and reviewers, encounter first. Often it is the only part that gets read. Write it last, and write it with care.</p>
+
+          <!-- S8 -->
+          <h2 id="s8">References</h2>
+
+          <p>Use a reference manager. Mendeley is free and integrates with Microsoft Word. Zotero is equally good. Do not format references by hand. Inconsistent reference formatting is one of the most common and most avoidable reasons papers are returned before peer review even starts.</p>
+
+          <p>Check your target journal's style before submission. Elsevier journals often use APA or Vancouver. MDPI uses a numbered system. Get it right in the template once, rather than correcting 40 entries in the manuscript after the fact.</p>
+
+          <!-- S9 -->
+          <h2 id="s9">IMRaD as a Tool, Not a Rule</h2>
+
+          <p>IMRaD exists as a service to the reader. The reader who picks up your paper already arrives with a set of questions: why does this matter, how was it tested, what was found, what does it mean. When your structure answers those questions in that order, the science is easy to follow. When it does not, even strong results get buried.</p>
+
+          <p>Some journals ask for slight variations: a combined Results and Discussion section, a separate Theory section, numbered headings. These are adaptations of the same logic, not departures from it. The hourglass shape holds regardless of what the section headers say.</p>
+
+          <p>If you are working on a manuscript and want structural feedback before submission, the <a href="services.html#manuscript">manuscript editing service</a> on this site handles exactly this kind of work. I return tracked changes, a structural note, and a revision round within five to seven working days.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">Scientific Writing</a>
+            <a href="blog.html" class="a-tag">IMRaD</a>
+            <a href="blog.html" class="a-tag">Research Paper</a>
+            <a href="blog.html" class="a-tag">Manuscript</a>
+            <a href="blog.html" class="a-tag">Journal Submission</a>
+            <a href="blog.html" class="a-tag">Academic Writing</a>
+            <a href="blog.html" class="a-tag">Bangladesh</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · Manuscript Editor · University of Dhaka</span>
+              <p>NST Fellow and active researcher in soil science and environmental science. Certified in scientific communication through Stanford Writing in the Sciences and the Wiley Researcher Academy. Available for manuscript editing, data analysis, thesis consultation, and IELTS tutoring.</p>
+              <div class="bio-links">
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="services.html#manuscript" class="bio-lnk">Manuscript Editing</a>
+                <a href="research.html" class="bio-lnk">My Research</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- Section map -->
+          <div class="sb-card">
+            <div class="sb-head"><span>What Each Section Does</span></div>
+            <div class="sb-body">
+              <div class="smap-item">
+                <span class="smap-abbr">I</span>
+                <div class="smap-text">
+                  <span class="smap-full">Introduction</span>
+                  <span class="smap-job">Why this study needed to exist</span>
+                </div>
+              </div>
+              <div class="smap-item">
+                <span class="smap-abbr">M</span>
+                <div class="smap-text">
+                  <span class="smap-full">Methods</span>
+                  <span class="smap-job">Exactly how it was tested</span>
+                </div>
+              </div>
+              <div class="smap-item">
+                <span class="smap-abbr">R</span>
+                <div class="smap-text">
+                  <span class="smap-full">Results</span>
+                  <span class="smap-job">What happened — report only</span>
+                </div>
+              </div>
+              <div class="smap-item">
+                <span class="smap-abbr">aD</span>
+                <div class="smap-text">
+                  <span class="smap-full">Discussion</span>
+                  <span class="smap-job">What it means, in context</span>
+                </div>
+              </div>
+              <div class="smap-item">
+                <span class="smap-abbr">C</span>
+                <div class="smap-text">
+                  <span class="smap-full">Conclusion</span>
+                  <span class="smap-job">Direct answer to the research question</span>
+                </div>
+              </div>
+              <div class="smap-item">
+                <span class="smap-abbr">Ab</span>
+                <div class="smap-text">
+                  <span class="smap-full">Abstract</span>
+                  <span class="smap-job">Written last — IMRaD in 250 words</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1" class="toc-link"><span class="toc-n">01</span>The Hourglass Shape</a></li>
+                <li><a href="#s2" class="toc-link"><span class="toc-n">02</span>Introduction</a></li>
+                <li><a href="#s3" class="toc-link"><span class="toc-n">03</span>Methods</a></li>
+                <li><a href="#s4" class="toc-link"><span class="toc-n">04</span>Results</a></li>
+                <li><a href="#s5" class="toc-link"><span class="toc-n">05</span>Discussion</a></li>
+                <li><a href="#s6" class="toc-link"><span class="toc-n">06</span>Conclusion</a></li>
+                <li><a href="#s7" class="toc-link"><span class="toc-n">07</span>Abstract</a></li>
+                <li><a href="#s8" class="toc-link"><span class="toc-n">08</span>References</a></li>
+                <li><a href="#s9" class="toc-link"><span class="toc-n">09</span>IMRaD as a Tool</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Manuscript editing CTA -->
+          <div class="sb-cta">
+            <h4>Need <em>structural feedback</em> on your manuscript?</h4>
+            <p>I edit research papers for structure, clarity, and journal formatting. Tracked changes returned within 5 to 7 working days, one revision round included.</p>
+            <a href="services.html#manuscript" class="btn btn-gold">Manuscript Editing →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=IMRaD%20Explained%3A%20How%20to%20Structure%20a%20Scientific%20Research%20Paper%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-imrad-explained.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-imrad-explained.html"
+                   target="_blank" rel="noopener">LinkedIn</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=IMRaD%20Explained%3A%20How%20to%20Structure%20a%20Scientific%20Research%20Paper&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-imrad-explained.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">📝</span>
+                <span class="rel-title">How to write a research abstract in 5 steps</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">🔬</span>
+                <span class="rel-title">How to respond to peer reviewer comments</span>
+              </a>
+              <a href="blog-nue-indices-explained.html" class="related-link">
+                <span class="rel-icon">📊</span>
+                <span class="rel-title">Understanding NUE indices — AE, RE, PE, and NHI explained</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Reading progress bar
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    // TOC smooth scroll + active highlight
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sectionIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+  </script>
+
+</body>
+</html>
