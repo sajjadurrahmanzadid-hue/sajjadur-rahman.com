@@ -1,0 +1,258 @@
+{
+  "_note": "Single source of truth for research.html and about.html. To link a downloadable file, set 'file' to its path under assets/presentations/ and set 'file_type' to paper | slides | poster. Leave null until the file is uploaded.",
+
+  "conferences": [
+
+    {
+      "id": "C1",
+      "sort_order": 1,
+      "title_en": "Nano-fertilizers in wheat cultivation: A comprehensive review and strategic framework for sustainable productivity and biofortification",
+      "title_bn": "গম চাষে ন্যানো-সার: টেকসই উৎপাদনশীলতা ও বায়োফোর্টিফিকেশনের জন্য একটি কৌশলগত কাঠামো",
+      "authors": "Rahman, S.",
+      "event_en": "International Conference Presentation",
+      "event_bn": "আন্তর্জাতিক সম্মেলন উপস্থাপনা",
+      "location_en": "Bangladesh",
+      "location_bn": "বাংলাদেশ",
+      "date": "2025-09",
+      "date_display_en": "September 2025",
+      "date_display_bn": "সেপ্টেম্বর ২০২৫",
+      "doi": "https://doi.org/10.13140/RG.2.2.29613.35043",
+      "proceedings": null,
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "Bangladesh",
+      "flag": "🇧🇩"
+    },
+
+    {
+      "id": "C2",
+      "sort_order": 2,
+      "title_en": "Economic viability and sustainability of hydroponics in flood-prone Bangladesh",
+      "title_bn": "বন্যাপ্রবণ বাংলাদেশে হাইড্রোপনিক্সের অর্থনৈতিক সম্ভাব্যতা ও টেকসইতা",
+      "authors": "Rahman, S., Fairuz, A., and Tahiyat, T.",
+      "event_en": "Asian Institute of Technology International Conference",
+      "event_bn": "এশিয়ান ইনস্টিটিউট অব টেকনোলজি আন্তর্জাতিক সম্মেলন",
+      "location_en": "Bangkok, Thailand",
+      "location_bn": "ব্যাংকক, থাইল্যান্ড",
+      "date": "2024-12",
+      "date_display_en": "December 2024",
+      "date_display_bn": "ডিসেম্বর ২০২৪",
+      "doi": null,
+      "proceedings": "Asian Institute of Technology International Conference Proceedings, 2024",
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "Thailand",
+      "flag": "🇹🇭"
+    },
+
+    {
+      "id": "C3",
+      "sort_order": 3,
+      "title_en": "Internet of Things (IoT) on the development of Agriculture 5.0: Prospects and challenges",
+      "title_bn": "কৃষি ৫.০-এর উন্নয়নে ইন্টারনেট অব থিংস (আইওটি): সম্ভাবনা ও চ্যালেঞ্জ",
+      "authors": "Rahman, S.",
+      "event_en": "3rd International Ege Congress on Scientific Research",
+      "event_bn": "৩য় আন্তর্জাতিক এজি বৈজ্ঞানিক গবেষণা কংগ্রেস",
+      "location_en": "Turkey",
+      "location_bn": "তুরস্ক",
+      "date": "2024-12",
+      "date_display_en": "December 2024",
+      "date_display_bn": "ডিসেম্বর ২০২৪",
+      "doi": "https://doi.org/10.13140/RG.2.2.17269.69600",
+      "proceedings": "In G. N. Günay (Ed.), Proceedings of the 3rd International Ege Congress on Scientific Research (pp. 170–178). IKSAD Publishing House.",
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "Turkey",
+      "flag": "🇹🇷"
+    },
+
+    {
+      "id": "C4",
+      "sort_order": 4,
+      "title_en": "Climate change and resilient farming approaches in Bangladesh: A review of potential impacts and adaptation strategies",
+      "title_bn": "বাংলাদেশে জলবায়ু পরিবর্তন ও কৃষির অভিযোজন: সম্ভাব্য প্রভাব ও কৌশলের পর্যালোচনা",
+      "authors": "Rahman, S., Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., and Islam, R.",
+      "event_en": "International Congress on Food, Agriculture and Environmental Research in the Global World",
+      "event_bn": "বৈশ্বিক খাদ্য, কৃষি ও পরিবেশ গবেষণা আন্তর্জাতিক কংগ্রেস",
+      "location_en": "International (Online / Turkey)",
+      "location_bn": "আন্তর্জাতিক",
+      "date": "2024-06",
+      "date_display_en": "June 2024",
+      "date_display_bn": "জুন ২০২৪",
+      "doi": "https://doi.org/10.13140/RG.2.2.33718.72005",
+      "proceedings": "Proceedings of the International Congress on Food, Agriculture and Environmental Research in the Global World, 2024.",
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "Turkey",
+      "flag": "🇹🇷"
+    },
+
+    {
+      "id": "C5",
+      "sort_order": 5,
+      "title_en": "Developing a smart, sustainable agriculture initiative in Bangladesh: A data-driven approach to ensuring food security and minimizing environmental impact",
+      "title_bn": "বাংলাদেশে স্মার্ট, টেকসই কৃষি উদ্যোগ: খাদ্য নিরাপত্তা ও পরিবেশ সংরক্ষণে ডেটা-চালিত পদ্ধতি",
+      "authors": "Rahman, S., Hossain Rubab, M. M., and Payal, M. P.",
+      "event_en": "HODJA AKHMET YASSAWI 8th International Congress on Scientific Research",
+      "event_bn": "হোদজা আখমেত ইয়াসাভি ৮ম আন্তর্জাতিক বৈজ্ঞানিক গবেষণা কংগ্রেস",
+      "location_en": "Kazakhstan / International",
+      "location_bn": "কাজাখস্তান / আন্তর্জাতিক",
+      "date": "2024-05",
+      "date_display_en": "May 2024",
+      "date_display_bn": "মে ২০২৪",
+      "doi": "https://doi.org/10.13140/RG.2.2.35396.44165",
+      "proceedings": "Proceedings of the HODJA AKHMET YASSAWI 8th International Congress on Scientific Research, 2024.",
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "Kazakhstan",
+      "flag": "🇰🇿"
+    },
+
+    {
+      "id": "C6",
+      "sort_order": 6,
+      "title_en": "Navigating sustainability in urban landscapes: Assessing organic fertilizer adoption and challenges among farmers in the Dhaka region, Bangladesh",
+      "title_bn": "নগর কৃষিতে টেকসইতা: ঢাকা অঞ্চলের কৃষকদের মধ্যে জৈব সার গ্রহণ ও চ্যালেঞ্জ মূল্যায়ন",
+      "authors": "Rahman, S., Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., and Islam, R.",
+      "event_en": "International Congress on Sustainable Agriculture",
+      "event_bn": "আন্তর্জাতিক টেকসই কৃষি কংগ্রেস",
+      "location_en": "International",
+      "location_bn": "আন্তর্জাতিক",
+      "date": "2024-03",
+      "date_display_en": "March 2024",
+      "date_display_bn": "মার্চ ২০২৪",
+      "doi": "https://doi.org/10.13140/RG.2.2.21075.55849",
+      "proceedings": "Proceedings of the International Congress on Sustainable Agriculture, 2024.",
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "International",
+      "flag": "🌐"
+    },
+
+    {
+      "id": "C7",
+      "sort_order": 7,
+      "title_en": "Improving crop productivity in Bangladesh through advanced yield prediction techniques",
+      "title_bn": "উন্নত ফলন পূর্বাভাস কৌশলের মাধ্যমে বাংলাদেশে ফসল উৎপাদনশীলতা বৃদ্ধি",
+      "authors": "Rahman, S., Hossain Rubab, M. M., and Payal, M. P.",
+      "event_en": "IEEE SIGHT Student Branch, University of Dhaka — \"Ideas for Life\" Conference",
+      "event_bn": "আইইইই সাইট স্টুডেন্ট ব্রাঞ্চ, ঢাকা বিশ্ববিদ্যালয় — \"আইডিয়াস ফর লাইফ\" সম্মেলন",
+      "location_en": "Dhaka, Bangladesh",
+      "location_bn": "ঢাকা, বাংলাদেশ",
+      "date": "2023-05",
+      "date_display_en": "May 2023",
+      "date_display_bn": "মে ২০২৩",
+      "doi": "https://doi.org/10.13140/RG.2.2.16907.36644",
+      "proceedings": "Proceedings of the IEEE SIGHT Student Branch, University of Dhaka \"Ideas for Life\" Conference, 2023.",
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "Bangladesh",
+      "flag": "🇧🇩"
+    },
+
+    {
+      "id": "C8",
+      "sort_order": 8,
+      "title_en": "An assessment and analysis of Bangladesh's agricultural approach based on technology",
+      "title_bn": "প্রযুক্তি-ভিত্তিক বাংলাদেশের কৃষি পদ্ধতির মূল্যায়ন ও বিশ্লেষণ",
+      "authors": "Rahman, S., Hossain Rubab, M. M., and Payal, M. P.",
+      "event_en": "2nd International Competition for Young Researchers 2022",
+      "event_bn": "তরুণ গবেষকদের ২য় আন্তর্জাতিক প্রতিযোগিতা ২০২২",
+      "location_en": "International",
+      "location_bn": "আন্তর্জাতিক",
+      "date": "2022-11",
+      "date_display_en": "November 2022",
+      "date_display_bn": "নভেম্বর ২০২২",
+      "doi": "https://doi.org/10.13140/RG.2.2.13587.96809",
+      "proceedings": "Proceedings of the 2nd International Competition for Young Researchers 2022. Gold Award (top 10%).",
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "International",
+      "flag": "🌐"
+    }
+
+  ],
+
+  "manuscripts": [
+
+    {
+      "id": "M1",
+      "sort_order": 1,
+      "title_en": "Organic Fertilizer Adoption Completeness Among Urban Growers in Dhaka: Site Type as a Determinant of Exclusive Versus Mixed Organic-Synthetic Practice",
+      "title_bn": "ঢাকার নগর কৃষকদের মধ্যে জৈব সার গ্রহণের সম্পূর্ণতা",
+      "authors": "Rahman, S., Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., and Islam, R.",
+      "target_journal": "Urban Agriculture & Regional Food Systems (Wiley/ASA-CSSA) or Sustainability (MDPI)",
+      "status": "in_preparation",
+      "date": "2026",
+      "doi": null,
+      "file": null,
+      "file_type": null,
+      "type": "manuscript"
+    },
+
+    {
+      "id": "M2",
+      "sort_order": 2,
+      "title_en": "Environmental and Agricultural Governance in Post-July Bangladesh: Accountability, Reform and Sustainable Futures",
+      "title_bn": "জুলাই-পরবর্তী বাংলাদেশে পরিবেশ ও কৃষি শাসন: জবাবদিহিতা, সংস্কার ও টেকসই ভবিষ্যৎ",
+      "authors": "Rahman, S.",
+      "target_journal": "Prepared for 2nd International Conference on the July Revolution (ICJR-II), 19 July 2026, University of Dhaka",
+      "status": "forthcoming",
+      "date": "2026-07-19",
+      "doi": null,
+      "file": null,
+      "file_type": null,
+      "type": "manuscript"
+    },
+
+    {
+      "id": "M3",
+      "sort_order": 3,
+      "title_en": "SPADE: An Integrated Open-Source Framework for Standardised Nitrogen Use Efficiency Analysis in Small-Plot Agricultural Experiments",
+      "title_bn": "স্প্যাডে: ছোট-প্লট কৃষি পরীক্ষায় মানসম্মত নাইট্রোজেন ব্যবহার দক্ষতা বিশ্লেষণের একটি সমন্বিত ওপেন-সোর্স কাঠামো",
+      "authors": "Rahman, S.",
+      "target_journal": "Computers and Electronics in Agriculture (Elsevier) or SoftwareX",
+      "status": "in_preparation",
+      "date": "2026",
+      "doi": null,
+      "file": null,
+      "file_type": null,
+      "type": "manuscript"
+    }
+
+  ],
+
+  "software": [
+
+    {
+      "id": "S1",
+      "name": "SPADE v1.0",
+      "full_name": "Statistical Platform for Agronomic Data Evaluation",
+      "description_en": "Open-source Python/Streamlit application for integrated NUE computation (five indices: AE, RE, PE, NHI, PFP), factorial ANOVA with Tukey HSD and compact letter display, outlier detection (Dixon's Q, Grubbs), and publication-ready PNG/JPG figure export.",
+      "description_bn": "সমন্বিত এনইউই গণনা, ফ্যাক্টোরিয়াল এ্যানোভা, আউটলায়ার সনাক্তকরণ এবং প্রকাশনা-উপযোগী চিত্র রপ্তানির জন্য ওপেন-সোর্স পাইথন/স্ট্রিমলিট অ্যাপ্লিকেশন।",
+      "authors": "Rahman, S.",
+      "github_url": null,
+      "doi": null,
+      "status": "forthcoming",
+      "manuscript_id": "M3",
+      "type": "software"
+    }
+
+  ]
+}

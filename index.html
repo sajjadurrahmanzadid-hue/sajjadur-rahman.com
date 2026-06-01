@@ -1202,87 +1202,58 @@
   <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
   <script src="assets/js/main.js"></script>
   <script>
+  /* Blog preview — pulls 3 most recent posts live from Blogger JSON feed.
+     Falls back to hardcoded cards if Blogger is unreachable. */
   (function () {
     var grid = document.getElementById('blogPreviewGrid');
     if (!grid) return;
+
+    var FEED = 'https://sajjadur-rahman.blogspot.com/feeds/posts/default?alt=json&max-results=3';
 
     var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     function fmtDate(iso) {
       var d = new Date(iso);
       return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
     }
+    function stripHtml(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
 
-    /* ── Update this array whenever you add a new post ── */
-    var POSTS = [
-      {
-        slug: 'slow-chemistry-of-soil',
-        category: 'Research',
-        title: 'The Slow Chemistry of Soil: Nitrogen, Loss, and Slow-Release Fertilisers',
-        excerpt: 'Nitrogen fertilisers feed half the world — yet most of what we apply never reaches the crop. This piece traces the chemistry of nitrogen loss and the case for slow-release technology.',
-        date: '2025-11-15',
-        read_time_min: 8
-      },
-      {
-        slug: 'hailstorm-experimental-plot',
-        category: 'Field Notes',
-        title: 'When the Hailstorm Hit the Experimental Plot',
-        excerpt: 'A hailstorm wiped out months of wheat grain trials at DUNTC. What remained was a story about resilience, data recovery, and what soil can still tell you after a disaster.',
-        date: '2025-08-20',
-        read_time_min: 6
-      },
-      {
-        slug: 'dhaka-urban-farmers-organic-fertilizer',
-        category: 'Urban Agriculture',
-        title: "Why Dhaka's Urban Farmers Are Choosing Organic Fertilisers",
-        excerpt: 'Fieldwork across rooftop farms and peri-urban plots reveals a quiet shift away from chemical fertilisers — driven by cost, health, and soil exhaustion.',
-        date: '2025-06-10',
-        read_time_min: 7
-      },
-      {
-        slug: 'particulate-pollution-dhaka-air',
-        category: 'Environment',
-        title: 'Particulate Pollution and the Invisible Burden of Dhaka\'s Air',
-        excerpt: 'PM₂.₅ and ultrafine particles are Dhaka\'s least-visible crisis. Drawing on BCSIR sampling data and heavy-metal analysis, this piece maps what the city breathes.',
-        date: '2025-04-05',
-        read_time_min: 9
-      },
-      {
-        slug: 'rejection-deferral-long-road-scholarship',
-        category: 'Personal',
-        title: 'Rejection, Deferral, and the Long Road to a Scholarship',
-        excerpt: 'WUR said yes. MESPOM and IMSOGLO said no. The NST fellowship came through. An honest account of what international applications actually feel like from Dhaka.',
-        date: '2025-02-18',
-        read_time_min: 11
-      },
-      {
-        slug: 'the-palestine-question',
-        category: 'Politics & Society',
-        title: 'The Palestine Question',
-        excerpt: 'A considered reflection on Palestine — history, conscience, and the silence that researchers are often expected to keep.',
-        date: '2024-12-01',
-        read_time_min: 10
-      }
-    ];
+    fetch(FEED)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var entries = (data.feed.entry || []).slice(0, 3);
+        if (!entries.length) return;
 
-    var sorted = POSTS
-      .sort(function(a, b) { return new Date(b.date) - new Date(a.date); })
-      .slice(0, 3);
+        grid.innerHTML = entries.map(function(entry, i) {
+          var title = entry.title.$t;
+          var date  = fmtDate(entry.published.$t);
+          var cat   = entry.category ? entry.category[0].term : 'Blog';
+          var url   = '';
+          (entry.link || []).forEach(function(l) {
+            if (l.rel === 'alternate') url = l.href;
+          });
+          var raw     = entry.summary ? entry.summary.$t : (entry.content ? entry.content.$t : '');
+          var excerpt = stripHtml(raw).slice(0, 130).trim() + '…';
 
-    grid.innerHTML = sorted.map(function(p, i) {
-      return '<a href="blog/' + p.slug + '.html" class="blog-card">' +
-        '<div class="blog-header">' +
-          '<span class="blog-num">0' + (i + 1) + '</span>' +
-          '<div>' +
-            '<span class="blog-cat">' + p.category + '</span>' +
-            '<h3>' + p.title + '</h3>' +
-          '</div>' +
-        '</div>' +
-        '<div class="blog-body">' +
-          '<p>' + p.excerpt + '</p>' +
-          '<span class="blog-read">' + fmtDate(p.date) + ' · ' + p.read_time_min + ' min read</span>' +
-        '</div>' +
-      '</a>';
-    }).join('');
+          return '<a href="' + url + '" target="_blank" rel="noopener" class="blog-card">' +
+            '<div class="blog-header">' +
+              '<span class="blog-num">0' + (i + 1) + '</span>' +
+              '<div>' +
+                '<span class="blog-cat">' + cat + '</span>' +
+                '<h3>' + title + '</h3>' +
+              '</div>' +
+            '</div>' +
+            '<div class="blog-body">' +
+              '<p>' + excerpt + '</p>' +
+              '<span class="blog-read">' + date + ' · Read on Blogger</span>' +
+            '</div>' +
+          '</a>';
+        }).join('');
+      })
+      .catch(function() { /* keep hardcoded fallback cards */ });
   })();
   </script>
 </body>

@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  BLOG POST TEMPLATE — sajjadur-rahman.com                   ║
+  ║  Location: blog/_template.html                              ║
+  ║  Usage: Copy this file, rename to blog/your-slug.html       ║
+  ║         Then fill in every section marked "REPLACE"         ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║  CHECKLIST — 10 things to update before publishing:         ║
+  ║  ☐ 1. <title> — post title in English                       ║
+  ║  ☐ 2. <meta name="description"> — one-sentence summary      ║
+  ║  ☐ 3. data-slug on <body> — matches your filename slug      ║
+  ║  ☐ 4. Category eyebrow — EN + BN                            ║
+  ║  ☐ 5. Post title — EN + BN                                  ║
+  ║  ☐ 6. Date (YYYY-MM-DD format) and read time                ║
+  ║  ☐ 7. Tags — EN + BN (2–4 tags)                             ║
+  ║  ☐ 8. English post body — inside div[data-en].post-content  ║
+  ║  ☐ 9. Bengali post body — inside div[data-bn].post-content  ║
+  ║  ☐ 10. Add entry to assets/data/posts.json                  ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║  WRITING GUIDE — allowed HTML inside .post-content:         ║
+  ║  <p>          Paragraph (required wrapper for all text)     ║
+  ║  <h2>         Section heading                               ║
+  ║  <h3>         Sub-heading                                   ║
+  ║  <blockquote> Pull quote with optional <cite>               ║
+  ║  <figure>     Image with <img/> + <figcaption>              ║
+  ║  <ul> <ol>    Lists (use <li> items)                        ║
+  ║  <strong>     Bold emphasis                                 ║
+  ║  <em>         Italic / foreign terms                        ║
+  ║  <a href="…"> Inline link                                   ║
+  ║  <hr/>        Section break (renders as — ❧ —)             ║
+  ║  AVOID: <div>, <span>, inline styles inside .post-content   ║
+  ╚══════════════════════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- REPLACE: post title + site name -->
+  <title>Post Title Here — Sajjadur Rahman</title>
+
+  <!-- REPLACE: one-sentence description of this post -->
+  <meta name="description" content="A short description of this post for search engines and social sharing."/>
+
+  <meta property="og:type" content="article"/>
+  <!-- REPLACE: og title + description -->
+  <meta property="og:title" content="Post Title Here — Sajjadur Rahman"/>
+  <meta property="og:description" content="A short description of this post."/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Note: paths use ../ because this file lives inside blog/ -->
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+
+  <style>
+    /* ─────────────────────────────────────────────
+       Individual post page styles
+       (scoped to this template, never edit style.css)
+    ───────────────────────────────────────────── */
+
+    /* Reading progress bar */
+    #read-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--gold);
+      z-index: 999;
+      transition: width .1s linear;
+    }
+
+    /* ── Post hero ── */
+    .post-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 52px 0 48px;
+      text-align: center;
+    }
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 18px;
+    }
+    .breadcrumb a {
+      color: var(--gold);
+      transition: color .2s;
+    }
+    .breadcrumb a:hover { color: var(--ink-soft); }
+    .breadcrumb .sep { color: var(--gold-pale); }
+
+    .post-category-eye {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .post-title {
+      font-family: var(--font-head);
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+    .post-meta-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .meta-sep { color: var(--gold-pale); }
+    .post-hero-tags {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    /* ── Post layout ── */
+    .post-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Post body ── */
+    .post-body { padding: 64px 0 40px; }
+
+    /* Language note banner */
+    .lang-notice {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--parchment2);
+      border-left: 2px solid var(--gold);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 2em;
+    }
+
+    /* Post content typography */
+    .post-content {
+      font-family: var(--font-body);
+      font-size: 16.5px;
+      line-height: 1.9;
+      color: var(--ink-muted);
+    }
+    .post-content.bn {
+      font-family: var(--font-bn);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    /* Drop cap — English only */
+    .post-content:not(.bn) > p:first-child::first-letter {
+      font-family: var(--font-head);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--gold);
+      float: left;
+      line-height: 0.82;
+      margin: 6px 8px 0 0;
+      padding: 0;
+    }
+
+    .post-content p { margin-bottom: 1.65em; }
+    .post-content p:last-child { margin-bottom: 0; }
+
+    .post-content h2 {
+      font-family: var(--font-head);
+      font-size: 25px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2em 0 0.6em;
+      line-height: 1.3;
+    }
+    .post-content h3 {
+      font-family: var(--font-head);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin: 1.8em 0 0.5em;
+      line-height: 1.3;
+    }
+    .post-content blockquote {
+      border-left: 2px solid var(--gold);
+      margin: 2em 0;
+      padding: 4px 0 4px 24px;
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 17.5px;
+      line-height: 1.75;
+    }
+    .post-content blockquote cite {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 10px;
+      font-style: normal;
+    }
+    .post-content figure {
+      margin: 2.2em 0;
+    }
+    .post-content figure img {
+      width: 100%;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+    }
+    .post-content figcaption {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 9px;
+    }
+    .post-content a {
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--gold-light);
+      transition: color .2s, border-color .2s;
+    }
+    .post-content a:hover { color: var(--gold); border-color: var(--gold); }
+    .post-content ul,
+    .post-content ol {
+      padding-left: 1.6em;
+      margin-bottom: 1.65em;
+    }
+    .post-content ul { list-style: disc; }
+    .post-content ol { list-style: decimal; }
+    .post-content li { margin-bottom: 0.4em; }
+    .post-content strong { color: var(--ink); font-weight: 600; }
+    .post-content em { font-style: italic; }
+
+    /* <hr/> renders as ornamental divider */
+    .post-content hr {
+      border: none;
+      text-align: center;
+      margin: 2.5em 0;
+      overflow: visible;
+      line-height: 0;
+    }
+    .post-content hr::after {
+      content: '— ❧ —';
+      font-family: var(--font-head);
+      font-size: 14px;
+      letter-spacing: 8px;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    /* ── Post footer row (tags + share) ── */
+    .post-foot-row {
+      padding: 22px 0;
+      border-top: 0.5px solid var(--gold-pale);
+      border-bottom: 0.5px solid var(--gold-pale);
+      margin: 48px 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .post-tags-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tags-lbl {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-right: 2px;
+    }
+    .share-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .share-lbl {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .share-btn {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 20px;
+      border: 1px solid var(--gold-light);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .share-btn:hover {
+      background: var(--ink-soft);
+      color: var(--gold-light);
+      border-color: var(--ink-soft);
+    }
+
+    /* ── Author bio ── */
+    .author-bio {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .author-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold-light);
+      flex-shrink: 0;
+      background: var(--parchment3);
+    }
+    .author-info h4 {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .author-role {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 9px;
+    }
+    .author-info p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.72;
+      margin-bottom: 12px;
+    }
+    .author-links { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ── Inline newsletter strip ── */
+    .post-newsletter {
+      background: var(--ink-soft);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .pnl-text h4 {
+      font-family: var(--font-head);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .pnl-text p {
+      font-size: 13px;
+      color: var(--text-light);
+      font-style: italic;
+    }
+    .pnl-form {
+      display: flex;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .pnl-form input[type="email"] {
+      background: rgba(255,255,255,0.06);
+      border: none;
+      padding: 10px 14px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gold-light);
+      outline: none;
+      width: 190px;
+    }
+    .pnl-form input[type="email"]::placeholder { color: var(--text-light); font-style: italic; }
+    .pnl-form button {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--parchment);
+      border: none;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .pnl-form button:hover { background: var(--gold-light); color: var(--ink); }
+
+    /* ── Related posts ── */
+    .related-section {
+      background: var(--parchment2);
+      padding: 64px 0;
+      border-top: 1px solid var(--gold-pale);
+      margin-top: 64px;
+    }
+    .related-section .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .section-label .eyebrow { margin: 0; display: block; }
+    .section-label .label-line {
+      flex: 1;
+      height: 0.5px;
+      background: var(--gold-pale);
+    }
+    /* Related post cards inherit .card styles from style.css */
+    .rel-card h3 {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .rel-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .rel-card .card-foot {
+      margin-top: auto;
+      border-top: 0.5px solid var(--gold-pale);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rel-date {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .post-title { font-size: 26px; }
+      .post-content { font-size: 15.5px; }
+      .post-content.bn { font-size: 15px; }
+      .post-content:not(.bn) > p:first-child::first-letter { font-size: 44px; }
+      .author-bio { flex-direction: column; gap: 14px; }
+      .post-newsletter { flex-direction: column; }
+      .pnl-form { width: 100%; }
+      .pnl-form input[type="email"] { flex: 1; width: auto; }
+      .post-foot-row { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 420px) {
+      .post-title { font-size: 22px; }
+      .post-wrap { padding: 0 16px; }
+    }
+  </style>
+</head>
+
+<!-- REPLACE: data-slug must exactly match your filename (without .html) -->
+<body data-slug="REPLACE-WITH-POST-SLUG">
+
+<!-- Reading progress bar -->
+<div id="read-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- ═══ TOP BAR ═══ -->
+<div id="top-bar">
+  <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+  <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+</div>
+
+<!-- ═══ NAVBAR ═══ (all hrefs use ../ — do not remove) -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../services.html">Services</a>
+      <a href="../research.html">Research</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="langEN">EN</button>
+        <button class="lang-btn" id="langBN">বাং</button>
+      </div>
+      <a href="../services.html" class="btn-hire">
+        <span data-en>Hire Me</span>
+        <span data-bn class="bn">নিয়োগ করুন</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ MOBILE NAV ═══ -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="../services.html">Services</a>
+  <a href="../research.html">Research</a>
+  <a href="../blog.html">Blog</a>
+  <a href="../contact.html">Contact</a>
+</div>
+
+<!-- ═══ POST HERO ═══ -->
+<header class="post-hero">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html" data-en>Home</a>
+      <a href="../index.html" data-bn class="bn">প্রচ্ছদ</a>
+      <span class="sep">›</span>
+      <a href="../blog.html" data-en>Blog</a>
+      <a href="../blog.html" data-bn class="bn">ব্লগ</a>
+      <span class="sep">›</span>
+      <!-- REPLACE: short post title for breadcrumb -->
+      <span data-en>Post Title</span>
+      <span data-bn class="bn">পোস্ট শিরোনাম</span>
+    </nav>
+
+    <!-- Category eyebrow -->
+    <!-- REPLACE: category name in both languages -->
+    <span class="post-category-eye" data-en>Research</span>
+    <span class="post-category-eye bn" data-bn>গবেষণা</span>
+
+    <!-- Post title -->
+    <!-- REPLACE: full post title in both languages -->
+    <h1 class="post-title">
+      <span data-en>Your Post Title in English Goes Here</span>
+      <span data-bn class="bn">আপনার পোস্টের বাংলা শিরোনাম এখানে</span>
+    </h1>
+
+    <!-- Meta bar: date · read time · author -->
+    <div class="post-meta-bar">
+      <!-- REPLACE: date as written e.g. "15 November 2025" / "১৫ নভেম্বর ২০২৫" -->
+      <span data-en>15 November 2025</span>
+      <span data-bn class="bn">১৫ নভেম্বর ২০২৫</span>
+      <span class="meta-sep">·</span>
+      <!-- REPLACE: read time -->
+      <span data-en>8 min read</span>
+      <span data-bn class="bn">৮ মিনিট</span>
+      <span class="meta-sep">·</span>
+      <span>Sajjadur Rahman</span>
+    </div>
+
+    <!-- Tags -->
+    <!-- REPLACE: 2–4 tags, one set per language -->
+    <div class="post-hero-tags">
+      <span class="tag-pill" data-en>soil science</span>
+      <span class="tag-pill" data-en>nitrogen</span>
+      <span class="tag-pill bn" data-bn>মৃত্তিকা বিজ্ঞান</span>
+      <span class="tag-pill bn" data-bn>নাইট্রোজেন</span>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══ POST BODY ═══ -->
+<main>
+<div class="post-body">
+  <div class="post-wrap">
+
+    <!-- ─────────────────────────────────────────
+         ENGLISH CONTENT BLOCK
+         Visible in EN mode (default).
+         If this post is only in Bengali:
+           Replace the <p> below with:
+           <p class="lang-notice">
+             This post is written in Bengali.
+             Switch language above to read.
+           </p>
+    ───────────────────────────────────────── -->
+    <div class="post-content" data-en>
+
+      <!--
+        REPLACE everything below with your English post.
+        The first letter of the first <p> gets a decorative drop cap automatically.
+        Use <hr/> between major sections for the ornamental divider.
+      -->
+
+      <p>Begin your post here. This first paragraph will display a decorative drop cap on its opening letter. Write naturally — the typography handles the rest. Keep paragraphs focused and readable.</p>
+
+      <p>Continue your second paragraph here. Source Serif 4 is set at 16.5px with 1.9 line-height for comfortable reading on all screens. Long-form writing looks excellent at this size.</p>
+
+      <h2>A Section Heading</h2>
+
+      <p>Use <code>&lt;h2&gt;</code> for major section breaks and <code>&lt;h3&gt;</code> for sub-sections. Avoid going deeper than h3 in blog posts.</p>
+
+      <blockquote>
+        A well-chosen quote or key finding can anchor a section beautifully. Keep it short — one to three sentences.
+        <cite>— Source or Attribution, Year</cite>
+      </blockquote>
+
+      <p>Continue the narrative after the blockquote. The gold left border draws the eye back naturally.</p>
+
+      <hr/>
+
+      <p>Use <code>&lt;hr/&gt;</code> to insert the ornamental section break (— ❧ —) between major parts of a long piece.</p>
+
+      <p>Close your post with a clear conclusion or reflection. What should the reader take away? What question are you leaving them with?</p>
+
+    </div><!-- /data-en -->
+
+
+    <!-- ─────────────────────────────────────────
+         BENGALI CONTENT BLOCK
+         Visible in BN mode (when toggled).
+         If this post has no Bengali version yet:
+           Keep the lang-notice <p> and remove
+           everything else below it.
+         If fully translated:
+           Remove the lang-notice and fill in
+           the Bengali text.
+    ───────────────────────────────────────── -->
+    <div class="post-content bn" data-bn>
+
+      <!--
+        REPLACE: Bengali post content.
+        Until translated, the notice below is shown.
+      -->
+
+      <p class="lang-notice" data-bn>
+        এই পোস্টের বাংলা সংস্করণ শীঘ্রই আসছে।
+        ইংরেজি পড়তে উপরের ভাষা টগল ব্যবহার করুন।
+      </p>
+
+      <!--
+        When ready, remove the lang-notice above and
+        write your Bengali content below:
+      -->
+
+      <!-- <p class="bn">আপনার বাংলা পোস্টের প্রথম অনুচ্ছেদ এখানে শুরু করুন।</p> -->
+
+    </div><!-- /data-bn -->
+
+
+    <!-- ─── Post footer: tags + share ─── -->
+    <div class="post-foot-row">
+
+      <!-- Tags (same as hero, repeated for bottom of post) -->
+      <div class="post-tags-group">
+        <span class="tags-lbl" data-en>Tags</span>
+        <span class="tags-lbl bn" data-bn>ট্যাগ</span>
+        <!-- REPLACE: same tags as hero -->
+        <a href="../blog.html" class="tag-pill" data-en>soil science</a>
+        <a href="../blog.html" class="tag-pill" data-en>nitrogen</a>
+        <a href="../blog.html" class="tag-pill bn" data-bn>মৃত্তিকা বিজ্ঞান</a>
+        <a href="../blog.html" class="tag-pill bn" data-bn>নাইট্রোজেন</a>
+      </div>
+
+      <!-- Share buttons (URLs populated by JS) -->
+      <div class="share-group">
+        <span class="share-lbl" data-en>Share</span>
+        <span class="share-lbl bn" data-bn>শেয়ার</span>
+        <a class="share-btn" id="shareTwitter" target="_blank" rel="noopener" aria-label="Share on X / Twitter">𝕏</a>
+        <a class="share-btn" id="shareWhatsApp" target="_blank" rel="noopener" aria-label="Share on WhatsApp">WhatsApp</a>
+        <a class="share-btn" id="shareLinkedIn" target="_blank" rel="noopener" aria-label="Share on LinkedIn">LinkedIn</a>
+      </div>
+
+    </div><!-- /post-foot-row -->
+
+
+    <!-- ─── Author bio ─── -->
+    <aside class="author-bio" aria-label="About the author">
+      <!--
+        REPLACE src with actual photo path once uploaded.
+        Placeholder: assets/img/sajjadur.jpg (from site root, use ../)
+      -->
+      <img
+        src="../assets/img/sajjadur.jpg"
+        alt="Sajjadur Rahman"
+        class="author-avatar"
+        width="72"
+        height="72"
+        loading="lazy"
+        onerror="this.style.background='var(--parchment3)';this.removeAttribute('src');"
+      />
+      <div class="author-info">
+        <h4>Sajjadur Rahman</h4>
+        <span class="author-role" data-en>MSc Researcher · University of Dhaka</span>
+        <span class="author-role bn" data-bn>এমএস গবেষক · ঢাকা বিশ্ববিদ্যালয়</span>
+        <p data-en>Soil scientist and environmental researcher. NST Fellow. Affiliated with BCSIR and DUNTC. Writing on soil, science, and society from Dhaka, Bangladesh.</p>
+        <p data-bn class="bn">মৃত্তিকা বিজ্ঞানী ও পরিবেশ গবেষক। এনএসটি ফেলো। বিসিএসআইআর ও ডিইউএনটিসি-এর সাথে সংযুক্ত। ঢাকা থেকে মাটি, বিজ্ঞান ও সমাজ নিয়ে লেখালেখি।</p>
+        <div class="author-links">
+          <a href="../about.html" class="tag-pill" data-en>About</a>
+          <a href="../about.html" class="tag-pill bn" data-bn>পরিচিতি</a>
+          <a href="../services.html" class="tag-pill" data-en>Services</a>
+          <a href="../services.html" class="tag-pill bn" data-bn>সেবা</a>
+          <a href="https://www.facebook.com/sajjad.rahman68/" class="tag-pill" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://orcid.org/0009-0004-5985-8105" class="tag-pill" target="_blank" rel="noopener">ORCID</a>
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- ─── Inline newsletter strip ─── -->
+    <!--
+      This form shares the same Mailchimp URL as blog.html.
+      Replace YOUR_MAILCHIMP_ACTION_URL_HERE with your Mailchimp form action.
+    -->
+    <div class="post-newsletter">
+      <div class="pnl-text">
+        <h4>
+          <span data-en>Enjoyed this post?</span>
+          <span data-bn class="bn">পোস্টটি ভালো লাগলে?</span>
+        </h4>
+        <p data-en>Subscribe for new writing on soil, science &amp; society.</p>
+        <p data-bn class="bn">মৃত্তিকা, বিজ্ঞান ও সমাজ নিয়ে নতুন লেখার জন্য সাবস্ক্রাইব করুন।</p>
+      </div>
+      <form
+        action="YOUR_MAILCHIMP_ACTION_URL_HERE"
+        method="post"
+        target="_blank"
+        novalidate=""
+        class="pnl-form"
+      >
+        <input
+          type="email"
+          name="EMAIL"
+          placeholder="your@email.com"
+          required=""
+          aria-label="Email address"
+          autocomplete="email"
+        />
+        <!-- PASTE MAILCHIMP BOT-TRAP HERE -->
+        <button type="submit">
+          <span data-en>Subscribe</span>
+          <span data-bn class="bn">সাবস্ক্রাইব</span>
+        </button>
+      </form>
+    </div>
+
+  </div><!-- /post-wrap -->
+</div><!-- /post-body -->
+
+
+<!-- ═══ RELATED POSTS ═══ (auto-populated from posts.json) -->
+<section class="related-section">
+  <div class="container">
+    <div class="section-label">
+      <span class="eyebrow" data-en>Continue Reading</span>
+      <span class="eyebrow bn" data-bn>আরও পড়ুন</span>
+      <div class="label-line"></div>
+      <a href="../blog.html" class="text-link" data-en>All Posts</a>
+      <a href="../blog.html" class="text-link bn" data-bn>সকল পোস্ট</a>
+    </div>
+    <div class="grid-3" id="relatedGrid">
+      <!-- Populated by JS from ../assets/data/posts.json -->
+    </div>
+  </div>
+</section>
+
+</main><!-- /main -->
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <div class="logo">Sajjadur <span>Rahman</span></div>
+        <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+        <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+        <div class="footer-social">
+          <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+          <a href="https://www.facebook.com/sajjad.rahman68/" title="Facebook" target="_blank" rel="noopener" style="font-family:var(--font-ui);font-weight:700;font-size:13px;">f</a>
+          <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+          <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-en>Pages</h4>
+        <h4 data-bn class="bn">পাতাসমূহ</h4>
+        <a href="../index.html" data-en>Home</a>
+        <a href="../index.html" data-bn class="bn">প্রচ্ছদ</a>
+        <a href="../about.html" data-en>About</a>
+        <a href="../about.html" data-bn class="bn">পরিচিতি</a>
+        <a href="../services.html" data-en>Services</a>
+        <a href="../services.html" data-bn class="bn">সেবাসমূহ</a>
+        <a href="../research.html" data-en>Research</a>
+        <a href="../research.html" data-bn class="bn">গবেষণা</a>
+        <a href="../blog.html" data-en>Blog</a>
+        <a href="../blog.html" data-bn class="bn">ব্লগ</a>
+        <a href="../contact.html" data-en>Contact</a>
+        <a href="../contact.html" data-bn class="bn">যোগাযোগ</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-en>Services</h4>
+        <h4 data-bn class="bn">সেবাসমূহ</h4>
+        <a href="../services.html" data-en>Manuscript Editing</a>
+        <a href="../services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+        <a href="../services.html" data-en>Data Analysis</a>
+        <a href="../services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+        <a href="../services.html" data-en>Thesis Consultation</a>
+        <a href="../services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+        <a href="../services.html" data-en>IELTS Tutoring</a>
+        <a href="../services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+        <a href="../services.html" data-en>CV Development</a>
+        <a href="../services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+        <a href="../services.html" data-en>Research Proposals</a>
+        <a href="../services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-en>Contact</h4>
+        <h4 data-bn class="bn">যোগাযোগ</h4>
+        <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+        <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+        <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+        <a href="#" data-en>Dhaka, Bangladesh</a>
+        <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+      </div>
+
+    </div><!-- /footer-top -->
+    <div class="footer-bottom">
+      <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+      <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="../assets/js/main.js"></script>
+<script>
+/* ══════════════════════════════════════════════
+   POST PAGE SCRIPTS
+   1. Reading progress bar
+   2. Share button URLs
+   3. Related posts from posts.json
+   4. Re-render related posts on lang switch
+══════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  const isBN = () => document.documentElement.classList.contains('lang-bn');
+
+  /* ── 1. Reading progress bar ── */
+  const bar = document.getElementById('read-progress');
+  if (bar) {
+    window.addEventListener('scroll', () => {
+      const doc    = document.documentElement;
+      const scrolled = doc.scrollTop;
+      const total    = doc.scrollHeight - doc.clientHeight;
+      const pct      = total > 0 ? Math.round((scrolled / total) * 100) : 0;
+      bar.style.width = pct + '%';
+      bar.setAttribute('aria-valuenow', pct);
+    }, { passive: true });
+  }
+
+  /* ── 2. Share buttons ── */
+  function setShareLinks() {
+    const url   = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+
+    const tw = document.getElementById('shareTwitter');
+    const wa = document.getElementById('shareWhatsApp');
+    const li = document.getElementById('shareLinkedIn');
+
+    if (tw) tw.href = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    if (wa) wa.href = `https://wa.me/?text=${title}%20${url}`;
+    if (li) li.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+  }
+  setShareLinks();
+
+  /* ── 3. Related posts ── */
+  const relatedGrid  = document.getElementById('relatedGrid');
+  const currentSlug  = document.body.dataset.slug || '';
+
+  const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun',
+                     'Jul','Aug','Sep','Oct','Nov','Dec'];
+  const MONTHS_BN = ['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন',
+                     'জুলাই','আগস্ট','সেপ্টে','অক্টো','নভে','ডিসে'];
+
+  function fmtDate(iso) {
+    const d = new Date(iso);
+    const m = isBN() ? MONTHS_BN : MONTHS_EN;
+    return `${d.getDate()} ${m[d.getMonth()]} ${d.getFullYear()}`;
+  }
+
+  function makeRelCard(post) {
+    const bn      = isBN();
+    const title   = bn ? post.title_bn   : post.title_en;
+    const excerpt = bn ? post.excerpt_bn : post.excerpt_en;
+    const cat     = bn ? post.category_bn : post.category_en;
+    const date    = fmtDate(post.date);
+    const rdLbl   = bn ? 'পড়ুন' : 'Read';
+    const url     = `${post.slug}.html`;
+
+    return `
+<article class="card rel-card" style="display:flex;flex-direction:column;">
+  <div style="margin-bottom:8px;">
+    <span class="tag-pill">${cat}</span>
+  </div>
+  <h3>${title}</h3>
+  <p>${excerpt.slice(0, 110)}…</p>
+  <div class="card-foot">
+    <span class="rel-date">${date}</span>
+    <a href="${url}" class="text-link">${rdLbl}</a>
+  </div>
+</article>`;
+  }
+
+  function renderRelated(posts) {
+    if (!relatedGrid) return;
+    const others = posts.filter(p =>
+      p.slug !== currentSlug && p.status === 'published'
+    );
+    /* Shuffle deterministically by slug hash, then take 3 */
+    const shuffled = others.sort((a, b) =>
+      (a.slug > b.slug ? 1 : -1)
+    ).slice(0, 3);
+
+    if (shuffled.length === 0) {
+      relatedGrid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;font-style:italic;color:var(--text-muted);">
+        ${isBN() ? 'আরও পোস্ট শীঘ্রই আসছে।' : 'More posts coming soon.'}
+      </div>`;
+      return;
+    }
+    relatedGrid.innerHTML = shuffled.map(makeRelCard).join('');
+  }
+
+  let cachedPosts = null;
+
+  async function loadRelated() {
+    if (!relatedGrid) return;
+    try {
+      if (!cachedPosts) {
+        const res  = await fetch('../assets/data/posts.json');
+        cachedPosts = await res.json();
+      }
+      renderRelated(cachedPosts);
+    } catch {
+      if (relatedGrid) relatedGrid.innerHTML = '';
+    }
+  }
+
+  /* ── 4. Re-render on lang switch ── */
+  new MutationObserver(() => {
+    if (cachedPosts) renderRelated(cachedPosts);
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  loadRelated();
+
+})();
+</script>
+
+</body>
+</html>
