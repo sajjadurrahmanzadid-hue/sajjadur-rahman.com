@@ -142,4 +142,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  /* ── GA4 EVENT TRACKING ──
+     Fires named events that can be marked as Key Events in GA4 Admin.
+     Safe no-op if gtag is blocked (ad blockers, etc.)
+  ── */
+  const trackEvent = (name, params) => {
+    if (typeof gtag === 'function') gtag('event', name, params);
+  };
+
+  // WhatsApp link clicks
+  document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+    a.addEventListener('click', () => {
+      trackEvent('whatsapp_click', {
+        event_category: 'contact',
+        event_label: document.title
+      });
+    });
+  });
+
+  // Email link clicks
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+    a.addEventListener('click', () => {
+      trackEvent('email_click', {
+        event_category: 'contact',
+        event_label: a.getAttribute('href').replace('mailto:', '')
+      });
+    });
+  });
+
+  // Hire Me / btn-hire CTA clicks
+  document.querySelectorAll('.btn-hire, a[href="services.html"].btn').forEach(a => {
+    a.addEventListener('click', () => {
+      trackEvent('hire_cta_click', {
+        event_category: 'engagement',
+        event_label: document.title
+      });
+    });
+  });
+
+  // Contact form success — adds event to existing submit handler output
+  const formEl = document.getElementById('contactForm');
+  if (formEl) {
+    formEl.addEventListener('submit', () => {
+      // Fires alongside the existing handler; gtag queues safely
+      trackEvent('contact_form_submit', {
+        event_category: 'contact',
+        event_label: 'formspree'
+      });
+    });
+  }
+
 });
