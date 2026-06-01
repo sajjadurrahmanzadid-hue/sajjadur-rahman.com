@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A complete one-way ANOVA tutorial in R for agricultural researchers — data entry, assumption checks, Tukey HSD, compact letter display, and a publication-ready figure. Realistic dataset included."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="one-way ANOVA R tutorial, agricultural statistics R, Tukey HSD R, compact letter display agricolae, ANOVA agricultural research Bangladesh, R for researchers"/>
+  <meta property="og:title" content="One-Way ANOVA in R for Agricultural Research — Sajjadur Rahman"/>
+  <meta property="og:description" content="A complete ANOVA tutorial in R: data entry, assumption checks, Tukey HSD with compact letter display, and a publication-ready bar chart. Realistic agricultural dataset included."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-anova-r-tutorial.html"/>
+  <meta property="article:published_time" content="2026-07-15"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>One-Way ANOVA in R for Agricultural Research — A Practical Tutorial — Sajjadur Rahman</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Raleway:wght@400;500;600;700&amp;family=Noto+Serif+Bengali:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Article hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.8vw, 42px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--parchment3); border: 1.5px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name {
+      font-family: var(--font-ui); font-size: 11.5px;
+      font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px;
+    }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); display: block; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 23px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.4em 0 0.75em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.8em 0 0.5em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+
+    /* Step badge in h2 */
+    .step-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: var(--ink); color: var(--gold-light);
+      font-family: var(--font-ui); font-size: 11px;
+      font-weight: 700; letter-spacing: 0.5px;
+      border-radius: 50%;
+    }
+
+    /* ── Code blocks ── */
+    .code-wrap {
+      margin: 1.8em 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 0.5px solid rgba(139,126,90,0.2);
+    }
+    .code-header {
+      background: #151310;
+      padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .code-lang {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .code-copy-btn {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-light);
+      background: none; border: 0.5px solid rgba(139,126,90,0.3);
+      border-radius: 4px; padding: 4px 10px; cursor: pointer;
+      transition: color .2s, border-color .2s;
+    }
+    .code-copy-btn:hover { color: var(--gold); border-color: var(--gold); }
+    .code-copy-btn.copied { color: #5a7a4a; border-color: #5a7a4a; }
+
+    .code-pre {
+      background: #1a1714;
+      margin: 0; padding: 20px 22px;
+      overflow-x: auto;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 13.5px; line-height: 1.75;
+      color: #e8dfc8;
+      white-space: pre;
+    }
+    .code-pre .cm { color: #7a7060; }   /* comment */
+    .code-pre .kw { color: #c8a86e; }   /* keyword / function call */
+    .code-pre .st { color: #a8c480; }   /* string */
+    .code-pre .nu { color: #d4a47c; }   /* number */
+
+    /* Output block */
+    .output-wrap {
+      margin: -0.8em 0 1.8em;
+      border-radius: 0 0 var(--radius) var(--radius);
+      overflow: hidden;
+      border: 0.5px solid rgba(139,126,90,0.15);
+      border-top: none;
+    }
+    .output-header {
+      background: #242018;
+      padding: 7px 18px;
+      border-bottom: 0.5px solid rgba(139,126,90,0.15);
+    }
+    .output-header span {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #6a6052;
+    }
+    .output-pre {
+      background: #201d19;
+      margin: 0; padding: 16px 22px;
+      overflow-x: auto;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 13px; line-height: 1.8;
+      color: #b8af98;
+      white-space: pre;
+    }
+    .output-pre .hi { color: var(--gold-light); font-weight: bold; }
+    .output-pre .sig { color: #5a7a4a; }
+
+    /* ── Data table ── */
+    .data-table-wrap { margin: 2em 0; overflow-x: auto; }
+    .data-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--font-body); font-size: 14px;
+    }
+    .data-table thead tr { background: var(--parchment3); }
+    .data-table th {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--text-muted);
+      padding: 10px 16px; text-align: left;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .data-table td {
+      padding: 11px 16px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      color: var(--ink-soft); vertical-align: middle;
+    }
+    .data-table tbody tr:last-child td {
+      background: var(--parchment2);
+      font-weight: 600; color: var(--ink);
+      border-bottom: none;
+    }
+    .data-table .num {
+      font-family: 'Courier New', monospace;
+      font-size: 13.5px;
+    }
+    .data-table .treatment-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── Mistake callout ── */
+    .mistake-box {
+      background: rgba(180,60,40,0.04);
+      border: 0.5px solid rgba(180,60,40,0.18);
+      border-left: 3px solid #b44028;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.6em 0;
+    }
+    .mistake-box-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #b44028;
+      display: block; margin-bottom: 8px;
+    }
+    .mistake-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+
+    /* ── Callout box ── */
+    .callout-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.8em 0;
+    }
+    .callout-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 8px;
+    }
+    .callout-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 17.5px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+
+    /* ── Ornament ── */
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 2.8em 0; opacity: 0.55;
+    }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px; text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--parchment3); border: 2px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .bio-inner h4 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink); margin-bottom: 2px;
+    }
+    .bio-role-lbl {
+      font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 10px;
+    }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk {
+      font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold);
+      border: 0.5px solid var(--gold-pale); padding: 5px 12px;
+      border-radius: 20px; text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card {
+      background: var(--white); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); overflow: hidden;
+      margin-bottom: 18px; box-shadow: var(--shadow-sm);
+    }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold);
+    }
+    .sb-body { padding: 14px 16px; }
+
+    /* Cheat sheet (sidebar) */
+    .cs-item {
+      padding: 9px 0; border-bottom: 0.5px solid var(--gold-pale);
+      font-size: 12px;
+    }
+    .cs-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs-fn {
+      font-family: 'Courier New', monospace; font-size: 12px;
+      color: var(--gold); display: block; margin-bottom: 2px; font-weight: 700;
+    }
+    .cs-desc { color: var(--text-muted); line-height: 1.45; font-family: var(--font-body); }
+
+    /* TOC */
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px;
+      font-family: var(--font-ui); font-size: 10.5px;
+      color: var(--text-muted); text-decoration: none;
+      line-height: 1.45; transition: color .18s, padding-left .18s;
+    }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+
+    /* CTA */
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 {
+      font-family: var(--font-head); font-size: 15.5px; font-weight: 600;
+      color: var(--parchment); margin-bottom: 7px; line-height: 1.35;
+    }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+
+    /* Share */
+    .share-btns { display: flex; gap: 6px; }
+    .share-b {
+      flex: 1; display: block;
+      font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale); border-radius: var(--radius);
+      padding: 8px 4px; text-align: center; text-decoration: none;
+      background: var(--white); transition: color .18s, border-color .18s, background .18s;
+    }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* Related */
+    .related-link {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale);
+      text-decoration: none; color: inherit; transition: opacity .18s;
+    }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 23px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .data-table th, .data-table td { padding: 9px 10px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Data Analysis</span>
+        </div>
+        <h1 class="article-h1">
+          One-Way ANOVA in R<br/>for <em>Agricultural Research</em>
+        </h1>
+        <p class="article-deck">A complete practical tutorial — data entry, assumption checks, Tukey HSD with compact letter display, and a publication-ready bar chart. All code is copy-paste ready and the dataset mirrors a real Bangladesh fertilizer experiment.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · R &amp; SPSS · Developer of SPADE</span>
+            </div>
+          </div>
+          <span class="meta-chip">July 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">12 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Data Analysis</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <p>I run ANOVA on every fertilizer experiment I do. The BBCU thesis data, the nano-urea pot experiment at DUNTC, the yield prediction work from 2023 — all of it goes through ANOVA before anything gets reported. SPSS handles it fine, but R gives you more control, the output is reproducible from a script anyone can rerun, and the figures go straight into manuscripts without reformatting.</p>
+
+          <p>This tutorial walks through a complete one-way ANOVA in R using a realistic agricultural dataset: four fertilizer treatments, three replications each, grain yield as the outcome. By the end you will have run the test, verified the assumptions, done Tukey HSD with a compact letter display, and produced a bar chart with error bars ready for a journal submission.</p>
+
+          <p>If you have never used R, install R from r-project.org and RStudio from posit.co. Both are free. Everything below runs in RStudio.</p>
+
+          <!-- S1 -->
+          <h2 id="s1">When to Use One-Way ANOVA</h2>
+
+          <p>ANOVA tests whether the means of three or more groups are equal. You use it when you have one categorical independent variable — treatment, variety, location — and one continuous dependent variable: yield, NUE, nitrogen uptake. One-way means one grouping factor. If you have two factors (treatment and season, for example), you need two-way ANOVA instead.</p>
+
+          <p>For two groups only, a t-test is the right tool. For three or more, ANOVA is correct, and it controls the error rate better than running multiple t-tests in sequence.</p>
+
+          <p>Three assumptions apply: normality (residuals are approximately normally distributed), homogeneity of variance (spread is similar across groups), and independence of observations (satisfied by a properly randomised design). We check all three before interpreting the result.</p>
+
+          <!-- S2 -->
+          <h2 id="s2">The Dataset</h2>
+
+          <p>The numbers below come from a CRD (Completely Randomised Design) pot experiment with four fertilizer treatments and three replications. Grain yield is in t/ha.</p>
+
+          <div class="data-table-wrap">
+            <table class="data-table" aria-label="Grain yield data by treatment and replicate">
+              <thead>
+                <tr>
+                  <th>Treatment</th>
+                  <th>Rep 1</th>
+                  <th>Rep 2</th>
+                  <th>Rep 3</th>
+                  <th>Mean (t/ha)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="treatment-tag">T1</span> Control (0 N)</td>
+                  <td class="num">3.82</td>
+                  <td class="num">3.95</td>
+                  <td class="num">3.71</td>
+                  <td class="num">3.83</td>
+                </tr>
+                <tr>
+                  <td><span class="treatment-tag">T2</span> Urea 120 kg N/ha</td>
+                  <td class="num">5.94</td>
+                  <td class="num">6.18</td>
+                  <td class="num">6.08</td>
+                  <td class="num">6.07</td>
+                </tr>
+                <tr>
+                  <td><span class="treatment-tag">T3</span> BBCU 80 kg N/ha</td>
+                  <td class="num">5.62</td>
+                  <td class="num">5.48</td>
+                  <td class="num">5.73</td>
+                  <td class="num">5.61</td>
+                </tr>
+                <tr>
+                  <td><span class="treatment-tag">T4</span> BBCU 120 kg N/ha</td>
+                  <td class="num">6.41</td>
+                  <td class="num">6.28</td>
+                  <td class="num">6.52</td>
+                  <td class="num">6.40</td>
+                </tr>
+                <tr>
+                  <td colspan="4">Grand mean</td>
+                  <td class="num">5.48</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Four treatments, twelve observations total. Small but typical for a pot study. The group means range from 3.83 to 6.40 — a spread that should produce a clear ANOVA result.</p>
+
+          <!-- S3 -->
+          <h2 id="s3"><span class="step-badge">01</span> Enter the Data</h2>
+
+          <p>The cleanest way to enter a small dataset by hand in R is a data frame. Open a new script, paste this in, and run it.</p>
+
+          <div class="code-wrap" id="code1">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code1')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Grain yield data — CRD pot experiment
+# Yield in t/ha, 4 treatments, 3 reps each</span>
+
+y &lt;- c(3.82, 3.95, 3.71,   <span class="cm"># T1 Control</span>
+       5.94, 6.18, 6.08,   <span class="cm"># T2 Urea 120 kg N/ha</span>
+       5.62, 5.48, 5.73,   <span class="cm"># T3 BBCU 80 kg N/ha</span>
+       6.41, 6.28, 6.52)   <span class="cm"># T4 BBCU 120 kg N/ha</span>
+
+treatment &lt;- <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"T1_Control"</span>, <span class="st">"T2_Urea120"</span>,
+                          <span class="st">"T3_BBCU80"</span>,  <span class="st">"T4_BBCU120"</span>), each = <span class="nu">3</span>))
+
+df &lt;- <span class="kw">data.frame</span>(treatment, yield = y)
+<span class="kw">print</span>(df)</pre>
+          </div>
+
+          <p>The <code style="font-family:'Courier New',monospace;background:var(--parchment2);padding:1px 5px;border-radius:3px;font-size:13px;">factor()</code> call tells R that treatment is a categorical grouping variable. Without it, the ANOVA will not run correctly. For data in an Excel file, import it instead:</p>
+
+          <div class="code-wrap" id="code2">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code2')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="kw">library</span>(readxl)
+df &lt;- <span class="kw">read_excel</span>(<span class="st">"your_data.xlsx"</span>)
+df$treatment &lt;- <span class="kw">factor</span>(df$treatment)</pre>
+          </div>
+
+          <!-- S4 -->
+          <h2 id="s4"><span class="step-badge">02</span> Descriptive Statistics</h2>
+
+          <p>Look at your data before running any test. Summary statistics tell you whether the group means look noticeably different and whether the variances are in a similar range.</p>
+
+          <div class="code-wrap" id="code3">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code3')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="kw">tapply</span>(df$yield, df$treatment, mean)
+<span class="kw">tapply</span>(df$yield, df$treatment, sd)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">T1_Control  T2_Urea120  T3_BBCU80  T4_BBCU120
+    <span class="hi">3.827</span>       <span class="hi">6.067</span>      <span class="hi">5.610</span>       <span class="hi">6.403</span>
+
+T1_Control  T2_Urea120  T3_BBCU80  T4_BBCU120
+    0.1201      0.1206     0.1253      0.1201</pre>
+          </div>
+
+          <p>Standard deviations all below 0.13, which means the spread is consistent across groups. A good early sign for the homogeneity assumption. A quick boxplot confirms the pattern visually:</p>
+
+          <div class="code-wrap" id="code4">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code4')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="kw">boxplot</span>(yield ~ treatment, data = df,
+        col  = <span class="st">"lightyellow"</span>,
+        main = <span class="st">"Grain Yield by Fertilizer Treatment"</span>,
+        xlab = <span class="st">"Treatment"</span>,
+        ylab = <span class="st">"Grain Yield (t/ha)"</span>)</pre>
+          </div>
+
+          <!-- S5 -->
+          <h2 id="s5"><span class="step-badge">03</span> Check Assumptions</h2>
+
+          <h3>Normality</h3>
+
+          <p>With only three observations per group, running Shapiro-Wilk on each group separately has low power. The standard approach for small agricultural datasets is to fit the model first, then test normality on the residuals.</p>
+
+          <div class="code-wrap" id="code5">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code5')">Copy</button>
+            </div>
+            <pre class="code-pre">model &lt;- <span class="kw">aov</span>(yield ~ treatment, data = df)
+<span class="kw">shapiro.test</span>(<span class="kw">residuals</span>(model))</pre>
+          </div>
+
+          <p>You want p &gt; 0.05. A non-significant result means no evidence against normality. If p &lt; 0.05, switch to the non-parametric Kruskal-Wallis test: <code style="font-family:'Courier New',monospace;background:var(--parchment2);padding:1px 5px;border-radius:3px;font-size:13px;">kruskal.test(yield ~ treatment, data = df)</code>.</p>
+
+          <h3>Homogeneity of variance</h3>
+
+          <p>Levene's test is more appropriate here than Bartlett's because it is less sensitive to non-normality.</p>
+
+          <div class="code-wrap" id="code6">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code6')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="kw">library</span>(car)
+<span class="kw">leveneTest</span>(yield ~ treatment, data = df)</pre>
+          </div>
+
+          <p>Again, p &gt; 0.05 means the assumption holds. If variance is significantly unequal, use Welch's ANOVA: <code style="font-family:'Courier New',monospace;background:var(--parchment2);padding:1px 5px;border-radius:3px;font-size:13px;">oneway.test(yield ~ treatment, data = df, var.equal = FALSE)</code>.</p>
+
+          <!-- S6 -->
+          <h2 id="s6"><span class="step-badge">04</span> Run the ANOVA</h2>
+
+          <div class="code-wrap" id="code7">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code7')">Copy</button>
+            </div>
+            <pre class="code-pre">model &lt;- <span class="kw">aov</span>(yield ~ treatment, data = df)
+<span class="kw">summary</span>(model)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">             Df Sum Sq Mean Sq F value   Pr(&gt;F)
+treatment     <span class="hi">3</span>  <span class="hi">11.84</span>   <span class="hi">3.947</span>   <span class="hi">267.1</span>  <span class="hi">9.6e-09</span> <span class="sig">***</span>
+Residuals     <span class="hi">8</span>   <span class="hi">0.118</span>   <span class="hi">0.015</span>
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</pre>
+          </div>
+
+          <p>Reading this output line by line:</p>
+
+          <p><strong>Df (degrees of freedom):</strong> Treatment df = groups minus 1 = 4 - 1 = 3. Residual df = total observations minus groups = 12 - 4 = 8.</p>
+
+          <p><strong>Sum Sq / Mean Sq:</strong> These partition total variance into between-group variance (treatment) and within-group variance (residuals). Mean Sq = Sum Sq / Df. The ratio of the two Mean Sq values is the F statistic.</p>
+
+          <p><strong>F value of 267.1:</strong> The variance between group means is 267 times the variance within groups. That ratio is far too large to attribute to chance.</p>
+
+          <p><strong>Pr(&gt;F) of 9.6e-09:</strong> In full, 0.0000000096. With p &lt; 0.001, you reject the null hypothesis. At least one treatment mean differs from the rest.</p>
+
+          <p>The ANOVA result alone does not tell you which treatments differ. For that, you need a post-hoc test.</p>
+
+          <!-- S7 -->
+          <h2 id="s7"><span class="step-badge">05</span> Tukey HSD and Compact Letter Display</h2>
+
+          <p>Tukey HSD compares every possible pair of group means while controlling the family-wise error rate. Agricultural journals almost always report results as a compact letter display (CLD): groups that share a letter do not differ significantly at p &lt; 0.05.</p>
+
+          <p>The <code style="font-family:'Courier New',monospace;background:var(--parchment2);padding:1px 5px;border-radius:3px;font-size:13px;">agricolae</code> package handles both at once and is one of the most widely used tools in agricultural statistics in R.</p>
+
+          <div class="code-wrap" id="code8">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code8')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="kw">install.packages</span>(<span class="st">"agricolae"</span>)   <span class="cm"># Run this once only</span>
+<span class="kw">library</span>(agricolae)
+
+tukey_out &lt;- <span class="kw">HSD.test</span>(model, <span class="st">"treatment"</span>, group = <span class="kw">TRUE</span>)
+<span class="kw">print</span>(tukey_out$groups)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">             yield groups
+T4_BBCU120   <span class="hi">6.403</span>      <span class="hi">a</span>
+T2_Urea120   <span class="hi">6.067</span>      <span class="hi">a</span>
+T3_BBCU80    <span class="hi">5.610</span>      <span class="hi">b</span>
+T1_Control   <span class="hi">3.827</span>      <span class="hi">c</span></pre>
+          </div>
+
+          <p>T4 and T2 share letter "a": they do not differ significantly from each other. T3 carries "b": it is below T4 and T2 but above T1. T1 carries "c": it differs from all fertilized treatments. This table goes directly into your manuscript results section.</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- S8 -->
+          <h2 id="s8"><span class="step-badge">06</span> Publication-Ready Bar Chart</h2>
+
+          <p>Bar charts with standard error bars are the standard figure format in most agricultural journals. This code produces one using ggplot2 and saves a 300 dpi PNG ready for submission.</p>
+
+          <div class="code-wrap" id="code9">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('code9')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(dplyr)
+
+<span class="cm"># Group means and standard errors</span>
+sum_df &lt;- df %&gt;%
+  <span class="kw">group_by</span>(treatment) %&gt;%
+  <span class="kw">summarise</span>(mean_y = <span class="kw">mean</span>(yield),
+            se     = <span class="kw">sd</span>(yield) / <span class="kw">sqrt</span>(<span class="kw">n</span>()))
+
+<span class="cm"># CLD letters — order matches factor levels: T1, T2, T3, T4</span>
+sum_df$cld &lt;- <span class="kw">c</span>(<span class="st">"c"</span>, <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"a"</span>)
+
+<span class="kw">ggplot</span>(sum_df, <span class="kw">aes</span>(x = treatment, y = mean_y)) +
+  <span class="kw">geom_col</span>(fill    = <span class="st">"#8b7e5a"</span>, alpha = <span class="nu">0.85</span>, width = <span class="nu">0.55</span>) +
+  <span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(ymin = mean_y - se, ymax = mean_y + se),
+                width     = <span class="nu">0.18</span>,
+                linewidth = <span class="nu">0.7</span>,
+                colour    = <span class="st">"#1e1c18"</span>) +
+  <span class="kw">geom_text</span>(<span class="kw">aes</span>(label = cld, y = mean_y + se + <span class="nu">0.10</span>),
+            family = <span class="st">"serif"</span>, size = <span class="nu">4.5</span>) +
+  <span class="kw">labs</span>(x = <span class="st">"Treatment"</span>, y = <span class="st">"Grain Yield (t/ha)"</span>) +
+  <span class="kw">theme_classic</span>(base_size = <span class="nu">13</span>) +
+  <span class="kw">theme</span>(axis.title = <span class="kw">element_text</span>(face = <span class="st">"bold"</span>))
+
+<span class="kw">ggsave</span>(<span class="st">"grain_yield_anova.png"</span>, dpi = <span class="nu">300</span>, width = <span class="nu">6</span>, height = <span class="nu">4.5</span>)</pre>
+          </div>
+
+          <div class="callout-box">
+            <span class="callout-label">Note on the CLD vector</span>
+            <p>The vector <code style="font-family:'Courier New',monospace;font-size:13px;">c("c","a","b","a")</code> maps to the factor levels in alphabetical order: T1_Control, T2_Urea120, T3_BBCU80, T4_BBCU120. Always check that this matches your actual Tukey output before using it. If the treatment names or means differ in your dataset, the letters will differ too.</p>
+          </div>
+
+          <!-- S9 -->
+          <h2 id="s9"><span class="step-badge">07</span> Writing It Up</h2>
+
+          <p>This is how the ANOVA result reads in a Results section:</p>
+
+          <div class="pull-quote">
+            <p>"Grain yield differed significantly across fertilizer treatments (F(3,8) = 267.1, p &lt; 0.001). Tukey HSD post-hoc comparison showed that T4 (BBCU at 120 kg N/ha, 6.40 t/ha) and T2 (conventional urea at 120 kg N/ha, 6.07 t/ha) did not differ significantly from each other, but both were significantly higher than T3 (BBCU at 80 kg N/ha, 5.61 t/ha, p &lt; 0.05). The unfertilized control (T1, 3.83 t/ha) was significantly lower than all fertilized treatments (p &lt; 0.001)."</p>
+          </div>
+
+          <p>The reporting format is always F(df_treatment, df_residual) = F-value, p-value. Write this in the text and include the full ANOVA table as a numbered table in the paper.</p>
+
+          <!-- S10 -->
+          <h2 id="s10">Three Mistakes to Avoid</h2>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 1</span>
+            <p>Stopping after the ANOVA without a post-hoc test. A significant F only tells you at least one mean differs. Tukey HSD tells you which ones. Both steps belong in the paper, and a missing post-hoc test will be flagged by reviewers.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 2</span>
+            <p>Reporting "a significant difference was found between treatments" without the F statistic, degrees of freedom, and p-value. The full form is F(df_treatment, df_residual) = value, p = value. Papers returned for revision most often include this error in the Results section.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 3</span>
+            <p>Running ANOVA when the normality assumption fails. If Shapiro-Wilk returns p &lt; 0.05 on the model residuals, use <code style="font-family:'Courier New',monospace;font-size:13px;">kruskal.test()</code> instead. It is one line, requires no additional packages, and is the correct non-parametric equivalent for this design.</p>
+          </div>
+
+          <!-- S11 -->
+          <h2 id="s11">The Complete Script</h2>
+
+          <p>Every step above in one place, ready to copy and adapt to your own dataset.</p>
+
+          <div class="code-wrap" id="code10">
+            <div class="code-header">
+              <span class="code-lang">R — Complete Script</span>
+              <button class="code-copy-btn" onclick="copyCode('code10')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># ── ONE-WAY ANOVA — Agricultural Data ─────────────────────────────</span>
+
+<span class="cm"># 1. Data entry</span>
+y &lt;- <span class="kw">c</span>(<span class="nu">3.82</span>, <span class="nu">3.95</span>, <span class="nu">3.71</span>,
+       <span class="nu">5.94</span>, <span class="nu">6.18</span>, <span class="nu">6.08</span>,
+       <span class="nu">5.62</span>, <span class="nu">5.48</span>, <span class="nu">5.73</span>,
+       <span class="nu">6.41</span>, <span class="nu">6.28</span>, <span class="nu">6.52</span>)
+
+treatment &lt;- <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"T1_Control"</span>, <span class="st">"T2_Urea120"</span>,
+                          <span class="st">"T3_BBCU80"</span>, <span class="st">"T4_BBCU120"</span>), each = <span class="nu">3</span>))
+df &lt;- <span class="kw">data.frame</span>(treatment, yield = y)
+
+<span class="cm"># 2. Descriptive stats</span>
+<span class="kw">tapply</span>(df$yield, df$treatment, mean)
+<span class="kw">tapply</span>(df$yield, df$treatment, sd)
+
+<span class="cm"># 3. Assumption checks</span>
+model &lt;- <span class="kw">aov</span>(yield ~ treatment, data = df)
+<span class="kw">shapiro.test</span>(<span class="kw">residuals</span>(model))
+
+<span class="kw">library</span>(car)
+<span class="kw">leveneTest</span>(yield ~ treatment, data = df)
+
+<span class="cm"># 4. ANOVA table</span>
+<span class="kw">summary</span>(model)
+
+<span class="cm"># 5. Tukey HSD + compact letter display</span>
+<span class="kw">library</span>(agricolae)
+<span class="kw">HSD.test</span>(model, <span class="st">"treatment"</span>, group = <span class="kw">TRUE</span>, console = <span class="kw">TRUE</span>)
+
+<span class="cm"># 6. Publication-ready figure</span>
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(dplyr)
+
+sum_df &lt;- df %&gt;%
+  <span class="kw">group_by</span>(treatment) %&gt;%
+  <span class="kw">summarise</span>(mean_y = <span class="kw">mean</span>(yield), se = <span class="kw">sd</span>(yield) / <span class="kw">sqrt</span>(<span class="kw">n</span>()))
+sum_df$cld &lt;- <span class="kw">c</span>(<span class="st">"c"</span>, <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"a"</span>)  <span class="cm"># T1, T2, T3, T4</span>
+
+<span class="kw">ggplot</span>(sum_df, <span class="kw">aes</span>(x = treatment, y = mean_y)) +
+  <span class="kw">geom_col</span>(fill = <span class="st">"#8b7e5a"</span>, alpha = <span class="nu">0.85</span>, width = <span class="nu">0.55</span>) +
+  <span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(ymin = mean_y - se, ymax = mean_y + se),
+                width = <span class="nu">0.18</span>, linewidth = <span class="nu">0.7</span>, colour = <span class="st">"#1e1c18"</span>) +
+  <span class="kw">geom_text</span>(<span class="kw">aes</span>(label = cld, y = mean_y + se + <span class="nu">0.10</span>),
+            family = <span class="st">"serif"</span>, size = <span class="nu">4.5</span>) +
+  <span class="kw">labs</span>(x = <span class="st">"Treatment"</span>, y = <span class="st">"Grain Yield (t/ha)"</span>) +
+  <span class="kw">theme_classic</span>(base_size = <span class="nu">13</span>)
+
+<span class="kw">ggsave</span>(<span class="st">"grain_yield_anova.png"</span>, dpi = <span class="nu">300</span>, width = <span class="nu">6</span>, height = <span class="nu">4.5</span>)</pre>
+          </div>
+
+          <p>If you have a dataset that needs this kind of analysis and want a written results section and publication-ready figures alongside it, the <a href="services.html#data">data analysis service</a> on this site handles exactly that — using R, SPSS, or Python depending on your preference.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">R Tutorial</a>
+            <a href="blog.html" class="a-tag">ANOVA</a>
+            <a href="blog.html" class="a-tag">Agricultural Statistics</a>
+            <a href="blog.html" class="a-tag">Tukey HSD</a>
+            <a href="blog.html" class="a-tag">ggplot2</a>
+            <a href="blog.html" class="a-tag">agricolae</a>
+            <a href="blog.html" class="a-tag">Data Analysis</a>
+            <a href="blog.html" class="a-tag">Research Methods</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · Data Analyst · University of Dhaka</span>
+              <p>NST Fellow and active researcher using R, SPSS, and Python across soil science and agricultural experiments. Developer of SPADE — open-source software for nitrogen use efficiency analysis, ANOVA, and publication-ready figure export. Available for data analysis, manuscript editing, and thesis consultation.</p>
+              <div class="bio-links">
+                <a href="services.html#data" class="bio-lnk">Data Analysis</a>
+                <a href="research.html#spade" class="bio-lnk">About SPADE</a>
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- Quick cheat sheet -->
+          <div class="sb-card">
+            <div class="sb-head"><span>R Functions Used</span></div>
+            <div class="sb-body">
+              <div class="cs-item">
+                <span class="cs-fn">aov(y ~ group)</span>
+                <span class="cs-desc">Fits the ANOVA model</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">summary(model)</span>
+                <span class="cs-desc">Prints the ANOVA table with F and p</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">shapiro.test(residuals())</span>
+                <span class="cs-desc">Tests normality of residuals</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">leveneTest()</span>
+                <span class="cs-desc">Tests homogeneity of variance</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">HSD.test()</span>
+                <span class="cs-desc">Tukey HSD with compact letter display</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">kruskal.test()</span>
+                <span class="cs-desc">Non-parametric alternative if normality fails</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">ggsave(..., dpi=300)</span>
+                <span class="cs-desc">Exports figure at journal quality</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1"  class="toc-link"><span class="toc-n">–</span>When to Use ANOVA</a></li>
+                <li><a href="#s2"  class="toc-link"><span class="toc-n">–</span>The Dataset</a></li>
+                <li><a href="#s3"  class="toc-link"><span class="toc-n">01</span>Enter the Data</a></li>
+                <li><a href="#s4"  class="toc-link"><span class="toc-n">02</span>Descriptive Statistics</a></li>
+                <li><a href="#s5"  class="toc-link"><span class="toc-n">03</span>Check Assumptions</a></li>
+                <li><a href="#s6"  class="toc-link"><span class="toc-n">04</span>Run the ANOVA</a></li>
+                <li><a href="#s7"  class="toc-link"><span class="toc-n">05</span>Tukey HSD + CLD</a></li>
+                <li><a href="#s8"  class="toc-link"><span class="toc-n">06</span>Publication Figure</a></li>
+                <li><a href="#s9"  class="toc-link"><span class="toc-n">07</span>Writing It Up</a></li>
+                <li><a href="#s10" class="toc-link"><span class="toc-n">–</span>Mistakes to Avoid</a></li>
+                <li><a href="#s11" class="toc-link"><span class="toc-n">–</span>Complete Script</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Data analysis CTA -->
+          <div class="sb-cta">
+            <h4>Need this done for <em>your dataset?</em></h4>
+            <p>I run ANOVA, Tukey HSD, and produce publication-ready figures from your raw data. R, SPSS, or Python. Written results section included.</p>
+            <a href="services.html#data" class="btn btn-gold">Data Analysis Service →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=One-Way%20ANOVA%20in%20R%20for%20Agricultural%20Research%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-anova-r-tutorial.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-anova-r-tutorial.html"
+                   target="_blank" rel="noopener">LinkedIn</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=One-Way%20ANOVA%20in%20R%20for%20Agricultural%20Research%20%E2%80%94%20practical%20tutorial&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-anova-r-tutorial.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-nue-indices-explained.html" class="related-link">
+                <span class="rel-icon">📊</span>
+                <span class="rel-title">Understanding NUE indices — AE, RE, PE, and NHI explained</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">🐍</span>
+                <span class="rel-title">SPSS vs R vs Python for agricultural data — which to use?</span>
+              </a>
+              <a href="blog-imrad-explained.html" class="related-link">
+                <span class="rel-icon">📝</span>
+                <span class="rel-title">IMRaD explained — how to structure a scientific research paper</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Reading progress bar
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    // TOC smooth scroll + active highlight
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sectionIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11'];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+    // Copy code button
+    function copyCode(wrapId) {
+      const wrap = document.getElementById(wrapId);
+      const pre  = wrap.querySelector('.code-pre');
+      const btn  = wrap.querySelector('.code-copy-btn');
+      // Get text content (strips HTML spans)
+      const text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
