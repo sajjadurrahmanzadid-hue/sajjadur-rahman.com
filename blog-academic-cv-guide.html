@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="How to write an academic CV for graduate school applications — section by section, with a copy-paste template. Written by someone who has applied to WUR, DAAD, GKS, and HBKU."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="academic CV graduate school, how to write academic CV Bangladesh, graduate application CV template, CV for DAAD GKS WUR scholarship, academic CV vs resume"/>
+  <meta property="og:title" content="How to Write an Academic CV for Graduate School Applications — Sajjadur Rahman"/>
+  <meta property="og:description" content="Section by section, with a copy-paste template. Written by someone who has applied to WUR, DAAD, GKS, and HBKU."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-academic-cv-guide.html"/>
+  <meta property="article:published_time" content="2026-08-01"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>How to Write an Academic CV for Graduate School Applications — Sajjadur Rahman</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Raleway:wght@400;500;600;700&amp;family=Noto+Serif+Bengali:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Article hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.8vw, 42px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--parchment3); border: 1.5px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px; }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); display: block; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 23px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.4em 0 0.75em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.8em 0 0.5em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose em { font-style: italic; }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+
+    /* Section badge */
+    .sec-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; flex-shrink: 0;
+      background: var(--ink); color: var(--gold-light);
+      font-family: var(--font-ui); font-size: 10px;
+      font-weight: 700; letter-spacing: 0.3px;
+      border-radius: 50%;
+    }
+
+    /* ── Comparison boxes (weak vs strong) ── */
+    .compare-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin: 2em 0;
+    }
+    .compare-box {
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      font-family: var(--font-body); font-size: 14px;
+      line-height: 1.72; color: var(--ink-soft);
+    }
+    .compare-box.weak {
+      background: rgba(200,191,160,0.12);
+      border: 0.5px solid var(--gold-pale);
+    }
+    .compare-box.strong {
+      background: rgba(90,122,74,0.06);
+      border: 0.5px solid rgba(90,122,74,0.25);
+    }
+    .compare-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; display: block; margin-bottom: 10px;
+    }
+    .compare-label.weak-lbl { color: var(--text-light); }
+    .compare-label.strong-lbl { color: var(--accent); }
+
+    /* ── CV Template display ── */
+    .cv-template-wrap {
+      margin: 2.2em 0;
+      border: 1px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .cv-template-header {
+      background: var(--parchment3);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 10px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cv-template-header span {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .cv-copy-btn {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      background: none; border: 0.5px solid var(--gold-pale);
+      border-radius: 4px; padding: 4px 10px; cursor: pointer;
+      transition: color .2s, border-color .2s;
+    }
+    .cv-copy-btn:hover { color: var(--gold); border-color: var(--gold); }
+    .cv-copy-btn.copied { color: var(--accent); border-color: var(--accent); }
+    .cv-template-body {
+      background: var(--white);
+      padding: 28px 32px;
+      font-family: 'Times New Roman', 'Georgia', serif;
+      font-size: 13.5px; line-height: 1.8;
+      color: var(--ink);
+    }
+    .cv-name {
+      font-size: 20px; font-weight: 700; letter-spacing: -0.3px;
+      margin-bottom: 4px; display: block;
+    }
+    .cv-contact {
+      font-size: 12.5px; color: var(--text-muted);
+      margin-bottom: 20px; display: block;
+    }
+    .cv-section-rule {
+      width: 100%; border: none;
+      border-top: 1.5px solid var(--ink);
+      margin: 14px 0 8px;
+    }
+    .cv-section-title {
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--ink);
+      display: block; margin-bottom: 10px;
+    }
+    .cv-entry { margin-bottom: 14px; }
+    .cv-entry-header {
+      display: flex; justify-content: space-between;
+      align-items: baseline; flex-wrap: wrap; gap: 8px;
+    }
+    .cv-entry-title { font-weight: 700; font-size: 13.5px; color: var(--ink); }
+    .cv-entry-date { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+    .cv-entry-sub { font-size: 12.5px; color: var(--text-muted); margin-top: 1px; display: block; }
+    .cv-entry-detail {
+      margin: 6px 0 0 16px; padding: 0;
+      font-size: 12.5px; color: var(--ink-soft);
+    }
+    .cv-entry-detail li { margin-bottom: 3px; }
+    .cv-placeholder {
+      font-style: italic; color: var(--text-light);
+    }
+    .cv-skill-row {
+      display: grid; grid-template-columns: 100px 1fr;
+      gap: 4px; font-size: 12.5px; margin-bottom: 4px;
+    }
+    .cv-skill-label { font-weight: 700; color: var(--ink); }
+    .cv-skill-val { color: var(--ink-soft); }
+    .cv-ref-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; font-size: 12px;
+    }
+    .cv-ref-name { font-weight: 700; color: var(--ink); display: block; }
+    .cv-ref-detail { color: var(--text-muted); line-height: 1.55; }
+
+    /* ── Mistake boxes ── */
+    .mistake-box {
+      background: rgba(160,50,30,0.04);
+      border: 0.5px solid rgba(160,50,30,0.18);
+      border-left: 3px solid #a0321e;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 22px; margin: 1.2em 0;
+    }
+    .mistake-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #a0321e;
+      display: block; margin-bottom: 7px;
+    }
+    .mistake-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.72; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+
+    /* ── Callout box ── */
+    .callout-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.8em 0;
+    }
+    .callout-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 8px;
+    }
+    .callout-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 18px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+
+    /* ── Ornament ── */
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 2.8em 0; opacity: 0.55;
+    }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px; text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--parchment3); border: 2px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .bio-inner h4 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .bio-role-lbl { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-pale); padding: 5px 12px; border-radius: 20px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sb-body { padding: 14px 16px; }
+
+    /* CV section order (sidebar) */
+    .cv-order-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 0; border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .cv-order-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cv-order-num {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0; width: 18px;
+    }
+    .cv-order-name { font-family: var(--font-ui); font-size: 10.5px; font-weight: 700; color: var(--ink); display: block; }
+    .cv-order-tip { font-size: 11px; color: var(--text-muted); font-style: italic; display: block; }
+
+    /* TOC */
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px; color: var(--text-muted); text-decoration: none; line-height: 1.45; transition: color .18s, padding-left .18s; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+
+    /* CTA */
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--parchment); margin-bottom: 7px; line-height: 1.35; }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+
+    /* Share */
+    .share-btns { display: flex; gap: 6px; }
+    .share-b { flex: 1; display: block; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 8px 4px; text-align: center; text-decoration: none; background: var(--white); transition: color .18s, border-color .18s, background .18s; }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* Related */
+    .related-link { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale); text-decoration: none; color: inherit; transition: opacity .18s; }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+      .compare-wrap { grid-template-columns: 1fr; }
+      .cv-ref-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 23px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .cv-template-body { padding: 20px; }
+      .cv-entry-header { flex-direction: column; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>CV &amp; Career</span>
+        </div>
+        <h1 class="article-h1">
+          How to Write an Academic CV<br/>for <em>Graduate School Applications</em>
+        </h1>
+        <p class="article-deck">Section by section, with a copy-paste template. Written by someone who has applied to WUR Wageningen, DAAD EPOS, GKS Korea, and HBKU Qatar — and who edits academic CVs professionally.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · CV Writer · NST Fellow</span>
+            </div>
+          </div>
+          <span class="meta-chip">August 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">11 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">CV &amp; Career</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <p>I have written and edited academic CVs professionally, and I have also sat on the other side of the process — applying to WUR Wageningen, HBKU Qatar, DAAD-funded programs in Germany, and GKS Korea. I know what a CV looks like when it is working. I also know the specific mistakes Bangladeshi applicants make repeatedly, because some of them were my own mistakes in earlier applications.</p>
+
+          <p>This post explains the structure of an academic CV for graduate school, section by section. It ends with a template you can copy directly into Word or Google Docs.</p>
+
+          <div class="pull-quote">
+            <p>An academic CV is not a resume. A resume is a one-page summary for a job application. An academic CV is a complete record of your scholarly life — two pages, three, even four, if you have the content to fill them.</p>
+          </div>
+
+          <p>Graduate admissions committees read academic CVs differently from how HR departments read resumes. They are looking for research experience, academic output, and funding history, not a compressed summary. Length is not the problem most applicants think it is.</p>
+
+          <!-- S1 -->
+          <h2 id="s1"><span class="sec-badge">1</span>Header</h2>
+
+          <p>Your name at the top in a larger font. Below it: institutional email, phone number with country code, city and country, LinkedIn URL, ResearchGate URL. Include your ORCID if you have one.</p>
+
+          <p>Do not include a photo for most US, EU, or UK programs. It is not conventional there and can introduce bias that works against you. Do not include date of birth, marital status, or national ID number. City and country is enough for an address.</p>
+
+          <p>Your email matters more than people expect. Use an institutional address (.edu.bd) if you have one. A professional Gmail with your name is the next best option. A Hotmail account with a nickname from 2012 is not.</p>
+
+          <!-- S2 -->
+          <h2 id="s2"><span class="sec-badge">2</span>Education</h2>
+
+          <p>List in reverse chronological order. For each degree, include: the full degree name, the full institution name and its country, the dates (month and year), and your CGPA.</p>
+
+          <p>The CGPA entry needs care. Bangladeshi universities typically report on a 4.0 scale, which is straightforward. If your institution uses a percentage system, include both: "83% (equivalent to First Class Honours)". Do not leave this blank. Every serious admissions committee wants to see it, and a missing GPA reads as a red flag — not a sign of modesty.</p>
+
+          <p>Under the degree, write your thesis title on the next line. If you are mid-thesis, write: "Thesis (in progress): [Working Title]." Name your supervisor if they are worth naming. Do not include your secondary school certificate unless it is your only academic credential.</p>
+
+          <!-- S3 -->
+          <h2 id="s3"><span class="sec-badge">3</span>Research Experience</h2>
+
+          <p>This is the most important section in a graduate school CV. More important than awards, extracurriculars, or skills. The admissions committee is primarily asking: has this person done research? Can they run a project, collect data, and produce something?</p>
+
+          <p>For each position, write the role title, institution, and dates. Below it, use two or three bullet points describing what you actually did, at the level of method and output. The difference between a weak and a strong entry is specificity.</p>
+
+          <div class="compare-wrap">
+            <div class="compare-box weak">
+              <span class="compare-label weak-lbl">Weak — too vague</span>
+              "Assisted in research activities at BCSIR."
+            </div>
+            <div class="compare-box strong">
+              <span class="compare-label strong-lbl">Strong — specific and verifiable</span>
+              "Conducted atmospheric PM2.5 sampling using the Kanomax Nanosampler 3182; performed heavy metal analysis of 40+ industrial soil and leaf samples by AAS and ICP-OES; contributed to a manuscript on ecological risk indices in Dhaka's industrial zones."
+            </div>
+          </div>
+
+          <p>Name the instrument. Name the technique. Name the output. If your work fed into a conference presentation or a manuscript, say so explicitly.</p>
+
+          <p>Include all substantive research positions in reverse chronological order: your thesis work, research traineeships at institutions like BCSIR or DUNTC, funded projects, undergraduate research group work. If a project is ongoing, mark it as such.</p>
+
+          <!-- S4 -->
+          <h2 id="s4"><span class="sec-badge">4</span>Publications and Conference Presentations</h2>
+
+          <p>This section has sub-categories most people miss. List in this order: journal articles (published, then in revision, then in preparation — label each status clearly); conference proceedings with full conference name, location, and DOI where available; software or datasets if applicable.</p>
+
+          <p>A manuscript "in preparation" is legitimate to include. It signals active output. But be honest about the status: "submitted" means actually submitted; "in preparation" means actively being written, not a vague intention. Admissions committees have seen every version of inflation in this section.</p>
+
+          <p>For conference presentations: your name first if you presented, the full conference name, location, month and year, and a DOI or ResearchGate link if one exists. Even a conference abstract with a DOI counts and should be included.</p>
+
+          <!-- S5 -->
+          <h2 id="s5"><span class="sec-badge">5</span>Awards and Fellowships</h2>
+
+          <p>Reverse chronological order. Award name, granting organisation, year. One line each. Do not pad this section. A national fellowship (NST, BCSIR) carries real weight. A certificate of participation in a webinar does not. Padding makes the real entries harder to find.</p>
+
+          <!-- S6 -->
+          <h2 id="s6"><span class="sec-badge">6</span>Technical Skills</h2>
+
+          <p>Divide into subsections and be specific. Vague entries are worse than no entry at all.</p>
+
+          <div class="callout-box">
+            <span class="callout-label">What specificity looks like in practice</span>
+            <p><strong>Instruments:</strong> name every piece of equipment you have actually operated. AAS (Varian AA 240 FS), ICP-OES, Kjeldahl digestion, pH meter — whatever is true.<br/><br/>
+            <strong>Software:</strong> R (ANOVA, regression), Python (pandas, scipy, matplotlib), SPSS, QGIS, SPADE. If you list Excel, say what you do with it: "Excel (pivot tables, VLOOKUP, basic macros)."<br/><br/>
+            <strong>Methods:</strong> soil sampling, Walkley-Black OC, indophenol blue colorimetry, KCl extraction.<br/><br/>
+            <strong>Languages:</strong> English (IELTS 7.5 or your actual score), Bengali (native).<br/><br/>
+            Do not list "MS Office," "internet browsing," or "typing." These are not skills in this context.</p>
+          </div>
+
+          <!-- S7 -->
+          <h2 id="s7"><span class="sec-badge">7</span>References</h2>
+
+          <p>Graduate programs require real referees — named and contactable — not "References available upon request." Most applications ask for two or three letters of recommendation, and the committee wants to know who will write them before they make an offer.</p>
+
+          <p>For each referee: full name, current title, department, institution, email address. One line noting how they know you: "(MSc thesis supervisor)" or "(Research Trainee supervisor, BCSIR)." Choose referees who directly supervised your research. A professor who taught a lecture course is a weak choice compared to one who oversaw your thesis or a research project. International referees carry additional weight for international applications.</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- S8: Template -->
+          <h2 id="s8">The Template</h2>
+
+          <p>Copy this structure and fill in your own information. The rendered version below shows the layout; use it as a visual guide alongside the plain-text version you paste into Word.</p>
+
+          <div class="cv-template-wrap" id="cvTemplate">
+            <div class="cv-template-header">
+              <span>CV Template — Graduate School</span>
+              <button class="cv-copy-btn" onclick="copyCV()">Copy Plain Text</button>
+            </div>
+            <div class="cv-template-body">
+
+              <span class="cv-name cv-placeholder">[YOUR NAME]</span>
+              <span class="cv-contact cv-placeholder">[email] · [phone with country code] · Dhaka, Bangladesh<br/>
+              [ResearchGate URL] · [LinkedIn URL]</span>
+
+              <hr class="cv-section-rule"/>
+              <span class="cv-section-title">Education</span>
+
+              <div class="cv-entry">
+                <div class="cv-entry-header">
+                  <span class="cv-entry-title cv-placeholder">MSc in [Field], [University], [Country]</span>
+                  <span class="cv-entry-date cv-placeholder">[Month Year – Present]</span>
+                </div>
+                <span class="cv-entry-sub cv-placeholder">CGPA: X.XX / 4.00</span>
+                <span class="cv-entry-sub cv-placeholder">Thesis (in progress): "[Working Title]"</span>
+                <span class="cv-entry-sub cv-placeholder">Supervisor: [Name, Title]</span>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry-header">
+                  <span class="cv-entry-title cv-placeholder">BSc in [Field], [University], Bangladesh</span>
+                  <span class="cv-entry-date cv-placeholder">[Month Year – Month Year]</span>
+                </div>
+                <span class="cv-entry-sub cv-placeholder">CGPA: X.XX / 4.00 (equivalent to X% — First Class Honours)</span>
+                <span class="cv-entry-sub cv-placeholder">Thesis: "[Title, if applicable]"</span>
+              </div>
+
+              <hr class="cv-section-rule"/>
+              <span class="cv-section-title">Research Experience</span>
+
+              <div class="cv-entry">
+                <div class="cv-entry-header">
+                  <span class="cv-entry-title cv-placeholder">[Role Title], [Institution], [City, Country]</span>
+                  <span class="cv-entry-date cv-placeholder">[Month Year – Month Year]</span>
+                </div>
+                <ul class="cv-entry-detail">
+                  <li class="cv-placeholder">[Method used, with instrument or technique named]</li>
+                  <li class="cv-placeholder">[Data collected or analysis conducted]</li>
+                  <li class="cv-placeholder">[Output: manuscript, conference paper, software, report]</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry-header">
+                  <span class="cv-entry-title cv-placeholder">[Role Title], [Institution], Bangladesh</span>
+                  <span class="cv-entry-date cv-placeholder">[Month Year – Month Year]</span>
+                </div>
+                <ul class="cv-entry-detail">
+                  <li class="cv-placeholder">[Specific task with outcome]</li>
+                </ul>
+              </div>
+
+              <hr class="cv-section-rule"/>
+              <span class="cv-section-title">Publications and Presentations</span>
+
+              <div class="cv-entry" style="font-size:12.5px;color:var(--text-muted);">
+                <span style="font-weight:700;color:var(--ink);font-size:12.5px;">Manuscripts in preparation</span><br/>
+                <span class="cv-placeholder">&nbsp;&nbsp;[Name], et al. ([Year]). [Title]. Target: [Journal]. In preparation.</span>
+              </div>
+              <div class="cv-entry" style="font-size:12.5px;color:var(--text-muted);">
+                <span style="font-weight:700;color:var(--ink);font-size:12.5px;">Conference presentations</span><br/>
+                <span class="cv-placeholder">&nbsp;&nbsp;[Name], et al. ([Year, Month]). [Title]. [Full Conference Name], [Location]. [DOI]</span>
+              </div>
+
+              <hr class="cv-section-rule"/>
+              <span class="cv-section-title">Awards and Fellowships</span>
+
+              <div class="cv-entry" style="font-size:12.5px;">
+                <div class="cv-entry-header">
+                  <span class="cv-placeholder">[Year] &nbsp; [Award name] — [Granting organisation]</span>
+                </div>
+                <div class="cv-entry-header" style="margin-top:4px;">
+                  <span class="cv-placeholder">[Year] &nbsp; [Award name] — [Granting organisation]</span>
+                </div>
+              </div>
+
+              <hr class="cv-section-rule"/>
+              <span class="cv-section-title">Technical Skills</span>
+
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Instruments</span>
+                <span class="cv-skill-val cv-placeholder">[Specific equipment, with model if relevant]</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Software</span>
+                <span class="cv-skill-val cv-placeholder">[R, Python, SPSS, QGIS — with detail on what you do with each]</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Methods</span>
+                <span class="cv-skill-val cv-placeholder">[Lab and field techniques]</span>
+              </div>
+              <div class="cv-skill-row">
+                <span class="cv-skill-label">Languages</span>
+                <span class="cv-skill-val cv-placeholder">English ([IELTS X.X or equivalent]) · Bengali (native)</span>
+              </div>
+
+              <hr class="cv-section-rule"/>
+              <span class="cv-section-title">References</span>
+
+              <div class="cv-ref-row">
+                <div class="cv-ref-detail">
+                  <span class="cv-ref-name cv-placeholder">[Full Name]</span>
+                  <span class="cv-placeholder">[Title, Department]<br/>
+                  [Institution]<br/>
+                  [email]<br/>
+                  (MSc thesis supervisor)</span>
+                </div>
+                <div class="cv-ref-detail">
+                  <span class="cv-ref-name cv-placeholder">[Full Name]</span>
+                  <span class="cv-placeholder">[Title, Department]<br/>
+                  [Institution]<br/>
+                  [email]<br/>
+                  (Research supervisor, [Institution])</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- S9 -->
+          <h2 id="s9">Tailoring the CV to the Program</h2>
+
+          <p>One CV does not serve every program well. Before submitting, read the program description and identify what they value most. A soil science MSc at Wageningen will look first at research experience and quantitative methods. An environmental policy program will prioritise publications and conference work on governance questions. A DAAD EPOS application wants evidence of professional experience and a clear development-relevant research plan.</p>
+
+          <p>Adjust the order of sections and the content of your research bullet points to reflect what this program is looking for. The research experience section is where this matters most: put the projects most relevant to the target program first, regardless of date order.</p>
+
+          <!-- S10 -->
+          <h2 id="s10">Five Mistakes in Most CVs from Bangladeshi Applicants</h2>
+
+          <div class="mistake-box">
+            <span class="mistake-label">Mistake 1</span>
+            <p>No thesis title or research description under the degree. Reviewers cannot tell whether you did original work or attended lectures. Add the thesis title, working or final, and one line on the scope of the research.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-label">Mistake 2</span>
+            <p>"References available upon request." Do not write this for international graduate applications. Name your referees directly, with their title, institution, and email. An applicant who lists real referees signals confidence in their relationships with supervisors. One who writes "available upon request" raises questions about why.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-label">Mistake 3</span>
+            <p>Skills section listing Microsoft Office, internet browsing, or typing. These are not skills in the context of a research degree application. Replace them with the specific instruments, software, and methods you have actually used in a research setting.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-label">Mistake 4</span>
+            <p>An objective statement at the top of the CV. "I wish to pursue higher studies at an esteemed institution to advance my career in research" tells the reader nothing and dates the document immediately. Remove it. The CV itself is the statement of intent.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-label">Mistake 5</span>
+            <p>Missing GPA. Include it. A blank where the CGPA should be reads far worse than a mediocre number. If your GPA was low, context can go in the cover letter or SOP — but the number still belongs on the CV.</p>
+          </div>
+
+          <!-- S11 -->
+          <h2 id="s11">Formatting</h2>
+
+          <p>Clean and readable beats designed and decorative. Black text on a white background. Times New Roman or Calibri at 11 or 12pt. One-inch margins. Consistent spacing throughout. No text boxes, no columns, no coloured headers, no profile photo for international programs.</p>
+
+          <p>Both a human reader and an automated screening system need to parse your CV cleanly. Decorative layouts — multi-column formats, coloured headers, embedded text boxes — often break both. A plain, well-structured Word document submitted as a PDF is the safest and most professional format for international applications.</p>
+
+          <p>The <a href="services.html#cv">CV writing service</a> on this site handles the full process: an intake form to gather all your experience, a structured and written document tailored to your specific target program, and one revision round. If you are preparing applications for DAAD, GKS, WUR, HBKU, or a US graduate program, that service is available to you.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">Academic CV</a>
+            <a href="blog.html" class="a-tag">Graduate School</a>
+            <a href="blog.html" class="a-tag">Scholarships</a>
+            <a href="blog.html" class="a-tag">Study Abroad</a>
+            <a href="blog.html" class="a-tag">Bangladesh</a>
+            <a href="blog.html" class="a-tag">CV Writing</a>
+            <a href="blog.html" class="a-tag">DAAD</a>
+            <a href="blog.html" class="a-tag">Career</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · CV Writer · NST Fellow · University of Dhaka</span>
+              <p>NST Fellow, active researcher, and freelance CV writer with hands-on experience applying to international graduate programs including WUR Wageningen, DAAD EPOS, GKS Korea, and HBKU Qatar. Writes and edits academic CVs, Statements of Purpose, and cover letters for graduate school and scholarship applications.</p>
+              <div class="bio-links">
+                <a href="services.html#cv" class="bio-lnk">CV Writing Service</a>
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+                <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" class="bio-lnk" target="_blank" rel="noopener">ResearchGate</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- CV section order -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Sections in Order</span></div>
+            <div class="sb-body">
+              <div class="cv-order-item">
+                <span class="cv-order-num">1</span>
+                <div>
+                  <span class="cv-order-name">Header</span>
+                  <span class="cv-order-tip">Name, email, links</span>
+                </div>
+              </div>
+              <div class="cv-order-item">
+                <span class="cv-order-num">2</span>
+                <div>
+                  <span class="cv-order-name">Education</span>
+                  <span class="cv-order-tip">Reverse chronological, with CGPA</span>
+                </div>
+              </div>
+              <div class="cv-order-item">
+                <span class="cv-order-num">3</span>
+                <div>
+                  <span class="cv-order-name">Research Experience</span>
+                  <span class="cv-order-tip">Most important section</span>
+                </div>
+              </div>
+              <div class="cv-order-item">
+                <span class="cv-order-num">4</span>
+                <div>
+                  <span class="cv-order-name">Publications</span>
+                  <span class="cv-order-tip">Include "in preparation" honestly</span>
+                </div>
+              </div>
+              <div class="cv-order-item">
+                <span class="cv-order-num">5</span>
+                <div>
+                  <span class="cv-order-name">Awards &amp; Fellowships</span>
+                  <span class="cv-order-tip">No padding</span>
+                </div>
+              </div>
+              <div class="cv-order-item">
+                <span class="cv-order-num">6</span>
+                <div>
+                  <span class="cv-order-name">Technical Skills</span>
+                  <span class="cv-order-tip">Name instruments and software specifically</span>
+                </div>
+              </div>
+              <div class="cv-order-item">
+                <span class="cv-order-num">7</span>
+                <div>
+                  <span class="cv-order-name">References</span>
+                  <span class="cv-order-tip">Named, with emails — not "on request"</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1"  class="toc-link"><span class="toc-n">1</span>Header</a></li>
+                <li><a href="#s2"  class="toc-link"><span class="toc-n">2</span>Education</a></li>
+                <li><a href="#s3"  class="toc-link"><span class="toc-n">3</span>Research Experience</a></li>
+                <li><a href="#s4"  class="toc-link"><span class="toc-n">4</span>Publications</a></li>
+                <li><a href="#s5"  class="toc-link"><span class="toc-n">5</span>Awards &amp; Fellowships</a></li>
+                <li><a href="#s6"  class="toc-link"><span class="toc-n">6</span>Technical Skills</a></li>
+                <li><a href="#s7"  class="toc-link"><span class="toc-n">7</span>References</a></li>
+                <li><a href="#s8"  class="toc-link"><span class="toc-n">–</span>The Template</a></li>
+                <li><a href="#s9"  class="toc-link"><span class="toc-n">–</span>Tailoring</a></li>
+                <li><a href="#s10" class="toc-link"><span class="toc-n">–</span>5 Mistakes to Avoid</a></li>
+                <li><a href="#s11" class="toc-link"><span class="toc-n">–</span>Formatting</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- CV writing CTA -->
+          <div class="sb-cta">
+            <h4>Need your CV <em>written professionally?</em></h4>
+            <p>Academic CV tailored to your target program — DAAD, GKS, WUR, HBKU, or a US/UK graduate school. Intake form, written document, one revision round. Delivery in 2 to 3 working days.</p>
+            <a href="services.html#cv" class="btn btn-gold">CV Writing Service →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=How%20to%20Write%20an%20Academic%20CV%20for%20Graduate%20School%20Applications%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-academic-cv-guide.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-academic-cv-guide.html"
+                   target="_blank" rel="noopener">LinkedIn</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=How%20to%20Write%20an%20Academic%20CV%20for%20Graduate%20School%20Applications&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-academic-cv-guide.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">📋</span>
+                <span class="rel-title">How to write a strong Statement of Purpose for environmental science programs</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">🎓</span>
+                <span class="rel-title">How I got academic admission to Wageningen University as a Bangladeshi student</span>
+              </a>
+              <a href="blog-imrad-explained.html" class="related-link">
+                <span class="rel-icon">📝</span>
+                <span class="rel-title">IMRaD explained — how to structure a scientific research paper</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Reading progress bar
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    // TOC smooth scroll + active highlight
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11'];
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const a = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (a) a.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sIds.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+
+    // Copy plain-text template
+    function copyCV() {
+      const plainText = `YOUR NAME
+[email] · [phone with country code] · Dhaka, Bangladesh
+[ResearchGate URL] · [LinkedIn URL]
+
+EDUCATION
+MSc in [Field], [University], [Country]              [Month Year – Present]
+  CGPA: X.XX / 4.00
+  Thesis (in progress): "[Working Title]"
+  Supervisor: [Name, Title]
+
+BSc in [Field], [University], Bangladesh             [Month Year – Month Year]
+  CGPA: X.XX / 4.00 (equivalent to X% — First Class Honours)
+  Thesis: "[Title, if applicable]"
+
+RESEARCH EXPERIENCE
+[Role Title], [Institution], [City, Country]         [Month Year – Month Year]
+  • [Method used, with instrument or technique named]
+  • [Data collected or analysis conducted]
+  • [Output: manuscript, conference paper, software, report]
+
+[Role Title], [Institution], Bangladesh              [Month Year – Month Year]
+  • [Specific task with outcome]
+
+PUBLICATIONS AND PRESENTATIONS
+Manuscripts in preparation
+  [Name], et al. ([Year]). [Title]. Target: [Journal]. In preparation.
+
+Conference presentations
+  [Name], et al. ([Year, Month]). [Title]. [Full Conference Name], [Location]. [DOI]
+
+AWARDS AND FELLOWSHIPS
+[Year]   [Award name] — [Granting organisation]
+[Year]   [Award name] — [Granting organisation]
+
+TECHNICAL SKILLS
+Instruments:   [Specific equipment, with model if relevant]
+Software:      [R, Python, SPSS, QGIS — with detail]
+Methods:       [Lab and field techniques]
+Languages:     English ([IELTS X.X or equivalent]) · Bengali (native)
+
+REFERENCES
+[Full Name]                         [Full Name]
+[Title, Department]                 [Title, Department]
+[Institution]                       [Institution]
+[email]                             [email]
+(MSc thesis supervisor)             (Research supervisor, [Institution])`;
+
+      const btn = document.querySelector('.cv-copy-btn');
+      navigator.clipboard.writeText(plainText).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Plain Text'; btn.classList.remove('copied'); }, 2200);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = plainText;
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Plain Text'; btn.classList.remove('copied'); }, 2200);
+      });
+    }
+  </script>
+
+</body>
+</html>
