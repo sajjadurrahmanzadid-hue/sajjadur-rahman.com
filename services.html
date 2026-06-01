@@ -2,1341 +2,1497 @@
 <html lang="en">
 <head>
   <!--
-  ═══════════════════════════════════════════════════
-  sajjadur-rahman.com · services.html
-  Status: ✅ Done
-  Sections: Hero · How It Works · 7 Services ·
-            5 Packages · Policies · FAQ · Booking CTA
-  ═══════════════════════════════════════════════════
-  PAGES STATUS:
-  style.css  ✅  main.js ✅  index.html ✅
-  about.html ✅  services.html ✅  research.html ⏳
-  blog.html  ✅  contact.html 🔲
-  ═══════════════════════════════════════════════════
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com — services.html         ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html 🔲 Queued                     ║
+    ║  blog.html     🔲 Queued                     ║
+    ║  contact.html  🔲 Queued                     ║
+    ╚══════════════════════════════════════════════╝
   -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services &amp; Pricing — Sajjadur Rahman</title>
-  <meta name="description" content="Scientific manuscript editing, data analysis, thesis consultation, IELTS tutoring, soil consulting, research proposals, and CV writing. Transparent pricing in BDT and USD."/>
-  <meta property="og:title" content="Services &amp; Pricing — Sajjadur Rahman"/>
-  <meta property="og:description" content="7 research and academic services with clear pricing for BD and international clients."/>
-  <meta property="og:type" content="website"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Services by Sajjadur Rahman — manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, research proposal guidance, and soil consulting. Pricing in BDT and USD."/>
+  <title>Services — Sajjadur Rahman</title>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+  <!-- End Google Analytics -->
   <link rel="stylesheet" href="assets/css/style.css"/>
-
   <style>
-    /* ─────────────────────────────────────────────
-       services.html — page-scoped styles only
-    ───────────────────────────────────────────── */
 
-    /* ── How it works strip ── */
-    .how-strip {
-      background: var(--parchment2);
+    /* ══════════════════════════════════
+       SERVICE NAV (anchor jump)
+       ══════════════════════════════════ */
+    .svc-nav {
+      background: var(--parchment3);
       border-bottom: 1px solid var(--gold-pale);
-      padding: 32px 0;
+      position: sticky;
+      top: 56px;
+      z-index: 100;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      align-items: start;
-      text-align: center;
+    .svc-nav-inner {
+      display: flex;
+      align-items: stretch;
+      min-width: max-content;
+      padding: 0 24px;
+      max-width: 1060px;
+      margin: 0 auto;
     }
-    .how-step-num {
-      font-family: var(--font-head);
-      font-size: 40px;
+    .svc-nav-link {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
       font-weight: 700;
-      color: var(--gold-pale);
-      line-height: 1;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .how-step-title {
-      font-family: var(--font-head);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 5px;
-      display: block;
-    }
-    .how-step-desc {
-      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       color: var(--text-muted);
-      line-height: 1.7;
+      padding: 13px 16px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .svc-nav-link:hover {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
     }
 
-    /* ── Service card ── */
-    .svc-grid {
+    /* ══════════════════════════════════
+       INDIVIDUAL SERVICE CARDS
+       ══════════════════════════════════ */
+    .svc-block {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .svc-block:nth-child(even) { background: var(--parchment2); }
+    .svc-block:last-child { border-bottom: none; }
+
+    .svc-layout {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      grid-template-columns: 1fr 420px;
+      gap: 56px;
+      align-items: start;
     }
-    .svc-card {
-      display: flex;
-      flex-direction: column;
-    }
-    .svc-card-full { grid-column: span 2; }
+    .svc-layout.flip { direction: rtl; }
+    .svc-layout.flip > * { direction: ltr; }
 
-    .svc-top {
+    /* Left — description */
+    .svc-icon-wrap {
       display: flex;
+      align-items: center;
       gap: 14px;
-      align-items: flex-start;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
-    .svc-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
-    .svc-title {
+    .svc-icon-big {
+      font-size: 36px;
+      width: 62px; height: 62px;
+      background: var(--parchment3);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .svc-head-text .svc-num {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .svc-head-text h2 {
       font-family: var(--font-head);
-      font-size: 19px;
+      font-size: 28px;
       font-weight: 600;
       color: var(--ink);
-      line-height: 1.25;
-      margin-bottom: 4px;
+      line-height: 1.15;
     }
     .svc-tagline {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .svc-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    /* Includes list */
+    .includes-label {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .includes-list {
+      list-style: none;
+      margin-bottom: 26px;
+    }
+    .includes-list li {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      padding: 5px 0 5px 22px;
+      position: relative;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .includes-list li:last-child { border-bottom: none; }
+    .includes-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 11px;
+      top: 7px;
+    }
+
+    /* Right — pricing panel */
+    .pricing-panel {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      position: sticky;
+      top: 96px;
+    }
+    .pricing-panel-head {
+      background: var(--ink-soft);
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pricing-panel-head h3 {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .pricing-panel-head .currency-note {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .price-row {
+      padding: 14px 22px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 12px;
+    }
+    .price-row:last-of-type { border-bottom: none; }
+    .price-scope {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+    .price-bdt {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .price-usd {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .price-note {
+      padding: 10px 22px 14px;
+      font-size: 11.5px;
+      color: var(--text-light);
+      font-style: italic;
+      border-top: 0.5px solid var(--gold-pale);
+      background: var(--parchment2);
+    }
+    .pricing-cta {
+      padding: 16px 22px;
+      background: var(--parchment2);
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .target-label {
+      padding: 12px 22px;
+      background: rgba(90,122,74,0.06);
+      border-top: 0.5px solid rgba(90,122,74,0.15);
+    }
+    .target-label span {
       font-family: var(--font-ui);
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-    }
-    .svc-desc {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.78;
-      margin-bottom: 14px;
+      color: var(--accent);
     }
 
-    /* Includes list */
-    .svc-incl { margin-bottom: 14px; }
-    .svc-incl-hd {
-      font-family: var(--font-ui);
-      font-size: 8.5px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 7px;
-      display: block;
-    }
-    .svc-incl-item {
-      display: flex;
-      gap: 7px;
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.45;
-      margin-bottom: 5px;
-    }
-    .check { color: var(--gold); font-weight: 700; flex-shrink: 0; font-family: var(--font-ui); }
+    /* ══════════════════════════════════
+       PACKAGES
+       ══════════════════════════════════ */
+    .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 
-    /* Pricing mini-table */
-    .svc-pt {
-      background: var(--parchment2);
+    .pkg-card {
+      background: var(--white);
       border: 0.5px solid var(--gold-pale);
       border-radius: var(--radius);
       overflow: hidden;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-    .spt-hd {
-      display: grid;
-      grid-template-columns: 1fr 80px 60px;
-      padding: 6px 12px;
-      background: var(--parchment3);
-      font-family: var(--font-ui);
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--text-light);
-      gap: 8px;
-    }
-    .spt-row {
-      display: grid;
-      grid-template-columns: 1fr 80px 60px;
-      padding: 7px 12px;
-      border-top: 0.5px solid var(--gold-pale);
-      gap: 8px;
-      align-items: center;
-    }
-    .spt-scope { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
-    .spt-bd {
-      font-family: var(--font-ui);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--ink-soft);
-      text-align: right;
-      white-space: nowrap;
-    }
-    .spt-intl {
-      font-family: var(--font-ui);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gold);
-      text-align: right;
-      white-space: nowrap;
-    }
-    .spt-addon { background: rgba(139,126,90,0.05); }
-
-    /* Service CTA row */
-    .svc-cta-row {
-      display: flex;
-      gap: 8px;
-      margin-top: auto;
-      flex-wrap: wrap;
-    }
-
-    /* Full-width card pricing layout */
-    .svc-card-full .svc-pt-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .svc-card-full .svc-incl-and-desc { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-    /* ── Package cards ── */
-    .pkg-card {
+      box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
-      position: relative;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
     }
-    .pkg-popular {
-      position: absolute;
-      top: -11px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-ui);
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--parchment);
-      padding: 3px 12px;
-      border-radius: 20px;
-      white-space: nowrap;
+    .pkg-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .pkg-card.featured { border-color: var(--gold-light); box-shadow: var(--shadow-md); }
+
+    .pkg-card-head {
+      background: var(--parchment2);
+      padding: 22px 22px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
     }
-    .pkg-icon { font-size: 28px; margin-bottom: 10px; }
-    .pkg-title {
+    .pkg-card.featured .pkg-card-head { background: var(--ink-soft); }
+
+    .pkg-emoji { font-size: 28px; display: block; margin-bottom: 10px; }
+    .pkg-card h3 {
       font-family: var(--font-head);
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
       color: var(--ink);
       margin-bottom: 4px;
       line-height: 1.2;
     }
-    .pkg-for {
+    .pkg-card.featured h3 { color: var(--parchment); }
+    .pkg-best {
       font-family: var(--font-ui);
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 14px;
-      display: block;
+      color: var(--text-muted);
     }
-    .pkg-incl { margin-bottom: 16px; flex: 1; }
-    .pkg-incl-item {
-      display: flex;
-      gap: 7px;
+    .pkg-card.featured .pkg-best { color: var(--text-light); }
+
+    .pkg-card-body { padding: 20px 22px; flex: 1; }
+    .pkg-includes {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .pkg-list { list-style: none; margin-bottom: 18px; }
+    .pkg-list li {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 5px;
-      line-height: 1.4;
+      padding: 4px 0 4px 18px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pkg-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold-light);
+      font-size: 10px;
+      top: 6px;
+    }
+
+    .pkg-card-foot {
+      padding: 16px 22px;
+      border-top: 0.5px solid var(--gold-pale);
+      background: var(--parchment2);
     }
     .pkg-pricing {
-      background: var(--parchment2);
-      border: 0.5px solid var(--gold-pale);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
     }
-    .pkg-pr-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 0.5px solid var(--gold-pale);
+    .pkg-price-main {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
     }
-    .pkg-pr-row:last-child { border-bottom: none; }
-    .pkg-pr-label {
+    .pkg-price-bdt {
       font-family: var(--font-ui);
-      font-size: 8.5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .pkg-strike {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+    .pkg-save-badge {
+      font-family: var(--font-ui);
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--text-light);
-      padding: 6px 10px;
-      border-right: 0.5px solid var(--gold-pale);
+      color: var(--accent);
+      background: rgba(90,122,74,0.1);
+      border: 0.5px solid var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
     }
-    .pkg-pr-val {
-      font-family: var(--font-ui);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--ink-soft);
-      padding: 6px 10px;
-      text-align: right;
-    }
-    .pkg-pr-row.pkg-save .pkg-pr-val { color: var(--accent); }
-    .pkg-pr-row.pkg-total .pkg-pr-val { text-decoration: line-through; opacity: 0.6; font-size: 11px; }
     .pkg-delivery {
       font-family: var(--font-ui);
       font-size: 9px;
+      font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--text-light);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      display: block;
     }
 
-    /* ── Policies ── */
-    .policy-card .policy-icon { font-size: 24px; margin-bottom: 10px; }
-    .policy-card h3 {
+    /* ══════════════════════════════════
+       POLICIES
+       ══════════════════════════════════ */
+    .policy-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .policy-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    .policy-card .pc-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+    .policy-card h4 {
       font-family: var(--font-head);
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    .policy-list { display: flex; flex-direction: column; gap: 6px; }
-    .policy-item {
-      display: flex;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .policy-item .dot { color: var(--gold); flex-shrink: 0; font-size: 10px; margin-top: 4px; }
+    .policy-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
-    /* ── FAQ ── */
+    /* ══════════════════════════════════
+       FAQ
+       ══════════════════════════════════ */
     .faq-list { max-width: 760px; margin: 0 auto; }
     .faq-item {
       border-bottom: 0.5px solid var(--gold-pale);
     }
-    .faq-item:first-child { border-top: 0.5px solid var(--gold-pale); }
-    .faq-item summary {
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .faq-q span {
       font-family: var(--font-head);
       font-size: 16px;
       font-weight: 600;
       color: var(--ink);
-      padding: 16px 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      list-style: none;
-      user-select: none;
+      line-height: 1.3;
     }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after {
-      content: '+';
-      font-family: var(--font-head);
-      font-size: 22px;
-      font-weight: 300;
+    .faq-arrow {
+      font-size: 18px;
       color: var(--gold);
       flex-shrink: 0;
-      transition: transform .2s;
+      transition: transform .25s;
+      font-style: normal;
     }
-    .faq-item[open] summary::after {
-      content: '−';
-    }
-    .faq-ans {
-      font-size: 14px;
+    .faq-item.open .faq-arrow { transform: rotate(90deg); }
+    .faq-a {
+      display: none;
+      font-size: 14.5px;
       color: var(--text-muted);
-      line-height: 1.82;
-      padding: 0 0 18px 0;
+      line-height: 1.85;
+      padding-bottom: 18px;
     }
-    .faq-ans strong { color: var(--ink-soft); }
+    .faq-item.open .faq-a { display: block; }
 
-    /* ── Booking CTA ── */
-    .booking-section {
+    /* ══════════════════════════════════
+       BOOKING CTA
+       ══════════════════════════════════ */
+    .booking-band {
       background: var(--ink-soft);
-      padding: 80px 0;
-      text-align: center;
-      border-top: 3px solid var(--gold);
+      padding: 60px 0;
     }
-    .booking-section h2 {
+    .booking-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .booking-text h2 {
       font-family: var(--font-head);
-      font-size: 36px;
+      font-size: 30px;
       font-weight: 600;
       color: var(--parchment);
-      margin-bottom: 12px;
       line-height: 1.2;
+      margin-bottom: 12px;
     }
-    .booking-section p {
-      font-size: 15px;
-      color: var(--text-light);
-      font-style: italic;
-      max-width: 500px;
-      margin: 0 auto 32px;
-      line-height: 1.75;
-    }
-    .booking-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .booking-contact-strip {
-      margin-top: 28px;
-      font-family: var(--font-ui);
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--text-light);
+    .booking-text h2 em { font-style: italic; color: var(--gold); }
+    .booking-text p { font-size: 14.5px; color: var(--text-light); line-height: 1.8; }
+    .booking-options { display: flex; flex-direction: column; gap: 12px; }
+    .booking-option {
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(200,191,160,0.2);
+      border-radius: var(--radius);
+      padding: 16px 20px;
       display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      transition: border-color .2s, background .2s;
     }
-    .booking-contact-strip a { color: var(--gold); transition: color .2s; }
-    .booking-contact-strip a:hover { color: var(--gold-light); }
+    .booking-option:hover { border-color: var(--gold); background: rgba(139,126,90,0.08); }
+    .bo-icon { font-size: 20px; flex-shrink: 0; }
+    .bo-label {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .bo-value { font-size: 13.5px; color: var(--text-light); }
 
-    /* ── Responsive ── */
+    /* ══════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════ */
     @media (max-width: 900px) {
-      .svc-grid { grid-template-columns: 1fr; }
-      .svc-card-full { grid-column: span 1; }
-      .svc-card-full .svc-incl-and-desc,
-      .svc-card-full .svc-pt-cols { grid-template-columns: 1fr; }
-      .how-grid { grid-template-columns: 1fr; gap: 20px; }
+      .svc-layout,
+      .svc-layout.flip { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+      .pricing-panel { position: static; }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .policy-grid { grid-template-columns: repeat(2, 1fr); }
+      .booking-inner { grid-template-columns: 1fr; gap: 32px; }
     }
     @media (max-width: 680px) {
-      .spt-hd, .spt-row { grid-template-columns: 1fr 70px 50px; gap: 4px; }
-      .booking-section h2 { font-size: 26px; }
+      .policy-grid { grid-template-columns: 1fr; }
+      .price-row { grid-template-columns: 1fr auto; }
+      .price-bdt { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══ TOP BAR ═══ -->
-<div id="top-bar">
-  <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
-  <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
-</div>
-
-<!-- ═══ NAVBAR ═══ -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="research.html">Research</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" id="langEN">EN</button>
-        <button class="lang-btn" id="langBN">বাং</button>
-      </div>
-      <a href="#booking" class="btn-hire">
-        <span data-en>Get Started</span>
-        <span data-bn class="bn">শুরু করুন</span>
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    Researcher · Editor · Consultant · Dhaka, Bangladesh
   </div>
-</nav>
 
-<!-- ═══ MOBILE NAV ═══ -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="research.html">Research</a>
-  <a href="blog.html">Blog</a>
-  <a href="contact.html">Contact</a>
-</div>
-
-<!-- ═══ PAGE HERO ═══ -->
-<header class="page-hero">
-  <div class="container">
-    <span class="eyebrow" data-en>Services &amp; Pricing</span>
-    <span class="eyebrow bn" data-bn>সেবা ও মূল্য</span>
-    <h1>
-      <span data-en>How I Can Help You</span>
-      <span data-bn class="bn">আমি কীভাবে সাহায্য করতে পারি</span>
-    </h1>
-    <p data-en>Seven research and academic services with transparent pricing — for students, researchers, and organisations in Bangladesh and worldwide.</p>
-    <p data-bn class="bn">বাংলাদেশ ও বিশ্বের শিক্ষার্থী, গবেষক ও প্রতিষ্ঠানের জন্য সাতটি গবেষণা ও একাডেমিক সেবা — স্বচ্ছ মূল্য সহ।</p>
-  </div>
-</header>
-
-<main>
-
-<!-- ═══ HOW IT WORKS ═══ -->
-<div class="how-strip">
-  <div class="container">
-    <div class="how-grid">
-      <div class="how-step">
-        <span class="how-step-num">01</span>
-        <span class="how-step-title" data-en>Choose &amp; Message</span>
-        <span class="how-step-title bn" data-bn>বেছে নিন ও মেসেজ করুন</span>
-        <p class="how-step-desc" data-en>Pick the service or package that fits your need. Send a WhatsApp or email with a brief description of your project.</p>
-        <p class="how-step-desc bn" data-bn>আপনার প্রয়োজন অনুযায়ী সেবা বা প্যাকেজ বেছে নিন। হোয়াটসঅ্যাপ বা ইমেইলে প্রকল্পের সংক্ষিপ্ত বিবরণ পাঠান।</p>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </div>
-      <div class="how-step">
-        <span class="how-step-num">02</span>
-        <span class="how-step-title" data-en>Brief &amp; Confirm</span>
-        <span class="how-step-title bn" data-bn>সংক্ষিপ্ত আলোচনা ও নিশ্চিতকরণ</span>
-        <p class="how-step-desc" data-en>We discuss your requirements, agree on scope and timeline, and confirm the quote. Advance payment via bKash, PayPal, or Wise.</p>
-        <p class="how-step-desc bn" data-bn>আমরা প্রয়োজনীয়তা আলোচনা করি, পরিধি ও সময়সীমা নির্ধারণ করি। অগ্রিম পেমেন্ট বিকাশ, পেপাল বা ওয়াইজ-এ।</p>
-      </div>
-      <div class="how-step">
-        <span class="how-step-num">03</span>
-        <span class="how-step-title" data-en>Deliver &amp; Revise</span>
-        <span class="how-step-title bn" data-bn>ডেলিভারি ও সংশোধন</span>
-        <p class="how-step-desc" data-en>Work delivered within the agreed timeline. One revision round included with every service. Feedback addressed within 48 hours.</p>
-        <p class="how-step-desc bn" data-bn>সম্মত সময়সীমার মধ্যে কাজ ডেলিভারি। প্রতিটি সেবায় একটি সংশোধন রাউন্ড অন্তর্ভুক্ত। ফিডব্যাক ৪৮ ঘণ্টার মধ্যে।</p>
+      <div class="nav-right">
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-  </div>
-</div>
+  </nav>
 
-<!-- ═══ INDIVIDUAL SERVICES ═══ -->
-<section class="section reveal" aria-labelledby="svc-head">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-en>Individual Services</span>
-      <span class="eyebrow bn" data-bn>একক সেবা</span>
-      <h2 id="svc-head">
-        <span data-en>Seven Areas of Expertise</span>
-        <span data-bn class="bn">সাতটি বিশেষজ্ঞ ক্ষেত্র</span>
-      </h2>
-      <span class="ornament">— ❧ —</span>
-      <p data-en>All prices shown in both 🇧🇩 BDT (for Bangladesh clients) and 🌐 USD (for international clients).</p>
-      <p data-bn class="bn">সমস্ত মূল্য 🇧🇩 টাকায় (বাংলাদেশী ক্লায়েন্টদের জন্য) এবং 🌐 ইউএসডি-তে (আন্তর্জাতিক ক্লায়েন্টদের জন্য) দেখানো হয়েছে।</p>
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Services &amp; Pricing</span>
+        <h1>How I Can Help</h1>
+        <p>Seven specialist services for researchers, students, and organisations — each grounded in active laboratory and field research experience.</p>
+      </div>
     </div>
 
-    <div class="svc-grid">
-
-      <!-- ─── S1: Manuscript Editing ─── -->
-      <div class="card svc-card" id="manuscript-editing">
-        <div class="svc-top">
-          <span class="svc-icon">📝</span>
-          <div>
-            <h3 class="svc-title">
-              <span data-en>Scientific Manuscript Editing</span>
-              <span data-bn class="bn">বৈজ্ঞানিক পাণ্ডুলিপি সম্পাদনা</span>
-            </h3>
-            <span class="svc-tagline" data-en>From draft to journal-ready</span>
-            <span class="svc-tagline bn" data-bn>খসড়া থেকে জার্নাল-প্রস্তুত</span>
-          </div>
-        </div>
-        <p class="svc-desc" data-en>Professional editing of research papers for Elsevier, MDPI, Wiley, and Springer. Specialising in soil science, environmental science, agriculture, and sustainability.</p>
-        <p class="svc-desc bn" data-bn>এলসেভিয়ার, এমডিপিআই, উইলি ও স্প্রিংগার জার্নালে গবেষণাপত্রের পেশাদার সম্পাদনা। মৃত্তিকা বিজ্ঞান, পরিবেশ বিজ্ঞান ও কৃষিতে বিশেষজ্ঞতা।</p>
-        <div class="svc-incl">
-          <span class="svc-incl-hd" data-en>What's included</span>
-          <span class="svc-incl-hd bn" data-bn>যা অন্তর্ভুক্ত</span>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Full manuscript read and edit</span><span data-bn class="bn">পূর্ণ পাণ্ডুলিপি পাঠ ও সম্পাদনা</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Grammar, clarity and academic tone correction</span><span data-bn class="bn">ব্যাকরণ, স্পষ্টতা ও একাডেমিক টোন সংশোধন</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Journal-specific formatting guidance</span><span data-bn class="bn">জার্নাল-নির্দিষ্ট ফরম্যাটিং গাইডেন্স</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>One revision round · Delivery 5–7 working days</span><span data-bn class="bn">একটি সংশোধন রাউন্ড · ৫–৭ কার্যদিবসে ডেলিভারি</span></span></div>
-        </div>
-        <div class="svc-pt">
-          <div class="spt-hd">
-            <span data-en>Scope</span><span data-bn class="bn">পরিধি</span>
-            <span>🇧🇩 BDT</span>
-            <span>🌐 USD</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Short paper, minor edits (&lt;4,000w)</span><span data-bn class="bn">ছোট পেপার (&lt;৪,০০০ শব্দ)</span></span>
-            <span class="spt-bd">৳3,000</span><span class="spt-intl">$35</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Full paper, moderate edit (4–7,000w)</span><span data-bn class="bn">সম্পূর্ণ পেপার, মাঝারি (৪–৭,০০০ শব্দ)</span></span>
-            <span class="spt-bd">৳5,000</span><span class="spt-intl">$55</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Full paper, major rewrite (any length)</span><span data-bn class="bn">সম্পূর্ণ পেপার, ব্যাপক পুনর্লেখন</span></span>
-            <span class="spt-bd">৳6,500</span><span class="spt-intl">$75</span>
-          </div>
-          <div class="spt-row spt-addon">
-            <span class="spt-scope"><span data-en>+ Response to reviewers (add-on)</span><span data-bn class="bn">+ রিভিউয়ার জবাব (অতিরিক্ত)</span></span>
-            <span class="spt-bd">+৳1,500</span><span class="spt-intl">+$15</span>
-          </div>
-        </div>
-        <div class="svc-cta-row">
-          <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 WhatsApp</a>
-          <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 হোয়াটসঅ্যাপ</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline" data-en>Email</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline bn" data-bn>ইমেইল</a>
-        </div>
+    <!-- SERVICE ANCHOR NAV -->
+    <nav class="svc-nav" aria-label="Jump to service">
+      <div class="svc-nav-inner">
+        <a href="#manuscript"  class="svc-nav-link">📝 Manuscript Editing</a>
+        <a href="#data"        class="svc-nav-link">📊 Data Analysis</a>
+        <a href="#thesis"      class="svc-nav-link">🎓 Thesis Consultation</a>
+        <a href="#ielts"       class="svc-nav-link">🗣️ IELTS Tutoring</a>
+        <a href="#cv"          class="svc-nav-link">📄 CV Writing</a>
+        <a href="#proposal"    class="svc-nav-link">📋 Research Proposals</a>
+        <a href="#soil"        class="svc-nav-link">🌱 Soil Consulting</a>
+        <a href="#packages"    class="svc-nav-link">📦 Packages</a>
       </div>
+    </nav>
 
-      <!-- ─── S2: Data Analysis ─── -->
-      <div class="card svc-card" id="data-analysis">
-        <div class="svc-top">
-          <span class="svc-icon">📊</span>
-          <div>
-            <h3 class="svc-title">
-              <span data-en>Data Analysis &amp; Statistics</span>
-              <span data-bn class="bn">ডেটা বিশ্লেষণ ও পরিসংখ্যান</span>
-            </h3>
-            <span class="svc-tagline" data-en>Numbers that tell the right story</span>
-            <span class="svc-tagline bn" data-bn>সঠিক গল্প বলার পরিসংখ্যান</span>
-          </div>
-        </div>
-        <p class="svc-desc" data-en>Statistical analysis using SPSS, R, or Python. Descriptive stats, regression, ANOVA, chi-square, and data visualisation. Full written report included.</p>
-        <p class="svc-desc bn" data-bn>এসপিএসএস, আর বা পাইথন ব্যবহার করে পরিসংখ্যান বিশ্লেষণ। বর্ণনামূলক, রিগ্রেশন, আনোভা, কাই-স্কোয়ার এবং ভিজুয়ালাইজেশন। লিখিত রিপোর্ট সহ।</p>
-        <div class="svc-incl">
-          <span class="svc-incl-hd" data-en>What's included</span>
-          <span class="svc-incl-hd bn" data-bn>যা অন্তর্ভুক্ত</span>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Data cleaning and preparation</span><span data-bn class="bn">ডেটা পরিষ্কার ও প্রস্তুতি</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Appropriate tests selected and run</span><span data-bn class="bn">উপযুক্ত পরীক্ষা নির্বাচন ও পরিচালনা</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Tables, graphs, and publication-ready charts</span><span data-bn class="bn">সারণী, গ্রাফ ও প্রকাশনা-উপযোগী চার্ট</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Written interpretation · Delivery 3–5 days</span><span data-bn class="bn">লিখিত ব্যাখ্যা · ৩–৫ কার্যদিবসে ডেলিভারি</span></span></div>
-        </div>
-        <div class="svc-pt">
-          <div class="spt-hd">
-            <span data-en>Scope</span><span data-bn class="bn">পরিধি</span>
-            <span>🇧🇩 BDT</span><span>🌐 USD</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Basic descriptives + frequency (SPSS)</span><span data-bn class="bn">মৌলিক বর্ণনামূলক + ফ্রিকোয়েন্সি</span></span>
-            <span class="spt-bd">৳2,000</span><span class="spt-intl">$25</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Full analysis + report (SPSS/R)</span><span data-bn class="bn">সম্পূর্ণ বিশ্লেষণ + রিপোর্ট</span></span>
-            <span class="spt-bd">৳3,500</span><span class="spt-intl">$40</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Advanced analysis + visualisation (R/Python)</span><span data-bn class="bn">উন্নত বিশ্লেষণ + ভিজুয়ালাইজেশন</span></span>
-            <span class="spt-bd">৳5,000</span><span class="spt-intl">$60</span>
-          </div>
-        </div>
-        <div class="svc-cta-row">
-          <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 WhatsApp</a>
-          <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 হোয়াটসঅ্যাপ</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline" data-en>Email</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline bn" data-bn>ইমেইল</a>
-        </div>
-      </div>
+    <!-- ════════════════════════════════════════
+         SERVICE 1 — MANUSCRIPT EDITING
+         ════════════════════════════════════════ -->
+    <div id="manuscript" class="svc-block">
+      <div class="container">
+        <div class="svc-layout reveal">
 
-      <!-- ─── S3: Thesis Consultation ─── -->
-      <div class="card svc-card" id="thesis-consultation">
-        <div class="svc-top">
-          <span class="svc-icon">🎓</span>
-          <div>
-            <h3 class="svc-title">
-              <span data-en>Thesis &amp; Dissertation Consultation</span>
-              <span data-bn class="bn">থিসিস ও গবেষণামূলক পরামর্শ</span>
-            </h3>
-            <span class="svc-tagline" data-en>Research guidance from an active researcher</span>
-            <span class="svc-tagline bn" data-bn>সক্রিয় গবেষকের কাছ থেকে গাইডেন্স</span>
-          </div>
-        </div>
-        <p class="svc-desc" data-en>One-on-one consultation covering research design, methodology, literature review, chapter feedback, and academic writing — for undergraduate and MSc students.</p>
-        <p class="svc-desc bn" data-bn>গবেষণা নকশা, পদ্ধতি, সাহিত্য পর্যালোচনা, অধ্যায় ফিডব্যাক ও একাডেমিক লেখার উপর এক-এক-এক পরামর্শ।</p>
-        <div class="svc-incl">
-          <span class="svc-incl-hd" data-en>What's included</span>
-          <span class="svc-incl-hd bn" data-bn>যা অন্তর্ভুক্ত</span>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>1-hour session via Google Meet or WhatsApp</span><span data-bn class="bn">গুগল মিট বা হোয়াটসঅ্যাপে ১ ঘণ্টার সেশন</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Pre-session review of submitted material</span><span data-bn class="bn">সেশনের আগে জমা দেওয়া উপকরণ পর্যালোচনা</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Written feedback notes after session</span><span data-bn class="bn">সেশনের পরে লিখিত ফিডব্যাক নোট</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Follow-up questions answered within 24 hours</span><span data-bn class="bn">২৪ ঘণ্টার মধ্যে ফলো-আপ প্রশ্নের উত্তর</span></span></div>
-        </div>
-        <div class="svc-pt">
-          <div class="spt-hd">
-            <span data-en>Scope</span><span data-bn class="bn">পরিধি</span>
-            <span>🇧🇩 BDT</span><span>🌐 USD</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Per hour session</span><span data-bn class="bn">প্রতি ঘণ্টা সেশন</span></span>
-            <span class="spt-bd">৳1,500</span><span class="spt-intl">$15</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Full chapter review (written, no call)</span><span data-bn class="bn">সম্পূর্ণ অধ্যায় পর্যালোচনা (লিখিত)</span></span>
-            <span class="spt-bd">৳2,000</span><span class="spt-intl">$20</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Research design consultation (2 hours)</span><span data-bn class="bn">গবেষণা নকশা পরামর্শ (২ ঘণ্টা)</span></span>
-            <span class="spt-bd">৳2,800</span><span class="spt-intl">$28</span>
-          </div>
-        </div>
-        <div class="svc-cta-row">
-          <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 WhatsApp</a>
-          <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 হোয়াটসঅ্যাপ</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline" data-en>Email</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline bn" data-bn>ইমেইল</a>
-        </div>
-      </div>
-
-      <!-- ─── S4: IELTS Tutoring ─── -->
-      <div class="card svc-card" id="ielts-tutoring">
-        <div class="svc-top">
-          <span class="svc-icon">🗣️</span>
-          <div>
-            <h3 class="svc-title">
-              <span data-en>IELTS Tutoring</span>
-              <span data-bn class="bn">আইইএলটিএস টিউটরিং</span>
-            </h3>
-            <span class="svc-tagline" data-en>Score higher with targeted preparation</span>
-            <span class="svc-tagline bn" data-bn>লক্ষ্যমাত্রা প্রস্তুতিতে উচ্চ স্কোর</span>
-          </div>
-        </div>
-        <p class="svc-desc" data-en>Personalised IELTS preparation covering all four skills — Reading, Writing, Listening, and Speaking. Academic and General Training. Fully online, flexible scheduling. (Personal score: 7.5)</p>
-        <p class="svc-desc bn" data-bn>চারটি দক্ষতা — রিডিং, রাইটিং, লিসেনিং ও স্পিকিং — কভার করে ব্যক্তিগতকৃত আইইএলটিএস প্রস্তুতি। একাডেমিক ও জেনারেল ট্রেনিং উভয়ই। (ব্যক্তিগত স্কোর: ৭.৫)</p>
-        <div class="svc-incl">
-          <span class="svc-incl-hd" data-en>What's included</span>
-          <span class="svc-incl-hd bn" data-bn>যা অন্তর্ভুক্ত</span>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Needs assessment in first session</span><span data-bn class="bn">প্রথম সেশনে চাহিদা মূল্যায়ন</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Targeted practice materials provided</span><span data-bn class="bn">লক্ষ্যমাত্রা অনুযায়ী অনুশীলন সামগ্রী</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Mock test and detailed feedback</span><span data-bn class="bn">মক টেস্ট ও বিস্তারিত ফিডব্যাক</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Score improvement strategy and study plan</span><span data-bn class="bn">স্কোর উন্নয়ন কৌশল ও স্টাডি প্ল্যান</span></span></div>
-        </div>
-        <div class="svc-pt">
-          <div class="spt-hd">
-            <span data-en>Scope</span><span data-bn class="bn">পরিধি</span>
-            <span>🇧🇩 BDT</span><span>🌐 USD</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Per hour session</span><span data-bn class="bn">প্রতি ঘণ্টা সেশন</span></span>
-            <span class="spt-bd">৳1,000</span><span class="spt-intl">$12</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Intensive (2+ sessions/week) per hour</span><span data-bn class="bn">ইনটেনসিভ (সপ্তাহে ২+) প্রতি ঘণ্টা</span></span>
-            <span class="spt-bd">৳1,200</span><span class="spt-intl">$15</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Writing task assessment + detailed feedback</span><span data-bn class="bn">রাইটিং টাস্ক মূল্যায়ন + বিস্তারিত ফিডব্যাক</span></span>
-            <span class="spt-bd">৳800</span><span class="spt-intl">$10</span>
-          </div>
-        </div>
-        <div class="svc-cta-row">
-          <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 WhatsApp</a>
-          <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 হোয়াটসঅ্যাপ</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline" data-en>Email</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline bn" data-bn>ইমেইল</a>
-        </div>
-      </div>
-
-      <!-- ─── S5: Soil Consulting ─── -->
-      <div class="card svc-card" id="soil-consulting">
-        <div class="svc-top">
-          <span class="svc-icon">🌱</span>
-          <div>
-            <h3 class="svc-title">
-              <span data-en>Soil &amp; Environment Consulting</span>
-              <span data-bn class="bn">মৃত্তিকা ও পরিবেশ পরামর্শ</span>
-            </h3>
-            <span class="svc-tagline" data-en>Science-backed recommendations for land and environment</span>
-            <span class="svc-tagline bn" data-bn>মাটি ও পরিবেশের জন্য বিজ্ঞান-ভিত্তিক সুপারিশ</span>
-          </div>
-        </div>
-        <p class="svc-desc" data-en>Professional consulting for soil health, fertiliser management, and environmental assessment — drawing on active research at BCSIR and DUNTC. For NGOs, agricultural startups, and farms. Free 30-minute initial assessment.</p>
-        <p class="svc-desc bn" data-bn>মৃত্তিকা স্বাস্থ্য, সার ব্যবস্থাপনা ও পরিবেশ মূল্যায়নের জন্য পেশাদার পরামর্শ। বিসিএসআইআর ও ডিইউএনটিসিতে সক্রিয় গবেষণার উপর ভিত্তি করে। বিনামূল্যে ৩০ মিনিটের প্রাথমিক মূল্যায়ন।</p>
-        <div class="svc-incl">
-          <span class="svc-incl-hd" data-en>What's included</span>
-          <span class="svc-incl-hd bn" data-bn>যা অন্তর্ভুক্ত</span>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Initial needs assessment — free, 30 minutes</span><span data-bn class="bn">প্রাথমিক মূল্যায়ন — বিনামূল্যে, ৩০ মিনিট</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Site-specific recommendations</span><span data-bn class="bn">স্থান-নির্দিষ্ট সুপারিশ</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Written report with findings and action plan</span><span data-bn class="bn">ফলাফল ও কর্মপরিকল্পনাসহ লিখিত রিপোর্ট</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>One follow-up consultation included</span><span data-bn class="bn">একটি ফলো-আপ পরামর্শ অন্তর্ভুক্ত</span></span></div>
-        </div>
-        <div class="svc-pt">
-          <div class="spt-hd">
-            <span data-en>Scope</span><span data-bn class="bn">পরিধি</span>
-            <span>🇧🇩 BDT</span><span>🌐 USD</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Soil health assessment report</span><span data-bn class="bn">মৃত্তিকা স্বাস্থ্য মূল্যায়ন রিপোর্ট</span></span>
-            <span class="spt-bd">৳8,000</span><span class="spt-intl">$80</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Fertilizer recommendation plan</span><span data-bn class="bn">সার সুপারিশ পরিকল্পনা</span></span>
-            <span class="spt-bd">৳6,000</span><span class="spt-intl">$65</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Full environmental assessment report</span><span data-bn class="bn">সম্পূর্ণ পরিবেশ মূল্যায়ন রিপোর্ট</span></span>
-            <span class="spt-bd">৳15,000</span><span class="spt-intl">$140</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Daily consultancy rate</span><span data-bn class="bn">দৈনিক পরামর্শ রেট</span></span>
-            <span class="spt-bd">৳5,000<span style="font-size:9px;opacity:.7;">/day</span></span><span class="spt-intl">$100<span style="font-size:9px;opacity:.7;">/day</span></span>
-          </div>
-        </div>
-        <div class="svc-cta-row">
-          <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 WhatsApp</a>
-          <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 হোয়াটসঅ্যাপ</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline" data-en>Email</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline bn" data-bn>ইমেইল</a>
-        </div>
-      </div>
-
-      <!-- ─── S6: Research Proposals ─── -->
-      <div class="card svc-card" id="research-proposals">
-        <div class="svc-top">
-          <span class="svc-icon">📋</span>
-          <div>
-            <h3 class="svc-title">
-              <span data-en>Research Proposal Writing</span>
-              <span data-bn class="bn">গবেষণা প্রস্তাব রচনা</span>
-            </h3>
-            <span class="svc-tagline" data-en>Proposals that get funded</span>
-            <span class="svc-tagline bn" data-bn>যে প্রস্তাবনা অর্থায়ন পায়</span>
-          </div>
-        </div>
-        <p class="svc-desc" data-en>Research and grant proposal writing for thesis proposals, small grants, and full international funding applications — NST, BCSIR, USAID, DAAD, and similar.</p>
-        <p class="svc-desc bn" data-bn>থিসিস প্রস্তাবনা, ছোট অনুদান ও সম্পূর্ণ আন্তর্জাতিক তহবিল আবেদনের জন্য গবেষণা ও অনুদান প্রস্তাব লেখা — এনএসটি, বিসিএসআইআর, ইউএসএআইডি, ডিএএডি এবং অনুরূপ।</p>
-        <div class="svc-incl">
-          <span class="svc-incl-hd" data-en>What's included</span>
-          <span class="svc-incl-hd bn" data-bn>যা অন্তর্ভুক্ত</span>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Proposal structure and outline</span><span data-bn class="bn">প্রস্তাবনার কাঠামো ও রূপরেখা</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Literature review section</span><span data-bn class="bn">সাহিত্য পর্যালোচনা অংশ</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Methodology and research design</span><span data-bn class="bn">গবেষণা পদ্ধতি ও নকশা</span></span></div>
-          <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Budget narrative (if required) · One revision round</span><span data-bn class="bn">বাজেট বর্ণনা (প্রযোজ্য হলে) · একটি সংশোধন</span></span></div>
-        </div>
-        <div class="svc-pt">
-          <div class="spt-hd">
-            <span data-en>Scope</span><span data-bn class="bn">পরিধি</span>
-            <span>🇧🇩 BDT</span><span>🌐 USD</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>MSc thesis proposal</span><span data-bn class="bn">এমএস থিসিস প্রস্তাবনা</span></span>
-            <span class="spt-bd">৳2,500</span><span class="spt-intl">$30</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Small grant application</span><span data-bn class="bn">ছোট অনুদান আবেদন</span></span>
-            <span class="spt-bd">৳4,000</span><span class="spt-intl">$50</span>
-          </div>
-          <div class="spt-row">
-            <span class="spt-scope"><span data-en>Full international funding proposal</span><span data-bn class="bn">সম্পূর্ণ আন্তর্জাতিক তহবিল প্রস্তাবনা</span></span>
-            <span class="spt-bd">৳6,500</span><span class="spt-intl">$80</span>
-          </div>
-        </div>
-        <div class="svc-cta-row">
-          <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 WhatsApp</a>
-          <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 হোয়াটসঅ্যাপ</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline" data-en>Email</a>
-          <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline bn" data-bn>ইমেইল</a>
-        </div>
-      </div>
-
-      <!-- ─── S7: CV Writing (full-width) ─── -->
-      <div class="card svc-card svc-card-full" id="cv-writing">
-        <div class="svc-top">
-          <span class="svc-icon">📄</span>
-          <div>
-            <h3 class="svc-title">
-              <span data-en>CV Writing &amp; Development</span>
-              <span data-bn class="bn">সিভি লেখা ও উন্নয়ন</span>
-            </h3>
-            <span class="svc-tagline" data-en>A CV that opens doors</span>
-            <span class="svc-tagline bn" data-bn>যে সিভি দরজা খোলে</span>
-          </div>
-        </div>
-
-        <div class="svc-incl-and-desc">
-          <div>
-            <p class="svc-desc" data-en>Academic CVs for graduate school applications, professional CVs for jobs, and SOPs tailored to your specific target — program, university, or role. Add-ons: cover letter, SOP, LinkedIn summary.</p>
-            <p class="svc-desc bn" data-bn>স্নাতক আবেদনের জন্য একাডেমিক সিভি, চাকরির জন্য পেশাদার সিভি, এবং নির্দিষ্ট লক্ষ্যমাত্রা অনুযায়ী এসওপি। অতিরিক্ত: কভার লেটার, লিংকডইন সারসংক্ষেপ।</p>
-            <div class="svc-incl">
-              <span class="svc-incl-hd" data-en>What's included</span>
-              <span class="svc-incl-hd bn" data-bn>যা অন্তর্ভুক্ত</span>
-              <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Intake form to gather all information</span><span data-bn class="bn">সমস্ত তথ্য সংগ্রহের ইনটেক ফর্ম</span></span></div>
-              <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Professionally structured and written CV</span><span data-bn class="bn">পেশাদারভাবে কাঠামোবদ্ধ ও লিখিত সিভি</span></span></div>
-              <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>Tailored to your specific purpose</span><span data-bn class="bn">আপনার নির্দিষ্ট উদ্দেশ্যে কাস্টমাইজড</span></span></div>
-              <div class="svc-incl-item"><span class="check">✓</span><span><span data-en>One revision round · Delivery 2–3 working days</span><span data-bn class="bn">একটি সংশোধন রাউন্ড · ২–৩ কার্যদিবসে ডেলিভারি</span></span></div>
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">📝</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 01</span>
+                <h2>Manuscript Editing<br/>&amp; Formatting</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">From draft to journal-ready — your ideas, professionally presented.</span>
+            <p class="svc-desc">
+              Research papers succeed or fail on clarity, structure, and presentation. I provide
+              thorough language correction, structural editing, and journal-specific formatting
+              for manuscripts targeting Elsevier, MDPI, Wiley, Springer, and similar publishers.
+              I work with your existing writing — improving how your ideas are expressed, not
+              replacing them with someone else's voice.
+            </p>
+            <p class="svc-desc">
+              My own training in scientific communication — Stanford Writing in the Sciences
+              and Wiley Researcher Academy certification — informs every edit I make. I
+              specialise in soil science, environmental science, agriculture, and sustainability,
+              but work across all natural and applied sciences.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Full manuscript read-through and structural assessment</li>
+              <li>Grammar, syntax, and academic tone correction throughout</li>
+              <li>Abstract and title optimisation for discoverability</li>
+              <li>Journal-specific formatting (headings, references, figures)</li>
+              <li>Tracked changes returned — you approve every edit</li>
+              <li>One revision round included after delivery</li>
+              <li>Delivery within 5–7 working days (express available)</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">Elsevier</span>
+              <span class="tag-pill">MDPI</span>
+              <span class="tag-pill">Wiley</span>
+              <span class="tag-pill">Springer</span>
+              <span class="tag-pill">Soil Science</span>
+              <span class="tag-pill">Environmental Science</span>
+              <span class="tag-pill">Agriculture</span>
             </div>
           </div>
-          <div>
-            <div class="svc-pt-cols">
-              <div class="svc-pt">
-                <div class="spt-hd">
-                  <span data-en>Scope</span><span data-bn class="bn">পরিধি</span>
-                  <span>🇧🇩</span><span>🌐</span>
-                </div>
-                <div class="spt-row">
-                  <span class="spt-scope"><span data-en>Professional CV</span><span data-bn class="bn">পেশাদার সিভি</span></span>
-                  <span class="spt-bd">৳2,000</span><span class="spt-intl">$20</span>
-                </div>
-                <div class="spt-row">
-                  <span class="spt-scope"><span data-en>Academic CV for grad school</span><span data-bn class="bn">একাডেমিক সিভি</span></span>
-                  <span class="spt-bd">৳3,000</span><span class="spt-intl">$35</span>
-                </div>
-                <div class="spt-row">
-                  <span class="spt-scope"><span data-en>CV + Cover Letter</span><span data-bn class="bn">সিভি + কভার লেটার</span></span>
-                  <span class="spt-bd">৳3,800</span><span class="spt-intl">$42</span>
-                </div>
-                <div class="spt-row">
-                  <span class="spt-scope"><span data-en>CV + Cover Letter + SOP</span><span data-bn class="bn">সিভি + কভার লেটার + এসওপি</span></span>
-                  <span class="spt-bd">৳5,500</span><span class="spt-intl">$65</span>
-                </div>
-                <div class="spt-row spt-addon">
-                  <span class="spt-scope"><span data-en>+ LinkedIn summary (add-on)</span><span data-bn class="bn">+ লিংকডইন সারসংক্ষেপ</span></span>
-                  <span class="spt-bd">+৳800</span><span class="spt-intl">+$10</span>
-                </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
               </div>
-              <div style="display:flex;flex-direction:column;gap:10px;justify-content:flex-end;">
-                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 WhatsApp Me</a>
-                <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 হোয়াটসঅ্যাপ করুন</a>
-                <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline" data-en>Email to Start</a>
-                <a href="mailto:services@sajjadur-rahman.com" class="btn btn-outline bn" data-bn>ইমেইল করুন</a>
+              <div class="price-row">
+                <span class="price-scope">Short paper, minor edits<br/><small style="font-size:11px;color:var(--text-light);">Under 4,000 words</small></span>
+                <span class="price-bdt">৳3,000</span>
+                <span class="price-usd">$35</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full paper, moderate edit<br/><small style="font-size:11px;color:var(--text-light);">4,000 – 7,000 words</small></span>
+                <span class="price-bdt">৳5,000</span>
+                <span class="price-usd">$55</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full paper, major rewrite<br/><small style="font-size:11px;color:var(--text-light);">Any length</small></span>
+                <span class="price-bdt">৳6,500</span>
+                <span class="price-usd">$75</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Response to reviewers<br/><small style="font-size:11px;color:var(--text-light);">Add-on to any package</small></span>
+                <span class="price-bdt">+৳1,500</span>
+                <span class="price-usd">+$15</span>
+              </div>
+              <p class="price-note">BD clients pay in Taka via bKash / Nagad / bank transfer. International clients via PayPal or Wise.</p>
+              <div class="target-label"><span>Best for: MSc &amp; PhD students, early-career researchers, academics</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Discuss on WhatsApp</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
               </div>
             </div>
           </div>
+
         </div>
       </div>
-
-    </div><!-- /svc-grid -->
-  </div>
-</section>
-
-<!-- ═══ PACKAGES ═══ -->
-<section class="section section-alt reveal" aria-labelledby="pkg-head">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-en>Save More</span>
-      <span class="eyebrow bn" data-bn>বেশি সাশ্রয় করুন</span>
-      <h2 id="pkg-head">
-        <span data-en>Packages &amp; Bundles</span>
-        <span data-bn class="bn">প্যাকেজ ও বান্ডেল</span>
-      </h2>
-      <span class="ornament">— ❧ —</span>
-      <p data-en>Bundled services at a 28–31% discount. Pick the package that matches your goal.</p>
-      <p data-bn class="bn">২৮–৩১% ছাড়ে বান্ডেলড সেবা। আপনার লক্ষ্য অনুযায়ী প্যাকেজ বেছে নিন।</p>
     </div>
 
-    <div class="grid-3">
+    <!-- ════════════════════════════════════════
+         SERVICE 2 — DATA ANALYSIS
+         ════════════════════════════════════════ -->
+    <div id="data" class="svc-block">
+      <div class="container">
+        <div class="svc-layout flip reveal">
 
-      <!-- P1: Student Launchpad -->
-      <div class="card pkg-card" style="border-top: 2px solid var(--gold);">
-        <span class="pkg-popular" data-en>Most Popular</span>
-        <span class="pkg-popular bn" data-bn>সর্বাধিক জনপ্রিয়</span>
-        <div class="pkg-icon">🎓</div>
-        <h3 class="pkg-title" data-en>Student Launchpad</h3>
-        <h3 class="pkg-title bn" data-bn>স্টুডেন্ট লঞ্চপ্যাড</h3>
-        <span class="pkg-for" data-en>Best for: BD students finishing thesis or applying abroad</span>
-        <span class="pkg-for bn" data-bn>সেরা: থিসিস শেষ করছেন বা বিদেশে আবেদন করছেন এমন শিক্ষার্থীদের জন্য</span>
-        <div class="pkg-incl">
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Data Analysis (full, any tool)</span><span data-bn class="bn">ডেটা বিশ্লেষণ (সম্পূর্ণ)</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Thesis Chapter Review (1 chapter)</span><span data-bn class="bn">থিসিস অধ্যায় পর্যালোচনা (১টি)</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Academic CV</span><span data-bn class="bn">একাডেমিক সিভি</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Cover Letter</span><span data-bn class="bn">কভার লেটার</span></div>
-        </div>
-        <div class="pkg-pricing">
-          <div class="pkg-pr-row pkg-total">
-            <span class="pkg-pr-label" data-en>Individual total</span>
-            <span class="pkg-pr-label bn" data-bn>একক মোট</span>
-            <span class="pkg-pr-val" data-en>৳12,000 / $110</span>
-            <span class="pkg-pr-val bn" data-bn>৳১২,০০০ / $110</span>
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">📊</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 02</span>
+                <h2>Data Analysis<br/>&amp; Statistics</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Numbers that tell the right story.</span>
+            <p class="svc-desc">
+              Good data poorly analysed is a wasted opportunity. I provide statistical analysis
+              of research datasets using SPSS, R, and Python — selecting the appropriate tests
+              for your design, running the analysis correctly, producing clear figures, and
+              writing up the results in plain academic language. I also built SPADE, an
+              open-source Python platform for nitrogen use efficiency analysis, so I know
+              what rigorous quantitative research looks like from the inside.
+            </p>
+            <p class="svc-desc">
+              I work across all research areas — not just soil science. If you have a dataset
+              and need it analysed and interpreted, send it over and we can discuss the right
+              approach.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Data cleaning and preparation (handling missing values, outliers)</li>
+              <li>Appropriate statistical tests selected and justified</li>
+              <li>Full analysis run in SPSS, R, or Python — your choice</li>
+              <li>Publication-ready tables and figures (PNG/SVG)</li>
+              <li>Written results section with interpretation</li>
+              <li>One revision round included</li>
+              <li>Delivery within 3–5 working days</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">SPSS</span>
+              <span class="tag-pill">R</span>
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">ANOVA</span>
+              <span class="tag-pill">Regression</span>
+              <span class="tag-pill">Tukey HSD</span>
+              <span class="tag-pill">Descriptive Stats</span>
+              <span class="tag-pill">Data Visualisation</span>
+            </div>
           </div>
-          <div class="pkg-pr-row">
-            <span class="pkg-pr-label" data-en>Package price</span>
-            <span class="pkg-pr-label bn" data-bn>প্যাকেজ মূল্য</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-en>৳8,500 / $65</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-bn class="bn">৳৮,৫০০ / $65</span>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Basic descriptives + frequency<br/><small style="font-size:11px;color:var(--text-light);">SPSS</small></span>
+                <span class="price-bdt">৳2,000</span>
+                <span class="price-usd">$25</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full analysis + written report<br/><small style="font-size:11px;color:var(--text-light);">SPSS or R</small></span>
+                <span class="price-bdt">৳3,500</span>
+                <span class="price-usd">$40</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Advanced analysis + visualisation<br/><small style="font-size:11px;color:var(--text-light);">R or Python</small></span>
+                <span class="price-bdt">৳5,000</span>
+                <span class="price-usd">$60</span>
+              </div>
+              <p class="price-note">50% advance required for projects over ৳5,000 / $50.</p>
+              <div class="target-label"><span>Best for: Undergraduate &amp; MSc students, researchers needing quantitative support</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Discuss on WhatsApp</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
           </div>
-          <div class="pkg-pr-row pkg-save">
-            <span class="pkg-pr-label" data-en>You save</span>
-            <span class="pkg-pr-label bn" data-bn>আপনি সাশ্রয় করবেন</span>
-            <span class="pkg-pr-val" data-en>৳3,500 (28%)</span>
-            <span class="pkg-pr-val bn" data-bn>৳৩,৫০০ (২৮%)</span>
-          </div>
+
         </div>
-        <div class="pkg-delivery" data-en>⏱ Delivery: 7–10 working days</div>
-        <div class="pkg-delivery bn" data-bn>⏱ ডেলিভারি: ৭–১০ কার্যদিবস</div>
-        <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 Get This Package</a>
-        <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 এই প্যাকেজ পান</a>
-      </div>
-
-      <!-- P2: Publication Ready -->
-      <div class="card pkg-card">
-        <div class="pkg-icon">📚</div>
-        <h3 class="pkg-title" data-en>Publication Ready</h3>
-        <h3 class="pkg-title bn" data-bn>পাবলিকেশন রেডি</h3>
-        <span class="pkg-for" data-en>Best for: Researchers submitting to journals</span>
-        <span class="pkg-for bn" data-bn>সেরা: জার্নালে জমা দেওয়ার প্রস্তুতি নিচ্ছেন এমন গবেষকদের জন্য</span>
-        <div class="pkg-incl">
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Full Manuscript Edit &amp; Writing</span><span data-bn class="bn">সম্পূর্ণ পাণ্ডুলিপি সম্পাদনা ও লেখা</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Response to Reviewers (1 round)</span><span data-bn class="bn">রিভিউয়ার জবাব (১ রাউন্ড)</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Research Proposal for follow-up study</span><span data-bn class="bn">ফলো-আপ গবেষণার প্রস্তাবনা</span></div>
-        </div>
-        <div class="pkg-pricing">
-          <div class="pkg-pr-row pkg-total">
-            <span class="pkg-pr-label" data-en>Individual total</span>
-            <span class="pkg-pr-label bn" data-bn>একক মোট</span>
-            <span class="pkg-pr-val" data-en>৳17,000 / $155</span>
-            <span class="pkg-pr-val bn" data-bn>৳১৭,০০০ / $155</span>
-          </div>
-          <div class="pkg-pr-row">
-            <span class="pkg-pr-label" data-en>Package price</span>
-            <span class="pkg-pr-label bn" data-bn>প্যাকেজ মূল্য</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-en>৳12,000 / $110</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-bn class="bn">৳১২,০০০ / $110</span>
-          </div>
-          <div class="pkg-pr-row pkg-save">
-            <span class="pkg-pr-label" data-en>You save</span>
-            <span class="pkg-pr-label bn" data-bn>আপনি সাশ্রয় করবেন</span>
-            <span class="pkg-pr-val" data-en>৳5,000 (29%)</span>
-            <span class="pkg-pr-val bn" data-bn>৳৫,০০০ (২৯%)</span>
-          </div>
-        </div>
-        <div class="pkg-delivery" data-en>⏱ Delivery: 10–14 working days</div>
-        <div class="pkg-delivery bn" data-bn>⏱ ডেলিভারি: ১০–১৪ কার্যদিবস</div>
-        <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 Get This Package</a>
-        <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 এই প্যাকেজ পান</a>
-      </div>
-
-      <!-- P3: Study Abroad -->
-      <div class="card pkg-card">
-        <div class="pkg-icon">🌍</div>
-        <h3 class="pkg-title" data-en>Study Abroad Pack</h3>
-        <h3 class="pkg-title bn" data-bn>স্টাডি অ্যাব্রোড প্যাক</h3>
-        <span class="pkg-for" data-en>Best for: Students applying to international universities</span>
-        <span class="pkg-for bn" data-bn>সেরা: আন্তর্জাতিক বিশ্ববিদ্যালয়ে আবেদন করছেন এমন শিক্ষার্থীদের জন্য</span>
-        <div class="pkg-incl">
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Academic CV (tailored per program)</span><span data-bn class="bn">একাডেমিক সিভি (প্রোগ্রাম অনুযায়ী)</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Statement of Purpose (SOP)</span><span data-bn class="bn">স্টেটমেন্ট অব পারপাস (এসওপি)</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Cover Letter</span><span data-bn class="bn">কভার লেটার</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>IELTS Tutoring — 3 × 1-hour sessions</span><span data-bn class="bn">আইইএলটিএস টিউটরিং — ৩ × ১ ঘণ্টা</span></div>
-        </div>
-        <div class="pkg-pricing">
-          <div class="pkg-pr-row pkg-total">
-            <span class="pkg-pr-label" data-en>Individual total</span>
-            <span class="pkg-pr-label bn" data-bn>একক মোট</span>
-            <span class="pkg-pr-val" data-en>৳14,500 / $125</span>
-            <span class="pkg-pr-val bn" data-bn>৳১৪,৫০০ / $125</span>
-          </div>
-          <div class="pkg-pr-row">
-            <span class="pkg-pr-label" data-en>Package price</span>
-            <span class="pkg-pr-label bn" data-bn>প্যাকেজ মূল্য</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-en>৳10,000 / $90</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-bn class="bn">৳১০,০০০ / $90</span>
-          </div>
-          <div class="pkg-pr-row pkg-save">
-            <span class="pkg-pr-label" data-en>You save</span>
-            <span class="pkg-pr-label bn" data-bn>আপনি সাশ্রয় করবেন</span>
-            <span class="pkg-pr-val" data-en>৳4,500 (31%)</span>
-            <span class="pkg-pr-val bn" data-bn>৳৪,৫০০ (৩১%)</span>
-          </div>
-        </div>
-        <div class="pkg-delivery" data-en>⏱ CV + SOP + Cover Letter: 5 days · IELTS: flexible</div>
-        <div class="pkg-delivery bn" data-bn>⏱ সিভি+এসওপি+কভার: ৫ দিন · আইইএলটিএস: নমনীয়</div>
-        <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 Get This Package</a>
-        <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 এই প্যাকেজ পান</a>
-      </div>
-
-      <!-- P4: NGO Pack -->
-      <div class="card pkg-card">
-        <div class="pkg-icon">🌱</div>
-        <h3 class="pkg-title" data-en>NGO &amp; Startup Consulting Pack</h3>
-        <h3 class="pkg-title bn" data-bn>এনজিও ও স্টার্টআপ প্যাক</h3>
-        <span class="pkg-for" data-en>Best for: Organisations needing soil and environment expertise</span>
-        <span class="pkg-for bn" data-bn>সেরা: মৃত্তিকা ও পরিবেশ বিশেষজ্ঞতা প্রয়োজন এমন প্রতিষ্ঠানের জন্য</span>
-        <div class="pkg-incl">
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Soil Health Assessment Report</span><span data-bn class="bn">মৃত্তিকা স্বাস্থ্য মূল্যায়ন রিপোর্ট</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Fertilizer Recommendation Plan</span><span data-bn class="bn">সার সুপারিশ পরিকল্পনা</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>1 Follow-up Consultation (1 hour)</span><span data-bn class="bn">১ ফলো-আপ পরামর্শ (১ ঘণ্টা)</span></div>
-        </div>
-        <div class="pkg-pricing">
-          <div class="pkg-pr-row pkg-total">
-            <span class="pkg-pr-label" data-en>Individual total</span>
-            <span class="pkg-pr-label bn" data-bn>একক মোট</span>
-            <span class="pkg-pr-val" data-en>৳25,000 / $220</span>
-            <span class="pkg-pr-val bn" data-bn>৳২৫,০০০ / $220</span>
-          </div>
-          <div class="pkg-pr-row">
-            <span class="pkg-pr-label" data-en>Package price</span>
-            <span class="pkg-pr-label bn" data-bn>প্যাকেজ মূল্য</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-en>৳18,000 / $160</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-bn class="bn">৳১৮,০০০ / $160</span>
-          </div>
-          <div class="pkg-pr-row pkg-save">
-            <span class="pkg-pr-label" data-en>You save</span>
-            <span class="pkg-pr-label bn" data-bn>আপনি সাশ্রয় করবেন</span>
-            <span class="pkg-pr-val" data-en>৳7,000 (28%)</span>
-            <span class="pkg-pr-val bn" data-bn>৳৭,০০০ (২৮%)</span>
-          </div>
-        </div>
-        <div class="pkg-delivery" data-en>⏱ Delivery: 10–15 working days</div>
-        <div class="pkg-delivery bn" data-bn>⏱ ডেলিভারি: ১০–১৫ কার্যদিবস</div>
-        <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener" data-en>💬 Get This Package</a>
-        <a href="https://wa.me/8801941582285" class="btn btn-primary bn" target="_blank" rel="noopener" data-bn>💬 এই প্যাকেজ পান</a>
-      </div>
-
-      <!-- P5: Quick Turnaround -->
-      <div class="card pkg-card" style="border-top: 2px solid var(--gold);">
-        <span class="pkg-popular" data-en>Most Popular</span>
-        <span class="pkg-popular bn" data-bn>সর্বাধিক জনপ্রিয়</span>
-        <div class="pkg-icon">⚡</div>
-        <h3 class="pkg-title" data-en>Quick Turnaround Pack</h3>
-        <h3 class="pkg-title bn" data-bn>কুইক টার্নঅ্যারাউন্ড প্যাক</h3>
-        <span class="pkg-for" data-en>Best for: Anyone needing fast professional documents</span>
-        <span class="pkg-for bn" data-bn>সেরা: দ্রুত পেশাদার নথি প্রয়োজন এমন যেকারো জন্য</span>
-        <div class="pkg-incl">
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>CV Writing (professional or academic)</span><span data-bn class="bn">সিভি লেখা (পেশাদার বা একাডেমিক)</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>Cover Letter</span><span data-bn class="bn">কভার লেটার</span></div>
-          <div class="pkg-incl-item"><span class="check">✓</span><span data-en>LinkedIn Summary</span><span data-bn class="bn">লিংকডইন সারসংক্ষেপ</span></div>
-        </div>
-        <div class="pkg-pricing">
-          <div class="pkg-pr-row pkg-total">
-            <span class="pkg-pr-label" data-en>Individual total</span>
-            <span class="pkg-pr-label bn" data-bn>একক মোট</span>
-            <span class="pkg-pr-val" data-en>৳5,000 / $50</span>
-            <span class="pkg-pr-val bn" data-bn>৳৫,০০০ / $50</span>
-          </div>
-          <div class="pkg-pr-row">
-            <span class="pkg-pr-label" data-en>Package price</span>
-            <span class="pkg-pr-label bn" data-bn>প্যাকেজ মূল্য</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-en>৳3,500 / $35</span>
-            <span class="pkg-pr-val" style="color:var(--ink);font-size:14px;" data-bn class="bn">৳৩,৫০০ / $35</span>
-          </div>
-          <div class="pkg-pr-row pkg-save">
-            <span class="pkg-pr-label" data-en>You save</span>
-            <span class="pkg-pr-label bn" data-bn>আপনি সাশ্রয় করবেন</span>
-            <span class="pkg-pr-val" data-en>৳1,500 (30%)</span>
-            <span class="pkg-pr-val bn" data-bn>৳১,৫০০ (৩০%)</span>
-          </div>
-        </div>
-        <div class="pkg-delivery" style="color:var(--accent);" data-en>⚡ 48-hour guaranteed delivery · Full payment upfront</div>
-        <div class="pkg-delivery" style="color:var(--accent);" data-bn class="bn">⚡ ৪৮ ঘণ্টায় গ্যারান্টিযুক্ত ডেলিভারি · সম্পূর্ণ পেমেন্ট অগ্রিম</div>
-        <a href="https://wa.me/8801941582285" class="btn btn-gold" target="_blank" rel="noopener" data-en>⚡ Order Now</a>
-        <a href="https://wa.me/8801941582285" class="btn btn-gold bn" target="_blank" rel="noopener" data-bn>⚡ এখনই অর্ডার করুন</a>
-      </div>
-
-    </div><!-- /grid-3 -->
-  </div>
-</section>
-
-<!-- ═══ POLICIES ═══ -->
-<section class="section reveal" aria-labelledby="policy-head">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-en>Working Together</span>
-      <span class="eyebrow bn" data-bn>একসাথে কাজ করা</span>
-      <h2 id="policy-head">
-        <span data-en>Policies &amp; Terms</span>
-        <span data-bn class="bn">নীতিমালা ও শর্তাবলি</span>
-      </h2>
-      <span class="ornament">— ❧ —</span>
-    </div>
-
-    <div class="grid-2">
-
-      <div class="card policy-card">
-        <div class="policy-icon">💳</div>
-        <h3 data-en>Payment</h3>
-        <h3 data-bn class="bn">পেমেন্ট</h3>
-        <div class="policy-list">
-          <div class="policy-item"><span class="dot">●</span><span data-en>BD clients: bKash · Nagad · bank transfer</span><span data-bn class="bn">বিডি ক্লায়েন্ট: বিকাশ · নগদ · ব্যাংক ট্রান্সফার</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>International: PayPal · Wise · bank transfer</span><span data-bn class="bn">আন্তর্জাতিক: পেপাল · ওয়াইজ · ব্যাংক ট্রান্সফার</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>50% advance for projects over ৳5,000 / $50</span><span data-bn class="bn">৳৫,০০০/$৫০-এর বেশি প্রকল্পে ৫০% অগ্রিম</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>Full payment upfront for Quick Turnaround Pack</span><span data-bn class="bn">কুইক টার্নঅ্যারাউন্ড প্যাকে সম্পূর্ণ পেমেন্ট অগ্রিম</span></div>
-        </div>
-      </div>
-
-      <div class="card policy-card">
-        <div class="policy-icon">🔄</div>
-        <h3 data-en>Revisions &amp; Express Delivery</h3>
-        <h3 data-bn class="bn">সংশোধন ও এক্সপ্রেস ডেলিভারি</h3>
-        <div class="policy-list">
-          <div class="policy-item"><span class="dot">●</span><span data-en>1 revision round included with every service</span><span data-bn class="bn">প্রতিটি সেবায় ১টি সংশোধন রাউন্ড অন্তর্ভুক্ত</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>Additional revisions: ৳500 / $8 per round</span><span data-bn class="bn">অতিরিক্ত সংশোধন: ৳৫০০ / $৮ প্রতি রাউন্ড</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>Express delivery (50% faster): +30% surcharge</span><span data-bn class="bn">এক্সপ্রেস ডেলিভারি (৫০% দ্রুত): +৩০% অতিরিক্ত</span></div>
-        </div>
-      </div>
-
-      <div class="card policy-card">
-        <div class="policy-icon">🔒</div>
-        <h3 data-en>Confidentiality</h3>
-        <h3 data-bn class="bn">গোপনীয়তা</h3>
-        <div class="policy-list">
-          <div class="policy-item"><span class="dot">●</span><span data-en>All client data and documents kept strictly confidential</span><span data-bn class="bn">সমস্ত ক্লায়েন্ট ডেটা ও নথি কঠোরভাবে গোপনীয়</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>NDAs available on request at no extra charge</span><span data-bn class="bn">অনুরোধে বিনামূল্যে এনডিএ পাওয়া যাবে</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>Work is never shared or reused without permission</span><span data-bn class="bn">অনুমতি ছাড়া কাজ কখনো শেয়ার বা পুনরায় ব্যবহার করা হয় না</span></div>
-        </div>
-      </div>
-
-      <div class="card policy-card">
-        <div class="policy-icon">↩️</div>
-        <h3 data-en>Refund Policy</h3>
-        <h3 data-bn class="bn">ফেরত নীতি</h3>
-        <div class="policy-list">
-          <div class="policy-item"><span class="dot">●</span><span data-en>Full refund if work not started within agreed timeframe</span><span data-bn class="bn">সম্মত সময়সীমার মধ্যে কাজ শুরু না হলে সম্পূর্ণ ফেরত</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>50% refund if client cancels after work begins</span><span data-bn class="bn">কাজ শুরুর পর বাতিল করলে ৫০% ফেরত</span></div>
-          <div class="policy-item"><span class="dot">●</span><span data-en>No refund after final delivery and revision round</span><span data-bn class="bn">চূড়ান্ত ডেলিভারি ও সংশোধনের পরে কোনো ফেরত নেই</span></div>
-        </div>
-      </div>
-
-    </div><!-- /grid-2 -->
-  </div>
-</section>
-
-<!-- ═══ FAQ ═══ -->
-<section class="section section-alt reveal" aria-labelledby="faq-head">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-en>Questions</span>
-      <span class="eyebrow bn" data-bn>প্রশ্নসমূহ</span>
-      <h2 id="faq-head">
-        <span data-en>Frequently Asked</span>
-        <span data-bn class="bn">সাধারণ প্রশ্ন</span>
-      </h2>
-      <span class="ornament">— ❧ —</span>
-    </div>
-
-    <div class="faq-list">
-
-      <details class="faq-item">
-        <summary>
-          <span data-en>How do I pay for a service?</span>
-          <span data-bn class="bn">আমি কীভাবে পেমেন্ট করব?</span>
-        </summary>
-        <div class="faq-ans">
-          <span data-en>BD clients pay via <strong>bKash, Nagad, or bank transfer</strong>. International clients pay via <strong>PayPal or Wise</strong>. For projects over ৳5,000 / $50, a 50% advance is required before work begins. The remaining balance is due on delivery. Quick Turnaround Pack requires full payment upfront.</span>
-          <span data-bn class="bn">বিডি ক্লায়েন্টরা <strong>বিকাশ, নগদ বা ব্যাংক ট্রান্সফার</strong> দিয়ে পেমেন্ট করেন। আন্তর্জাতিক ক্লায়েন্টরা <strong>পেপাল বা ওয়াইজ</strong> দিয়ে পেমেন্ট করেন। ৳৫,০০০/$৫০-এর বেশি প্রকল্পে কাজ শুরুর আগে ৫০% অগ্রিম প্রয়োজন।</span>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span data-en>Do you work with international clients?</span>
-          <span data-bn class="bn">আপনি কি আন্তর্জাতিক ক্লায়েন্টদের সাথে কাজ করেন?</span>
-        </summary>
-        <div class="faq-ans">
-          <span data-en>Yes — I work with clients globally. Communication is via <strong>email, WhatsApp, or Google Meet</strong>. Sessions and delivery timelines are coordinated across time zones. All pricing for international clients is in USD as shown above.</span>
-          <span data-bn class="bn">হ্যাঁ — আমি বিশ্বব্যাপী ক্লায়েন্টদের সাথে কাজ করি। যোগাযোগ <strong>ইমেইল, হোয়াটসঅ্যাপ বা গুগল মিট</strong>-এ। সময়সূচি টাইম জোন অনুযায়ী সমন্বয় করা হয়।</span>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span data-en>Can I get urgent / express delivery?</span>
-          <span data-bn class="bn">আমি কি জরুরি / এক্সপ্রেস ডেলিভারি পেতে পারি?</span>
-        </summary>
-        <div class="faq-ans">
-          <span data-en>Yes. Express delivery at <strong>50% faster than the standard timeline</strong> carries a <strong>+30% surcharge</strong> on the quoted price. Availability depends on current workload — message me first to confirm. The Quick Turnaround Pack is always a 48-hour delivery at no extra surcharge.</span>
-          <span data-bn class="bn">হ্যাঁ। স্ট্যান্ডার্ড সময়সীমার চেয়ে <strong>৫০% দ্রুত</strong> এক্সপ্রেস ডেলিভারিতে মূল্যের উপর <strong>+৩০% অতিরিক্ত চার্জ</strong> প্রযোজ্য। প্রথমে মেসেজ করে নিশ্চিত করুন।</span>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span data-en>How many revisions are included?</span>
-          <span data-bn class="bn">কতটি সংশোধন অন্তর্ভুক্ত?</span>
-        </summary>
-        <div class="faq-ans">
-          <span data-en>Every service includes <strong>one revision round</strong> — meaning you can request changes to the delivered work once, and I will address them within 48 hours. Additional revision rounds cost <strong>৳500 / $8 per round</strong>.</span>
-          <span data-bn class="bn">প্রতিটি সেবায় <strong>একটি সংশোধন রাউন্ড</strong> অন্তর্ভুক্ত — অর্থাৎ ডেলিভারির পরে একবার পরিবর্তন চাইতে পারবেন, যা ৪৮ ঘণ্টার মধ্যে সমাধান করা হবে। অতিরিক্ত রাউন্ড <strong>৳৫০০ / $৮</strong>।</span>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span data-en>Is my research or document kept confidential?</span>
-          <span data-bn class="bn">আমার গবেষণা বা নথি কি গোপনীয় থাকবে?</span>
-        </summary>
-        <div class="faq-ans">
-          <span data-en>Absolutely. All client materials are treated with strict confidentiality and are never shared, published, or reused. If you require a formal <strong>Non-Disclosure Agreement (NDA)</strong>, I provide one at no additional charge — just ask when you get in touch.</span>
-          <span data-bn class="bn">অবশ্যই। সমস্ত ক্লায়েন্ট উপকরণ কঠোর গোপনীয়তায় পরিচালিত হয় এবং কখনো শেয়ার, প্রকাশিত বা পুনরায় ব্যবহার করা হয় না। আনুষ্ঠানিক <strong>এনডিএ</strong> প্রয়োজন হলে, বিনামূল্যে প্রদান করা হয়।</span>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span data-en>What if I need to cancel after work has started?</span>
-          <span data-bn class="bn">কাজ শুরু হওয়ার পরে বাতিল করলে কী হবে?</span>
-        </summary>
-        <div class="faq-ans">
-          <span data-en>If work has not yet started within the agreed timeframe, a <strong>full refund</strong> is issued. If you cancel after work has begun, a <strong>50% refund</strong> is provided for the uncompleted portion. No refund is available after final delivery and the revision round are both complete.</span>
-          <span data-bn class="bn">সম্মত সময়সীমার মধ্যে কাজ শুরু না হলে <strong>সম্পূর্ণ ফেরত</strong> দেওয়া হয়। কাজ শুরুর পর বাতিল করলে অসম্পূর্ণ অংশের জন্য <strong>৫০% ফেরত</strong> দেওয়া হয়।</span>
-        </div>
-      </details>
-
-    </div><!-- /faq-list -->
-  </div>
-</section>
-
-<!-- ═══ BOOKING CTA ═══ -->
-<section class="booking-section reveal" id="booking" aria-labelledby="booking-head">
-  <div class="container">
-
-    <span class="badge-green" style="display:inline-block;margin-bottom:18px;" data-en>● Accepting New Clients</span>
-    <span class="badge-green bn" style="display:inline-block;margin-bottom:18px;" data-bn>● নতুন ক্লায়েন্ট গ্রহণ করা হচ্ছে</span>
-
-    <h2 id="booking-head">
-      <span data-en>Ready to Get Started?</span>
-      <span data-bn class="bn">শুরু করতে প্রস্তুত?</span>
-    </h2>
-
-    <p data-en>Send a message describing your project — service needed, deadline, and any specific requirements. I'll respond within 24 hours with a quote and timeline.</p>
-    <p data-bn class="bn">আপনার প্রকল্পের বিবরণ সহ একটি মেসেজ পাঠান — প্রয়োজনীয় সেবা, সময়সীমা এবং বিশেষ প্রয়োজনীয়তা। আমি ২৪ ঘণ্টার মধ্যে মূল্য ও সময়সূচি সহ জবাব দেব।</p>
-
-    <div class="booking-btns">
-      <a href="https://wa.me/8801941582285" class="btn btn-gold btn-arrow" target="_blank" rel="noopener" data-en>💬 WhatsApp — Fastest Response</a>
-      <a href="https://wa.me/8801941582285" class="btn btn-gold btn-arrow bn" target="_blank" rel="noopener" data-bn>💬 হোয়াটসঅ্যাপ — সবচেয়ে দ্রুত</a>
-      <a href="mailto:services@sajjadur-rahman.com" class="btn btn-white" data-en>✉ Email Services</a>
-      <a href="mailto:services@sajjadur-rahman.com" class="btn btn-white bn" data-bn>✉ ইমেইল করুন</a>
-    </div>
-
-    <div class="booking-contact-strip">
-      <span data-en>services@sajjadur-rahman.com</span>
-      <span data-bn class="bn">services@sajjadur-rahman.com</span>
-      <span>·</span>
-      <a href="https://wa.me/8801941582285">+880 1941-582285</a>
-      <span>·</span>
-      <a href="https://www.facebook.com/sajjad.rahman68/" target="_blank" rel="noopener">Facebook</a>
-    </div>
-
-  </div>
-</section>
-
-</main>
-
-<!-- ═══ FOOTER ═══ -->
-<footer id="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo">Sajjadur <span>Rahman</span></div>
-        <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
-        <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
-        <div class="footer-social">
-          <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
-          <a href="https://www.facebook.com/sajjad.rahman68/" title="Facebook" target="_blank" rel="noopener" style="font-family:var(--font-ui);font-weight:700;font-size:13px;">f</a>
-          <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
-          <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4 data-en>Pages</h4><h4 data-bn class="bn">পাতাসমূহ</h4>
-        <a href="index.html" data-en>Home</a><a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
-        <a href="about.html" data-en>About</a><a href="about.html" data-bn class="bn">পরিচিতি</a>
-        <a href="services.html" data-en>Services</a><a href="services.html" data-bn class="bn">সেবাসমূহ</a>
-        <a href="research.html" data-en>Research</a><a href="research.html" data-bn class="bn">গবেষণা</a>
-        <a href="blog.html" data-en>Blog</a><a href="blog.html" data-bn class="bn">ব্লগ</a>
-        <a href="contact.html" data-en>Contact</a><a href="contact.html" data-bn class="bn">যোগাযোগ</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-en>Services</h4><h4 data-bn class="bn">সেবাসমূহ</h4>
-        <a href="#manuscript-editing" data-en>Manuscript Editing</a><a href="#manuscript-editing" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
-        <a href="#data-analysis" data-en>Data Analysis</a><a href="#data-analysis" data-bn class="bn">ডেটা বিশ্লেষণ</a>
-        <a href="#thesis-consultation" data-en>Thesis Consultation</a><a href="#thesis-consultation" data-bn class="bn">থিসিস পরামর্শ</a>
-        <a href="#ielts-tutoring" data-en>IELTS Tutoring</a><a href="#ielts-tutoring" data-bn class="bn">আইইএলটিএস</a>
-        <a href="#cv-writing" data-en>CV Development</a><a href="#cv-writing" data-bn class="bn">সিভি উন্নয়ন</a>
-        <a href="#research-proposals" data-en>Research Proposals</a><a href="#research-proposals" data-bn class="bn">গবেষণা প্রস্তাব</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-en>Contact</h4><h4 data-bn class="bn">যোগাযোগ</h4>
-        <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
-        <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
-        <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
-        <a href="https://www.facebook.com/sajjad.rahman68/" target="_blank" rel="noopener">Facebook</a>
-        <a href="#" data-en>Dhaka, Bangladesh</a><a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
-      <p data-en>University of Dhaka · BCSIR · DUNTC</p>
-      <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
-    </div>
-  </div>
-</footer>
 
-<a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
-<script src="assets/js/main.js"></script>
+    <!-- ════════════════════════════════════════
+         SERVICE 3 — THESIS CONSULTATION
+         ════════════════════════════════════════ -->
+    <div id="thesis" class="svc-block">
+      <div class="container">
+        <div class="svc-layout reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">🎓</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 03</span>
+                <h2>Thesis &amp; Dissertation<br/>Consultation</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Research guidance from an active researcher.</span>
+            <p class="svc-desc">
+              Thesis writing is hard because it requires simultaneous mastery of a subject,
+              a methodology, and an academic genre — often for the first time. I offer
+              one-on-one consultation sessions to help you work through research design,
+              sharpen your methodology, structure your chapters, and write with clarity and
+              confidence. I am currently doing exactly this work myself, which means I
+              understand the practical pressures, not just the theory.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>One-hour session via Google Meet or WhatsApp call</li>
+              <li>Pre-session review of submitted material (chapter, outline, or draft)</li>
+              <li>Written feedback notes delivered after each session</li>
+              <li>Follow-up questions answered within 24 hours</li>
+              <li>Guidance on research design, methodology, and literature review</li>
+              <li>Chapter-by-chapter feedback and academic writing coaching</li>
+            </ul>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Per hour session<br/><small style="font-size:11px;color:var(--text-light);">Live call + written notes</small></span>
+                <span class="price-bdt">৳1,500</span>
+                <span class="price-usd">$15</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full chapter review<br/><small style="font-size:11px;color:var(--text-light);">Written feedback, no call required</small></span>
+                <span class="price-bdt">৳2,000</span>
+                <span class="price-usd">$20</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Research design consultation<br/><small style="font-size:11px;color:var(--text-light);">2-hour deep dive</small></span>
+                <span class="price-bdt">৳2,800</span>
+                <span class="price-usd">$28</span>
+              </div>
+              <p class="price-note">Sessions are fully online, flexible scheduling, and conducted in English or Bengali.</p>
+              <div class="target-label"><span>Best for: Undergraduate final-year students, MSc students, junior researchers</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Book a Session</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 4 — IELTS TUTORING
+         ════════════════════════════════════════ -->
+    <div id="ielts" class="svc-block">
+      <div class="container">
+        <div class="svc-layout flip reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">🗣️</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 04</span>
+                <h2>IELTS Tutoring</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Score higher with targeted preparation.</span>
+            <p class="svc-desc">
+              I scored IELTS 7.5 (Listening 8.0, Reading 8.0, Speaking 7.5, Writing 6.5)
+              and I know exactly what the test rewards and where most candidates lose marks.
+              My tutoring covers all four skills for both Academic and General Training
+              modules, with a focus on where you specifically need to improve rather than
+              working through generic material that wastes your time.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Needs assessment in the first session to identify weak areas</li>
+              <li>Targeted practice materials shared before each session</li>
+              <li>Mock tasks and real-time feedback on performance</li>
+              <li>Score improvement strategy tailored to your target band</li>
+              <li>All four skills: Reading, Writing, Listening, Speaking</li>
+              <li>Academic and General Training both covered</li>
+              <li>Fully online, flexible scheduling around your timetable</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">IELTS Academic</span>
+              <span class="tag-pill">IELTS General</span>
+              <span class="tag-pill">Writing Task 1 &amp; 2</span>
+              <span class="tag-pill">Speaking Practice</span>
+              <span class="tag-pill">Reading Strategy</span>
+            </div>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Per hour session<br/><small style="font-size:11px;color:var(--text-light);">Standard</small></span>
+                <span class="price-bdt">৳1,000</span>
+                <span class="price-usd">$12</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Per hour — intensive<br/><small style="font-size:11px;color:var(--text-light);">2+ sessions per week</small></span>
+                <span class="price-bdt">৳1,200</span>
+                <span class="price-usd">$15</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Writing task assessment<br/><small style="font-size:11px;color:var(--text-light);">Detailed written feedback, no call</small></span>
+                <span class="price-bdt">৳800</span>
+                <span class="price-usd">$10</span>
+              </div>
+              <p class="price-note">My own IELTS: 7.5 overall · L 8.0 · R 8.0 · S 7.5 · W 6.5</p>
+              <div class="target-label"><span>Best for: Study abroad applicants, immigration IELTS, working professionals</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Book a Session</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 5 — CV WRITING
+         ════════════════════════════════════════ -->
+    <div id="cv" class="svc-block">
+      <div class="container">
+        <div class="svc-layout reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">📄</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 05</span>
+                <h2>CV Writing<br/>&amp; Development</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">A CV that opens doors.</span>
+            <p class="svc-desc">
+              A strong CV is not just a list of experiences — it is a carefully structured
+              argument for why you are the right candidate. I write and develop academic CVs
+              for graduate school applications and professional CVs for jobs and consultancies,
+              tailoring each document to the specific program, institution, or employer being
+              targeted. Cover letters, Statements of Purpose, and LinkedIn summaries are
+              available as add-ons.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Intake form to gather all experience, education, and goal details</li>
+              <li>Professionally structured and written CV from scratch</li>
+              <li>Tailored to specific purpose — grad school, job, or consultancy</li>
+              <li>One revision round after delivery</li>
+              <li>Delivery within 2–3 working days</li>
+              <li>Add-ons: cover letter, Statement of Purpose (SOP), LinkedIn summary</li>
+            </ul>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Professional CV<br/><small style="font-size:11px;color:var(--text-light);">Jobs &amp; consultancies</small></span>
+                <span class="price-bdt">৳2,000</span>
+                <span class="price-usd">$20</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Academic CV<br/><small style="font-size:11px;color:var(--text-light);">Graduate school applications</small></span>
+                <span class="price-bdt">৳3,000</span>
+                <span class="price-usd">$35</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">CV + Cover Letter</span>
+                <span class="price-bdt">৳3,800</span>
+                <span class="price-usd">$42</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">CV + Cover Letter + SOP</span>
+                <span class="price-bdt">৳5,500</span>
+                <span class="price-usd">$65</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">LinkedIn summary<br/><small style="font-size:11px;color:var(--text-light);">Add-on to any package</small></span>
+                <span class="price-bdt">+৳800</span>
+                <span class="price-usd">+$10</span>
+              </div>
+              <p class="price-note">Delivery 2–3 working days. Express (24 hr) available at +30%.</p>
+              <div class="target-label"><span>Best for: Graduating students, job applicants, researchers applying abroad</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Discuss on WhatsApp</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 6 — RESEARCH PROPOSALS
+         ════════════════════════════════════════ -->
+    <div id="proposal" class="svc-block">
+      <div class="container">
+        <div class="svc-layout flip reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">📋</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 06</span>
+                <h2>Research Proposal<br/>Writing &amp; Guidance</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Proposals that get funded — and proposals you can defend.</span>
+            <p class="svc-desc">
+              Writing a research proposal is a distinct skill — different from writing a thesis
+              or a journal article. I provide guided support for thesis proposals, small grant
+              applications, and full international funding applications, helping you structure
+              your argument, sharpen your research questions, and present your methodology
+              convincingly. I have experience with NST, BCSIR, DAAD, and USAID application
+              frameworks. I guide the process — the ideas and the research remain yours.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Proposal structure and outline development</li>
+              <li>Research question and hypothesis refinement</li>
+              <li>Literature review section (or feedback on your draft)</li>
+              <li>Methodology and research design guidance</li>
+              <li>Budget narrative support where required</li>
+              <li>One revision round after delivery</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">NST</span>
+              <span class="tag-pill">DAAD</span>
+              <span class="tag-pill">USAID</span>
+              <span class="tag-pill">BCSIR</span>
+              <span class="tag-pill">Thesis Proposals</span>
+              <span class="tag-pill">Grant Writing</span>
+            </div>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">MSc thesis proposal</span>
+                <span class="price-bdt">৳2,500</span>
+                <span class="price-usd">$30</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Small grant application</span>
+                <span class="price-bdt">৳4,000</span>
+                <span class="price-usd">$50</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full international funding proposal<br/><small style="font-size:11px;color:var(--text-light);">DAAD, NST, USAID, etc.</small></span>
+                <span class="price-bdt">৳6,500</span>
+                <span class="price-usd">$80</span>
+              </div>
+              <p class="price-note">50% advance for projects over ৳5,000 / $50. NDAs available at no charge.</p>
+              <div class="target-label"><span>Best for: MSc &amp; PhD students, junior researchers applying for funding</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Discuss on WhatsApp</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SERVICE 7 — SOIL CONSULTING
+         ════════════════════════════════════════ -->
+    <div id="soil" class="svc-block">
+      <div class="container">
+        <div class="svc-layout reveal">
+
+          <div class="svc-left">
+            <div class="svc-icon-wrap">
+              <div class="svc-icon-big">🌱</div>
+              <div class="svc-head-text">
+                <span class="svc-num">Service 07</span>
+                <h2>Soil &amp; Environment<br/>Consulting</h2>
+              </div>
+            </div>
+            <span class="svc-tagline">Science-backed recommendations for land and environment.</span>
+            <p class="svc-desc">
+              My research at the University of Dhaka, BCSIR, and DUNTC gives me direct,
+              hands-on expertise in soil health assessment, fertilizer management,
+              nitrogen cycling, and atmospheric heavy metal contamination. I provide
+              professional consulting for NGOs, agricultural startups, development
+              organisations, and farms that need credible, evidence-based recommendations
+              rather than generic advice.
+            </p>
+            <p class="svc-desc">
+              Initial needs assessment (30 minutes) is always free — I only take on projects
+              where I can genuinely add value.
+            </p>
+            <span class="includes-label">What's included</span>
+            <ul class="includes-list">
+              <li>Free initial needs assessment (30-minute call)</li>
+              <li>Site-specific recommendations based on your context</li>
+              <li>Written report with findings and clear action plan</li>
+              <li>One follow-up consultation included</li>
+              <li>Referral to laboratory services where applicable</li>
+            </ul>
+            <div class="bio-tag-row" style="margin-top:0;">
+              <span class="tag-pill">Soil Health Assessment</span>
+              <span class="tag-pill">Fertilizer Management</span>
+              <span class="tag-pill">Nitrogen Cycling</span>
+              <span class="tag-pill">Environmental Impact</span>
+              <span class="tag-pill">NGO / Development Orgs</span>
+            </div>
+          </div>
+
+          <div class="svc-right">
+            <div class="pricing-panel">
+              <div class="pricing-panel-head">
+                <h3>Pricing</h3>
+                <span class="currency-note">BDT · USD</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Soil health assessment report</span>
+                <span class="price-bdt">৳8,000</span>
+                <span class="price-usd">$80</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Fertilizer recommendation plan</span>
+                <span class="price-bdt">৳6,000</span>
+                <span class="price-usd">$65</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Full environmental assessment</span>
+                <span class="price-bdt">৳15,000</span>
+                <span class="price-usd">$140</span>
+              </div>
+              <div class="price-row">
+                <span class="price-scope">Daily consultancy rate</span>
+                <span class="price-bdt">৳5,000/day</span>
+                <span class="price-usd">$100/day</span>
+              </div>
+              <p class="price-note">Initial 30-minute needs assessment is always free. Large projects negotiated directly.</p>
+              <div class="target-label"><span>Best for: NGOs, agricultural startups, farms, FAO/CGIAR-level orgs</span></div>
+              <div class="pricing-cta">
+                <a href="https://wa.me/8801941582285" class="btn btn-primary" target="_blank" rel="noopener">💬 Book Free Assessment</a>
+                <a href="contact.html" class="btn btn-outline">Send Enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         PACKAGES
+         ════════════════════════ -->
+    <section id="packages" class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Bundles</span>
+          <h2>Service Packages</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>Combining services saves you money and reduces the back-and-forth of booking each one separately. All packages include the same quality and revision rounds as individual services.</p>
+        </div>
+
+        <div class="pkg-grid">
+
+          <!-- Package 1 -->
+          <div class="pkg-card featured">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">🎓</span>
+              <h3>Student Launchpad</h3>
+              <span class="pkg-best">Best for: MSc students finishing thesis or applying abroad</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>Data Analysis — full, any tool</li>
+                <li>Thesis Chapter Review — 1 chapter, written feedback</li>
+                <li>Academic CV</li>
+                <li>Cover Letter</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$65</span>
+                <span class="pkg-price-bdt">৳8,500</span>
+                <span class="pkg-strike">was $110</span>
+              </div>
+              <span class="pkg-save-badge">Save 28% — $45</span>
+              <span class="pkg-delivery">📅 Delivery: 7–10 working days</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-gold btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+          <!-- Package 2 -->
+          <div class="pkg-card">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">📚</span>
+              <h3>Publication Ready</h3>
+              <span class="pkg-best">Best for: Researchers submitting to journals</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>Full Manuscript Editing &amp; Formatting</li>
+                <li>Response to Reviewers — 1 round</li>
+                <li>Research Proposal for follow-up study</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$110</span>
+                <span class="pkg-price-bdt">৳12,000</span>
+                <span class="pkg-strike">was $155</span>
+              </div>
+              <span class="pkg-save-badge">Save 29% — $45</span>
+              <span class="pkg-delivery">📅 Delivery: 10–14 working days</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-outline btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+          <!-- Package 3 -->
+          <div class="pkg-card featured">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">🌍</span>
+              <h3>Study Abroad Pack</h3>
+              <span class="pkg-best">Best for: Students applying to international universities</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>Academic CV — tailored per program</li>
+                <li>Statement of Purpose (SOP)</li>
+                <li>Cover Letter</li>
+                <li>IELTS Tutoring — 3 sessions × 1 hour</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$90</span>
+                <span class="pkg-price-bdt">৳10,000</span>
+                <span class="pkg-strike">was $125</span>
+              </div>
+              <span class="pkg-save-badge">Save 31% — $35</span>
+              <span class="pkg-delivery">📅 CV+SOP+Letter: 5 days · IELTS: flexible</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-gold btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+          <!-- Package 4 -->
+          <div class="pkg-card">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">🌱</span>
+              <h3>NGO &amp; Startup Pack</h3>
+              <span class="pkg-best">Best for: Organisations needing soil &amp; environment expertise</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>Soil Health Assessment Report</li>
+                <li>Fertilizer Recommendation Plan</li>
+                <li>1 Follow-up Consultation — 1 hour</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$160</span>
+                <span class="pkg-price-bdt">৳18,000</span>
+                <span class="pkg-strike">was $220</span>
+              </div>
+              <span class="pkg-save-badge">Save 28% — $60</span>
+              <span class="pkg-delivery">📅 Delivery: 10–15 working days</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-outline btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+          <!-- Package 5 -->
+          <div class="pkg-card">
+            <div class="pkg-card-head">
+              <span class="pkg-emoji">⚡</span>
+              <h3>Quick Turnaround Pack</h3>
+              <span class="pkg-best">Best for: Anyone needing fast professional documents</span>
+            </div>
+            <div class="pkg-card-body">
+              <span class="pkg-includes">Includes</span>
+              <ul class="pkg-list">
+                <li>CV — professional or academic</li>
+                <li>Cover Letter</li>
+                <li>LinkedIn Summary</li>
+              </ul>
+            </div>
+            <div class="pkg-card-foot">
+              <div class="pkg-pricing">
+                <span class="pkg-price-main">$35</span>
+                <span class="pkg-price-bdt">৳3,500</span>
+                <span class="pkg-strike">was $50</span>
+              </div>
+              <span class="pkg-save-badge">Save 30% — $15</span>
+              <span class="pkg-delivery">⚡ Guaranteed 48-hour delivery</span>
+              <a href="https://wa.me/8801941582285" class="btn btn-outline btn-arrow" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Get This Package</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         POLICIES
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How It Works</span>
+          <h2>Policies &amp; Payment</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="policy-grid">
+          <div class="policy-card">
+            <span class="pc-icon">💳</span>
+            <h4>Payment</h4>
+            <p><strong>BD clients:</strong> bKash, Nagad, or bank transfer.<br/><strong>International:</strong> PayPal or Wise. 50% advance for projects over ৳5,000 / $50.</p>
+          </div>
+          <div class="policy-card">
+            <span class="pc-icon">🔄</span>
+            <h4>Revisions</h4>
+            <p>All services include one revision round at no extra charge. Additional rounds are ৳500 / $8 each. Revisions are responded to within 48 hours.</p>
+          </div>
+          <div class="policy-card">
+            <span class="pc-icon">🕐</span>
+            <h4>Turnaround</h4>
+            <p>Standard delivery times are listed per service. Express delivery (50% faster) is available at a +30% surcharge. Timing confirmed before work begins.</p>
+          </div>
+          <div class="policy-card">
+            <span class="pc-icon">🔒</span>
+            <h4>Confidentiality</h4>
+            <p>All client documents and data are kept strictly confidential. NDAs are available on request at no charge. I do not share client work under any circumstances.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         FAQ
+         ════════════════════════ -->
+    <section class="section section-alt reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Common Questions</span>
+          <h2>FAQ</h2>
+          <span class="ornament">— ❧ —</span>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>Do you write the research paper or thesis for the client?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">No. I edit, improve, structure, and format work that you have written — not replace your voice or ideas with someone else's. Academic integrity matters, and all my services are designed to strengthen your writing, not substitute for it. For thesis consultation, I guide your thinking and give feedback; you do the writing.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>How do I start — what information do you need?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">Send me a WhatsApp message or use the contact form with a brief description of what you need. For manuscript editing, I'll ask for the draft and the target journal. For data analysis, the dataset and a description of your study. For IELTS, your current level and target score. For CV work, I'll send a short intake form. We agree on scope and timeline before any payment.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>Can you work with any research discipline, not just soil science?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">For manuscript editing and data analysis, yes — I work across the natural and applied sciences. My domain expertise is strongest in soil science, environmental science, and agricultural research, but the principles of clear scientific writing and rigorous statistical analysis are universal. For soil and environment consulting, that is necessarily specialist work tied to my research background.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>How are payments made for BD and international clients?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">Bangladeshi clients pay in Taka via bKash, Nagad, or bank transfer. International clients pay in USD via PayPal or Wise. For projects under ৳5,000 / $50, full payment is required upfront. For larger projects, 50% advance before work begins and 50% on delivery.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>What is your refund policy?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">Full refund if work has not started within the agreed timeframe. 50% refund if the client cancels after work has begun. No refund after final delivery and the included revision round have been completed. NDAs are available at no charge on request.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>Do you offer student discounts for BD clients?</span>
+              <em class="faq-arrow">›</em>
+            </button>
+            <div class="faq-a">The BDT pricing listed is already set with Bangladeshi students in mind — significantly lower than international rates. For students with genuine financial difficulty, reach out directly on WhatsApp and we can discuss what is possible. I want good work to be accessible.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════
+         BOOKING CTA
+         ════════════════════════ -->
+    <div class="booking-band reveal">
+      <div class="container">
+        <div class="booking-inner">
+          <div class="booking-text">
+            <h2>Ready to get started?<br/><em>Let's talk.</em></h2>
+            <p>The fastest way to begin is a short WhatsApp message. Describe what you need and I will respond within a few hours with a clear scope, timeline, and price — no obligation.</p>
+          </div>
+          <div class="booking-options">
+            <a href="https://wa.me/8801941582285" class="booking-option" target="_blank" rel="noopener">
+              <span class="bo-icon">💬</span>
+              <div>
+                <span class="bo-label">WhatsApp — Fastest</span>
+                <span class="bo-value">+880 1941-582285</span>
+              </div>
+            </a>
+            <a href="mailto:services@sajjadur-rahman.com" class="booking-option">
+              <span class="bo-icon">✉️</span>
+              <div>
+                <span class="bo-label">Email</span>
+                <span class="bo-value">services@sajjadur-rahman.com</span>
+              </div>
+            </a>
+            <a href="contact.html" class="booking-option">
+              <span class="bo-icon">📋</span>
+              <div>
+                <span class="bo-label">Contact Form</span>
+                <span class="bo-value">Structured enquiry with all details</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Manuscript editing, data analysis, thesis consultation, IELTS tutoring, CV writing, and soil consulting services.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="research.html">Research</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#manuscript">Manuscript Editing</a>
+          <a href="#data">Data Analysis</a>
+          <a href="#thesis">Thesis Consultation</a>
+          <a href="#ielts">IELTS Tutoring</a>
+          <a href="#cv">CV Writing</a>
+          <a href="#proposal">Research Proposals</a>
+          <a href="#soil">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#">Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
 
 </body>
 </html>
