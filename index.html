@@ -1091,50 +1091,20 @@
           <p>Writing across soil science, urban ecology, field notes, and personal reflection — on Blogger, with 13,000+ readers.</p>
         </div>
 
-        <div class="grid-3">
-
+        <div class="grid-3" id="blogPreviewGrid">
+          <!-- Populated by JS from assets/data/posts.json -->
           <a href="https://sajjadur-rahman.blogspot.com" target="_blank" rel="noopener" class="blog-card">
-            <div class="blog-header">
-              <span class="blog-num">01</span>
-              <div>
-                <span class="blog-cat">Soil Science</span>
-                <h3>The Slow Chemistry of Soil Nitrogen</h3>
-              </div>
-            </div>
-            <div class="blog-body">
-              <p>How nitrogen moves through soil, how it is lost to the atmosphere and waterways, and why slow-release coatings are changing the equation for South Asian rice paddies.</p>
-              <span class="blog-read">Read on Blogger</span>
-            </div>
+            <div class="blog-header"><span class="blog-num">01</span><div><span class="blog-cat">Soil Science</span><h3>The Slow Chemistry of Soil Nitrogen</h3></div></div>
+            <div class="blog-body"><p>How nitrogen moves through soil, how it is lost to the atmosphere and waterways, and why slow-release coatings are changing the equation for South Asian rice paddies.</p><span class="blog-read">Read on Blogger</span></div>
           </a>
-
           <a href="https://sajjadur-rahman.blogspot.com" target="_blank" rel="noopener" class="blog-card">
-            <div class="blog-header">
-              <span class="blog-num">02</span>
-              <div>
-                <span class="blog-cat">Field Notes</span>
-                <h3>When a Hailstorm Hits Your Experimental Plots</h3>
-              </div>
-            </div>
-            <div class="blog-body">
-              <p>A first-person account of watching a hailstorm destroy months of field work — and how a research pivot turned disruption into a richer dataset.</p>
-              <span class="blog-read">Read on Blogger</span>
-            </div>
+            <div class="blog-header"><span class="blog-num">02</span><div><span class="blog-cat">Field Notes</span><h3>When a Hailstorm Hits Your Experimental Plots</h3></div></div>
+            <div class="blog-body"><p>A first-person account of watching a hailstorm destroy months of field work — and how a research pivot turned disruption into a richer dataset.</p><span class="blog-read">Read on Blogger</span></div>
           </a>
-
           <a href="https://sajjadur-rahman.blogspot.com" target="_blank" rel="noopener" class="blog-card">
-            <div class="blog-header">
-              <span class="blog-num">03</span>
-              <div>
-                <span class="blog-cat">Urban Ecology</span>
-                <h3>Why Dhaka's Urban Farmers Are Choosing Organic</h3>
-              </div>
-            </div>
-            <div class="blog-body">
-              <p>Urban farmers across Dhaka are turning away from synthetic inputs. A ground-level look at the economics, the soil science, and the culture behind the shift.</p>
-              <span class="blog-read">Read on Blogger</span>
-            </div>
+            <div class="blog-header"><span class="blog-num">03</span><div><span class="blog-cat">Urban Ecology</span><h3>Why Dhaka's Urban Farmers Are Choosing Organic</h3></div></div>
+            <div class="blog-body"><p>Urban farmers across Dhaka are turning away from synthetic inputs. A ground-level look at the economics, the soil science, and the culture behind the shift.</p><span class="blog-read">Read on Blogger</span></div>
           </a>
-
         </div>
 
         <div class="text-center mt-32">
@@ -1231,6 +1201,50 @@
 
   <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
   <script src="assets/js/main.js"></script>
+  <script>
+  /* Blog preview — loads 3 most recent posts from posts.json.
+     Falls back to the hardcoded cards already in the HTML if fetch fails. */
+  (function () {
+    var grid = document.getElementById('blogPreviewGrid');
+    if (!grid) return;
 
+    var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    function fmtDate(iso) {
+      var d = new Date(iso);
+      return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+    }
+
+    function makeCard(post, idx) {
+      var url = 'blog/' + post.slug + '.html';
+      return '<a href="' + url + '" class="blog-card">' +
+        '<div class="blog-header">' +
+          '<span class="blog-num">0' + (idx + 1) + '</span>' +
+          '<div>' +
+            '<span class="blog-cat">' + post.category_en + '</span>' +
+            '<h3>' + post.title_en + '</h3>' +
+          '</div>' +
+        '</div>' +
+        '<div class="blog-body">' +
+          '<p>' + post.excerpt_en.slice(0, 140) + '…</p>' +
+          '<span class="blog-read">' + fmtDate(post.date) + ' · ' + post.read_time_min + ' min read</span>' +
+        '</div>' +
+      '</a>';
+    }
+
+    fetch('assets/data/posts.json')
+      .then(function(r) { return r.json(); })
+      .then(function(posts) {
+        var sorted = posts
+          .filter(function(p) { return p.status === 'published'; })
+          .sort(function(a, b) { return new Date(b.date) - new Date(a.date); })
+          .slice(0, 3);
+        if (sorted.length) {
+          grid.innerHTML = sorted.map(makeCard).join('');
+        }
+      })
+      .catch(function() { /* keep hardcoded fallback cards */ });
+  })();
+  </script>
 </body>
 </html>
