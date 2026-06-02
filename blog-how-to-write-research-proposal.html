@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A section-by-section guide to writing a research proposal that gets funded — title, background, objectives, methodology, timeline, budget, and the interview. With vague vs specific examples throughout."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="how to write research proposal, research proposal Bangladesh, NST fellowship proposal, DAAD proposal writing, research proposal methodology, grant proposal guide"/>
+  <meta property="og:title" content="How to Write a Research Proposal That Actually Gets Funded — Sajjadur Rahman"/>
+  <meta property="og:description" content="Section by section, with vague vs specific examples throughout. Written by a researcher who has written successful proposals for NST, BCSIR, and university funding."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-how-to-write-research-proposal.html"/>
+  <meta property="article:published_time" content="2026-06-01"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>How to Write a Research Proposal That Actually Gets Funded — Sajjadur Rahman</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Raleway:wght@400;500;600;700&amp;family=Noto+Serif+Bengali:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Article hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.8vw, 42px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px; margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--parchment3); border: 1.5px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px; }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); display: block; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 22px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.6em 0 0.8em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 17.5px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.7em 0 0.5em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose em { font-style: italic; }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+    .article-prose ol {
+      padding-left: 22px; margin-bottom: 1.4em;
+    }
+    .article-prose ol li {
+      margin-bottom: 0.6em; line-height: 1.75;
+      font-size: 16px; color: var(--ink-soft);
+    }
+
+    /* Section badge */
+    .sec-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; flex-shrink: 0;
+      background: var(--ink); color: var(--gold-light);
+      font-family: var(--font-ui); font-size: 10px;
+      font-weight: 700; border-radius: 50%;
+    }
+
+    /* ── Three questions block ── */
+    .question-block {
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      overflow: hidden; margin: 2em 0;
+    }
+    .q-item {
+      padding: 18px 22px;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .q-item:last-child { border-bottom: none; }
+    .q-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 8px;
+    }
+    .q-bad {
+      font-family: var(--font-body); font-size: 14px;
+      color: var(--text-muted); font-style: italic;
+      display: block; margin-bottom: 8px;
+      padding: 7px 12px;
+      background: rgba(200,191,160,0.12);
+      border-radius: 4px;
+    }
+    .q-bad::before { content: "✗ "; color: #a0321e; font-style: normal; font-weight: 700; }
+    .q-good {
+      font-family: var(--font-body); font-size: 14.5px;
+      color: var(--ink-soft); font-style: italic;
+      display: block;
+      padding: 9px 12px;
+      background: rgba(90,122,74,0.05);
+      border: 0.5px solid rgba(90,122,74,0.2);
+      border-radius: 4px;
+      line-height: 1.65;
+    }
+    .q-good::before { content: "✓ "; color: var(--accent); font-style: normal; font-weight: 700; }
+
+    /* ── Title comparison ── */
+    .title-compare { margin: 1.8em 0; display: flex; flex-direction: column; gap: 8px; }
+    .tc-box {
+      padding: 14px 18px; border-radius: var(--radius);
+      font-family: var(--font-body); font-size: 15px; font-style: italic;
+      line-height: 1.6; display: flex; align-items: flex-start; gap: 10px;
+    }
+    .tc-box.weak {
+      background: rgba(200,191,160,0.12);
+      border: 0.5px solid var(--gold-pale);
+    }
+    .tc-box.strong {
+      background: rgba(90,122,74,0.06);
+      border: 0.5px solid rgba(90,122,74,0.22);
+    }
+    .tc-indicator {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; flex-shrink: 0;
+      padding-top: 3px; min-width: 52px;
+    }
+    .tc-box.weak .tc-indicator { color: var(--text-muted); }
+    .tc-box.strong .tc-indicator { color: var(--accent); }
+
+    /* ── Methodology comparison ── */
+    .method-compare { margin: 1.8em 0; display: flex; flex-direction: column; gap: 10px; }
+    .mc-box {
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .mc-head {
+      padding: 8px 16px;
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .mc-box.vague .mc-head { background: rgba(200,191,160,0.25); color: var(--text-muted); }
+    .mc-box.specific .mc-head { background: rgba(90,122,74,0.12); color: var(--accent); }
+    .mc-body {
+      padding: 14px 18px;
+      font-family: var(--font-body); font-size: 14.5px;
+      line-height: 1.72; color: var(--ink-soft); font-style: italic;
+    }
+    .mc-box.vague .mc-body { background: rgba(200,191,160,0.06); border: 0.5px solid var(--gold-pale); border-top: none; }
+    .mc-box.specific .mc-body { background: rgba(90,122,74,0.04); border: 0.5px solid rgba(90,122,74,0.18); border-top: none; }
+
+    /* ── Budget comparison ── */
+    .budget-compare { margin: 1.6em 0; display: flex; flex-direction: column; gap: 8px; }
+    .bc-box {
+      padding: 14px 18px; border-radius: var(--radius);
+      font-family: 'Courier New', monospace; font-size: 13.5px;
+      line-height: 1.65; display: flex; align-items: flex-start; gap: 10px;
+    }
+    .bc-box.insufficient {
+      background: rgba(200,191,160,0.12);
+      border: 0.5px solid var(--gold-pale); color: var(--text-muted);
+    }
+    .bc-box.sufficient {
+      background: rgba(90,122,74,0.05);
+      border: 0.5px solid rgba(90,122,74,0.22); color: var(--ink-soft);
+    }
+    .bc-tag {
+      font-family: var(--font-ui); font-size: 8px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; flex-shrink: 0;
+      padding-top: 2px; min-width: 72px; font-style: normal;
+    }
+    .bc-box.insufficient .bc-tag { color: var(--text-muted); }
+    .bc-box.sufficient .bc-tag { color: var(--accent); }
+
+    /* ── Gantt chart ── */
+    .gantt-wrap { margin: 1.8em 0; overflow-x: auto; }
+    .gantt-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--font-ui); font-size: 11px;
+      min-width: 480px;
+    }
+    .gantt-table thead tr { background: var(--ink); }
+    .gantt-table th {
+      padding: 8px 6px; text-align: center;
+      color: var(--gold-light); font-weight: 700;
+      letter-spacing: 0.5px; font-size: 9px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .gantt-table th.task-header {
+      text-align: left; padding-left: 12px; min-width: 180px;
+      color: var(--gold); font-size: 8.5px; letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .gantt-table td {
+      padding: 9px 6px; text-align: center;
+      border-bottom: 0.5px solid var(--gold-pale);
+      border-right: 0.5px solid var(--gold-pale);
+      font-size: 10px; color: var(--text-light);
+    }
+    .gantt-table td.task-name {
+      text-align: left; padding-left: 12px;
+      font-family: var(--font-body); font-size: 13px;
+      color: var(--ink-soft); font-style: italic;
+      border-right: 1px solid var(--gold-pale);
+    }
+    .gantt-table td.active {
+      background: var(--ink);
+    }
+    .gantt-table td.active-light {
+      background: var(--parchment3);
+    }
+    .gantt-table tr:last-child td { border-bottom: none; }
+
+    /* ── Callout ── */
+    .callout-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.8em 0;
+    }
+    .callout-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 8px;
+    }
+    .callout-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+
+    /* ── Companion post card ── */
+    .companion-card {
+      background: var(--ink-soft);
+      border-radius: var(--radius);
+      padding: 22px 24px; margin: 2.4em 0;
+      display: flex; align-items: center; gap: 18px;
+    }
+    .companion-icon { font-size: 28px; flex-shrink: 0; }
+    .companion-text h4 {
+      font-family: var(--font-head); font-size: 16px;
+      font-weight: 600; color: var(--parchment);
+      margin-bottom: 5px; line-height: 1.3;
+    }
+    .companion-text p {
+      font-size: 13px; color: var(--text-light);
+      line-height: 1.6; margin-bottom: 12px;
+    }
+    .companion-text .btn { display: inline-flex; }
+
+    /* ── Ornament ── */
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 2.8em 0; opacity: 0.55;
+    }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 17.5px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px; text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--parchment3); border: 2px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .bio-inner h4 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .bio-role-lbl { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-pale); padding: 5px 12px; border-radius: 20px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sb-body { padding: 14px 16px; }
+
+    /* Section order sidebar */
+    .so-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 0.5px solid var(--gold-pale); }
+    .so-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .so-num { font-family: var(--font-ui); font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; width: 16px; padding-top: 1px; }
+    .so-text { font-family: var(--font-ui); font-size: 10.5px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+
+    /* TOC */
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px; color: var(--text-muted); text-decoration: none; line-height: 1.45; transition: color .18s, padding-left .18s; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+
+    /* CTA */
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--parchment); margin-bottom: 7px; line-height: 1.35; }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+
+    /* Share */
+    .share-btns { display: flex; gap: 6px; }
+    .share-b { flex: 1; display: block; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 8px 4px; text-align: center; text-decoration: none; background: var(--white); transition: color .18s, border-color .18s, background .18s; }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* Related */
+    .related-link { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale); text-decoration: none; color: inherit; transition: opacity .18s; }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 23px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .companion-card { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Research &amp; Career</span>
+        </div>
+        <h1 class="article-h1">
+          How to Write a Research Proposal<br/><em>That Actually Gets Funded</em>
+        </h1>
+        <p class="article-deck">Section by section, with vague vs specific examples throughout. Written by a researcher who has written successful proposals for NST, BCSIR, and internal university funding.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">NST Fellow · Research Proposal Writer · University of Dhaka</span>
+            </div>
+          </div>
+          <span class="meta-chip">June 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">12 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Research &amp; Career</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <p>Most research proposals fail not because the research idea is bad, but because the proposal cannot communicate it. A committee reading 200 proposals in two days has limited time per application. If your proposal cannot explain what you are doing, why it matters, and how you will do it, in that order, it will not survive shortlisting.</p>
+
+          <p>I have written proposals for the NST Fellowship, for BCSIR, and for internal university funding. I have also helped colleagues revise proposals that were rejected and then funded on second attempt. The difference between a funded proposal and a rejected one is almost never the quality of the underlying research idea. It is almost always how the idea is written.</p>
+
+          <p>This post walks through every section of a science research proposal, with examples drawn from environmental science, agricultural research, and related fields at Bangladeshi universities.</p>
+
+          <!-- S1 -->
+          <h2 id="s1">The Purpose of a Research Proposal</h2>
+
+          <p>A proposal has one job: to convince a review committee that you know what problem you are solving, why it has not been solved before, and that your plan for solving it is realistic within the time and resources requested.</p>
+
+          <p>It is not a thesis chapter. It is not a literature review. It is not a description of your field of interest. It is an argument: structured, specific, and directly responsive to what the committee needs to see before approving funding.</p>
+
+          <!-- S2 -->
+          <h2 id="s2"><span class="sec-badge">—</span>Before You Write: Three Questions First</h2>
+
+          <p>Everything else in the proposal expands from these three. If you cannot answer them concisely before you start writing, you are not ready to write yet.</p>
+
+          <div class="question-block">
+            <div class="q-item">
+              <span class="q-label">Question 1 — The problem</span>
+              <p style="font-size:15px;margin-bottom:10px;color:var(--ink-soft);">What is the specific problem your research addresses? A topic is not a problem.</p>
+              <span class="q-bad">"Water quality in Bangladesh"</span>
+              <span class="q-good">"Surface water sources in Dhaka's peripheral industrial zones (particularly around Hazaribagh and Tongi) show heavy metal concentrations exceeding WHO drinking water limits, yet spatial distribution data and source apportionment for chromium, lead, and cadmium in the Buriganga and Turag river systems remain incomplete."</span>
+            </div>
+            <div class="q-item">
+              <span class="q-label">Question 2 — The gap</span>
+              <p style="font-size:15px;margin-bottom:10px;color:var(--ink-soft);">What has not been done? "More research is needed" tells a committee nothing.</p>
+              <span class="q-bad">"More research is needed on air quality in Bangladesh."</span>
+              <span class="q-good">"While seasonal variation in PM2.5 concentration in Dhaka has been documented at a city level, source-specific contributions from traffic, brick kilns, and industrial combustion using chemical mass balance modelling have not been studied at the neighbourhood scale."</span>
+            </div>
+            <div class="q-item">
+              <span class="q-label">Question 3 — The plan</span>
+              <p style="font-size:15px;margin-bottom:10px;color:var(--ink-soft);">What exactly will you do? Not "study the effects."</p>
+              <span class="q-bad">"Study the effects of heavy metals on the environment."</span>
+              <span class="q-good">"Collect water and sediment samples from twelve sites along a 45 km stretch of the Buriganga at four seasonal intervals; analyse chromium, lead, cadmium, and arsenic by AAS and ICP-OES; calculate ecological risk indices; and map spatial contamination patterns using QGIS interpolation."</span>
+            </div>
+          </div>
+
+          <!-- S3 -->
+          <h2 id="s3"><span class="sec-badge">1</span>Title</h2>
+
+          <p>The title should be specific enough that a reviewer in your field knows exactly what the study is about. It should not be a slogan, and it should not run to three lines.</p>
+
+          <div class="title-compare">
+            <div class="tc-box weak">
+              <span class="tc-indicator">Weak</span>
+              <span>"A Study on Heavy Metal Pollution in Bangladesh"</span>
+            </div>
+            <div class="tc-box strong">
+              <span class="tc-indicator">Strong</span>
+              <span>"Seasonal Distribution and Ecological Risk Assessment of Heavy Metals in the Buriganga River System Adjacent to Hazaribagh Industrial Zone, Dhaka"</span>
+            </div>
+          </div>
+
+          <p>The strong version names the parameters, the spatial and temporal scope, the location, and what is being assessed. That is the entire study in twenty-two words.</p>
+
+          <!-- S4 -->
+          <h2 id="s4"><span class="sec-badge">2</span>Background and Rationale</h2>
+
+          <p>This section has a funnel structure: broad context narrowing to the specific gap, ending at the research objective. Two to four paragraphs is typical for most fellowship proposal formats.</p>
+
+          <p>Start with the broad problem and make it concrete quickly. For a water quality study, this means moving from "water contamination is a global issue" to "the Buriganga receives over 1.5 million cubic metres of industrial effluent daily" within the first paragraph. Use numbers. Cite them.</p>
+
+          <p>Narrow to what is already known about your specific area or topic, and then to what is not known. This is the gap paragraph, and it requires you to have actually read the literature — not skimmed abstracts. A gap that says "despite extensive research, this topic requires further study" is not a gap. It is a placeholder. A gap that says "existing studies in this river system have characterised total dissolved solids and faecal coliforms; heavy metal speciation and source contribution at the spatial scale of individual industrial discharge points has not been done" is a gap.</p>
+
+          <p>End the section with a clear objective statement, not a continuation of the literature review.</p>
+
+          <div class="callout-box">
+            <span class="callout-label">The most common failure in this section</span>
+            <p>Stopping before the gap. Background paragraphs on the field are easy to write. The gap statement is hard, because it requires you to know your field well enough to identify what is genuinely missing. That is also exactly what the committee is looking for.</p>
+          </div>
+
+          <!-- S5 -->
+          <h2 id="s5"><span class="sec-badge">3</span>Research Objectives</h2>
+
+          <p>Structure them in two levels. First, a single broader goal statement in one sentence. Then, two to four specific numbered objectives that collectively achieve it.</p>
+
+          <p><strong>Broader goal:</strong> "To assess the distribution, sources, and ecological risks of heavy metal contamination in the Buriganga river system adjacent to Dhaka's industrial zone and provide a science-based contamination baseline for policy use."</p>
+
+          <p><strong>Specific objectives:</strong></p>
+          <ol>
+            <li>To determine seasonal concentrations of Cr, Pb, Cd, and As in surface water and sediment across twelve sampling points.</li>
+            <li>To identify dominant contamination sources through enrichment factor and geo-accumulation index analysis.</li>
+            <li>To evaluate ecological risk using established risk indices.</li>
+            <li>To produce a spatial contamination map using GIS interpolation.</li>
+          </ol>
+
+          <p>Each objective is verifiable. At the end of the study, you will either have produced a contamination map or you will not. You will either have seasonal concentration data or you will not. Objectives written this way hold the researcher accountable and give the committee something concrete to fund.</p>
+
+          <p>What to avoid: writing objectives as questions ("What are the heavy metal concentrations in the Buriganga?"). Objectives should be active, declarative statements of what will be determined or produced.</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- S6 -->
+          <h2 id="s6"><span class="sec-badge">4</span>Methodology</h2>
+
+          <p>This is where committees make their shortlisting decisions. A vague methodology signals that the researcher has not fully thought through how the study will actually run. Specificity here is the difference between shortlisting and rejection.</p>
+
+          <p>Organise the methodology as numbered Research Tasks, each corresponding to one or more objectives. This format is clear, auditable, and directly mirrors how the work will actually run. For each task, address: what materials or subjects are involved, what procedures are followed, what measurements are taken, and how the data will be analysed.</p>
+
+          <div class="method-compare">
+            <div class="mc-box vague">
+              <div class="mc-head">Vague — will not shortlist</div>
+              <div class="mc-body">"Water samples will be collected and analysed for heavy metals using standard methods."</div>
+            </div>
+            <div class="mc-box specific">
+              <div class="mc-head">Specific — committee can evaluate this</div>
+              <div class="mc-body">"Surface water samples (500 mL) will be collected at 30 cm depth using pre-cleaned HDPE bottles at twelve fixed GPS-tagged stations during four seasonal sampling events (pre-monsoon, monsoon, post-monsoon, dry). Samples will be acidified with HNO₃ to pH &lt; 2 and stored at 4°C. Chromium, lead, cadmium, and arsenic concentrations will be measured by ICP-OES (PerkinElmer Avio 220) at BCSIR. Sediment samples will be collected by Ekman grab sampler, air-dried, sieved through 63 µm mesh, and digested by aqua regia prior to analysis."</div>
+            </div>
+          </div>
+
+          <p>The specific version names the equipment, volume, preservation method, storage conditions, measurement instrument, and laboratory. A reviewer can evaluate whether this is realistic and whether the protocol is appropriate for the analytes being measured.</p>
+
+          <p>Do not write "appropriate statistical methods will be used." Name them: "Data will be analysed by one-way ANOVA with Tukey HSD post-hoc comparison using R version 4.3.1; significance set at p &lt; 0.05. Spatial distribution will be mapped by kriging interpolation in QGIS 3.34."</p>
+
+          <p>For computational work: name the software and version. For laboratory work: name the instrument and model. For field work: name the design and replication structure. Reviewers who work in your field can immediately tell whether a methodology is thought through or borrowed from a previous proposal. Specificity is the signal that separates the two.</p>
+
+          <!-- S7 -->
+          <h2 id="s7"><span class="sec-badge">5</span>Timeline</h2>
+
+          <p>A Gantt chart — a table with research tasks on the left and months across the top — is the standard format. Mark which tasks run during which months. Do not separate phases that naturally overlap: data collection and preliminary analysis often run concurrently, and a timeline that shows them as strictly sequential is not believable.</p>
+
+          <div class="gantt-wrap">
+            <table class="gantt-table" aria-label="Example 12-month research timeline">
+              <thead>
+                <tr>
+                  <th class="task-header">Research Task</th>
+                  <th>M1</th><th>M2</th><th>M3</th><th>M4</th>
+                  <th>M5</th><th>M6</th><th>M7</th><th>M8</th>
+                  <th>M9</th><th>M10</th><th>M11</th><th>M12</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="task-name">Literature review &amp; baseline collection</td>
+                  <td class="active"></td><td class="active"></td>
+                  <td></td><td></td><td></td><td></td>
+                  <td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td class="task-name">Material preparation &amp; experimental setup</td>
+                  <td></td><td class="active-light"></td><td class="active"></td>
+                  <td></td><td></td><td></td><td></td><td></td>
+                  <td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td class="task-name">Primary data collection</td>
+                  <td></td><td></td>
+                  <td class="active"></td><td class="active"></td><td class="active"></td>
+                  <td class="active"></td><td class="active"></td><td class="active"></td>
+                  <td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                  <td class="task-name">Laboratory analysis &amp; data processing</td>
+                  <td></td><td></td><td></td><td></td><td></td><td></td>
+                  <td class="active-light"></td><td class="active-light"></td>
+                  <td class="active"></td><td class="active"></td>
+                  <td></td><td></td>
+                </tr>
+                <tr>
+                  <td class="task-name">Statistical analysis &amp; writing</td>
+                  <td></td><td></td><td></td><td></td><td></td><td></td>
+                  <td></td><td></td>
+                  <td class="active-light"></td>
+                  <td class="active"></td><td class="active"></td><td class="active"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:12.5px;color:var(--text-muted);margin-top:-0.8em;">Dark cells = primary activity. Light cells = overlap period. A timeline with zero overlap between phases is rarely believable.</p>
+
+          <p>For a twelve-month MSc proposal, this structure is typical and defensible. The key is that overlapping phases (months 7-9 in the example above) are shown honestly. A timeline where every task runs strictly back-to-back usually signals that the researcher has not thought about how the work will actually flow.</p>
+
+          <!-- S8 -->
+          <h2 id="s8"><span class="sec-badge">6</span>Expected Outputs</h2>
+
+          <p>This section answers: what will exist at the end of your research that did not exist before? It is the section most often written badly, because it is the easiest to write vaguely.</p>
+
+          <div class="pull-quote">
+            <p>"This study will contribute to scientific knowledge of heavy metal contamination in Bangladeshi rivers" is not an output. It is a vague claim any study on this topic could make.</p>
+          </div>
+
+          <p>Real outputs are specific and countable: a peer-reviewed manuscript targeting a named journal (Environmental Pollution, Chemosphere, Science of the Total Environment); a validated seasonal dataset of heavy metal concentrations and ecological risk indices for the Buriganga system; a contamination map usable by city planners and the Department of Environment; a methods report documenting the sampling protocol for replication in other river systems.</p>
+
+          <p>Named, specific, concrete. If you cannot name the outputs, the committee cannot evaluate whether the research is worth funding.</p>
+
+          <!-- S9 -->
+          <h2 id="s9"><span class="sec-badge">7</span>Budget</h2>
+
+          <p>Not every proposal format requires an itemised budget. NST Fellowship proposals do not. DAAD, BCSIR, and USAID-funded applications typically do.</p>
+
+          <p>Even when a budget is not required in the submission, think through one anyway. It forces you to check whether your methodology is actually executable. A researcher who cannot estimate the cost of their own field sampling has likely not thought carefully enough about the logistics.</p>
+
+          <p>When a budget is required, every line needs a justification alongside the figure.</p>
+
+          <div class="budget-compare">
+            <div class="bc-box insufficient">
+              <span class="bc-tag">Insufficient</span>
+              <span>Laboratory chemicals: BDT 42,000</span>
+            </div>
+            <div class="bc-box sufficient">
+              <span class="bc-tag">Sufficient</span>
+              <span>Laboratory chemicals (aqua regia reagents, ICP-OES calibration standards for Cr/Pb/Cd/As, HDPE sample bottles, HNO₃ for preservation): BDT 42,000, based on current BCSIR procurement costs for the same reagents used in the 2025 urban air quality study.</span>
+            </div>
+          </div>
+
+          <p>Do not inflate. Committees that fund environmental and agricultural research have seen chemical and equipment budgets before. Inflated budgets are a faster route to rejection than tight ones. They raise questions about the researcher's familiarity with actual costs in the field.</p>
+
+          <p>Group budget items logically: consumables and reagents; field equipment and transport; laboratory access and instrument time; dissemination (conference registration, open-access publication fee if applicable); contingency (typically 5-10%).</p>
+
+          <!-- S10 -->
+          <h2 id="s10"><span class="sec-badge">8</span>References</h2>
+
+          <p>Cite what you have read and can discuss in an interview. Use a reference manager (Mendeley or Zotero) and do not format references by hand. Follow whatever citation style the funding body specifies. A proposal that lists 60 papers but cannot defend three of them at interview is more damaging than a proposal with 20 well-chosen, well-understood sources.</p>
+
+          <!-- S11 -->
+          <h2 id="s11"><span class="sec-badge">9</span>The Interview</h2>
+
+          <p>Most national fellowship committees, including NST, shortlist candidates for a 20 to 30-minute interview after reviewing proposals. Know your proposal thoroughly. Know why you chose your methodology over alternatives. Know the three or four most important papers directly relevant to your specific topic and what they found. Know your preliminary data if you have it.</p>
+
+          <p>The committee is not trying to fail you. They are confirming that the researcher behind the document is real, engaged, and prepared to execute what they have written. A confident, specific, honest interview is more persuasive than a polished proposal from a researcher who cannot explain what they wrote.</p>
+
+          <!-- NST companion -->
+          <div class="article-ornament">— ❧ —</div>
+
+          <div class="companion-card">
+            <span class="companion-icon">🏛️</span>
+            <div class="companion-text">
+              <h4>Applying for the NST Fellowship specifically?</h4>
+              <p>The companion post on this site covers the fellowship itself: who qualifies, how the application process works, what the committee looks for, and what the 20 to 30-minute interview involves. The two posts work together.</p>
+              <a href="blog-nst-fellowship-guide.html" class="btn btn-gold">Read the NST Fellowship Guide →</a>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">Research Proposal</a>
+            <a href="blog.html" class="a-tag">Grant Writing</a>
+            <a href="blog.html" class="a-tag">NST Fellowship</a>
+            <a href="blog.html" class="a-tag">Methodology</a>
+            <a href="blog.html" class="a-tag">Academic Writing</a>
+            <a href="blog.html" class="a-tag">Bangladesh</a>
+            <a href="blog.html" class="a-tag">DAAD</a>
+            <a href="blog.html" class="a-tag">BCSIR</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">NST Fellow · Proposal Writer · University of Dhaka</span>
+              <p>National Science and Technology Fellow with experience writing and reviewing research proposals for NST, BCSIR, and international funding frameworks including DAAD and USAID. Available for proposal writing, manuscript editing, data analysis, and CV development.</p>
+              <div class="bio-links">
+                <a href="services.html#proposal" class="bio-lnk">Proposal Writing</a>
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="research.html" class="bio-lnk">My Research</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- Proposal section order -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Sections in Order</span></div>
+            <div class="sb-body">
+              <div class="so-item">
+                <span class="so-num">—</span>
+                <span class="so-text">Three questions first (before writing)</span>
+              </div>
+              <div class="so-item">
+                <span class="so-num">1</span>
+                <span class="so-text">Title</span>
+              </div>
+              <div class="so-item">
+                <span class="so-num">2</span>
+                <span class="so-text">Background &amp; Rationale</span>
+              </div>
+              <div class="so-item">
+                <span class="so-num">3</span>
+                <span class="so-text">Research Objectives</span>
+              </div>
+              <div class="so-item">
+                <span class="so-num">4</span>
+                <span class="so-text">Methodology (Research Tasks)</span>
+              </div>
+              <div class="so-item">
+                <span class="so-num">5</span>
+                <span class="so-text">Timeline (Gantt chart)</span>
+              </div>
+              <div class="so-item">
+                <span class="so-num">6</span>
+                <span class="so-text">Expected Outputs</span>
+              </div>
+              <div class="so-item">
+                <span class="so-num">7</span>
+                <span class="so-text">Budget (if required)</span>
+              </div>
+              <div class="so-item">
+                <span class="so-num">8</span>
+                <span class="so-text">References</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1"  class="toc-link"><span class="toc-n">–</span>The Purpose</a></li>
+                <li><a href="#s2"  class="toc-link"><span class="toc-n">–</span>Three Questions First</a></li>
+                <li><a href="#s3"  class="toc-link"><span class="toc-n">1</span>Title</a></li>
+                <li><a href="#s4"  class="toc-link"><span class="toc-n">2</span>Background &amp; Rationale</a></li>
+                <li><a href="#s5"  class="toc-link"><span class="toc-n">3</span>Research Objectives</a></li>
+                <li><a href="#s6"  class="toc-link"><span class="toc-n">4</span>Methodology</a></li>
+                <li><a href="#s7"  class="toc-link"><span class="toc-n">5</span>Timeline</a></li>
+                <li><a href="#s8"  class="toc-link"><span class="toc-n">6</span>Expected Outputs</a></li>
+                <li><a href="#s9"  class="toc-link"><span class="toc-n">7</span>Budget</a></li>
+                <li><a href="#s10" class="toc-link"><span class="toc-n">8</span>References</a></li>
+                <li><a href="#s11" class="toc-link"><span class="toc-n">9</span>The Interview</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Proposal writing CTA -->
+          <div class="sb-cta">
+            <h4>Need help with <em>your proposal?</em></h4>
+            <p>I write and review research proposals for NST, BCSIR, DAAD, USAID, and thesis submissions. Structured argument, sharp methodology, realistic timeline.</p>
+            <a href="services.html#proposal" class="btn btn-gold">Proposal Writing Service →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=How%20to%20Write%20a%20Research%20Proposal%20That%20Actually%20Gets%20Funded%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-how-to-write-research-proposal.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-how-to-write-research-proposal.html"
+                   target="_blank" rel="noopener">LinkedIn</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=How%20to%20Write%20a%20Research%20Proposal%20That%20Actually%20Gets%20Funded&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-how-to-write-research-proposal.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-nst-fellowship-guide.html" class="related-link">
+                <span class="rel-icon">🏛️</span>
+                <span class="rel-title">Bangladesh's NST Fellowship — who should apply and how</span>
+              </a>
+              <a href="blog-academic-cv-guide.html" class="related-link">
+                <span class="rel-icon">📄</span>
+                <span class="rel-title">How to write an academic CV for graduate school applications</span>
+              </a>
+              <a href="blog-imrad-explained.html" class="related-link">
+                <span class="rel-icon">📝</span>
+                <span class="rel-title">IMRaD explained — how to structure a scientific research paper</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Reading progress bar
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    // TOC smooth scroll + active highlight
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11'];
+    const obs  = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const a = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (a) a.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sIds.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+  </script>
+
+</body>
+</html>
