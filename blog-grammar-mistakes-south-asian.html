@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Eight grammar mistakes that appear in almost every South Asian academic manuscript — articles, uncountable nouns, tense, dangling modifiers, and more — with wrong/correct examples and fixes."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="grammar mistakes academic manuscripts South Asia, scientific writing English mistakes Bangladesh, academic English grammar, manuscript editing, article errors academic writing, uncountable nouns research paper"/>
+  <meta property="og:title" content="Common Grammar Mistakes in South Asian Academic Manuscripts — Sajjadur Rahman"/>
+  <meta property="og:description" content="Eight mistakes that appear in almost every South Asian manuscript — with wrong/correct examples and fixes for each one."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-grammar-mistakes-south-asian.html"/>
+  <meta property="article:published_time" content="2026-06-01"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>Common Grammar Mistakes in South Asian Academic Manuscripts — Sajjadur Rahman</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Raleway:wght@400;500;600;700&amp;family=Noto+Serif+Bengali:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Article hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.8vw, 42px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px; margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--parchment3); border: 1.5px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px; }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); display: block; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 22px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.6em 0 0.8em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.8em 0 0.5em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose em { font-style: italic; }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+    .article-prose code {
+      font-family: 'Courier New', monospace; font-size: 14px;
+      background: var(--parchment2); padding: 1px 5px;
+      border-radius: 3px; color: var(--ink);
+    }
+
+    /* Section badge */
+    .sec-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; flex-shrink: 0;
+      background: var(--ink); color: var(--gold-light);
+      font-family: var(--font-ui); font-size: 10px;
+      font-weight: 700; border-radius: 50%;
+    }
+
+    /* ── Grammar example blocks ── */
+    .grammar-group { margin: 1.8em 0; display: flex; flex-direction: column; gap: 8px; }
+
+    .grammar-ex {
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: flex; gap: 12px; align-items: flex-start;
+      font-family: var(--font-body); font-size: 15px; line-height: 1.65;
+    }
+    .grammar-ex.wrong {
+      background: rgba(160,50,30,0.05);
+      border: 0.5px solid rgba(160,50,30,0.2);
+    }
+    .grammar-ex.correct {
+      background: rgba(90,122,74,0.06);
+      border: 0.5px solid rgba(90,122,74,0.22);
+    }
+    .grammar-icon {
+      font-size: 13px; font-weight: 900;
+      flex-shrink: 0; padding-top: 2px; font-family: var(--font-ui);
+      letter-spacing: 0;
+    }
+    .grammar-ex.wrong   .grammar-icon { color: #a0321e; }
+    .grammar-ex.correct .grammar-icon { color: var(--accent); }
+    .grammar-ex.wrong   .grammar-text { color: var(--ink-soft); }
+    .grammar-ex.correct .grammar-text { color: var(--ink-soft); }
+    .grammar-text { flex: 1; }
+    .grammar-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; display: block; margin-bottom: 5px;
+    }
+    .grammar-ex.wrong   .grammar-label { color: #a0321e; }
+    .grammar-ex.correct .grammar-label { color: var(--accent); }
+    .grammar-sentence {
+      font-style: italic; display: block;
+      font-family: var(--font-body); font-size: 15px; line-height: 1.6;
+    }
+    .grammar-note {
+      font-family: var(--font-body); font-size: 13px;
+      color: var(--text-muted); display: block; margin-top: 5px;
+      font-style: normal;
+    }
+
+    /* ── Word list box ── */
+    .word-list-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 22px; margin: 1.6em 0;
+    }
+    .word-list-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 10px;
+    }
+    .word-list {
+      display: flex; flex-wrap: wrap; gap: 7px;
+    }
+    .word-chip {
+      font-family: 'Courier New', monospace; font-size: 13px;
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 4px; padding: 3px 9px;
+      color: var(--ink-soft);
+    }
+
+    /* ── Cut list (redundant phrases) ── */
+    .cut-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--font-body); margin: 1.6em 0;
+    }
+    .cut-table thead tr { background: var(--parchment3); }
+    .cut-table th {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--text-muted);
+      padding: 9px 14px; text-align: left;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .cut-table td {
+      padding: 10px 14px; border-bottom: 0.5px solid var(--gold-pale);
+      font-size: 14px; color: var(--ink-soft); vertical-align: top;
+    }
+    .cut-table tr:last-child td { border-bottom: none; }
+    .cut-table .cut-col {
+      font-style: italic; color: #a0321e;
+      font-family: var(--font-body);
+    }
+    .cut-table .keep-col {
+      font-family: var(--font-body);
+      color: var(--ink-soft);
+    }
+    .cut-table .keep-col em { font-style: italic; color: var(--accent); }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 17.5px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+
+    /* ── Callout ── */
+    .callout-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.8em 0;
+    }
+    .callout-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 8px;
+    }
+    .callout-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+
+    /* ── Ornament ── */
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 2.8em 0; opacity: 0.55;
+    }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px; text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--parchment3); border: 2px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .bio-inner h4 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .bio-role-lbl { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-pale); padding: 5px 12px; border-radius: 20px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sb-body { padding: 14px 16px; }
+
+    /* Checklist sidebar */
+    .chk-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 8px 0; border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .chk-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .chk-num { font-family: var(--font-ui); font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; width: 16px; padding-top: 1px; }
+    .chk-text { font-family: var(--font-ui); font-size: 10.5px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+
+    /* TOC */
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px; color: var(--text-muted); text-decoration: none; line-height: 1.45; transition: color .18s, padding-left .18s; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+
+    /* CTA */
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--parchment); margin-bottom: 7px; line-height: 1.35; }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+
+    /* Share */
+    .share-btns { display: flex; gap: 6px; }
+    .share-b { flex: 1; display: block; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 8px 4px; text-align: center; text-decoration: none; background: var(--white); transition: color .18s, border-color .18s, background .18s; }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* Related */
+    .related-link { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale); text-decoration: none; color: inherit; transition: opacity .18s; }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 23px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .grammar-sentence { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Scientific Writing</span>
+        </div>
+        <h1 class="article-h1">
+          Common Grammar Mistakes in<br/><em>South Asian Academic Manuscripts</em>
+        </h1>
+        <p class="article-deck">Eight patterns that appear in almost every manuscript I edit — articles, uncountable nouns, tense inconsistency, dangling modifiers, and more — with wrong and correct examples for each.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">Manuscript Editor · Stanford Writing in the Sciences · Wiley Academy</span>
+            </div>
+          </div>
+          <span class="meta-chip">June 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">10 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Scientific Writing</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <p>When I edit a manuscript from a South Asian researcher, certain errors come up so often they are practically predictable. That is not a criticism. English is not the first language of most researchers in Bangladesh, India, Pakistan, or Nepal, and the interference patterns between South Asian mother tongues and academic English are consistent and well-documented. Bengali has no articles. Hindi encodes definiteness differently. The verb systems work differently from English.</p>
+
+          <p>The good news is that these patterns are fixable, and knowing them makes self-editing faster. This post covers eight mistakes that appear most frequently in the manuscripts I review. For each one, there is a wrong example, a corrected version, and a brief explanation of why the correction works.</p>
+
+          <!-- S1 -->
+          <h2 id="s1"><span class="sec-badge">1</span>Article errors — missing or wrongly placed "the" and "a"</h2>
+
+          <p>This is the single most common issue in manuscripts from researchers whose first language has no articles. Bengali, Hindi, Urdu, and most other South Asian languages do not have equivalents of "a," "an," or "the." Writers often drop them where English requires one, or insert them where English does not.</p>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"Soil samples were collected from field and analysed in laboratory."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"Soil samples were collected from the field and analysed in the laboratory."</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"The nitrogen is essential element for plant growth."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"Nitrogen is an essential element for plant growth."</span>
+              </div>
+            </div>
+          </div>
+
+          <p>The rule in brief: use "the" when the reader already knows which specific thing you mean — the field where you sampled, the laboratory where you worked. Use "a" or "an" when introducing something for the first time or referring to one member of a general class. No article is needed when making general statements about things in the abstract ("Nitrogen is essential..."; "Soil is a complex medium...").
+
+          <p>Article use is complex and takes time to internalise. The fastest shortcut for self-editing: read every noun phrase in your manuscript and ask whether a reader can identify which specific thing you mean. If yes, "the" is usually needed. If no specific one is intended, use "a" or no article.</p>
+
+          <!-- S2 -->
+          <h2 id="s2"><span class="sec-badge">2</span>Uncountable nouns treated as countable</h2>
+
+          <p>Several high-frequency academic words in English are uncountable — they do not take a plural form and cannot directly follow a number. South Asian researchers often pluralise them by direct translation from their mother tongue.</p>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"These informations are inconsistent."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"This information is inconsistent."</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"The literatures reviewed for this study covered the period 2000–2024."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"The literature reviewed for this study covered the period 2000–2024."</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"Multiple evidences support this finding."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"Multiple pieces of evidence support this finding." (or: "The evidence supports this finding.")</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="word-list-box">
+            <span class="word-list-label">Words that never take a plural "s" in academic English</span>
+            <div class="word-list">
+              <span class="word-chip">information</span>
+              <span class="word-chip">research</span>
+              <span class="word-chip">evidence</span>
+              <span class="word-chip">literature</span>
+              <span class="word-chip">knowledge</span>
+              <span class="word-chip">equipment</span>
+              <span class="word-chip">feedback</span>
+              <span class="word-chip">advice</span>
+              <span class="word-chip">news</span>
+              <span class="word-chip">progress</span>
+            </div>
+          </div>
+
+          <!-- S3 -->
+          <h2 id="s3"><span class="sec-badge">3</span>"Data" — singular or plural</h2>
+
+          <p>This one deserves its own entry because it causes consistent disagreement. "Data" is technically the plural of "datum." Strict scientific style — and most journal style guides — requires plural verb agreement: "The data show...", "These data were collected...". In everyday English, "data" is increasingly treated as a mass noun with singular agreement, and some journals now accept this.</p>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong (in formal manuscript style)</span>
+                <span class="grammar-sentence">"The data was analysed using SPSS 26.0."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"The data were analysed using SPSS 26.0."</span>
+              </div>
+            </div>
+          </div>
+
+          <p>The safe choice for formal manuscript writing is still to treat data as plural. What is never acceptable under any style convention: "the datas" or "these datas." Data does not take a plural "s."</p>
+
+          <!-- S4 -->
+          <h2 id="s4"><span class="sec-badge">4</span>Subject-verb agreement failures</h2>
+
+          <p>These appear most often in sentences where the subject and verb are separated by a phrase, making the true subject less obvious. The verb agrees with the nearest noun rather than the actual grammatical subject.</p>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"The number of samples collected from each plot were three."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"The number of samples collected from each plot was three."</span>
+                <span class="grammar-note">The subject is "the number" (singular), not "samples."</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"The results of the Tukey HSD test shows that T4 differed significantly."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"The results of the Tukey HSD test show that T4 differed significantly."</span>
+                <span class="grammar-note">The subject is "results" (plural), not "test."</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"Each of the treatments were applied in triplicate."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"Each of the treatments was applied in triplicate."</span>
+                <span class="grammar-note">"Each" is always singular, regardless of what follows it.</span>
+              </div>
+            </div>
+          </div>
+
+          <p>The fix: slow down at any verb that follows an "of" phrase and check whether you are agreeing with the right word. The subject is almost never the noun directly before the verb in these constructions.</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- S5 -->
+          <h2 id="s5"><span class="sec-badge">5</span>Tense inconsistency between sections</h2>
+
+          <p>Each section of a research paper has a conventional tense. Methods and Results are written in past tense — you did the work and it is finished. The Introduction and Discussion move between past tense (for citing literature) and present tense (for general truths and implications). The Conclusion typically uses past tense for findings and present for what they mean going forward.</p>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong — Results section</span>
+                <span class="grammar-sentence">"The highest yield is recorded in T4, which is significantly higher than the control."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"The highest yield was recorded in T4, which was significantly higher than the control."</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong — Methods section</span>
+                <span class="grammar-sentence">"The soil samples are collected from six locations and are air-dried at room temperature."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"The soil samples were collected from six locations and air-dried at room temperature."</span>
+              </div>
+            </div>
+          </div>
+
+          <p>A practical self-edit check: search your Results section for present-tense verbs ("is," "are," "shows," "indicates") and switch them to past tense, unless they describe the content of a currently existing table or figure. "Table 2 shows that yield was highest in T4" is correct — the table exists now, in the present, even though the experiment is past.</p>
+
+          <!-- S6 -->
+          <h2 id="s6"><span class="sec-badge">6</span>Dangling modifiers</h2>
+
+          <p>A dangling modifier is a descriptive phrase that does not grammatically attach to the subject it is meant to describe. It is common in manuscripts written quickly in English as a second language, where the writer knows what they mean but the sentence structure does not reflect it.</p>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"Using the AAS method, the heavy metal concentrations were measured."</span>
+                <span class="grammar-note">The heavy metal concentrations cannot use an AAS method. The modifier has nothing to attach to.</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"Using the AAS method, we measured the heavy metal concentrations." (Or: "Heavy metal concentrations were measured using the AAS method.")</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Wrong</span>
+                <span class="grammar-sentence">"Being a C3 crop, it was hypothesised that rice would respond to incremental nitrogen supply."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Correct</span>
+                <span class="grammar-sentence">"Because rice is a C3 crop, we hypothesised that it would respond to incremental nitrogen supply."</span>
+              </div>
+            </div>
+          </div>
+
+          <p>Dangling modifiers are easy to spot once you know what to look for. Find every sentence that begins with an "-ing" phrase or a past participle phrase, identify the grammatical subject of the main clause, and check whether the phrase logically describes that subject. If not, rewrite.</p>
+
+          <!-- S7 -->
+          <h2 id="s7"><span class="sec-badge">7</span>Redundant framing phrases</h2>
+
+          <p>South Asian manuscripts overuse a predictable set of phrases that pad the text without adding meaning. Every manuscript editor flags them. They come from formal Bengali, Hindi, or Urdu academic writing habits that do not carry over economically into English prose.</p>
+
+          <table class="cut-table">
+            <thead>
+              <tr>
+                <th>Remove this</th>
+                <th>Replace with this</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cut-col">"In the present study, it was found that..."</td>
+                <td class="keep-col">State the finding directly. <em>"BBCU improved NUE by 18%."</em></td>
+              </tr>
+              <tr>
+                <td class="cut-col">"It is evident from the results that..."</td>
+                <td class="keep-col">State what the results show. <em>"The results show that..."</em></td>
+              </tr>
+              <tr>
+                <td class="cut-col">"It may be noted that..."</td>
+                <td class="keep-col">Remove and state the point.</td>
+              </tr>
+              <tr>
+                <td class="cut-col">"Due to the fact that"</td>
+                <td class="keep-col"><em>"because"</em></td>
+              </tr>
+              <tr>
+                <td class="cut-col">"In order to"</td>
+                <td class="keep-col"><em>"to"</em></td>
+              </tr>
+              <tr>
+                <td class="cut-col">"The results showed that the yield was found to be higher in T4"</td>
+                <td class="keep-col"><em>"Yield was higher in T4"</em></td>
+              </tr>
+              <tr>
+                <td class="cut-col">"At the present moment in time"</td>
+                <td class="keep-col"><em>"currently"</em> or remove entirely</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>The test for every phrase of this kind: read the sentence without it. If the meaning is unchanged, cut it.</p>
+
+          <!-- S8 -->
+          <h2 id="s8"><span class="sec-badge">8</span>"Prove," "demonstrate," and misused "significant"</h2>
+
+          <p>Academic English has a precise vocabulary for how strongly a result can be stated. South Asian manuscripts often overclaim, usually because the writer is translating the confidence of Bengali or Hindi academic discourse directly into English.</p>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Overclaiming</span>
+                <span class="grammar-sentence">"This study proves that BBCU is superior to conventional urea."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Calibrated</span>
+                <span class="grammar-sentence">"These results suggest that BBCU outperformed conventional urea under the tested conditions." (Or: "The findings indicate that...")</span>
+              </div>
+            </div>
+          </div>
+
+          <p>A single pot experiment proves nothing. It provides evidence, supports a hypothesis, suggests a relationship, or indicates a pattern. Use: show, suggest, indicate, support, provide evidence for. Use "demonstrate" for stronger, replicated findings. Reserve "prove" for mathematical derivations.</p>
+
+          <p>"Significant" is the second overclaim problem. In scientific writing, "significant" has a technical meaning: statistically significant at your stated threshold (typically p &lt; 0.05). Using it to mean "important" or "large" in the same paper where you also report p-values creates real ambiguity for reviewers.</p>
+
+          <div class="grammar-group">
+            <div class="grammar-ex wrong">
+              <span class="grammar-icon">✗</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Ambiguous</span>
+                <span class="grammar-sentence">"A significant body of literature exists on nitrogen use efficiency in rice."</span>
+              </div>
+            </div>
+            <div class="grammar-ex correct">
+              <span class="grammar-icon">✓</span>
+              <div class="grammar-text">
+                <span class="grammar-label">Clear</span>
+                <span class="grammar-sentence">"Extensive literature exists on nitrogen use efficiency in rice." (Or: "The literature on nitrogen use efficiency in rice is substantial.")</span>
+              </div>
+            </div>
+          </div>
+
+          <p>If you mean statistical significance in a Results sentence, say exactly that and report the p-value alongside it. If you mean the difference was large or the body of literature is extensive, use a word that cannot be confused with a statistical claim.</p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- S9 -->
+          <h2 id="s9">A note on self-editing</h2>
+
+          <p>The eight patterns above can be checked systematically. Run each as a dedicated pass through your draft — one pass for articles, one for uncountable nouns, one for tense, and so on. Trying to catch everything at once is less effective than a targeted single-issue pass. Most word processors let you use Find to search for specific words like "informations," "evidences," "literatures," "proves," and "significant" — flag each one and review its context.</p>
+
+          <div class="pull-quote">
+            <p>Professional editing catches patterns you have trained yourself not to see. A writer is the last person to spot their own habits.</p>
+          </div>
+
+          <p>For formal manuscript editing before journal submission, the <a href="services.html#manuscript">manuscript editing service</a> on this site covers all eight patterns above — grammar, structure, academic tone, and journal formatting — with tracked changes returned within five to seven working days. One revision round is included.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">Scientific Writing</a>
+            <a href="blog.html" class="a-tag">Grammar</a>
+            <a href="blog.html" class="a-tag">Manuscript Editing</a>
+            <a href="blog.html" class="a-tag">Academic English</a>
+            <a href="blog.html" class="a-tag">South Asia</a>
+            <a href="blog.html" class="a-tag">Bangladesh</a>
+            <a href="blog.html" class="a-tag">Journal Submission</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">Manuscript Editor · MSc Researcher · University of Dhaka</span>
+              <p>NST Fellow and active researcher certified in scientific communication through Stanford Writing in the Sciences and the Wiley Researcher Academy. Edits research papers across the natural and applied sciences for grammar, structure, tone, and journal formatting. Based in Dhaka, Bangladesh.</p>
+              <div class="bio-links">
+                <a href="services.html#manuscript" class="bio-lnk">Manuscript Editing</a>
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="blog-imrad-explained.html" class="bio-lnk">IMRaD Guide</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- Grammar checklist -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Self-Edit Checklist</span></div>
+            <div class="sb-body">
+              <div class="chk-item">
+                <span class="chk-num">1</span>
+                <span class="chk-text">Articles — "a," "an," "the" before every noun phrase</span>
+              </div>
+              <div class="chk-item">
+                <span class="chk-num">2</span>
+                <span class="chk-text">No plural "s" on information, research, evidence, literature</span>
+              </div>
+              <div class="chk-item">
+                <span class="chk-num">3</span>
+                <span class="chk-text">"Data were" not "data was"</span>
+              </div>
+              <div class="chk-item">
+                <span class="chk-num">4</span>
+                <span class="chk-text">Subject-verb agreement past "of" phrases</span>
+              </div>
+              <div class="chk-item">
+                <span class="chk-num">5</span>
+                <span class="chk-text">Methods and Results in past tense throughout</span>
+              </div>
+              <div class="chk-item">
+                <span class="chk-num">6</span>
+                <span class="chk-text">No "-ing" phrases dangling without a subject</span>
+              </div>
+              <div class="chk-item">
+                <span class="chk-num">7</span>
+                <span class="chk-text">Cut "in the present study," "due to the fact that," "in order to"</span>
+              </div>
+              <div class="chk-item">
+                <span class="chk-num">8</span>
+                <span class="chk-text">"Suggest" not "prove" — "significant" only for p-values</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1" class="toc-link"><span class="toc-n">1</span>Article errors</a></li>
+                <li><a href="#s2" class="toc-link"><span class="toc-n">2</span>Uncountable nouns</a></li>
+                <li><a href="#s3" class="toc-link"><span class="toc-n">3</span>"Data" — singular or plural</a></li>
+                <li><a href="#s4" class="toc-link"><span class="toc-n">4</span>Subject-verb agreement</a></li>
+                <li><a href="#s5" class="toc-link"><span class="toc-n">5</span>Tense inconsistency</a></li>
+                <li><a href="#s6" class="toc-link"><span class="toc-n">6</span>Dangling modifiers</a></li>
+                <li><a href="#s7" class="toc-link"><span class="toc-n">7</span>Redundant phrases</a></li>
+                <li><a href="#s8" class="toc-link"><span class="toc-n">8</span>"Prove" and "significant"</a></li>
+                <li><a href="#s9" class="toc-link"><span class="toc-n">–</span>Note on self-editing</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Manuscript editing CTA -->
+          <div class="sb-cta">
+            <h4>Need your manuscript <em>professionally edited?</em></h4>
+            <p>Grammar, structure, tone, and journal formatting — tracked changes returned within 5 to 7 working days, one revision round included.</p>
+            <a href="services.html#manuscript" class="btn btn-gold">Manuscript Editing →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=Common%20Grammar%20Mistakes%20in%20South%20Asian%20Academic%20Manuscripts%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-grammar-mistakes-south-asian.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-grammar-mistakes-south-asian.html"
+                   target="_blank" rel="noopener">LinkedIn</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=Common%20Grammar%20Mistakes%20in%20South%20Asian%20Academic%20Manuscripts&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-grammar-mistakes-south-asian.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-imrad-explained.html" class="related-link">
+                <span class="rel-icon">📝</span>
+                <span class="rel-title">IMRaD explained — how to structure a scientific research paper</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">📋</span>
+                <span class="rel-title">How to respond to peer reviewer comments — a step-by-step guide</span>
+              </a>
+              <a href="blog.html" class="related-link">
+                <span class="rel-icon">🔬</span>
+                <span class="rel-title">Elsevier vs MDPI vs Wiley — which journal should you submit to?</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Reading progress bar
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    // TOC smooth scroll + active highlight
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+    const obs  = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const a = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (a) a.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sIds.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+  </script>
+
+</body>
+</html>
