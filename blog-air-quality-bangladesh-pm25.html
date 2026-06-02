@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bangladesh's PM2.5 crisis explained — brick kilns, transboundary pollution from the Indo-Gangetic Plain, why the northern districts are worst, the Himalayan trap, and what the health data actually shows."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="Bangladesh air quality PM2.5, Dhaka air pollution, transboundary pollution Bangladesh India, brick kilns Bangladesh, northern Bangladesh Rajshahi air quality, Indo-Gangetic Plain pollution Bangladesh"/>
+  <meta property="og:title" content="Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders"/>
+  <meta property="og:description" content="Bangladesh's deepening air quality crisis — what the data shows, where the pollution comes from, why the northern districts bear the worst of it, and why no single country can solve this alone."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-air-quality-bangladesh-pm25.html"/>
+  <meta property="article:published_time" content="2026-06-01"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders — Sajjadur Rahman</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Raleway:wght@400;500;600;700&amp;family=Noto+Serif+Bengali:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Hero ── */
+    .article-hero {
+      background: var(--ink);
+      border-bottom: 1px solid rgba(139,126,90,0.2);
+      padding: 72px 0 62px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(139,126,90,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      opacity: 0.8; margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.8vw, 44px);
+      font-weight: 600; color: var(--parchment);
+      line-height: 1.14; letter-spacing: -0.5px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+    .article-h1 .title-break { display: block; }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17px;
+      color: var(--gold-light); line-height: 1.76;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+      opacity: 0.85;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid rgba(139,126,90,0.25);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(139,126,90,0.15); border: 1.5px solid rgba(139,126,90,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; color: var(--parchment); display: block; letter-spacing: 0.3px; }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--gold-light); display: block; opacity: 0.7; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--gold-light); opacity: 0.65; }
+    .meta-dot { color: rgba(139,126,90,0.35); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; background: var(--parchment); }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 292px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.94;
+    }
+    .article-prose p { margin-bottom: 1.6em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 23px;
+      font-weight: 600; color: var(--ink); line-height: 1.3;
+      margin: 2.6em 0 0.85em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose em { font-style: italic; }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+
+    /* Superscript citations */
+    .article-prose sup {
+      font-size: 10px; font-family: var(--font-ui);
+      font-weight: 700; color: var(--gold);
+      vertical-align: super; line-height: 0;
+    }
+    .article-prose sup a {
+      color: var(--gold); text-decoration: none;
+      border-bottom: 1px dotted var(--gold);
+    }
+    .article-prose sup a:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* ── Stat callout blocks ── */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin: 2.4em 0;
+    }
+    .stat-block {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 20px 18px; text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-head); font-size: 28px;
+      font-weight: 700; color: var(--gold);
+      display: block; line-height: 1.1; margin-bottom: 6px;
+    }
+    .stat-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold-light);
+      opacity: 0.75; display: block; line-height: 1.5;
+    }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.4em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 18px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+
+    /* ── Source callout ── */
+    .source-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 22px; margin: 1.8em 0;
+    }
+    .source-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 8px;
+    }
+    .source-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.72; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+
+    /* ── Wind diagram (CSS-only) ── */
+    .wind-diagram {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 28px 24px; margin: 2.4em 0;
+      text-align: center;
+    }
+    .wd-title {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 20px;
+    }
+    .wd-flow {
+      display: flex; align-items: center;
+      justify-content: center; gap: 0; flex-wrap: wrap;
+    }
+    .wd-node {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 4px;
+    }
+    .wd-circle {
+      width: 64px; height: 64px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; text-align: center;
+      line-height: 1.3;
+    }
+    .wd-circle.source { background: rgba(160,50,30,0.25); color: #e8806a; border: 1px solid rgba(160,50,30,0.4); }
+    .wd-circle.mid    { background: rgba(139,126,90,0.15); color: var(--gold-light); border: 1px solid rgba(139,126,90,0.3); }
+    .wd-circle.end    { background: rgba(90,122,74,0.2); color: #9acd82; border: 1px solid rgba(90,122,74,0.35); }
+    .wd-name {
+      font-family: var(--font-body); font-size: 11px;
+      color: var(--gold-light); opacity: 0.7;
+      text-align: center; max-width: 70px; line-height: 1.3;
+    }
+    .wd-arrow {
+      font-size: 20px; color: var(--gold); opacity: 0.5;
+      margin: 0 6px; padding-bottom: 20px;
+      align-self: center;
+    }
+    .wd-caption {
+      font-family: var(--font-body); font-size: 12px;
+      color: var(--gold-light); opacity: 0.6;
+      margin-top: 16px; display: block; font-style: italic;
+    }
+
+    /* ── Ornament ── */
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 3em 0; opacity: 0.5;
+    }
+
+    /* ── References section ── */
+    .references-section {
+      margin-top: 3.5em; padding-top: 2em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .references-title {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 16px;
+    }
+    .ref-list { list-style: none; margin: 0; padding: 0; }
+    .ref-list li {
+      display: flex; gap: 12px;
+      font-family: var(--font-body); font-size: 13px;
+      color: var(--text-muted); line-height: 1.65;
+      margin-bottom: 10px; align-items: flex-start;
+    }
+    .ref-num {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; color: var(--gold);
+      flex-shrink: 0; width: 18px; padding-top: 3px;
+    }
+    .ref-list a { color: var(--gold); text-underline-offset: 2px; }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px; text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--parchment3); border: 2px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .bio-inner h4 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .bio-role-lbl { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-pale); padding: 5px 12px; border-radius: 20px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sb-body { padding: 14px 16px; }
+
+    /* Key stats sidebar */
+    .ks-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .ks-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .ks-num {
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+      min-width: 60px; line-height: 1;
+    }
+    .ks-label { font-family: var(--font-body); font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* TOC */
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px; color: var(--text-muted); text-decoration: none; line-height: 1.45; transition: color .18s, padding-left .18s; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+
+    /* CTA */
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--parchment); margin-bottom: 7px; line-height: 1.35; }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+
+    /* Share */
+    .share-btns { display: flex; gap: 6px; }
+    .share-b { flex: 1; display: block; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 8px 4px; text-align: center; text-decoration: none; background: var(--white); transition: color .18s, border-color .18s, background .18s; }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* Related */
+    .related-link { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale); text-decoration: none; color: inherit; transition: opacity .18s; }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+      .stat-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 24px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .stat-row .stat-block:last-child { grid-column: span 2; }
+      .wd-flow { flex-direction: column; align-items: center; }
+      .wd-arrow { transform: rotate(90deg); padding-bottom: 0; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO (dark background) -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Research &amp; Science</span>
+        </div>
+        <h1 class="article-h1">
+          Air Quality in Bangladesh<span class="title-break"> </span>
+          <em>PM2.5, Brick Kilns, and a Pollution That Crosses Borders</em>
+        </h1>
+        <p class="article-deck">Bangladesh's deepening air quality crisis — what the data shows, where the pollution originates, why the northern districts bear the worst of it, and why no single country can solve this alone.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · Environmental Science · BCSIR</span>
+            </div>
+          </div>
+          <span class="meta-chip">June 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">12 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Research &amp; Science</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <p>In 2024, the average Bangladeshi breathed air carrying 78 micrograms of fine particulate matter per cubic metre, every day, all year. The World Health Organisation's annual safe guideline for this pollutant is 5 µg/m³. Bangladesh's air was more than fifteen times more polluted than that threshold, not during an exceptional industrial incident, but as the national average across 170 million people. Only Chad ranked worse among 138 countries surveyed that year.<sup><a href="#ref1" id="cite1">1</a></sup> In 2025, the figure dropped to 66.1 µg/m³. Bangladesh still ranked second worst globally.<sup><a href="#ref2" id="cite2">2</a></sup></p>
+
+          <p>This is not a new problem. It is a deepening one. Between 1998 and 2023, particulate pollution in Bangladesh increased by 66 percent.<sup><a href="#ref3" id="cite3">3</a></sup> The average Dhaka resident is expected to live 6.9 years less than they would in a city meeting WHO air quality standards. Nationally, the figure is 5.5 years. Eighty thousand people die annually in Bangladesh from causes the WHO attributes to air pollution exposure.<sup><a href="#ref3" id="cite3">3</a></sup></p>
+
+          <div class="stat-row">
+            <div class="stat-block">
+              <span class="stat-num">78</span>
+              <span class="stat-label">µg/m³ annual avg. PM2.5, Bangladesh 2024</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-num">15.6×</span>
+              <span class="stat-label">above WHO annual safe guideline of 5 µg/m³</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-num">6.9 yrs</span>
+              <span class="stat-label">life expectancy lost in Dhaka to PM2.5 exposure</span>
+            </div>
+          </div>
+
+          <!-- S1 -->
+          <h2 id="s1">What PM2.5 Is and Why It Reaches the Bloodstream</h2>
+
+          <p>PM stands for particulate matter. The 2.5 refers to the maximum aerodynamic diameter, in micrometres, of the particles that fall within this measurement category: 2.5 micrometres or smaller. To put that scale in human terms, a human hair is roughly 60 to 70 micrometres in diameter. A PM2.5 particle is approximately 30 times smaller than that.</p>
+
+          <p>Size determines toxicity in a way that chemistry alone does not. The nose, throat, and upper respiratory tract filter larger particles through mucus and cilia. Anything above roughly 10 micrometres is typically caught and expelled before reaching the lungs. PM2.5 particles pass through entirely. They travel to the deep alveolar spaces of the lungs and can cross the alveolar membrane into the bloodstream, where they reach the heart, liver, kidneys, and, in studies of prolonged exposure, the brain.</p>
+
+          <p>PM10 (up to 10 micrometres) and PM2.5 are the two size fractions most commonly monitored and regulated globally. Bangladesh's own national ambient air quality standard for PM2.5 is 35 µg/m³ as an annual average, a threshold already more than six times the WHO guideline. Even this far weaker national standard is exceeded in every district of the country, every year, without exception.<sup><a href="#ref3" id="cite3b">3</a></sup></p>
+
+          <!-- S2 -->
+          <h2 id="s2">Where Bangladesh's Pollution Comes From</h2>
+
+          <p>Bangladesh's National Air Quality Management Plan (NAQMP 2024-2030), developed in partnership with the World Bank, contains the most detailed source attribution available for the country's pollution.<sup><a href="#ref4" id="cite4">4</a></sup> Breaking down the 56 percent of ambient PM2.5 in the Greater Dhaka Area that originates from local domestic sources, the analysis shows household combustion as the single largest contributor, accounting for 28 percent of ambient PM2.5. This comes from cooking with wood, rice straw, jute sticks, and dung cake, particularly in the dense peri-urban settlements that ring Dhaka and across rural Bangladesh, where only about 28 percent of households use clean cooking fuels such as LPG.<sup><a href="#ref5" id="cite5">5</a></sup></p>
+
+          <p>Power plants rank second at 24 percent of local PM2.5. Brick kilns account for 13 percent of primary PM2.5 but contribute a disproportionate 25 percent of total sulphur dioxide emissions, which react in the atmosphere to form secondary particulate matter. Open burning of municipal solid waste contributes 11 percent. Road dust and vehicle exhaust together account for roughly 12 percent.<sup><a href="#ref4" id="cite4b">4</a></sup></p>
+
+          <div class="source-box">
+            <span class="source-label">Source attribution for Dhaka's ambient PM2.5 (local sources only)</span>
+            <p>Household combustion (biomass): 28% &nbsp;·&nbsp; Power plants: 24% &nbsp;·&nbsp; Brick kilns (primary): 13% &nbsp;·&nbsp; Open waste burning: 11% &nbsp;·&nbsp; Road dust: 8% &nbsp;·&nbsp; Vehicle exhaust: 4%. Remaining 44% of Dhaka's total PM2.5 originates from sources outside the Greater Dhaka Area, including transboundary transport. Source: NAQMP 2024-2030.<sup><a href="#ref4">4</a></sup></p>
+          </div>
+
+          <!-- S3 -->
+          <h2 id="s3">The Brick Kiln Season</h2>
+
+          <p>No single domestic source shapes Bangladesh's winter air quality as visibly as the brick kiln industry. Over 7,000 traditional kilns operate nationwide, concentrated in peri-urban areas around Dhaka, Narayanganj, Gazipur, and Munshiganj, and in significant numbers across the Rajshahi and Khulna divisions.<sup><a href="#ref6" id="cite6">6</a></sup> These kilns fire clay bricks by burning coal and biomass at high temperatures, releasing dense plumes of particulates, sulphur dioxide, black carbon, and carbon monoxide.</p>
+
+          <p>The kilns operate almost entirely during the dry season, from October through March, when ground conditions are suitable for clay excavation and brick drying. This timing coincides precisely with the worst atmospheric conditions for pollutant dispersal: cool temperatures, frequent temperature inversions, slow winds, and the complete absence of monsoon rainfall. Bangladesh's monsoon season runs from June through September, and the heavy rainfall during those months scrubs particles from the air with unusual effectiveness. When the rains end in October, the kilns begin firing and the atmosphere's self-cleaning mechanism shuts off simultaneously.</p>
+
+          <p>The Brick Manufacturing and Kiln Establishment Act of 2013 prohibits the use of fuel wood and mercury-bearing coal and restricts kiln construction on agricultural land and in residential zones. Enforcement has been inconsistent across successive governments. Many legally closed kilns resume operation within months of any crackdown, responding to the persistent construction demand that urbanisation and infrastructure expansion create. The number of registered motor vehicles in Bangladesh grew from 1.4 million in 2010 to 6 million in 2023 (Bangladesh Road Transport Authority, 2024). The roads, buildings, and flyovers built to serve that growth required, and continue to require, vast quantities of fired brick.</p>
+
+          <!-- S4 -->
+          <h2 id="s4">The Transboundary Dimension</h2>
+
+          <p>Up to 40 percent of Dhaka's air pollution originates from transboundary sources in neighbouring countries, according to a World Bank analysis of the Indo-Gangetic Plain.<sup><a href="#ref5" id="cite5b">5</a></sup> A separate estimate from the same research found that roughly 30 percent of the population-level exposure to PM2.5 in Bangladesh's largest cities has its origin in India, carried by prevailing north-westerly winds during the dry season.<sup><a href="#ref7" id="cite7">7</a></sup></p>
+
+          <p>This is not a metaphor. It is a documented atmospheric transport process traceable through satellite data and chemical mass balance modelling.</p>
+
+          <div class="wind-diagram" aria-label="Transboundary pollution transport from India to Bangladesh">
+            <span class="wd-title">Transboundary PM2.5 Transport — Winter Westerly Flow</span>
+            <div class="wd-flow">
+              <div class="wd-node">
+                <div class="wd-circle source">Punjab<br/>Haryana<br/>UP</div>
+                <span class="wd-name">Crop burning<br/>Oct–Nov</span>
+              </div>
+              <div class="wd-arrow">→</div>
+              <div class="wd-node">
+                <div class="wd-circle mid">Bihar<br/>West<br/>Bengal</div>
+                <span class="wd-name">Industrial<br/>biomass burning</span>
+              </div>
+              <div class="wd-arrow">→</div>
+              <div class="wd-node">
+                <div class="wd-circle end">Northern<br/>Bangladesh</div>
+                <span class="wd-name">Rajshahi<br/>Rangpur</span>
+              </div>
+              <div class="wd-arrow">→</div>
+              <div class="wd-node">
+                <div class="wd-circle end">Dhaka<br/>and south</div>
+                <span class="wd-name">Diluted but<br/>still significant</span>
+              </div>
+            </div>
+            <span class="wd-caption">Prevailing north-westerly winter winds carry particulates across the Indo-Gangetic Plain into Bangladesh. Northern districts receive the highest concentration loads. Sources: World Bank (2025); Springer Nature (2025).</span>
+          </div>
+
+          <p>The Indo-Gangetic Plain (IGP) is, by most measures, the most polluted continuous airshed on earth. It stretches from Pakistan's Punjab through India's Haryana, Uttar Pradesh, Bihar, and West Bengal, into Nepal and Bangladesh. The plain is flat, densely populated, intensely agricultural, and heavily industrialised. Its eastern edge shares a border with Bangladesh.</p>
+
+          <p>Every October and November, following the Kharif harvest, farmers across Punjab, Haryana, and Uttar Pradesh burn millions of tonnes of rice straw and other crop stubble to clear fields for the next planting season. This practice, the subject of repeated government bans with limited enforcement, releases PM2.5 concentrations that spike across the eastern IGP within days of each burning event. Research published in Nature Climate and Atmospheric Science estimated that agricultural residue burning in Punjab, Haryana, and Uttar Pradesh alone causes 44,000 to 98,000 PM2.5-related premature deaths annually in India, with documented transboundary transport into Bangladesh, Nepal, and Pakistan through the predominantly north-westerly winter winds.<sup><a href="#ref8" id="cite8">8</a></sup></p>
+
+          <p>A 25-year satellite study using NASA's MODIS instruments, published in 2025, found that between 2000 and 2009, the highest PM concentrations in the broader IGP region were concentrated in Bihar, Uttar Pradesh, northern West Bengal, and Bangladesh. By the period 2020 to 2024, those hotspots had expanded to cover all of West Bengal and Bihar, with Bangladesh pulled further into the contaminated zone. The expansion is driven primarily by biomass burning and carbonaceous aerosols — meaning that agricultural and combustion practices in the middle IGP are directly worsening air quality in Bangladesh's northwest, independent of any local emission changes.<sup><a href="#ref9" id="cite9">9</a></sup></p>
+
+          <div class="article-ornament">— ❧ —</div>
+
+          <!-- S5 -->
+          <h2 id="s5">Why the Northern Districts Are Worst</h2>
+
+          <p>Dhaka dominates the public conversation about Bangladesh's air quality. The city's PM2.5 figures are severe, and its size and population density make its exposure burden enormous in absolute terms. But the capital benefits from a geographical advantage that the country's northwest does not have: distance from the primary transboundary source.</p>
+
+          <p>The districts of Rajshahi, Chapainawabganj, Naogaon, and Nawabganj in the Rajshahi Division, and Dinajpur, Thakurgaon, and Panchagarh in the Rangpur Division, sit on the western and north-western periphery of Bangladesh, sharing borders directly with India's West Bengal and Bihar — the eastern extension of the most intensively polluted stretch of the IGP. When north-westerly winter winds carry pollution from Bihar and West Bengal, these districts receive it first and at the highest concentration, before any dilution from distance.</p>
+
+          <p>A 20-year analysis using satellite data, published in Air Quality, Atmosphere and Health (Springer, 2025), identified PM2.5 hotspots across Bangladesh in Dhaka, Mymensingh, Chittagong, Barisal, Khulna, Rajshahi, and Rangpur, with winter concentrations consistently the highest of all seasons. The study's Potential Source Contribution Function (PSCF) analysis found that Bangladesh's air quality shows the strongest transboundary signal in winter, with source regions in the IGP as the dominant external contributors.<sup><a href="#ref10" id="cite10">10</a></sup></p>
+
+          <p>Local sources compound the transboundary load in the northwest. Rajshahi Division has a high density of brick kilns relative to its population. Post-harvest burning of rice straw is widespread in the northern agricultural districts. The flat terrain provides no topographic barrier to interrupt or disperse incoming pollutant plumes. And unlike Dhaka, where the complex urban airflow patterns of a dense megacity create at least some turbulent mixing, the open northern plains offer no equivalent dispersal mechanism.</p>
+
+          <!-- S6 -->
+          <h2 id="s6">The Himalayan Trap</h2>
+
+          <p>There is a physical reason why pollution from across the Indo-Gangetic Plain accumulates rather than disperses. The Himalayan range forms a continuous wall along the northern edge of the plain. In winter, westerly winds blowing across the subcontinent cannot cross the Himalaya and are deflected southward and south-eastward along the mountain face. The pollution they carry is channelled into the plain and held within it, unable to disperse northward into the colder air mass above the mountains.</p>
+
+          <p>As the air quality expert R.L. Verma of the Asian Institute of Technology explained, "The westerly wind cannot cross over the high Himalaya, and remains trapped on the southern side in Nepal, Bangladesh and India... The pollution cannot disperse and is especially bad during winter due to inversion where it mixes with the fog."<sup><a href="#ref11" id="cite11">11</a></sup></p>
+
+          <p>The inversion Verma describes forms overnight across the flat terrain when land surfaces radiate heat rapidly after sunset, creating a layer of cold air at ground level beneath warmer air above. This stable atmospheric cap prevents pollutants from rising and dispersing vertically. They concentrate close to the surface, mix with winter fog in the pre-dawn hours, and remain there until the mid-morning sun provides enough heating to break the inversion. On particularly calm winter mornings in Rajshahi or Dinajpur, this combination of trapped transboundary pollution and locally-generated emissions produces both visibility conditions and particle concentrations that can exceed what Dhaka experiences on the same day.</p>
+
+          <div class="pull-quote">
+            <p>Countries and cities sharing the IGP cannot solve this problem working alone. A World Bank analysis found that coordinated regional action across South Asia could save more than 750,000 lives annually, compared to domestic-only policies pursued independently.<sup><a href="#ref5">5</a></sup></p>
+          </div>
+
+          <p>The Malé Declaration, signed in 1998 between Bangladesh, India, Nepal, Pakistan, Bhutan, Iran, Maldives, and Sri Lanka, established a framework for transboundary pollution cooperation. Most analysts assess it as having failed to deliver meaningful reductions in the 27 years since its signing, pointing to the steady deterioration in IGP air quality over the same period.<sup><a href="#ref11" id="cite11b">11</a></sup></p>
+
+          <!-- S7 -->
+          <h2 id="s7">What the Health Data Shows</h2>
+
+          <p>The AQLI 2025 report calculated that Bangladesh's average citizen loses 5.5 years of life expectancy from particulate pollution, relative to a world meeting the WHO guideline. In Dhaka, Gazipur, and Narayanganj, the figure rises above 6.5 years. In Dhaka city specifically, residents face a projected 6.9-year reduction in life expectancy from PM2.5 exposure alone.<sup><a href="#ref3" id="cite3c">3</a></sup></p>
+
+          <p>The WHO's own assessments link PM2.5 exposure to 48 percent of chronic obstructive pulmonary disease deaths, along with significant shares of cardiovascular disease, stroke, and lung cancer mortality. The health burden extends beyond mortality: neurological impairment in children, low birth weight, reduced lung development, and depression have all been documented in studies of long-term exposure at PM2.5 concentrations similar to those in Bangladesh.</p>
+
+          <p>A World Bank report on air quality in the Indo-Gangetic Plain and Himalayan foothills, released in 2025, found that even modest increases in PM2.5 concentration are associated with learning losses in schoolchildren equivalent to several weeks of schooling per year, through direct impairment of cognitive performance.<sup><a href="#ref5" id="cite5c">5</a></sup> Bangladesh has no systematic school closure protocol for extreme pollution events, unlike India and Pakistan, which have introduced partial measures in the most affected cities.</p>
+
+          <p>Particulate pollution is, by the AQLI's assessment, the greatest external threat to life expectancy in Bangladesh, surpassing cardiovascular disease, smoking, and infectious disease as the leading life-shortening exposure. The country recorded no month of good air quality throughout 2024.<sup><a href="#ref1" id="cite1b">1</a></sup></p>
+
+          <!-- S8 -->
+          <h2 id="s8">The Monitoring Gap</h2>
+
+          <p>Bangladesh has 16 Continuous Air Quality Monitoring Stations (CAMS) across eleven cities, installed under the Clean Air and Sustainable Environment project of the Department of Environment. Dhaka has four stations; Chittagong has two; Rajshahi, Rangpur, Sylhet, Khulna, Barisal, Cumilla, Mymensingh, Gazipur, Narayanganj, and Narsingdi each have one.<sup><a href="#ref12" id="cite12">12</a></sup></p>
+
+          <p>Sixteen monitoring stations for 170 million people across 147,000 square kilometres. For comparison, Delhi alone operates more than 40 regulatory PM2.5 monitoring stations for a city of roughly 33 million. California, with a population smaller than Bangladesh's, has over 200 regulatory stations.</p>
+
+          <p>The consequence is that large areas of the country — including many of the northern districts that receive the heaviest transboundary pollution loads — have no ground-level PM2.5 measurement at all. The hotspot maps produced by researchers rely primarily on satellite-derived data from instruments like NASA's MODIS, which provides broad regional coverage but cannot resolve neighbourhood-scale variation. The spatial and chemical specificity required to design effective local interventions is not available from the current monitoring network.</p>
+
+          <!-- S9 -->
+          <h2 id="s9">What Is Being Done</h2>
+
+          <p>Bangladesh launched its National Air Quality Management Plan (NAQMP) for 2024-2030, supported by a $290 million Bangladesh Clean Air Project (BCAP) from the World Bank and a complementary $1.25 billion green and climate-resilient development policy reform package.<sup><a href="#ref13" id="cite13">13</a></sup> The BCAP commits to expanding air quality monitoring infrastructure, establishing continuous emissions monitoring at major industrial sites, improving vehicle inspection systems, and introducing 400 electric buses in Dhaka.</p>
+
+          <p>The Air Pollution Control Rules of 2022 introduced Bangladesh's first dedicated legal framework for air pollution, including provisions that allow the government to designate degraded airsheds with specific management requirements. ICDDR,B has developed and promoted Zigzag 2.0 kiln technology, which modifies brick kiln combustion pathways to reduce PM2.5 emissions materially. Adoption of this technology remains partial and voluntary.</p>
+
+          <p>These are meaningful steps. They are not sufficient to bring Bangladesh's air quality to the WHO guideline within any foreseeable timeline, and they cannot by themselves address the transboundary component that accounts for roughly 40 percent of Dhaka's pollution load. That portion of the problem requires multilateral action on the scale of the IGP airshed, coordinated across India, Bangladesh, Nepal, and Pakistan, in a region where political cooperation on environmental issues has historically lagged behind the scientific consensus on shared risk.</p>
+
+          <p>The physics are blunt: the wind blows north-west to south-east across the subcontinent's winter months, the Himalaya are not going to move, and the northern districts of Bangladesh sit at the downwind end of the world's most polluted shared airspace. Domestic action matters. Regional action is what determines the ceiling.</p>
+
+          <!-- References -->
+          <div class="references-section">
+            <span class="references-title">References</span>
+            <ol class="ref-list">
+              <li id="ref1"><span class="ref-num">1</span><span>IQAir. (2025, March). <em>World Air Quality Report 2024.</em> IQAir AG, Steinach, Switzerland. <a href="https://www.iqair.com/world-most-polluted-countries" target="_blank" rel="noopener">iqair.com</a></span></li>
+              <li id="ref2"><span class="ref-num">2</span><span>IQAir / The Business Standard. (2026, March). Bangladesh's air remains the second-worst globally in 2025. <a href="https://www.tbsnews.net/bangladesh/environment/bangladesh-2nd-most-polluted-globally-only-14-cities-meet-who-air-quality" target="_blank" rel="noopener">tbsnews.net</a></span></li>
+              <li id="ref3"><span class="ref-num">3</span><span>Air Quality Life Index (AQLI). (2025). <em>2025 Annual Report.</em> Energy Policy Institute at the University of Chicago (EPIC). <a href="https://aqli.epic.uchicago.edu" target="_blank" rel="noopener">aqli.epic.uchicago.edu</a></span></li>
+              <li id="ref4"><span class="ref-num">4</span><span>Ministry of Environment, Forest and Climate Change, Bangladesh. (2024). <em>National Air Quality Management Plan 2024-2030 (NAQMP).</em> Government of Bangladesh / World Bank.</span></li>
+              <li id="ref5"><span class="ref-num">5</span><span>World Bank Group. (2025). <em>A Breath of Change: Solutions for Cleaner Air in the Indo-Gangetic Plains and Himalayan Foothills.</em> Washington, DC. <a href="https://www.worldbank.org/en/region/sar/brief/air-quality-management-in-the-indo-gangetic-plains-and-himalayan-foothills" target="_blank" rel="noopener">worldbank.org</a></span></li>
+              <li id="ref6"><span class="ref-num">6</span><span>Hossain et al. (2021); Mahmud (2024), as cited in: Spatiotemporal patterns and hot spots of PM2.5 in Bangladesh, ScienceDirect (2024). Government of Bangladesh Brick Manufacturing and Kiln Establishment Act (2013).</span></li>
+              <li id="ref7"><span class="ref-num">7</span><span>Down to Earth. (2025, December). Why India's domestic reforms alone can't combat air pollution. Citing World Bank "Striving for Clean Air" report. <a href="https://www.downtoearth.org.in/air/why-indias-domestic-reforms-alone-cant-combat-air-pollution" target="_blank" rel="noopener">downtoearth.org.in</a></span></li>
+              <li id="ref8"><span class="ref-num">8</span><span>Venkataraman, C., et al. (2022). Air quality impacts of crop residue burning in India and mitigation alternatives. <em>Nature Communications,</em> PMC9663555. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9663555/" target="_blank" rel="noopener">ncbi.nlm.nih.gov</a></span></li>
+              <li id="ref9"><span class="ref-num">9</span><span>Down to Earth. (2025, May). Bihar and West Bengal emerge as major pollution hotspots in 25-year satellite study of biomass burning in Indo-Gangetic Plain. <a href="https://www.downtoearth.org.in/air/bihar-and-west-bengal-at-centre-of-expanding-pollution-hotspot-driven-by-biomass-burning-25-year-study-finds" target="_blank" rel="noopener">downtoearth.org.in</a></span></li>
+              <li id="ref10"><span class="ref-num">10</span><span>Islam, M.N., et al. (2025). Long-term PM2.5 exposure in Bangladesh: identification of pollution hotspots, trends, sources and health risk assessment. <em>Air Quality, Atmosphere &amp; Health.</em> Springer Nature. <a href="https://link.springer.com/article/10.1007/s11869-025-01768-7" target="_blank" rel="noopener">springer.com</a></span></li>
+              <li id="ref11"><span class="ref-num">11</span><span>Nepali Times, citing R.L. Verma, Asian Institute of Technology. (2024, May). The politics of pollution. <a href="https://nepalitimes.com/news/the-politics-of-pollution" target="_blank" rel="noopener">nepalitimes.com</a></span></li>
+              <li id="ref12"><span class="ref-num">12</span><span>The Daily Star. (2025, March). Dhaka's deadly air: What we know and what we can do. Citing DoE CAMS network data. <a href="https://www.thedailystar.net/opinion/focus/news/what-we-know-and-what-we-can-do-3850041" target="_blank" rel="noopener">thedailystar.net</a></span></li>
+              <li id="ref13"><span class="ref-num">13</span><span>World Bank Group. (2025). Air Quality Management in the Indo-Gangetic Plains and Himalayan Foothills — Bangladesh Clean Air Project (BCAP). <a href="https://www.worldbank.org/en/region/sar/brief/air-quality-management-in-the-indo-gangetic-plains-and-himalayan-foothills" target="_blank" rel="noopener">worldbank.org</a></span></li>
+            </ol>
+          </div>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">Air Quality</a>
+            <a href="blog.html" class="a-tag">PM2.5</a>
+            <a href="blog.html" class="a-tag">Bangladesh</a>
+            <a href="blog.html" class="a-tag">Transboundary Pollution</a>
+            <a href="blog.html" class="a-tag">Brick Kilns</a>
+            <a href="blog.html" class="a-tag">Environment</a>
+            <a href="blog.html" class="a-tag">Indo-Gangetic Plain</a>
+            <a href="blog.html" class="a-tag">Public Health</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · Environmental Science · University of Dhaka &amp; BCSIR</span>
+              <p>NST Fellow and active researcher working on soil science, atmospheric pollution, and environmental risk assessment in Dhaka's urban environment. Research Trainee at BCSIR on particulate matter characterisation. Available for research proposal writing, manuscript editing, data analysis, and environmental consulting.</p>
+              <div class="bio-links">
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="research.html" class="bio-lnk">My Research</a>
+                <a href="services.html" class="bio-lnk">Services</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- Key statistics -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Key Figures</span></div>
+            <div class="sb-body">
+              <div class="ks-item">
+                <span class="ks-num">78</span>
+                <span class="ks-label">µg/m³ — Bangladesh annual PM2.5 average, 2024 (IQAir)</span>
+              </div>
+              <div class="ks-item">
+                <span class="ks-num">15.6×</span>
+                <span class="ks-label">above WHO annual guideline of 5 µg/m³</span>
+              </div>
+              <div class="ks-item">
+                <span class="ks-num">40%</span>
+                <span class="ks-label">of Dhaka's PM2.5 from transboundary sources (World Bank)</span>
+              </div>
+              <div class="ks-item">
+                <span class="ks-num">7,000+</span>
+                <span class="ks-label">traditional brick kilns nationwide, mostly Oct–Mar</span>
+              </div>
+              <div class="ks-item">
+                <span class="ks-num">5.5 yrs</span>
+                <span class="ks-label">life expectancy lost nationally to PM2.5 (AQLI 2025)</span>
+              </div>
+              <div class="ks-item">
+                <span class="ks-num">80,000</span>
+                <span class="ks-label">deaths/year in Bangladesh linked to air pollution (WHO)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1" class="toc-link"><span class="toc-n">–</span>What PM2.5 is</a></li>
+                <li><a href="#s2" class="toc-link"><span class="toc-n">–</span>Where the pollution comes from</a></li>
+                <li><a href="#s3" class="toc-link"><span class="toc-n">–</span>The brick kiln season</a></li>
+                <li><a href="#s4" class="toc-link"><span class="toc-n">–</span>The transboundary dimension</a></li>
+                <li><a href="#s5" class="toc-link"><span class="toc-n">–</span>Why the north is worst</a></li>
+                <li><a href="#s6" class="toc-link"><span class="toc-n">–</span>The Himalayan trap</a></li>
+                <li><a href="#s7" class="toc-link"><span class="toc-n">–</span>Health consequences</a></li>
+                <li><a href="#s8" class="toc-link"><span class="toc-n">–</span>The monitoring gap</a></li>
+                <li><a href="#s9" class="toc-link"><span class="toc-n">–</span>What is being done</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="sb-cta">
+            <h4>Need <em>environmental research support?</em></h4>
+            <p>I offer research proposal writing, data analysis, and manuscript editing for environmental and agricultural science projects across Bangladesh.</p>
+            <a href="services.html" class="btn btn-gold">View Services →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=Air%20Quality%20in%20Bangladesh%20%E2%80%94%20PM2.5%2C%20Brick%20Kilns%2C%20and%20a%20Pollution%20That%20Crosses%20Borders%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-air-quality-bangladesh-pm25.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-air-quality-bangladesh-pm25.html"
+                   target="_blank" rel="noopener">LinkedIn</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=Air%20Quality%20in%20Bangladesh%20%E2%80%94%20PM2.5%2C%20Brick%20Kilns%2C%20and%20a%20Pollution%20That%20Crosses%20Borders&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-air-quality-bangladesh-pm25.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-slow-release-fertilizer.html" class="related-link">
+                <span class="rel-icon">🌱</span>
+                <span class="rel-title">What is slow-release fertilizer and why does Bangladesh need it?</span>
+              </a>
+              <a href="blog-how-to-write-research-proposal.html" class="related-link">
+                <span class="rel-icon">📋</span>
+                <span class="rel-title">How to write a research proposal that actually gets funded</span>
+              </a>
+              <a href="blog-grammar-mistakes-south-asian.html" class="related-link">
+                <span class="rel-icon">✍️</span>
+                <span class="rel-title">Common grammar mistakes in South Asian academic manuscripts</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Reading progress bar
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    // TOC smooth scroll + active highlight
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+    const obs  = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const a = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (a) a.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sIds.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+  </script>
+
+</body>
+</html>
