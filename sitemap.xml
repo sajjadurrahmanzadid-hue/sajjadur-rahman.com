@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- ═══════════════════════════════════════════════
+       MAIN PAGES
+       ═══════════════════════════════════════════════ -->
+
   <!-- Homepage -->
   <url>
     <loc>https://sajjadur-rahman.com/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +16,7 @@
   <!-- About -->
   <url>
     <loc>https://sajjadur-rahman.com/about.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -20,7 +24,7 @@
   <!-- Services -->
   <url>
     <loc>https://sajjadur-rahman.com/services.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -28,15 +32,15 @@
   <!-- Research -->
   <url>
     <loc>https://sajjadur-rahman.com/research.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog index — update lastmod every time a new post is published -->
   <url>
     <loc>https://sajjadur-rahman.com/blog.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -44,9 +48,118 @@
   <!-- Contact -->
   <url>
     <loc>https://sajjadur-rahman.com/contact.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- ═══════════════════════════════════════════════
+       BLOG POSTS (sajjadur-rahman.com hosted only)
+       NOTE: Blogger posts live on blogspot.com —
+       they are a different domain and do NOT go here.
+       Add one <url> block below for each new post
+       file as it is published to this domain.
+       ═══════════════════════════════════════════════ -->
+
+  <!-- Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-air-quality-bangladesh-pm25.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- How to Write a Research Proposal That Actually Gets Funded -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-how-to-write-research-proposal.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Common Grammar Mistakes in South Asian Academic Manuscripts -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-grammar-mistakes-south-asian.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- One-Way ANOVA in R for Agricultural Research -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-anova-r-tutorial.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- How to Write an Academic CV for Graduate School Applications -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-academic-cv-guide.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- IMRaD Explained: How to Structure a Scientific Research Paper -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-imrad-explained.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Tukey HSD Test Explained — When to Use It and How to Interpret the Results -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-tukey-hsd-explained.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Understanding NUE Indices — AE, RE, PE, and NHI Explained -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-nue-indices-explained.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- What is Slow-Release Fertilizer and Why Does Bangladesh Need It? -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-slow-release-fertilizer.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── PENDING BUILDS (uncomment when files are published) ──────────
+
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-spade-open-source.html</loc>
+    <lastmod>YYYY-MM-DD</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-nst-fellowship-guide.html</loc>
+    <lastmod>YYYY-MM-DD</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  ─────────────────────────────────────────────────────────────────── -->
+
+  <!-- ── TEMPLATE — copy and fill for each new post ──────────────────
+
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-SLUG-HERE.html</loc>
+    <lastmod>YYYY-MM-DD</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  ─────────────────────────────────────────────────────────────────── -->
 
 </urlset>
