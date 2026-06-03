@@ -68,7 +68,13 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-
+<!-- What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling -->
+<url>
+  <loc>https://sajjadur-rahman.com/blog-nitrogen-cycling-urea.html</loc>
+  <lastmod>2026-06-03</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.7</priority>
+</url>
   <!-- How to Write a Research Proposal That Actually Gets Funded -->
   <url>
     <loc>https://sajjadur-rahman.com/blog-how-to-write-research-proposal.html</loc>
