@@ -23,7 +23,6 @@
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://sajjadur-rahman.com"/>
   <title>Sajjadur Rahman — Researcher · Editor · Consultant</title>
-  <link rel="canonical" href="https://sajjadur-rahman.com/"/>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
   <script>
@@ -623,6 +622,99 @@
     }
 
     /* ══════════════════════════════════
+       NEWSLETTER STRIP
+       ══════════════════════════════════ */
+    .newsletter-strip {
+      background: var(--ink-soft);
+      padding: 60px 0;
+      border-top: 1px solid rgba(139,126,90,0.15);
+    }
+    .newsletter-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-strip .nl-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .newsletter-strip h2 {
+      font-family: var(--font-head);
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--parchment);
+      margin: 0 0 12px;
+      line-height: 1.25;
+    }
+    .newsletter-strip h2 em { font-style: italic; color: var(--gold-light); }
+    .newsletter-strip .nl-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.75;
+      margin: 0 0 28px;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto 14px;
+    }
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(139,126,90,0.35);
+      border-radius: var(--radius);
+      color: var(--parchment);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-form input[type="email"]::placeholder { color: var(--text-light); }
+    .newsletter-form input[type="email"]:focus { border-color: var(--gold); }
+    .newsletter-form button {
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      background: var(--gold);
+      color: var(--ink);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .newsletter-form button:hover { background: var(--gold-light); }
+    .nl-wa {
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      letter-spacing: 0.3px;
+      color: var(--text-light);
+    }
+    .nl-wa a {
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200,191,160,0.25);
+      transition: border-color 0.2s;
+    }
+    .nl-wa a:hover { border-color: var(--gold-light); }
+    @media (max-width: 600px) {
+      .newsletter-form { flex-direction: column; }
+      .newsletter-strip h2 { font-size: 24px; }
+    }
+
+    /* ══════════════════════════════════
        CTA
        ══════════════════════════════════ */
     .cta-section {
@@ -740,7 +832,6 @@
             </p>
             <div class="hero-actions">
               <a href="services.html" class="btn btn-primary btn-arrow">View Services</a>
-              <a href="about.html" class="btn btn-outline">About Me</a>
               <a href="https://wa.me/8801941582285" class="btn btn-gold" target="_blank" rel="noopener">💬 WhatsApp</a>
             </div>
             <div class="hero-meta">
@@ -815,6 +906,74 @@
         </div>
       </div>
     </div>
+
+    <!-- ════════════════════════
+         BLOG PREVIEW
+         ════════════════════════ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">From the Blog</span>
+          <h2>Words from the Field</h2>
+          <span class="ornament">— ❧ —</span>
+          <p>New writing on soil science, research methods, and academic writing — published directly on this site.</p>
+        </div>
+
+        <div class="grid-3">
+
+          <a href="blog-imrad-explained.html" class="blog-card">
+            <div class="blog-header">
+              <span class="blog-num">01</span>
+              <div>
+                <span class="blog-cat">Scientific Writing</span>
+                <h3>IMRaD Explained: How to Structure a Scientific Research Paper</h3>
+              </div>
+            </div>
+            <div class="blog-body">
+              <p>What each section of a scientific paper is actually doing, where most first papers go wrong, and how to fix the most common structural mistakes.</p>
+              <span class="blog-read">Read Post</span>
+            </div>
+          </a>
+
+          <a href="blog-nue-indices-explained.html" class="blog-card">
+            <div class="blog-header">
+              <span class="blog-num">02</span>
+              <div>
+                <span class="blog-cat">Research</span>
+                <h3>Understanding NUE Indices — AE, RE, PE, and NHI Explained</h3>
+              </div>
+            </div>
+            <div class="blog-body">
+              <p>AE, RE, PE, NHI — the four nitrogen use efficiency indices every agricultural researcher needs to know. Formulas, a worked example, and the relationship between them.</p>
+              <span class="blog-read">Read Post</span>
+            </div>
+          </a>
+
+          <a href="blog-slow-release-fertilizer.html" class="blog-card">
+            <div class="blog-header">
+              <span class="blog-num">03</span>
+              <div>
+                <span class="blog-cat">Soil Science</span>
+                <h3>What is Slow-Release Fertilizer and Why Does Bangladesh Need It?</h3>
+              </div>
+            </div>
+            <div class="blog-body">
+              <p>Bangladesh loses up to 60% of applied urea nitrogen before crops can use it. Slow-release fertilizers change that equation — and local materials may hold the answer.</p>
+              <span class="blog-read">Read Post</span>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="text-center mt-32">
+          <a href="blog.html" class="btn btn-outline btn-arrow">All Posts</a>
+          &nbsp;&nbsp;
+          <a href="https://sajjadur-rahman.blogspot.com" class="btn btn-gold" target="_blank" rel="noopener">Bengali Blog on Blogger ↗</a>
+        </div>
+
+      </div>
+    </section>
+
 
     <!-- ════════════════════════
          SERVICES PREVIEW
@@ -1080,28 +1239,6 @@
       </div>
     </section>
 
-    <!-- ════════════════════════
-         BLOG PREVIEW
-         ════════════════════════ -->
-    <section class="section reveal">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">From the Blog</span>
-          <h2>Words from the Field</h2>
-          <span class="ornament">— ❧ —</span>
-          <p>New writing on soil science, research methods, and academic writing — published directly on this site.</p>
-        </div>
-
-        <div class="grid-3" id="blog-preview-grid"></div>
-
-        <div class="text-center mt-32">
-          <a href="blog.html" class="btn btn-outline btn-arrow">All Posts</a>
-          &nbsp;&nbsp;
-          <a href="https://sajjadur-rahman.blogspot.com" class="btn btn-gold" target="_blank" rel="noopener">Bengali Blog on Blogger ↗</a>
-        </div>
-
-      </div>
-    </section>
 
     <!-- ════════════════════════
          QUOTE
@@ -1118,6 +1255,32 @@
         </div>
       </div>
     </div>
+
+    <!-- ════════════════════════
+         NEWSLETTER
+         ════════════════════════ -->
+    <section class="newsletter-strip reveal">
+      <div class="container">
+        <div class="newsletter-inner">
+          <span class="nl-eyebrow">Stay in the Loop</span>
+          <h2>New Writing,<br/><em>When It's Ready</em></h2>
+          <p class="nl-desc">
+            Posts on soil science, research methods, and academic writing —
+            sent when they're ready, not on a schedule.
+            No noise. Just the writing.
+          </p>
+          <form class="newsletter-form" action="https://formspree.io/f/maqkkgbd" method="POST">
+            <input type="hidden" name="_subject" value="Newsletter Signup — sajjadur-rahman.com"/>
+            <input type="hidden" name="source" value="newsletter"/>
+            <input type="email" name="email" placeholder="your@email.com" required="required"/>
+            <button type="submit">Subscribe</button>
+          </form>
+          <p class="nl-wa">
+            Prefer WhatsApp? &nbsp;<a href="https://wa.me/8801941582285?text=Please%20add%20me%20to%20your%20broadcast%20list" target="_blank" rel="noopener">Message me to join the broadcast list ↗</a>
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- ════════════════════════
          CTA
@@ -1188,66 +1351,6 @@
 
   <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
   <script src="assets/js/main.js"></script>
- <script>
-  (async function () {
-    const grid = document.getElementById('blog-preview-grid');
-    if (!grid) return;
-
-    const fallback = [
-      {
-        file: 'blog-nitrogen-cycling-urea.html',
-        category_en: 'Research &amp; Science',
-        title_en: 'What Happens to Urea After It\'s Applied: A Visual Explainer of Nitrogen Cycling',
-        excerpt_en: 'Volatilisation, leaching, denitrification — the three pathways that steal nitrogen before crops can use it, explained with reactions and a diagram.'
-      },
-      {
-        file: 'blog-air-quality-bangladesh-pm25.html',
-        category_en: 'Research &amp; Science',
-        title_en: 'Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders',
-        excerpt_en: 'Bangladesh\'s deepening air quality crisis — what the data shows, where the pollution originates, and why no single country can solve this alone.'
-      },
-      {
-        file: 'blog-how-to-write-research-proposal.html',
-        category_en: 'Research &amp; Career',
-        title_en: 'How to Write a Research Proposal That Actually Gets Funded',
-        excerpt_en: 'A section-by-section guide — title, background, objectives, methodology, timeline, and budget — with vague vs specific examples throughout.'
-      }
-    ];
-
-    function renderCards(posts) {
-      grid.innerHTML = posts.map((p, i) => `
-        <a href="${p.file}" class="blog-card">
-          <div class="blog-header">
-            <span class="blog-num">0${i + 1}</span>
-            <div>
-              <span class="blog-cat">${p.category_en}</span>
-              <h3>${p.title_en}</h3>
-            </div>
-          </div>
-          <div class="blog-body">
-            <p>${p.excerpt_en}</p>
-            <span class="blog-read">Read Post</span>
-          </div>
-        </a>
-      `).join('');
-    }
-
-    try {
-      const posts = await fetch('posts.json').then(r => {
-        if (!r.ok) throw new Error('posts.json returned ' + r.status);
-        return r.json();
-      });
-      const recent = posts
-        .filter(p => p.status === 'published')
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 3);
-      renderCards(recent);
-    } catch (e) {
-      console.error('Blog preview: falling back to hardcoded posts.', e);
-      renderCards(fallback);
-    }
-  })();
-</script>
 
 </body>
 </html>
