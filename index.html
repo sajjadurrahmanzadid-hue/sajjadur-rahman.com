@@ -1092,51 +1092,7 @@
           <p>New writing on soil science, research methods, and academic writing — published directly on this site.</p>
         </div>
 
-        <div class="grid-3">
-
-          <a href="blog-imrad-explained.html" class="blog-card">
-            <div class="blog-header">
-              <span class="blog-num">01</span>
-              <div>
-                <span class="blog-cat">Scientific Writing</span>
-                <h3>IMRaD Explained: How to Structure a Scientific Research Paper</h3>
-              </div>
-            </div>
-            <div class="blog-body">
-              <p>What each section of a scientific paper is actually doing, where most first papers go wrong, and how to fix the most common structural mistakes.</p>
-              <span class="blog-read">Read Post</span>
-            </div>
-          </a>
-
-          <a href="blog-nue-indices-explained.html" class="blog-card">
-            <div class="blog-header">
-              <span class="blog-num">02</span>
-              <div>
-                <span class="blog-cat">Research</span>
-                <h3>Understanding NUE Indices — AE, RE, PE, and NHI Explained</h3>
-              </div>
-            </div>
-            <div class="blog-body">
-              <p>AE, RE, PE, NHI — the four nitrogen use efficiency indices every agricultural researcher needs to know. Formulas, a worked example, and the relationship between them.</p>
-              <span class="blog-read">Read Post</span>
-            </div>
-          </a>
-
-          <a href="blog-slow-release-fertilizer.html" class="blog-card">
-            <div class="blog-header">
-              <span class="blog-num">03</span>
-              <div>
-                <span class="blog-cat">Soil Science</span>
-                <h3>What is Slow-Release Fertilizer and Why Does Bangladesh Need It?</h3>
-              </div>
-            </div>
-            <div class="blog-body">
-              <p>Bangladesh loses up to 60% of applied urea nitrogen before crops can use it. Slow-release fertilizers change that equation — and local materials may hold the answer.</p>
-              <span class="blog-read">Read Post</span>
-            </div>
-          </a>
-
-        </div>
+        <div class="grid-3" id="blog-preview-grid"></div>
 
         <div class="text-center mt-32">
           <a href="blog.html" class="btn btn-outline btn-arrow">All Posts</a>
@@ -1232,6 +1188,34 @@
 
   <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
   <script src="assets/js/main.js"></script>
+  <script>
+  (async function () {
+    try {
+      const posts = await fetch('posts.json').then(r => r.json());
+      const grid = document.getElementById('blog-preview-grid');
+      if (!grid) return;
+      const recent = posts
+        .filter(p => p.status === 'published')
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 3);
+      grid.innerHTML = recent.map((p, i) => `
+        <a href="${p.file}" class="blog-card">
+          <div class="blog-header">
+            <span class="blog-num">0${i + 1}</span>
+            <div>
+              <span class="blog-cat">${p.category_en}</span>
+              <h3>${p.title_en}</h3>
+            </div>
+          </div>
+          <div class="blog-body">
+            <p>${p.excerpt_en}</p>
+            <span class="blog-read">Read Post</span>
+          </div>
+        </a>
+      `).join('');
+    } catch (e) {}
+  })();
+</script>
 
 </body>
 </html>
