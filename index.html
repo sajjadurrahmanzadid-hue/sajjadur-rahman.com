@@ -1188,17 +1188,34 @@
 
   <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
   <script src="assets/js/main.js"></script>
-  <script>
+ <script>
   (async function () {
-    try {
-      const posts = await fetch('posts.json').then(r => r.json());
-      const grid = document.getElementById('blog-preview-grid');
-      if (!grid) return;
-      const recent = posts
-        .filter(p => p.status === 'published')
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 3);
-      grid.innerHTML = recent.map((p, i) => `
+    const grid = document.getElementById('blog-preview-grid');
+    if (!grid) return;
+
+    const fallback = [
+      {
+        file: 'blog-nitrogen-cycling-urea.html',
+        category_en: 'Research &amp; Science',
+        title_en: 'What Happens to Urea After It\'s Applied: A Visual Explainer of Nitrogen Cycling',
+        excerpt_en: 'Volatilisation, leaching, denitrification — the three pathways that steal nitrogen before crops can use it, explained with reactions and a diagram.'
+      },
+      {
+        file: 'blog-air-quality-bangladesh-pm25.html',
+        category_en: 'Research &amp; Science',
+        title_en: 'Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders',
+        excerpt_en: 'Bangladesh\'s deepening air quality crisis — what the data shows, where the pollution originates, and why no single country can solve this alone.'
+      },
+      {
+        file: 'blog-how-to-write-research-proposal.html',
+        category_en: 'Research &amp; Career',
+        title_en: 'How to Write a Research Proposal That Actually Gets Funded',
+        excerpt_en: 'A section-by-section guide — title, background, objectives, methodology, timeline, and budget — with vague vs specific examples throughout.'
+      }
+    ];
+
+    function renderCards(posts) {
+      grid.innerHTML = posts.map((p, i) => `
         <a href="${p.file}" class="blog-card">
           <div class="blog-header">
             <span class="blog-num">0${i + 1}</span>
@@ -1213,7 +1230,22 @@
           </div>
         </a>
       `).join('');
-    } catch (e) {}
+    }
+
+    try {
+      const posts = await fetch('posts.json').then(r => {
+        if (!r.ok) throw new Error('posts.json returned ' + r.status);
+        return r.json();
+      });
+      const recent = posts
+        .filter(p => p.status === 'published')
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 3);
+      renderCards(recent);
+    } catch (e) {
+      console.error('Blog preview: falling back to hardcoded posts.', e);
+      renderCards(fallback);
+    }
   })();
 </script>
 
