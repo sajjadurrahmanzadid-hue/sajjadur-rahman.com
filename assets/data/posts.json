@@ -1,5 +1,21 @@
 [
   {
+  "slug": "nitrogen-cycling-urea",
+  "file": "blog-nitrogen-cycling-urea.html",
+  "title_en": "What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling",
+  "title_bn": "ইউরিয়া প্রয়োগের পরে কী হয়: নাইট্রোজেন চক্রের একটি দৃশ্যমান ব্যাখ্যা",
+  "date": "2026-06-03",
+  "category_en": "Research & Science",
+  "category_bn": "গবেষণা ও বিজ্ঞান",
+  "excerpt_en": "Volatilisation, leaching, denitrification — the three pathways that steal nitrogen before crops can use it, with reactions at every step and a soil cross-section diagram.",
+  "excerpt_bn": "উদ্বায়ীকরণ, লিচিং, ডিনাইট্রিফিকেশন — তিনটি পথ যা ফসলের নাইট্রোজেন চুরি করে, প্রতিটি ধাপে রাসায়নিক সমীকরণ সহ।",
+  "tags_en": ["urea", "nitrogen", "volatilisation", "leaching", "denitrification", "NUE", "Bangladesh", "soil science"],
+  "tags_bn": ["ইউরিয়া", "নাইট্রোজেন", "মৃত্তিকা বিজ্ঞান", "বাংলাদেশ"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 9
+},
+  {
     "slug": "air-quality-bangladesh-pm25",
     "file": "blog-air-quality-bangladesh-pm25.html",
     "title_en": "Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders",
