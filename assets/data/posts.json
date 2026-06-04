@@ -1,5 +1,21 @@
 [
   {
+  "slug": "soil-ph-bangladesh",
+  "file": "blog-soil-ph-bangladesh.html",
+  "title_en": "Soil pH in Bangladesh: Why It Matters More Than Most Farmers Realize",
+  "title_bn": "বাংলাদেশে মাটির পিএইচ: কেন এটি বেশিরভাগ কৃষকের ভাবনার চেয়ে বেশি গুরুত্বপূর্ণ",
+  "date": "2026-06-04",
+  "category_en": "Research & Science",
+  "category_bn": "গবেষণা ও বিজ্ঞান",
+  "excerpt_en": "Acidic soils in Barind and Sylhet, alkaline coasts, phosphorus lock-up, aluminium toxicity, and the lime application most farmers never make.",
+  "excerpt_bn": "বরেন্দ্র ও সিলেটের অম্লীয় মাটি, উপকূলীয় ক্ষারীয় মাটি, ফসফরাস আটকে পড়া এবং চুন প্রয়োগ — যা বেশিরভাগ কৃষক কখনো করেন না।",
+  "tags_en": ["soil pH", "Bangladesh", "soil science", "lime", "nutrient availability", "Barind Tract", "aluminium toxicity"],
+  "tags_bn": ["মাটির পিএইচ", "বাংলাদেশ", "মৃত্তিকা বিজ্ঞান", "চুন"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 7
+},
+  {
   "slug": "nitrogen-cycling-urea",
   "file": "blog-nitrogen-cycling-urea.html",
   "title_en": "What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling",
