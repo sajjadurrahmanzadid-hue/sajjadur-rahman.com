@@ -1,5 +1,29 @@
 [
   {
+  "slug": "nitrogen-n2o-climate",
+  "file": "blog-nitrogen-n2o-climate.html",
+  "title_en": "Nitrogen Pollution is Bangladesh's Hidden Climate Problem",
+  "date": "2026-06-05",
+  "category_en": "Research & Science",
+  "excerpt_en": "N₂O from paddy fields is 273× more warming than CO₂. Bangladesh's agricultural mitigation opportunity is hiding in nitrogen management.",
+  "tags_en": ["nitrogen", "N2O", "climate change", "Bangladesh", "WED 2026", "greenhouse gas"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 5
+},
+{
+  "slug": "bangladesh-climate-crisis",
+  "file": "blog-bangladesh-climate-crisis.html",
+  "title_en": "Bangladesh Didn't Cause the Climate Crisis. It's Paying for It Anyway.",
+  "date": "2026-06-05",
+  "category_en": "Opinion",
+  "excerpt_en": "Bangladesh contributes less than 0.3% of global GHG emissions. It ranks among the world's most climate-affected countries. The gap is the story of climate justice.",
+  "tags_en": ["opinion", "climate justice", "Bangladesh", "WED 2026", "climate change"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 6
+},
+  {
   "slug": "soil-ph-bangladesh",
   "file": "blog-soil-ph-bangladesh.html",
   "title_en": "Soil pH in Bangladesh: Why It Matters More Than Most Farmers Realize",
