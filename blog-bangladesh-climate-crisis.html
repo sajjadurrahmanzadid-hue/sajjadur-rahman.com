@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com                                     ║
+    ║  blog-bangladesh-climate-crisis.html                     ║
+    ║  World Environment Day 2026 — Opinion                    ║
+    ╚══════════════════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bangladesh Didn't Cause the Climate Crisis. It's Paying for It Anyway. — Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-bangladesh-climate-crisis.html"/>
+  <meta name="description" content="Bangladesh contributes less than 0.3% of global greenhouse gas emissions. It ranks among the world's most climate-affected countries. A World Environment Day 2026 opinion piece."/>
+  <meta property="og:title" content="Bangladesh Didn't Cause the Climate Crisis. It's Paying for It Anyway."/>
+  <meta property="og:description" content="Bangladesh contributes less than 0.3% of global GHG emissions. It ranks among the world's most climate-affected countries. The gap between those two facts is the story of climate justice."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-bangladesh-climate-crisis.html"/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TFCD42G87F');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* POST HERO — dark with opinion accent */
+    .post-hero {
+      background: #1a1a2e;
+      padding: 64px 0 56px;
+      position: relative; overflow: hidden;
+    }
+    .post-hero::before {
+      content: '🌊';
+      position: absolute; right: 4%; top: 50%;
+      transform: translateY(-50%);
+      font-size: 240px; opacity: 0.06;
+      line-height: 1; pointer-events: none;
+    }
+    .post-breadcrumb {
+      font-family: var(--font-ui); font-size: 9.5px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: #7a8aa0; margin-bottom: 18px;
+    }
+    .post-breadcrumb a { color: #8ab0d0; text-decoration: none; }
+    .post-breadcrumb a:hover { text-decoration: underline; }
+    .post-hero .eyebrow { margin-bottom: 14px; color: #8ab0d0; }
+    .post-hero .eyebrow::after { background: #8ab0d0; }
+    .post-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 600; color: #f0f4f8;
+      line-height: 1.26; max-width: 820px; margin-bottom: 22px;
+    }
+    .post-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 10px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: #7a8aa0; margin-bottom: 18px;
+    }
+    .post-meta .dot { color: #8ab0d0; opacity: 0.6; }
+    .post-meta .author { color: #a0c0e0; }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .post-tag {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .post-tag.wed { color: #c8e8ff; background: rgba(42,100,160,0.35); border: 0.5px solid rgba(42,100,160,0.5); }
+    .post-tag.opinion { color: #ffd580; background: rgba(180,120,20,0.3); border: 0.5px solid rgba(180,120,20,0.4); }
+    .post-tag.default { color: #8ab0d0; background: rgba(42,80,120,0.25); border: 0.5px solid rgba(42,80,120,0.4); }
+
+    /* ARTICLE LAYOUT */
+    .article-wrap {
+      display: grid; grid-template-columns: 1fr 260px;
+      gap: 52px; align-items: start;
+      max-width: 1100px; margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    @media (max-width: 860px) {
+      .article-wrap { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px 60px; }
+    }
+
+    /* ARTICLE BODY */
+    .article-body {
+      font-family: var(--font-body); font-size: 16px;
+      line-height: 1.88; color: var(--ink); min-width: 0;
+    }
+    .article-body p { margin-bottom: 1.45em; }
+    .article-body h2 {
+      font-family: var(--font-head); font-size: 23px; font-weight: 600;
+      color: var(--ink); line-height: 1.3;
+      margin: 2.4em 0 0.7em; padding-top: 0.5em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .article-body h2:first-of-type { margin-top: 1.6em; }
+    .article-body strong { font-weight: 600; color: var(--ink); }
+    .article-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { color: var(--ink); }
+    .article-body sup a {
+      font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+      color: var(--gold); text-decoration: none; letter-spacing: 0;
+    }
+    .article-body sup a:hover { text-decoration: underline; }
+
+    /* OPINION LABEL */
+    .opinion-notice {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(180,120,20,0.08);
+      border: 0.5px solid rgba(180,120,20,0.25);
+      border-radius: var(--radius);
+      padding: 11px 16px; margin-bottom: 1.8em;
+    }
+    .opinion-badge {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: #b07010; background: rgba(180,120,20,0.12);
+      padding: 3px 10px; border-radius: 20px;
+      border: 0.5px solid rgba(180,120,20,0.3);
+      white-space: nowrap;
+    }
+    .opinion-notice p {
+      margin: 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.5;
+    }
+
+    /* WED BANNER */
+    .wed-banner {
+      background: linear-gradient(135deg, #1e3a1e 0%, #2a4a2a 100%);
+      border: 0.5px solid rgba(90,122,74,0.4);
+      border-radius: var(--radius);
+      padding: 16px 20px; margin-bottom: 2em;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .wed-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+    .wed-banner-label {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: #8bc48b; display: block; margin-bottom: 4px;
+    }
+    .wed-banner p { margin: 0; font-size: 14px; line-height: 1.6; color: #c8e0c8; }
+    .wed-banner strong { color: #e8f4e8; font-weight: 600; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 3px solid #2a6a9a;
+      padding: 14px 20px; margin: 1.8em 0;
+      background: rgba(42,106,154,0.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 18px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.55; margin: 0;
+    }
+
+    /* STAT CALLOUT */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 16px; margin: 1.8em 0;
+    }
+    @media (max-width: 480px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-card {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 16px 18px;
+    }
+    .stat-number {
+      font-family: var(--font-head); font-size: 28px; font-weight: 700;
+      color: var(--ink); line-height: 1; margin-bottom: 4px;
+    }
+    .stat-label { font-size: 12.5px; color: var(--text-muted); line-height: 1.45; }
+
+    /* REFERENCES */
+    .references-box {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 20px 22px; margin: 2.4em 0 1.6em;
+    }
+    .references-label {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 12px;
+    }
+    .references-list { margin: 0; padding-left: 20px; list-style: decimal; }
+    .references-list li {
+      font-size: 12.5px; line-height: 1.7; color: var(--text-muted);
+      margin-bottom: 7px; padding-left: 4px;
+    }
+    .references-list li:last-child { margin-bottom: 0; }
+    .references-list em { font-style: italic; color: var(--ink-soft); }
+
+    /* SIDEBAR */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 20px; }
+    .sidebar-card:last-child { margin-bottom: 0; }
+    .sc-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sc-body { padding: 16px; }
+    .sc-body p { font-size: 13px; line-height: 1.65; color: var(--text-muted); margin-bottom: 12px; }
+    .sc-body p:last-child { margin-bottom: 0; }
+    .sc-links a { display: block; font-size: 12.5px; color: var(--ink-soft); text-decoration: none; padding: 8px 0; border-bottom: 0.5px solid var(--parchment3); line-height: 1.4; transition: color .2s; }
+    .sc-links a:last-child { border-bottom: none; padding-bottom: 0; }
+    .sc-links a:hover { color: var(--gold); }
+    .sc-cat { font-family: var(--font-ui); font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 2px; }
+    .sc-links a:hover .sc-cat { color: var(--gold); }
+    .sc-current { color: var(--gold) !important; font-weight: 600; }
+    .author-card { background: var(--ink-soft); }
+    .author-card .sc-head { background: var(--ink); border-bottom-color: rgba(139,126,90,0.2); }
+    .author-card .sc-body { padding: 18px 16px; }
+    .author-name { font-family: var(--font-head); font-size: 17px; font-weight: 600; color: var(--parchment); margin-bottom: 3px; }
+    .author-role { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .author-bio { font-size: 12.5px; line-height: 1.65; color: var(--text-light); margin-bottom: 14px; }
+
+    /* RELATED */
+    .related-section { background: var(--parchment2); border-top: 1px solid var(--gold-pale); padding: 56px 0 64px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 32px; }
+    @media (max-width: 720px) { .related-grid { grid-template-columns: 1fr; gap: 16px; } }
+    .related-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 22px 20px; box-shadow: var(--shadow-sm); text-decoration: none; color: inherit; display: block; transition: transform .22s var(--ease), box-shadow .22s var(--ease); }
+    .related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .rc-cat { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+    .rc-title { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--ink); line-height: 1.38; margin-bottom: 10px; transition: color .2s; }
+    .related-card:hover .rc-title { color: var(--gold); }
+    .rc-excerpt { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0; }
+    .rc-read { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; transition: gap .2s; }
+    .rc-read::after { content: '→'; }
+    .related-card:hover .rc-read { gap: 9px; }
+
+    .post-nav { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--gold-pale); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  </style>
+</head>
+<body>
+
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <div class="post-hero">
+      <div class="container">
+        <div class="post-breadcrumb">
+          <a href="blog.html">Blog</a> &rsaquo; Opinion
+        </div>
+        <span class="eyebrow">Opinion</span>
+        <h1>Bangladesh Didn't Cause the Climate Crisis.<br/>It's Paying for It Anyway.</h1>
+        <div class="post-meta">
+          <span>05 June 2026</span>
+          <span class="dot">·</span>
+          <span>6 min read</span>
+          <span class="dot">·</span>
+          <span class="author">Sajjadur Rahman</span>
+        </div>
+        <div class="post-tags">
+          <span class="post-tag wed">🌍 WED 2026</span>
+          <span class="post-tag opinion">Opinion</span>
+          <span class="post-tag default">Climate Justice</span>
+          <span class="post-tag default">Bangladesh</span>
+          <span class="post-tag default">Climate Change</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-wrap">
+
+      <article class="article-body">
+
+        <!-- OPINION NOTICE -->
+        <div class="opinion-notice">
+          <span class="opinion-badge">Opinion</span>
+          <p>This piece represents the author's own views. All factual claims are cited. Published on World Environment Day, 5 June 2026.</p>
+        </div>
+
+        <!-- WED BANNER -->
+        <div class="wed-banner">
+          <span class="wed-icon">🌍</span>
+          <div>
+            <span class="wed-banner-label">World Environment Day 2026</span>
+            <p><strong>"Inspired by Nature. For Climate. For Our Future."</strong> — Part of a two-part WED series. See also: <a href="blog-nitrogen-n2o-climate.html" style="color:#8bc48b;">Nitrogen Pollution is Bangladesh's Hidden Climate Problem</a></p>
+          </div>
+        </div>
+
+        <p>Bangladesh's share of global greenhouse gas emissions is less than 0.3 percent<sup><a href="#ref-1" id="cite-1">[1]</a></sup>. Its contribution to the accumulation of atmospheric CO&#8322; since the Industrial Revolution is smaller still — a rounding error in the global accounting. The country that built the climate problem is not Bangladesh.</p>
+
+        <p>But the country absorbing its consequences increasingly is.</p>
+
+        <!-- STAT ROW -->
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-number">&lt;0.3%</div>
+            <div class="stat-label">Bangladesh's share of global greenhouse gas emissions<sup><a href="#ref-1">[1]</a></sup></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">Top 10</div>
+            <div class="stat-label">Bangladesh's consistent ranking among the world's most climate-affected countries<sup><a href="#ref-2">[2]</a></sup></div>
+          </div>
+        </div>
+
+        <!-- WHAT THE DATA SAYS -->
+        <h2>What the data says</h2>
+
+        <p>The Global Climate Risk Index, published annually by Germanwatch, has ranked Bangladesh among the ten most climate-affected countries in the world for most of the past two decades<sup><a href="#ref-2" id="cite-2">[2]</a></sup>. The numbers behind that ranking are not abstractions.</p>
+
+        <p>Mean annual temperatures across Bangladesh have risen at approximately 0.13°C per decade since 1949, with the rate of warming accelerating in more recent decades<sup><a href="#ref-3" id="cite-3">[3]</a></sup>. The frequency of extreme weather events — floods, cyclones, heatwaves — has increased measurably across the same period. Sea levels in the Bay of Bengal are rising at rates consistent with or above global averages, compounded by regional land subsidence<sup><a href="#ref-4" id="cite-4">[4]</a></sup>.</p>
+
+        <p>In 2024, flash flooding struck the northeast of Bangladesh with unusual severity, affecting an estimated five million people. The Meghna and Surma river systems breached banks in areas that had not flooded in living memory. Government and humanitarian agencies attributed the scale directly to regional climate-driven changes in monsoon intensity<sup><a href="#ref-5" id="cite-5">[5]</a></sup>.</p>
+
+        <p>This is not projection. It's inventory.</p>
+
+        <!-- WHAT CLIMATE CHANGE LOOKS LIKE IN THE SOIL -->
+        <h2>What climate change looks like in the soil</h2>
+
+        <p>The conversations about Bangladesh's climate vulnerability tend to centre on water. The soil story is less visible and just as serious.</p>
+
+        <p>Seawater intrusion into the coastal belt has pushed large areas of Khulna, Satkhira, and Barisal toward alkaline pH. Iron and zinc, already scarce in marine sediment soils, become more chemically locked as salinity rises. Farmers apply more zinc sulfate without realising the chemistry can't release it. The soil is not deficient. It's blocked by conditions it didn't previously have.</p>
+
+        <p>Rising temperatures accelerate nitrogen volatilisation. Each degree of warming converts ammonium to ammonia gas faster, particularly on the alkaline water surface of a flooded paddy. The urea Bangladesh imports at significant national cost disappears into the atmosphere more efficiently in a warmer year. Nitrogen use efficiency falls. Input costs rise. Yields stagnate.</p>
+
+        <p>Monsoon irregularity disrupts fertilizer timing in ways extension calendars haven't caught up with. Farmers who follow conventional application schedules correctly still lose nitrogen to ill-timed rain events that weren't part of the seasonal pattern a decade ago. The calendar is right. The climate has moved.</p>
+
+        <!-- THE EQUITY CALCULATION -->
+        <h2>The equity calculation</h2>
+
+        <p>There is a particular cruelty in the structure of climate vulnerability. The countries with the fewest historical emissions tend to have the fewest resources to adapt, the most physical exposure, and the least leverage in the international negotiations where adaptation finance is decided.</p>
+
+        <p>Bangladesh has managed this position with considerable skill and considerable suffering. The country has built cyclone shelters that save tens of thousands of lives per event. It has developed flood-tolerant rice varieties, community early warning systems, and coastal embankment networks that climate-vulnerable nations on three other continents study as models. It has done more with its adaptation capacity than almost any country at its income level.</p>
+
+        <p>And the returns on that investment are narrowing. The same embankments that held in 1998 are now breached by events the design specifications didn't anticipate. The salinity-tolerant rice varieties released in 2010 are under pressure from salinity levels that weren't projected until 2035. Adaptation in Bangladesh is not failing — but the climate is accelerating past the pace at which it can be rebuilt.</p>
+
+        <div class="pull-quote">
+          <p>"The pledges made at successive COPs have been revised, deferred, and conditionalised enough times that the word 'pledge' has lost much of its predictive value in Dhaka's policy circles."</p>
+        </div>
+
+        <p>The international climate finance architecture has consistently fallen short. The hundred-billion-dollar annual commitment made in 2009 was not fully met until 2022, and much of what was counted arrived as loans rather than grants to countries already under debt pressure<sup><a href="#ref-6" id="cite-6">[6]</a></sup>. The Loss and Damage fund agreed at COP27 exists on paper. Its capitalisation and governance remain contested.</p>
+
+        <p>None of this changes the physical trajectory without emissions reductions from the countries that built the problem.</p>
+
+        <!-- WHAT TODAY ASKS FOR -->
+        <h2>What today asks for</h2>
+
+        <p>World Environment Day was established in 1972 to give a voice to environmental concerns that political systems defer. Fifty-four years later, the deferral continues. The 2026 theme — "Inspired by Nature. For Climate. For Our Future." — carries the same urgency as every theme before it. The question is whether this year produces the finance, the technology transfer, and the actual emissions reductions that climate justice requires, rather than another set of conditional targets with 2035 or 2050 deadlines.</p>
+
+        <p>From a research plot in Dhaka, measuring nitrogen loss from soil columns and particulate matter in urban air, the gap between what the science says and what policy delivers is visible every day.</p>
+
+        <p>Bangladesh is already adapting. It has built that capacity because it had no other choice. The question for the rest of the world is whether adaptation is all it will do — or whether mitigation arrives before the margin for adaptation runs out.</p>
+
+        <!-- REFERENCES -->
+        <div class="references-box">
+          <span class="references-label">Sources</span>
+          <ol class="references-list">
+            <li id="ref-1">Crippa, M. et al. (2023). GHG Emissions of All World Countries. <em>EDGAR v8.0.</em> European Commission Joint Research Centre / Publications Office of the European Union. https://edgar.jrc.ec.europa.eu</li>
+            <li id="ref-2">Eckstein, D., Künzel, V. &amp; Schäfer, L. (2024). <em>Global Climate Risk Index 2024.</em> Germanwatch, Berlin. https://www.germanwatch.org/en/cri</li>
+            <li id="ref-3">Alam, E., Hridoy, A.-E.E., Tusher, S.M.S.H., Islam, A.R.M.T. &amp; Islam, M.K. (2023). Climate change in Bangladesh: Temperature and rainfall climatology of Bangladesh for 1949–2013 and its implication on rice yield. <em>PLOS ONE</em>, 18(10), e0292668. https://doi.org/10.1371/journal.pone.0292668</li>
+            <li id="ref-4">IPCC (2022). Sea Level Change. In: <em>AR6 Working Group II, Chapter 3.</em> Cambridge University Press. https://doi.org/10.1017/9781009325844.005</li>
+            <li id="ref-5">OCHA Bangladesh (2024). <em>Flash Floods Situation Report No. 3,</em> September 2024. United Nations Office for the Coordination of Humanitarian Affairs.</li>
+            <li id="ref-6">OECD (2023). <em>Climate Finance Provided and Mobilised by Developed Countries in 2013–2022.</em> OECD Publishing, Paris. https://doi.org/10.1787/19150727</li>
+          </ol>
+        </div>
+
+        <div class="post-nav">
+          <a href="blog.html" class="btn btn-outline btn-arrow">All Posts</a>
+          <a href="blog-nitrogen-n2o-climate.html" class="btn btn-gold">Read WED Research Post</a>
+        </div>
+
+      </article>
+
+      <aside class="article-sidebar">
+
+        <div class="sidebar-card author-card">
+          <div class="sc-head">About the author</div>
+          <div class="sc-body">
+            <div class="author-name">Sajjadur Rahman</div>
+            <div class="author-role">MSc Researcher · Soil &amp; Environment</div>
+            <p class="author-bio">MSc researcher at the University of Dhaka working on nitrogen use efficiency and slow-release fertilizers. He writes about soil science, climate, and agricultural development in Bangladesh.</p>
+            <a href="about.html" class="btn btn-gold" style="font-size:9px;padding:9px 18px;">Full Profile</a>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sc-head">WED 2026 series</div>
+          <div class="sc-body">
+            <div class="sc-links">
+              <a href="blog-bangladesh-climate-crisis.html">
+                <span class="sc-cat sc-current">You are here · Opinion</span>
+                <span class="sc-current">Bangladesh Didn't Cause the Climate Crisis</span>
+              </a>
+              <a href="blog-nitrogen-n2o-climate.html">
+                <span class="sc-cat">Research — WED 2026</span>
+                Nitrogen Pollution is Bangladesh's Hidden Climate Problem
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sc-head">Related reading</div>
+          <div class="sc-body">
+            <div class="sc-links">
+              <a href="blog-soil-ph-bangladesh.html">
+                <span class="sc-cat">Soil Science</span>
+                Soil pH in Bangladesh
+              </a>
+              <a href="blog-air-quality-bangladesh-pm25.html">
+                <span class="sc-cat">Research &amp; Science</span>
+                Air Quality in Bangladesh: PM2.5 &amp; Brick Kilns
+              </a>
+              <a href="blog-nitrogen-cycling-urea.html">
+                <span class="sc-cat">Research &amp; Science</span>
+                What Happens to Urea After It's Applied
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <div class="related-section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Keep Reading</span>
+          <h2>Related Posts</h2>
+          <span class="ornament">&#8212; &#10087; &#8212;</span>
+        </div>
+        <div class="related-grid">
+          <a href="blog-nitrogen-n2o-climate.html" class="related-card">
+            <span class="rc-cat">Research · WED 2026</span>
+            <div class="rc-title">Nitrogen Pollution is Bangladesh's Hidden Climate Problem</div>
+            <p class="rc-excerpt">N₂O from paddy fields is 273× more warming than CO₂. Bangladesh's agricultural mitigation opportunity is hiding in the same nitrogen management solutions that would improve yields and reduce costs.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+          <a href="blog-air-quality-bangladesh-pm25.html" class="related-card">
+            <span class="rc-cat">Research &amp; Science</span>
+            <div class="rc-title">Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders</div>
+            <p class="rc-excerpt">Bangladesh's deepening air quality crisis — what the data shows, where the pollution originates, and why no single country can solve this alone.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+          <a href="blog-soil-ph-bangladesh.html" class="related-card">
+            <span class="rc-cat">Soil Science</span>
+            <div class="rc-title">Soil pH in Bangladesh: Why It Matters More Than Most Farmers Realize</div>
+            <p class="rc-excerpt">Seawater intrusion, acidic highland soils, phosphorus lock-up — how Bangladesh's changing climate is making its soil chemistry problem worse.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4><h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a><a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a><a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a><a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a><a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a><a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a><a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4><h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html" data-en>Manuscript Editing</a><a href="services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+          <a href="services.html" data-en>Data Analysis</a><a href="services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+          <a href="services.html" data-en>Thesis Consultation</a><a href="services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+          <a href="services.html" data-en>IELTS Tutoring</a><a href="services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+          <a href="services.html" data-en>CV Development</a><a href="services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+          <a href="services.html" data-en>Research Proposals</a><a href="services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4><h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank">💬</a>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
