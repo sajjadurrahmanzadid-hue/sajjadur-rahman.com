@@ -60,11 +60,16 @@
        Add one <url> block below for each new post
        file as it is published to this domain.
        ═══════════════════════════════════════════════ -->
-
+<url>
+  <loc>https://sajjadur-rahman.com/blog-soil-ph-bangladesh.html</loc>
+  <lastmod>2026-06-04</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.7</priority>
+</url>
   <!-- Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders -->
   <url>
     <loc>https://sajjadur-rahman.com/blog-air-quality-bangladesh-pm25.html</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
