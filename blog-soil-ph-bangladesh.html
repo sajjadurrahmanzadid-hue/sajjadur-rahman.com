@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com                                     ║
+    ║  blog-soil-ph-bangladesh.html                            ║
+    ║  STATUS TRACKER                                          ║
+    ║  style.css     ✅ Done                                   ║
+    ║  main.js       ✅ Done                                   ║
+    ║  index.html    ✅ Done                                   ║
+    ║  about.html    ✅ Done                                   ║
+    ║  services.html ✅ Done                                   ║
+    ║  research.html ✅ Done                                   ║
+    ║  blog.html     ✅ Done                                   ║
+    ║  contact.html  🔲 Queued                                 ║
+    ╚══════════════════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soil pH in Bangladesh: Why It Matters More Than Most Farmers Realize — Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-soil-ph-bangladesh.html"/>
+  <meta name="description" content="Soil pH is the variable most fertilizer decisions ignore. Acidic and alkaline soils across Bangladesh's divisions, how pH locks out phosphorus and zinc, and what lime application actually looks like in practice."/>
+  <meta property="og:title" content="Soil pH in Bangladesh: Why It Matters More Than Most Farmers Realize"/>
+  <meta property="og:description" content="Acidic soils in Barind and Sylhet, alkaline coasts, phosphorus lock-up, aluminium toxicity, and the lime application most farmers never apply. A practical explainer for farmers, students, and NGOs."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-soil-ph-bangladesh.html"/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TFCD42G87F');
+  </script>
+  <!-- End Google Analytics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ══════════════════════════════════
+       POST HERO
+       ══════════════════════════════════ */
+    .post-hero {
+      background: var(--ink-soft);
+      padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '🌿';
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 240px;
+      opacity: 0.05;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .post-breadcrumb {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 18px;
+    }
+    .post-breadcrumb a { color: var(--gold); text-decoration: none; }
+    .post-breadcrumb a:hover { text-decoration: underline; }
+    .post-hero .eyebrow { margin-bottom: 14px; }
+    .post-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.26;
+      max-width: 820px;
+      margin-bottom: 22px;
+    }
+    .post-hero h1 em { font-style: italic; color: var(--gold-light); }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 18px;
+    }
+    .post-meta .dot { color: var(--gold); opacity: 0.55; }
+    .post-meta .author { color: var(--gold-light); }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .post-tag {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(139,126,90,0.15);
+      border: 0.5px solid rgba(139,126,90,0.3);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ══════════════════════════════════
+       ARTICLE LAYOUT
+       ══════════════════════════════════ */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 52px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    @media (max-width: 860px) {
+      .article-wrap { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px 60px; }
+    }
+
+    /* ══════════════════════════════════
+       ARTICLE BODY
+       ══════════════════════════════════ */
+    .article-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.88;
+      color: var(--ink);
+      min-width: 0;
+    }
+    .article-body p { margin-bottom: 1.45em; }
+    .article-body h2 {
+      font-family: var(--font-head);
+      font-size: 23px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+      margin: 2.4em 0 0.7em;
+      padding-top: 0.5em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .article-body h2:first-of-type { margin-top: 1.6em; }
+    .article-body strong { font-weight: 600; color: var(--ink); }
+    .article-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { color: var(--ink); }
+
+    /* ══════════════════════════════════
+       REGIONAL pH GRID
+       ══════════════════════════════════ */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 1.8em 0 2em;
+    }
+    @media (max-width: 540px) {
+      .region-grid { grid-template-columns: 1fr; }
+    }
+    .region-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-top: 3px solid var(--gold);
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .region-card.very-acid { border-top-color: #c04010; }
+    .region-card.acid      { border-top-color: #b06a10; }
+    .region-card.slight    { border-top-color: var(--accent); }
+    .region-card.alkaline  { border-top-color: #2a6a9a; }
+
+    .region-name {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .region-ph {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .region-card.very-acid .region-ph { color: #c04010; }
+    .region-card.acid      .region-ph { color: #b06a10; }
+    .region-card.slight    .region-ph { color: #3d6a28; }
+    .region-card.alkaline  .region-ph { color: #2a6a9a; }
+
+    .region-status {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .region-card.very-acid .region-status { background: rgba(192,64,16,0.1); color: #c04010; }
+    .region-card.acid      .region-status { background: rgba(176,106,16,0.1); color: #b06a10; }
+    .region-card.slight    .region-status { background: rgba(90,122,74,0.1); color: #3d6a28; }
+    .region-card.alkaline  .region-status { background: rgba(42,106,154,0.1); color: #2a6a9a; }
+
+    .region-districts {
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+    .region-constraint {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════════
+       LIME TABLE
+       ══════════════════════════════════ */
+    .lime-table-wrap {
+      margin: 1.6em 0 2em;
+      overflow-x: auto;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+    .lime-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: var(--white);
+    }
+    .lime-table thead tr {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .lime-table th {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 11px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .lime-table td {
+      padding: 12px 16px;
+      border-bottom: 0.5px solid var(--parchment3);
+      color: var(--ink-soft);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .lime-table tbody tr:last-child td { border-bottom: none; }
+    .lime-table tbody tr:hover td { background: var(--parchment); }
+    .lime-formula {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .lime-speed {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .speed-slow { background: rgba(139,126,90,0.12); color: var(--gold); }
+    .speed-fast { background: rgba(90,122,74,0.12); color: #3d6a28; }
+
+    /* ══════════════════════════════════
+       CALLOUT BOX (key point)
+       ══════════════════════════════════ */
+    .callout-box {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 20px;
+      margin: 1.4em 0 1.7em;
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+    }
+    .callout-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 7px;
+    }
+    .callout-box strong { color: var(--ink); }
+
+    /* ══════════════════════════════════
+       COMPANION CALLOUT
+       ══════════════════════════════════ */
+    .companion-callout {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 0 0 2em;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14.5px;
+    }
+    .companion-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .companion-callout p { margin: 0; line-height: 1.65; color: var(--ink-soft); }
+    .companion-callout strong { color: var(--ink); font-weight: 600; }
+    .companion-callout a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .companion-callout a:hover { text-decoration: underline; }
+
+    /* ══════════════════════════════════
+       ARTICLE SIDEBAR
+       ══════════════════════════════════ */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .sidebar-card:last-child { margin-bottom: 0; }
+    .sc-head {
+      background: var(--parchment2);
+      border-bottom: 0.5px solid var(--gold-pale);
+      padding: 11px 16px;
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sc-body { padding: 16px; }
+    .sc-body p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .sc-body p:last-child { margin-bottom: 0; }
+    .sc-links a {
+      display: block;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--parchment3);
+      line-height: 1.4;
+      transition: color .2s;
+    }
+    .sc-links a:last-child { border-bottom: none; padding-bottom: 0; }
+    .sc-links a:hover { color: var(--gold); }
+    .sc-cat {
+      font-family: var(--font-ui);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .sc-links a:hover .sc-cat { color: var(--gold); }
+    .sc-current { color: var(--gold) !important; font-weight: 600; }
+    .author-card { background: var(--ink-soft); }
+    .author-card .sc-head { background: var(--ink); border-bottom-color: rgba(139,126,90,0.2); }
+    .author-card .sc-body { padding: 18px 16px; }
+    .author-name {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 3px;
+    }
+    .author-role {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .author-bio {
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+
+    /* ══════════════════════════════════
+       RELATED POSTS
+       ══════════════════════════════════ */
+    .related-section {
+      background: var(--parchment2);
+      border-top: 1px solid var(--gold-pale);
+      padding: 56px 0 64px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    @media (max-width: 720px) { .related-grid { grid-template-columns: 1fr; gap: 16px; } }
+    .related-card {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .rc-cat {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .rc-title {
+      font-family: var(--font-head);
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.38;
+      margin-bottom: 10px;
+      transition: color .2s;
+    }
+    .related-card:hover .rc-title { color: var(--gold); }
+    .rc-excerpt {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .rc-read {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+      transition: gap .2s;
+    }
+    .rc-read::after { content: '→'; }
+    .related-card:hover .rc-read { gap: 9px; }
+
+    /* ══════════════════════════════════
+       POST NAV
+       ══════════════════════════════════ */
+    .post-nav {
+      margin-top: 52px;
+      padding-top: 28px;
+      border-top: 1px solid var(--gold-pale);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ════════════════════════
+         POST HERO
+         ════════════════════════ -->
+    <div class="post-hero">
+      <div class="container">
+        <div class="post-breadcrumb">
+          <a href="blog.html">Blog</a> &rsaquo; Research &amp; Science
+        </div>
+        <span class="eyebrow">Research &amp; Science</span>
+        <h1>Soil pH in Bangladesh: <em>Why It Matters More Than Most Farmers Realize</em></h1>
+        <div class="post-meta">
+          <span>04 June 2026</span>
+          <span class="dot">·</span>
+          <span>7 min read</span>
+          <span class="dot">·</span>
+          <span class="author">Sajjadur Rahman</span>
+        </div>
+        <div class="post-tags">
+          <span class="post-tag">Soil pH</span>
+          <span class="post-tag">Bangladesh</span>
+          <span class="post-tag">Soil Science</span>
+          <span class="post-tag">Lime</span>
+          <span class="post-tag">Nutrient Availability</span>
+          <span class="post-tag">Barind Tract</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════
+         ARTICLE + SIDEBAR
+         ════════════════════════ -->
+    <div class="article-wrap">
+
+      <!-- ARTICLE -->
+      <article class="article-body">
+
+        <p>Walk through any agricultural extension office in Bangladesh and the conversation turns to fertilizer — urea, TSP, MoP. Soil pH rarely comes up. That gap is costly.</p>
+
+        <div class="companion-callout">
+          <span class="companion-icon">📖</span>
+          <p><strong>In this series:</strong> This post covers pH and nutrient availability. For what happens to urea specifically after it's applied, see <a href="blog-nitrogen-cycling-urea.html">What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling</a>.</p>
+        </div>
+
+        <!-- ══ WHAT pH MEASURES ══ -->
+        <h2>What pH actually measures</h2>
+
+        <p>pH is a measure of hydrogen ion concentration in the soil solution, running from 0 (extremely acid) to 14 (extremely alkaline), with 7 as neutral. Each step on the scale is ten times the last: a soil at pH 5 has ten times more hydrogen ions than one at pH 6, a hundred times more than one at pH 7.</p>
+
+        <p>For most crops, the working range is 5.5 to 7.5. Below 5.5, aluminium and manganese dissolve from soil minerals in concentrations high enough to poison roots. Above 7.5, iron, zinc, and copper become chemically bound and unavailable, regardless of how much you apply.</p>
+
+        <!-- ══ SOILS ACROSS BANGLADESH ══ -->
+        <h2>What soils look like across Bangladesh</h2>
+
+        <p>Bangladesh doesn't have a single soil pH problem. It has several, depending on where you are.</p>
+
+        <!-- REGIONAL pH GRID -->
+        <div class="region-grid">
+          <div class="region-card very-acid">
+            <div class="region-name">Sylhet &amp; Chittagong Hill Tracts</div>
+            <div class="region-ph">4.5–5.5</div>
+            <div><span class="region-status">Very Acidic</span></div>
+            <div class="region-districts">Sylhet, Moulvibazar, Rangamati, Bandarban</div>
+            <div class="region-constraint">Al³⁺ toxicity, severe P lock-up; tea soils below pH 5.0</div>
+          </div>
+          <div class="region-card acid">
+            <div class="region-name">Barind &amp; Madhupur Tracts</div>
+            <div class="region-ph">4.8–5.8</div>
+            <div><span class="region-status">Acidic</span></div>
+            <div class="region-districts">Rajshahi, Chapainawabganj, Mymensingh, N. Dhaka</div>
+            <div class="region-constraint">Weathered lateritic soils; P fixation, legume &amp; vegetable constraint</div>
+          </div>
+          <div class="region-card slight">
+            <div class="region-name">Floodplains</div>
+            <div class="region-ph">5.5–6.5</div>
+            <div><span class="region-status">Slightly Acidic</span></div>
+            <div class="region-districts">Dhaka, Comilla, Faridpur, Jessore</div>
+            <div class="region-constraint">Generally manageable; slow acidification from ammonium fertilizers</div>
+          </div>
+          <div class="region-card alkaline">
+            <div class="region-name">Coastal Belt</div>
+            <div class="region-ph">7.0–8.5</div>
+            <div><span class="region-status">Neutral – Alkaline</span></div>
+            <div class="region-districts">Khulna, Satkhira, Barisal, Patuakhali</div>
+            <div class="region-constraint">Marine sediment buffering; Fe and Zn deficiency rather than Al toxicity</div>
+          </div>
+        </div>
+
+        <p>The Barind Tract (Rajshahi, Chapainawabganj) and Madhupur Tract (parts of Dhaka and Mymensingh) are old, heavily weathered lateritic soils. pH values of 4.8 to 5.8 are common. Phosphorus locks up. Aluminium toxicity becomes a real constraint for legumes and vegetables.</p>
+
+        <p>Sylhet and the Chittagong Hill Tracts are similar. High rainfall, hilly terrain, and decades of tea cultivation have pushed many soils below pH 5.0. In the hill forests this is a natural equilibrium; in converted agricultural land, it's a yield problem.</p>
+
+        <p>Move to the floodplains — much of Dhaka, Mymensingh, Comilla — and soils generally sit in the 5.5 to 6.5 range. Not severely acidic, but acidifying slowly as ammonium fertilizers accumulate and organic matter returns decline.</p>
+
+        <p>The coastal belt flips the picture. Parts of Khulna, Satkhira, Barisal, and Patuakhali have soils pushed toward neutral and alkaline (pH 7.0 to 8.5) by seawater intrusion and marine sediment. The problem here is iron and zinc deficiency rather than aluminium toxicity.</p>
+
+        <!-- ══ HOW pH LOCKS OUT NUTRIENTS ══ -->
+        <h2>How pH locks out nutrients</h2>
+
+        <p>Every farmer knows that plants need nitrogen, phosphorus, and potassium. Fewer know that the same bag of fertilizer works completely differently depending on the pH at the root zone.</p>
+
+        <p>Phosphorus is the starkest example. In acidic soils below pH 5.5, it reacts with iron and aluminium to form insoluble compounds and drops out of the soil solution. In alkaline soils above 7.5, it reacts with calcium instead. In both cases, TSP applied all season barely reaches the crop. Farmers lose the investment in every bag applied to out-of-range soils.</p>
+
+        <p>Nitrogen is relatively available from pH 5.5 to 8.0, but soil biology shifts the picture. The bacteria that drive nitrification (converting ammonium to the nitrate form crops prefer) work best between pH 6.0 and 7.0. In strongly acidic soils, nitrification slows and ammonium accumulates.</p>
+
+        <p>Zinc deficiency, one of the most widespread micronutrient problems in Bangladesh rice production, has a direct pH link. Above pH 7.5, zinc availability drops sharply. Farmers apply zinc sulfate without realising the chemistry is binding it before the root takes it up.</p>
+
+        <p>Boron, molybdenum, calcium, magnesium: each has its own availability window. Most nutrients are most available between pH 6.0 and 7.0. That's the target most soils in Bangladesh should be managed toward.</p>
+
+        <div class="callout-box">
+          <span class="callout-label">Key point</span>
+          The practical implication of the nutrient availability curve is simple: <strong>if a crop isn't responding to a fertilizer application, check the pH before adding more.</strong> The soil may already have the nutrient. It just can't release it.
+        </div>
+
+        <!-- ══ ALUMINIUM PROBLEM ══ -->
+        <h2>The aluminium problem</h2>
+
+        <p>In acidic soils below pH 5.5, aluminium toxicity is common and frequently misdiagnosed, so it helps to separate it from general acidity.</p>
+
+        <p>Aluminium (Al³⁺) stays locked in soil minerals at neutral and slightly acidic pH. Drop below 5.5 and it starts dissolving into the soil solution. At high enough concentrations it damages root tips directly, stunting root elongation, shrinking the surface area for water and nutrient uptake, and producing root systems that look severely drought-stressed or phosphorus-deficient.</p>
+
+        <p>In the field the symptom is a crop that won't respond to NPK applications, no matter how much is added. In Barind Tract maize and lentil cultivation, this is a known and recurring problem. The fix is not more fertilizer. It's lime.</p>
+
+        <!-- ══ LIME ══ -->
+        <h2>Lime — the overlooked input</h2>
+
+        <p>Agricultural lime (calcium carbonate, CaCO&#8323;) is the standard correction for acidic soils. It dissolves slowly, reacting with hydrogen ions and aluminium in the soil solution and raising pH over weeks to months.</p>
+
+        <p>Dolomite (calcium magnesium carbonate) does the same job and also supplies magnesium, which is often co-deficient in the same acidic soils. It's the better choice where magnesium deficiency is confirmed or suspected.</p>
+
+        <p>Slaked lime (calcium hydroxide, Ca(OH)&#8322;) acts faster but needs more careful handling at high rates. Useful when rapid correction is needed ahead of planting.</p>
+
+        <!-- LIME TYPES TABLE -->
+        <div class="lime-table-wrap">
+          <table class="lime-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Formula</th>
+                <th>Speed</th>
+                <th>Best used when</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Agricultural lime</strong></td>
+                <td><span class="lime-formula">CaCO&#8323;</span></td>
+                <td><span class="lime-speed speed-slow">Slow (weeks–months)</span></td>
+                <td>Standard choice; apply 6+ weeks before planting</td>
+              </tr>
+              <tr>
+                <td><strong>Dolomite</strong></td>
+                <td><span class="lime-formula">CaMg(CO&#8323;)&#8322;</span></td>
+                <td><span class="lime-speed speed-slow">Slow</span></td>
+                <td>Mg deficiency confirmed or suspected alongside acidity</td>
+              </tr>
+              <tr>
+                <td><strong>Slaked lime</strong></td>
+                <td><span class="lime-formula">Ca(OH)&#8322;</span></td>
+                <td><span class="lime-speed speed-fast">Fast (1–2 weeks)</span></td>
+                <td>Rapid correction needed; handle with care at high rates</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>How much lime is needed depends on soil texture and organic matter, which together determine the soil's buffering capacity. Coarse sandy soils need far less than clay soils to achieve the same pH shift. The Soil Resource Development Institute (SRDI) has published lime requirement charts for different soil types in Bangladesh. Soils in the Barind Tract typically need 1.5 to 2.5 tonnes of lime per hectare to shift from pH 4.8 to 6.0, applied once every three to four years.</p>
+
+        <p>Timing matters. Lime should go on during fallow or at least four to six weeks before planting. The reaction is slow and incorporates better when worked into the soil. Broadcast lime just before transplanting rice does very little.</p>
+
+        <!-- ══ WHY IGNORED ══ -->
+        <h2>Why it gets ignored</h2>
+
+        <p>pH management is underpractised in Bangladesh, but not from ignorance. Most extension workers know acidic soils are a problem.</p>
+
+        <p>The barrier is practical. Lime is cheap by the bag, but 1.5 tonnes per hectare is a real cost and a logistics problem on small farms with limited transport and no subsidy structure comparable to what urea receives. Testing is the bigger barrier — soil pH meters and DAE testing services exist, but access and turnaround are inconsistent across districts. Many farmers in affected areas have never had their soil tested.</p>
+
+        <p>Fertilizer gets applied to soils where it can't work at full efficiency, yields stay below what the variety's genetics allow, and the cause gets attributed to weather or pests rather than a fixable chemistry problem.</p>
+
+        <!-- ══ WHAT TO DO ══ -->
+        <h2>What to do with this</h2>
+
+        <p>For farmers, the starting point is a soil test. DAE sub-district offices provide testing; private labs in Dhaka and divisional centres have faster turnaround. For soils below pH 5.5, lime application before the next rabi season is the most cost-effective single input change available.</p>
+
+        <p>For NGOs and development organisations working in the Barind Tract, Sylhet, or the hill districts, soil pH management belongs in agricultural programmes. A target of pH 6.0 to 6.5 is achievable with lime and gives crops the best conditions for using the fertilizer already being applied.</p>
+
+        <p>For students and researchers, the nutrient availability curve rewards careful study. It translates directly into diagnostic reasoning: if a crop isn't responding to a nutrient application, check the pH before assuming deficiency.</p>
+
+        <p>Get the pH wrong and everything applied on top of it — urea, TSP, micronutrients — works at a fraction of its potential.</p>
+
+        <!-- POST NAVIGATION -->
+        <div class="post-nav">
+          <a href="blog.html" class="btn btn-outline btn-arrow">All Posts</a>
+          <a href="blog-nitrogen-cycling-urea.html" class="btn btn-gold">Nitrogen Cycling Post</a>
+        </div>
+
+      </article>
+
+      <!-- ═══════════ SIDEBAR ═══════════ -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-card author-card">
+          <div class="sc-head">About the author</div>
+          <div class="sc-body">
+            <div class="author-name">Sajjadur Rahman</div>
+            <div class="author-role">MSc Researcher · Soil &amp; Environment</div>
+            <p class="author-bio">Researching nitrogen use efficiency and slow-release fertilizers at the University of Dhaka. His thesis investigates bentonite-biochar coated urea for acidic South Asian soils.</p>
+            <a href="about.html" class="btn btn-gold" style="font-size:9px;padding:9px 18px;">Full Profile</a>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sc-head">Soil series</div>
+          <div class="sc-body">
+            <div class="sc-links">
+              <a href="blog-soil-ph-bangladesh.html">
+                <span class="sc-cat sc-current">You are here</span>
+                <span class="sc-current">Soil pH in Bangladesh</span>
+              </a>
+              <a href="blog-nitrogen-cycling-urea.html">
+                <span class="sc-cat">Companion post</span>
+                What Happens to Urea After It's Applied
+              </a>
+              <a href="blog-slow-release-fertilizer.html">
+                <span class="sc-cat">Related</span>
+                What is Slow-Release Fertilizer?
+              </a>
+              <a href="blog-nue-indices-explained.html">
+                <span class="sc-cat">Related</span>
+                NUE Indices: AE, RE, PE &amp; NHI Explained
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sc-head">Need help with your research?</div>
+          <div class="sc-body">
+            <p>Sajjadur offers data analysis, manuscript editing, and thesis consultation for soil and environmental science researchers.</p>
+            <a href="services.html" class="btn btn-primary" style="font-size:9px;padding:9px 18px;">View Services</a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div><!-- end .article-wrap -->
+
+    <!-- ════════════════════════
+         RELATED POSTS
+         ════════════════════════ -->
+    <div class="related-section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Keep Reading</span>
+          <h2>Related Posts</h2>
+          <span class="ornament">&#8212; &#10087; &#8212;</span>
+        </div>
+        <div class="related-grid">
+
+          <a href="blog-nitrogen-cycling-urea.html" class="related-card">
+            <span class="rc-cat">Research &amp; Science</span>
+            <div class="rc-title">What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling</div>
+            <p class="rc-excerpt">Volatilisation, leaching, denitrification — the three pathways that steal nitrogen before crops can use it, explained with reactions and a soil cross-section diagram.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+
+          <a href="blog-slow-release-fertilizer.html" class="related-card">
+            <span class="rc-cat">Soil Science</span>
+            <div class="rc-title">What is Slow-Release Fertilizer and Why Does Bangladesh Need It?</div>
+            <p class="rc-excerpt">Bangladesh loses up to 60% of applied urea nitrogen before crops can use it. Slow-release fertilizers change that equation, and local materials may hold the answer.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+
+          <a href="blog-nue-indices-explained.html" class="related-card">
+            <span class="rc-cat">Data Analysis &amp; Research</span>
+            <div class="rc-title">Understanding NUE Indices: AE, RE, PE, and NHI Explained</div>
+            <p class="rc-excerpt">The four nitrogen use efficiency indices every agricultural researcher needs to know. Formulas, a worked example, and the relationship between them.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ════════════════════════
+       FOOTER
+       ════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a>
+          <a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a>
+          <a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html" data-en>Manuscript Editing</a>
+          <a href="services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+          <a href="services.html" data-en>Data Analysis</a>
+          <a href="services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+          <a href="services.html" data-en>Thesis Consultation</a>
+          <a href="services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+          <a href="services.html" data-en>IELTS Tutoring</a>
+          <a href="services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+          <a href="services.html" data-en>CV Development</a>
+          <a href="services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+          <a href="services.html" data-en>Research Proposals</a>
+          <a href="services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank">💬</a>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
