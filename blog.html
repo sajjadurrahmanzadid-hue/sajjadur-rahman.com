@@ -490,17 +490,17 @@
       gap: 12px;
     }
     .bci-link {
-      background: rgba(255,255,255,0.04);
-      border: 0.5px solid rgba(200,191,160,0.18);
+      background: rgba(139,126,90,0.12);
+      border: 1px solid rgba(200,191,160,0.35);
       border-radius: var(--radius);
-      padding: 14px 18px;
+      padding: 13px 18px;
       display: flex;
       align-items: center;
       gap: 14px;
       text-decoration: none;
       transition: border-color .2s, background .2s;
     }
-    .bci-link:hover { border-color: var(--gold); background: rgba(139,126,90,0.08); }
+    .bci-link:hover { border-color: var(--gold); background: rgba(139,126,90,0.20); }
     .bci-link .bl-icon { font-size: 18px; flex-shrink: 0; }
     .bci-link .bl-label {
       font-family: var(--font-ui);
@@ -512,7 +512,18 @@
       display: block;
       margin-bottom: 2px;
     }
-    .bci-link .bl-val { font-size: 13px; color: var(--text-light); }
+    .bci-link .bl-val { font-size: 13px; color: var(--gold-pale); }
+    .bci-link .bl-arrow { margin-left: auto; font-size: 14px; color: var(--gold); flex-shrink: 0; }
+    /* Primary — Blogger link gets gold fill */
+    .bci-links .bci-link:first-child {
+      background: var(--gold);
+      border-color: var(--gold);
+      padding: 15px 18px;
+    }
+    .bci-links .bci-link:first-child:hover { background: var(--gold-light); border-color: var(--gold-light); }
+    .bci-links .bci-link:first-child .bl-label { color: var(--ink-soft); }
+    .bci-links .bci-link:first-child .bl-val { color: var(--ink); font-weight: 600; }
+    .bci-links .bci-link:first-child .bl-arrow { color: var(--ink); }
 
     /* ══════════════════════════════════
        RESPONSIVE
@@ -1159,6 +1170,7 @@
                 <span class="bl-label">Full Blog Archive</span>
                 <span class="bl-val">sajjadur-rahman.blogspot.com</span>
               </div>
+              <span class="bl-arrow">&#8599;</span>
             </a>
             <a href="https://www.facebook.com/sajjad.rahman68/" class="bci-link" target="_blank" rel="noopener">
               <span class="bl-icon">📘</span>
@@ -1166,6 +1178,7 @@
                 <span class="bl-label">Facebook</span>
                 <span class="bl-val">facebook.com/sajjad.rahman68</span>
               </div>
+              <span class="bl-arrow">&#8599;</span>
             </a>
             <a href="https://www.linkedin.com/in/sajjadurrahman68/" class="bci-link" target="_blank" rel="noopener">
               <span class="bl-icon">💼</span>
@@ -1173,6 +1186,7 @@
                 <span class="bl-label">LinkedIn</span>
                 <span class="bl-val">linkedin.com/in/sajjadurrahman68</span>
               </div>
+              <span class="bl-arrow">&#8599;</span>
             </a>
           </div>
         </div>
