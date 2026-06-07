@@ -1,5 +1,21 @@
 [
   {
+  "slug": "statement-of-purpose-guide",
+  "file": "blog-statement-of-purpose-guide.html",
+  "title_en": "How to Write a Statement of Purpose for an Environmental Science MSc",
+  "title_bn": "পরিবেশ বিজ্ঞান এমএস-এর জন্য স্টেটমেন্ট অব পারপাস কীভাবে লিখবেন",
+  "date": "2026-06-06",
+  "category_en": "CV & Career",
+  "category_bn": "সিভি ও ক্যারিয়ার",
+  "excerpt_en": "Structure, specificity, and what sinks good applications. Includes vague vs specific examples, the bridge paragraph most SOPs are missing, and a WHAT/WHY/HOW self-edit test.",
+  "excerpt_bn": "কাঠামো, নির্দিষ্টতা এবং কোন ভুলগুলো ভালো আবেদন নষ্ট করে। অস্পষ্ট বনাম নির্দিষ্ট উদাহরণ সহ।",
+  "tags_en": ["statement of purpose", "MSc application", "graduate school", "academic writing", "environmental science", "Bangladesh"],
+  "tags_bn": ["স্টেটমেন্ট অব পারপাস", "এমএস আবেদন", "স্নাতকোত্তর", "একাডেমিক লেখা"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 8
+},
+  {
   "slug": "nitrogen-n2o-climate",
   "file": "blog-nitrogen-n2o-climate.html",
   "title_en": "Nitrogen Pollution is Bangladesh's Hidden Climate Problem",
