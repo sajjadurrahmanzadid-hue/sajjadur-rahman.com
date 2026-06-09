@@ -67,28 +67,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ── COUNTER ANIMATION ── */
+  const runCount = el => {
+    if (el.dataset.counted) return;
+    el.dataset.counted = '1';
+    const end = parseFloat(el.dataset.target);
+    const dur = 1800;
+    const step = 16;
+    const inc  = end / (dur / step);
+    let cur = 0;
+    const tick = () => {
+      cur = Math.min(cur + inc, end);
+      el.textContent = Number.isInteger(end)
+        ? Math.round(cur).toLocaleString()
+        : cur.toFixed(1);
+      if (cur < end) setTimeout(tick, step);
+    };
+    tick();
+  };
+
   const counters = document.querySelectorAll('.count-up');
   if (counters.length) {
     const countIO = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
-        const el  = e.target;
-        const end = parseFloat(el.dataset.target);
-        const dur = 1600;
-        const step = 16;
-        const inc  = end / (dur / step);
-        let cur = 0;
-        const tick = () => {
-          cur = Math.min(cur + inc, end);
-          el.textContent = Number.isInteger(end)
-            ? Math.round(cur).toLocaleString()
-            : cur.toFixed(1);
-          if (cur < end) setTimeout(tick, step);
-        };
-        tick();
-        countIO.unobserve(el);
+        runCount(e.target);
+        countIO.unobserve(e.target);
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.15 });
     counters.forEach(el => countIO.observe(el));
   }
 
