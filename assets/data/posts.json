@@ -1,5 +1,21 @@
 [
   {
+  "slug": "biochar-rice-husk-soil-chemistry",
+  "file": "blog-biochar-rice-husk-soil-chemistry.html",
+  "title_en": "Biochar from Rice Husk: What It Does to Soil Chemistry",
+  "title_bn": "ধানের তুষ থেকে বায়োচার: এটি মাটির রসায়নে কী করে",
+  "date": "2026-06-10",
+  "category_en": "Research & Science",
+  "category_bn": "গবেষণা ও বিজ্ঞান",
+  "excerpt_en": "Seven million tonnes of rice husk produced annually in Bangladesh. Converting it to biochar changes soil pH, nitrogen dynamics, CEC, and carbon storage — with output varying sharply by pyrolysis temperature.",
+  "excerpt_bn": "বাংলাদেশে বার্ষিক সাত মিলিয়ন টন ধানের তুষ উৎপাদিত হয়। এটিকে বায়োচারে রূপান্তর করলে মাটির পিএইচ, নাইট্রোজেন গতিবিদ্যা এবং কার্বন সঞ্চয় পরিবর্তিত হয়।",
+  "tags_en": ["biochar", "rice husk", "soil chemistry", "N-dynamics", "Bangladesh", "carbon sequestration", "BBCU"],
+  "tags_bn": ["বায়োচার", "ধানের তুষ", "মাটির রসায়ন", "বাংলাদেশ"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 8
+},
+  {
   "slug": "linear-regression-r-tutorial",
   "file": "blog-linear-regression-r-tutorial.html",
   "title_en": "Linear Regression in R for Environmental Data: A Step-by-Step Tutorial",
