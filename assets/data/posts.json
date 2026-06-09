@@ -1,5 +1,21 @@
 [
   {
+  "slug": "daad-epos-guide",
+  "file": "blog-daad-epos-guide.html",
+  "title_en": "DAAD EPOS Scholarship: A Complete Guide for Bangladeshi Applicants",
+  "title_bn": "DAAD EPOS বৃত্তি: বাংলাদেশি আবেদনকারীদের জন্য সম্পূর্ণ গাইড",
+  "date": "2026-06-08",
+  "category_en": "CV & Career",
+  "category_bn": "সিভি ও ক্যারিয়ার",
+  "excerpt_en": "Who actually qualifies, which programmes fit environmental researchers, exact document requirements, motivation letter structure, and the mistakes that eliminate applications before DAAD sees them.",
+  "excerpt_bn": "কে আসলে যোগ্য, কোন প্রোগ্রামগুলো পরিবেশ গবেষকদের উপযুক্ত, নথির প্রয়োজনীয়তা এবং সেই ভুলগুলো যা আবেদন বাতিল করে।",
+  "tags_en": ["DAAD", "EPOS", "scholarship", "Germany", "Bangladesh", "graduate school", "environmental science"],
+  "tags_bn": ["DAAD", "EPOS", "বৃত্তি", "জার্মানি", "বাংলাদেশ", "স্নাতকোত্তর"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 8
+},
+  {
     "slug": "discussion-section-guide",
     "file": "blog-discussion-section-guide.html",
     "title_en": "How to Write the Discussion Section — The Hardest Part of Any Research Paper",
