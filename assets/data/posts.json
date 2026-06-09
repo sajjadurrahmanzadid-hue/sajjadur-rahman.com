@@ -1,5 +1,37 @@
 [
   {
+    "slug": "discussion-section-guide",
+    "file": "blog-discussion-section-guide.html",
+    "title_en": "How to Write the Discussion Section — The Hardest Part of Any Research Paper",
+    "title_bn": "ডিসকাশন সেকশন কীভাবে লিখবেন — যেকোনো গবেষণা পত্রের সবচেয়ে কঠিন অংশ",
+    "date": "2026-06-09",
+    "category_en": "Scientific Writing",
+    "category_bn": "বৈজ্ঞানিক লেখা",
+    "excerpt_en": "What the Discussion must accomplish, how to open it without repeating the Results, how to compare findings with the literature, handle unexpected results, write honest limitations, and close with purpose.",
+    "excerpt_bn": "ডিসকাশন সেকশনে কী থাকতে হবে, কীভাবে শুরু করবেন, সাহিত্যের সাথে তুলনা করবেন এবং অপ্রত্যাশিত ফলাফল কীভাবে সামলাবেন।",
+    "tags_en": ["scientific writing", "discussion section", "manuscript", "research paper", "academic writing"],
+    "tags_bn": ["বৈজ্ঞানিক লেখা", "ডিসকাশন সেকশন", "পাণ্ডুলিপি", "গবেষণা পত্র"],
+    "featured": true,
+    "status": "published",
+    "read_time_min": 11
+  },
+  {
+  "slug": "literature-review-guide",
+  "file": "blog-literature-review-guide.html",
+  "title_en": "How to Write a Literature Review That Reviewers Won't Skip",
+  "title_bn": "এমন একটি সাহিত্য পর্যালোচনা কীভাবে লিখবেন যা রিভিউয়াররা এড়িয়ে যাবেন না",
+  "date": "2026-06-08",
+  "category_en": "Scientific Writing",
+  "category_bn": "বৈজ্ঞানিক লেখা",
+  "excerpt_en": "Synthesis vs summarisation, the funnel structure, citation gaps, and the gap statement most reviews get wrong. With before/after examples and a pre-submission checklist.",
+  "excerpt_bn": "সংশ্লেষণ বনাম সারসংক্ষেপ, ফানেল কাঠামো, উদ্ধৃতি ফাঁক এবং গ্যাপ স্টেটমেন্ট।",
+  "tags_en": ["literature review", "scientific writing", "peer review", "IMRaD", "academic writing", "gap statement"],
+  "tags_bn": ["সাহিত্য পর্যালোচনা", "বৈজ্ঞানিক লেখা", "পিয়ার রিভিউ"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 7
+},
+  {
   "slug": "statement-of-purpose-guide",
   "file": "blog-statement-of-purpose-guide.html",
   "title_en": "How to Write a Statement of Purpose for an Environmental Science MSc",
