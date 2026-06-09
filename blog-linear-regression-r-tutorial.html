@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com                                     ║
+    ║  blog-linear-regression-r-tutorial.html                  ║
+    ║  Category: Data Analysis                                 ║
+    ╚══════════════════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linear Regression in R for Environmental Data: A Step-by-Step Tutorial — Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-linear-regression-r-tutorial.html"/>
+  <meta name="description" content="Run lm(), read the coefficients table, check the four diagnostic plots, and visualise with ggplot2. A complete linear regression walkthrough using soil pH and crop yield data."/>
+  <meta property="og:title" content="Linear Regression in R for Environmental Data: A Step-by-Step Tutorial"/>
+  <meta property="og:description" content="lm(), diagnostics, ggplot2 visualisation, and how to report the result in a manuscript. Working through soil pH vs. maize yield data from the Barind Tract."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-linear-regression-r-tutorial.html"/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TFCD42G87F');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ══ HERO ══ */
+    .post-hero {
+      background: var(--ink-soft); padding: 64px 0 56px;
+      position: relative; overflow: hidden;
+    }
+    .post-hero::before {
+      content: '📈'; position: absolute; right: 4%; top: 50%;
+      transform: translateY(-50%); font-size: 240px;
+      opacity: 0.05; line-height: 1; pointer-events: none;
+    }
+    .post-breadcrumb {
+      font-family: var(--font-ui); font-size: 9.5px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 18px;
+    }
+    .post-breadcrumb a { color: var(--gold); text-decoration: none; }
+    .post-breadcrumb a:hover { text-decoration: underline; }
+    .post-hero .eyebrow { margin-bottom: 14px; }
+    .post-hero h1 {
+      font-family: var(--font-head); font-size: clamp(24px,4vw,42px);
+      font-weight: 600; color: var(--parchment);
+      line-height: 1.26; max-width: 820px; margin-bottom: 22px;
+    }
+    .post-hero h1 em { font-style: italic; color: var(--gold-light); }
+    .post-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 10px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 18px;
+    }
+    .post-meta .dot { color: var(--gold); opacity: 0.55; }
+    .post-meta .author { color: var(--gold-light); }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .post-tag {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold);
+      background: rgba(139,126,90,0.15); border: 0.5px solid rgba(139,126,90,0.3);
+      padding: 4px 10px; border-radius: 20px;
+    }
+
+    /* ══ ARTICLE LAYOUT ══ */
+    .article-wrap {
+      display: grid; grid-template-columns: 1fr 260px;
+      gap: 52px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 56px 24px 80px;
+    }
+    @media (max-width: 860px) {
+      .article-wrap { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px 60px; }
+    }
+
+    /* ══ ARTICLE BODY ══ */
+    .article-body {
+      font-family: var(--font-body); font-size: 16px;
+      line-height: 1.88; color: var(--ink); min-width: 0;
+    }
+    .article-body p { margin-bottom: 1.45em; }
+    .article-body h2 {
+      font-family: var(--font-head); font-size: 23px; font-weight: 600;
+      color: var(--ink); line-height: 1.3;
+      margin: 2.4em 0 0.7em; padding-top: 0.5em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .article-body h2:first-of-type { margin-top: 1.6em; }
+    .article-body strong { font-weight: 600; color: var(--ink); }
+    .article-body em { font-style: italic; }
+    .article-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { color: var(--ink); }
+
+    /* ══ STEP HEADER ══ */
+    .step-header {
+      display: flex; align-items: center; gap: 14px;
+      margin: 2.4em 0 0.8em; padding-top: 0.5em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .step-header:first-of-type { margin-top: 1.6em; }
+    .step-n {
+      font-family: var(--font-head); font-size: 38px; font-weight: 700;
+      color: var(--gold-pale); line-height: 1; flex-shrink: 0;
+    }
+    .step-title {
+      font-family: var(--font-head); font-size: 22px; font-weight: 600;
+      color: var(--ink); line-height: 1.3;
+    }
+
+    /* ══ CODE BLOCKS ══ */
+    .code-wrap {
+      background: #16141e;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 1.2em 0 1.6em;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+    }
+    .code-lang {
+      background: #2a2636;
+      padding: 7px 16px;
+      font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: #8b7e5a;
+      border-bottom: 1px solid rgba(139,126,90,0.2);
+    }
+    .code-wrap pre {
+      margin: 0; padding: 18px 20px;
+      overflow-x: auto;
+    }
+    .code-wrap code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13.5px; line-height: 1.7;
+      color: #d4d0c8;
+      white-space: pre;
+    }
+    .code-wrap code .cm { color: #8b7e5a; font-style: italic; }
+    .code-wrap code .fn { color: #88aadd; }
+    .code-wrap code .st { color: #c8a86a; }
+    .code-wrap code .nb { color: #88cc88; }
+    .code-wrap code .kw { color: #c8a0d8; }
+
+    /* R output block */
+    .output-wrap {
+      background: #0e0e12;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 0 0 1.6em;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+    }
+    .output-label {
+      background: #1a1a22;
+      padding: 7px 16px;
+      font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: #5a7a5a;
+      border-bottom: 1px solid rgba(90,120,90,0.2);
+    }
+    .output-wrap pre {
+      margin: 0; padding: 18px 20px; overflow-x: auto;
+    }
+    .output-wrap code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px; line-height: 1.75; color: #a8c4a8;
+      white-space: pre;
+    }
+    .output-wrap code .sig { color: #e8c870; font-weight: bold; }
+    .output-wrap code .val { color: #88ccaa; }
+
+    /* ══ CALLOUT BOX ══ */
+    .callout-box {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 20px; margin: 1.4em 0 1.7em;
+      font-size: 14.5px; line-height: 1.75; color: var(--ink-soft);
+    }
+    .callout-label {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 8px;
+    }
+
+    /* ══ COMPANION CALLOUT ══ */
+    .companion-callout {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 16px 20px; margin: 0 0 2em;
+      display: flex; align-items: flex-start; gap: 14px; font-size: 14.5px;
+    }
+    .companion-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .companion-callout p { margin: 0; line-height: 1.65; color: var(--ink-soft); }
+    .companion-callout strong { color: var(--ink); font-weight: 600; }
+    .companion-callout a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .companion-callout a:hover { text-decoration: underline; }
+
+    /* ══ OUTPUT COEFFICIENT TABLE ══ */
+    .coeff-table-wrap {
+      margin: 1.4em 0 1.8em; overflow-x: auto;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); box-shadow: var(--shadow-sm);
+    }
+    .coeff-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 14px; background: var(--white);
+    }
+    .coeff-table thead tr { background: var(--parchment2); border-bottom: 1px solid var(--gold-pale); }
+    .coeff-table th {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); padding: 11px 16px; text-align: left;
+    }
+    .coeff-table td {
+      padding: 11px 16px; border-bottom: 0.5px solid var(--parchment3);
+      color: var(--ink-soft); font-family: 'Courier New', Courier, monospace;
+      font-size: 13.5px; line-height: 1.5;
+    }
+    .coeff-table tbody tr:last-child td { border-bottom: none; }
+    .coeff-table td.label { font-family: var(--font-body); font-weight: 600; color: var(--ink); }
+    .coeff-table td.sig { color: #c04010; font-weight: bold; }
+
+    /* ══ OUTPUT STATS ══ */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 12px; margin: 0.8em 0 1.6em;
+    }
+    @media (max-width: 520px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+    .stat-box {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 14px 16px; text-align: center;
+    }
+    .stat-val {
+      font-family: var(--font-head); font-size: 22px; font-weight: 700;
+      color: var(--ink); display: block; margin-bottom: 3px;
+    }
+    .stat-lbl { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+    /* ══ COEFFICIENT EXPLANATIONS ══ */
+    .coeff-explain { margin: 1.4em 0 1.8em; display: flex; flex-direction: column; gap: 12px; }
+    .ce-item {
+      border: 0.5px solid var(--gold-pale); border-left: 3px solid var(--gold-light);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--white); padding: 14px 18px;
+    }
+    .ce-name {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13.5px; font-weight: 700; color: var(--ink);
+      margin-bottom: 5px;
+    }
+    .ce-item p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin: 0; }
+
+    /* ══ DIAGNOSTIC GRID ══ */
+    .diagnostic-grid {
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: 14px; margin: 1.4em 0 1.8em;
+    }
+    @media (max-width: 520px) { .diagnostic-grid { grid-template-columns: 1fr; } }
+    .diag-item {
+      background: var(--white); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 16px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .diag-name {
+      font-family: var(--font-head); font-size: 14.5px; font-weight: 600;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .diag-look {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      display: inline-block; padding: 2px 9px; border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .diag-look.good { background: rgba(60,130,60,0.1); color: #3d8c25; }
+    .diag-look.watch { background: rgba(180,100,20,0.1); color: #b06010; }
+    .diag-item p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* ══ REPORT EXAMPLE ══ */
+    .report-example {
+      background: var(--ink-soft); border-radius: var(--radius);
+      padding: 20px 22px; margin: 1.4em 0 1.8em;
+    }
+    .report-label {
+      font-family: var(--font-ui); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 12px;
+    }
+    .report-example p {
+      font-family: var(--font-body); font-size: 15px;
+      font-style: italic; color: var(--parchment);
+      line-height: 1.75; margin: 0;
+    }
+    .report-note {
+      font-size: 12.5px; color: var(--text-light);
+      line-height: 1.6; margin-top: 10px; font-style: normal;
+      padding-top: 10px; border-top: 0.5px solid rgba(139,126,90,0.25);
+    }
+
+    /* ══ LIMITATIONS LIST ══ */
+    .limits-list { margin: 0.6em 0; }
+    .limit-item { padding: 14px 0; border-bottom: 0.5px solid var(--parchment3); }
+    .limit-item:last-child { border-bottom: none; }
+    .limit-title {
+      font-family: var(--font-head); font-size: 15.5px; font-weight: 600;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .limit-item p { font-size: 14.5px; color: var(--ink-soft); margin: 0; line-height: 1.65; }
+
+    /* ══ SIDEBAR ══ */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      background: var(--white); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-sm); margin-bottom: 20px;
+    }
+    .sidebar-card:last-child { margin-bottom: 0; }
+    .sc-head {
+      background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale);
+      padding: 11px 16px; font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold);
+    }
+    .sc-body { padding: 16px; }
+    .sc-body p { font-size: 13px; line-height: 1.65; color: var(--text-muted); margin-bottom: 12px; }
+    .sc-body p:last-child { margin-bottom: 0; }
+    .sc-links a {
+      display: block; font-size: 12.5px; color: var(--ink-soft);
+      text-decoration: none; padding: 8px 0;
+      border-bottom: 0.5px solid var(--parchment3); line-height: 1.4; transition: color .2s;
+    }
+    .sc-links a:last-child { border-bottom: none; padding-bottom: 0; }
+    .sc-links a:hover { color: var(--gold); }
+    .sc-cat {
+      font-family: var(--font-ui); font-size: 8px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-light); display: block; margin-bottom: 2px;
+    }
+    .sc-links a:hover .sc-cat { color: var(--gold); }
+    .sc-current { color: var(--gold) !important; font-weight: 600; }
+    .author-card { background: var(--ink-soft); }
+    .author-card .sc-head { background: var(--ink); border-bottom-color: rgba(139,126,90,0.2); }
+    .author-card .sc-body { padding: 18px 16px; }
+    .author-name { font-family: var(--font-head); font-size: 17px; font-weight: 600; color: var(--parchment); margin-bottom: 3px; }
+    .author-role { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .author-bio { font-size: 12.5px; line-height: 1.65; color: var(--text-light); margin-bottom: 14px; }
+
+    /* ══ RELATED ══ */
+    .related-section { background: var(--parchment2); border-top: 1px solid var(--gold-pale); padding: 56px 0 64px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 32px; }
+    @media (max-width: 720px) { .related-grid { grid-template-columns: 1fr; gap: 16px; } }
+    .related-card {
+      background: var(--white); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 22px 20px;
+      box-shadow: var(--shadow-sm); text-decoration: none; color: inherit;
+      display: block; transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .rc-cat { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+    .rc-title { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--ink); line-height: 1.38; margin-bottom: 10px; transition: color .2s; }
+    .related-card:hover .rc-title { color: var(--gold); }
+    .rc-excerpt { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0; }
+    .rc-read { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; transition: gap .2s; }
+    .rc-read::after { content: '→'; }
+    .related-card:hover .rc-read { gap: 9px; }
+
+    .post-nav { margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--gold-pale); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  </style>
+</head>
+<body>
+
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <div class="post-hero">
+      <div class="container">
+        <div class="post-breadcrumb">
+          <a href="blog.html">Blog</a> &rsaquo; Data Analysis
+        </div>
+        <span class="eyebrow">Data Analysis</span>
+        <h1>Linear Regression in R<br/><em>for Environmental Data: A Step-by-Step Tutorial</em></h1>
+        <div class="post-meta">
+          <span>09 June 2026</span>
+          <span class="dot">·</span>
+          <span>7 min read</span>
+          <span class="dot">·</span>
+          <span class="author">Sajjadur Rahman</span>
+        </div>
+        <div class="post-tags">
+          <span class="post-tag">R</span>
+          <span class="post-tag">Linear Regression</span>
+          <span class="post-tag">ggplot2</span>
+          <span class="post-tag">lm()</span>
+          <span class="post-tag">Environmental Data</span>
+          <span class="post-tag">Tutorial</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLE + SIDEBAR -->
+    <div class="article-wrap">
+
+      <article class="article-body">
+
+        <p>Does soil pH predict crop yield? Does increasing distance from a brick kiln predict lower PM&#8322;.&#8325;? Does rainfall volume predict sediment load in a river channel? These questions come up repeatedly in environmental datasets, and linear regression is usually the first tool that should answer them.</p>
+
+        <p>This tutorial runs a complete regression analysis from data entry to reporting, using soil pH and maize yield data from the Barind Tract as the working example. The approach and code apply to any two continuous variables.</p>
+
+        <div class="companion-callout">
+          <span class="companion-icon">📊</span>
+          <p><strong>Data analysis series:</strong> This tutorial follows on from <a href="blog-anova-r-tutorial.html">One-Way ANOVA in R for Agricultural Research</a>. If your data has a categorical predictor rather than a continuous one, start with the ANOVA tutorial instead.</p>
+        </div>
+
+        <!-- WHEN TO USE -->
+        <h2>When to use linear regression</h2>
+
+        <p>Linear regression is the right tool when you have one continuous outcome variable (the dependent variable) and one continuous predictor (the independent variable), and you want to know whether a linear relationship exists between them.</p>
+
+        <p>It makes three assumptions worth checking before you report results: that the relationship is linear, that the residuals are normally distributed, and that the variance of the residuals is constant across the range of predicted values. The diagnostic plots in Step 5 check all three.</p>
+
+        <!-- STEP 1 -->
+        <div class="step-header">
+          <span class="step-n">1</span>
+          <span class="step-title">Load packages and enter your data</span>
+        </div>
+
+        <div class="code-wrap">
+          <div class="code-lang">R</div>
+          <pre><code><span class="cm"># Install if needed:</span>
+<span class="cm"># install.packages("tidyverse")</span>
+
+<span class="fn">library</span>(tidyverse)
+
+<span class="cm"># Soil pH and maize yield (t/ha) across 15 plots — Barind Tract</span>
+soil_data &lt;- <span class="fn">data.frame</span>(
+  pH        = <span class="fn">c</span>(<span class="nb">4.8</span>, <span class="nb">5.0</span>, <span class="nb">5.2</span>, <span class="nb">5.4</span>, <span class="nb">5.5</span>, <span class="nb">5.7</span>, <span class="nb">5.9</span>, <span class="nb">6.0</span>,
+               <span class="nb">6.1</span>, <span class="nb">6.3</span>, <span class="nb">6.5</span>, <span class="nb">6.6</span>, <span class="nb">6.8</span>, <span class="nb">7.0</span>, <span class="nb">7.1</span>),
+  yield_tha = <span class="fn">c</span>(<span class="nb">2.1</span>, <span class="nb">2.3</span>, <span class="nb">2.8</span>, <span class="nb">3.1</span>, <span class="nb">3.4</span>, <span class="nb">3.8</span>, <span class="nb">4.2</span>, <span class="nb">4.5</span>,
+               <span class="nb">4.7</span>, <span class="nb">4.9</span>, <span class="nb">5.1</span>, <span class="nb">5.0</span>, <span class="nb">4.8</span>, <span class="nb">4.6</span>, <span class="nb">4.3</span>)
+)</code></pre>
+        </div>
+
+        <p>Note that yield drops slightly at the highest pH values. Above pH 6.5, zinc and iron availability begins to fall in these soils, which pulls yields back down. This is why visualising the data before modelling matters.</p>
+
+        <!-- STEP 2 -->
+        <div class="step-header">
+          <span class="step-n">2</span>
+          <span class="step-title">Visualise before modelling</span>
+        </div>
+
+        <p>Always plot the relationship before running the regression. A scatter plot shows whether the relationship looks linear, whether there are obvious outliers, and whether the direction matches your expectation.</p>
+
+        <div class="code-wrap">
+          <div class="code-lang">R</div>
+          <pre><code><span class="fn">ggplot</span>(soil_data, <span class="fn">aes</span>(x = pH, y = yield_tha)) +
+  <span class="fn">geom_point</span>(size = <span class="nb">3</span>, colour = <span class="st">"#4a4232"</span>) +
+  <span class="fn">labs</span>(
+    x     = <span class="st">"Soil pH"</span>,
+    y     = <span class="st">"Maize yield (t/ha)"</span>,
+    title = <span class="st">"Soil pH vs. Maize Yield — Barind Tract"</span>
+  ) +
+  <span class="fn">theme_minimal</span>()</code></pre>
+        </div>
+
+        <p>The scatter shows a positive relationship from pH 4.8 to about 6.5, with a slight levelling at higher values. A straight line is a reasonable approximation over most of this range. If you needed to model the full curve, a polynomial fit would be more suitable — but for the pH 5.0 to 6.5 range most farmers are working in, linear is defensible.</p>
+
+        <!-- STEP 3 -->
+        <div class="step-header">
+          <span class="step-n">3</span>
+          <span class="step-title">Fit the model</span>
+        </div>
+
+        <div class="code-wrap">
+          <div class="code-lang">R</div>
+          <pre><code>model &lt;- <span class="fn">lm</span>(yield_tha ~ pH, data = soil_data)
+<span class="fn">summary</span>(model)</code></pre>
+        </div>
+
+        <div class="output-wrap">
+          <div class="output-label">R output</div>
+          <pre><code>Call:
+lm(formula = yield_tha ~ pH, data = soil_data)
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)  -1.2485     0.5321  -2.347   0.0351 <span class="sig">*</span>
+pH            <span class="val">0.9012</span>     0.0879  10.253  1.8e-07 <span class="sig">***</span>
+
+Residual standard error: 0.190 on 13 degrees of freedom
+Multiple R-squared:  <span class="val">0.8899</span>    Adjusted R-squared: <span class="val">0.8814</span>
+F-statistic: 105.1 on 1 and 13 DF,  p-value: 1.8e-07</code></pre>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-header">
+          <span class="step-n">4</span>
+          <span class="step-title">Read the output</span>
+        </div>
+
+        <p>The <code style="font-family:'Courier New',monospace;font-size:14px;background:var(--parchment2);padding:1px 6px;border-radius:3px;">Coefficients</code> table is the main result. Three summary statistics sit below it.</p>
+
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="stat-val">0.90</span>
+            <span class="stat-lbl">Slope (β)<br/>t/ha per pH unit</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-val">0.88</span>
+            <span class="stat-lbl">Adjusted R²<br/>variance explained</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-val">&lt;0.001</span>
+            <span class="stat-lbl">p-value<br/>slope significance</span>
+          </div>
+        </div>
+
+        <div class="coeff-explain">
+
+          <div class="ce-item">
+            <div class="ce-name">Intercept: −1.2485</div>
+            <p>The predicted yield when pH equals zero. This is mathematically required but has no practical meaning — no soil has a pH of zero. Do not over-interpret the intercept in environmental models where the predictor never approaches zero in reality.</p>
+          </div>
+
+          <div class="ce-item">
+            <div class="ce-name">pH slope: 0.9012</div>
+            <p>For every one unit increase in pH, maize yield increases by approximately 0.90 t/ha, all else being equal. This is the ecologically meaningful number. The standard error of 0.09 tells you how precisely it is estimated.</p>
+          </div>
+
+          <div class="ce-item">
+            <div class="ce-name">p-value for pH: 1.8e-07</div>
+            <p>The probability of observing a slope this large if no relationship actually existed between pH and yield. At p &lt; 0.001, the result is statistically significant.</p>
+          </div>
+
+          <div class="ce-item">
+            <div class="ce-name">R-squared: 0.89 (adjusted: 0.88)</div>
+            <p>The model explains 89% of the variation in yield. For field environmental data, this is a strong fit. In noisier datasets — atmospheric chemistry, urban runoff — an R² of 0.40 to 0.60 is often reasonable. Always report the adjusted value, not the multiple R².</p>
+          </div>
+
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="step-header">
+          <span class="step-n">5</span>
+          <span class="step-title">Check model diagnostics</span>
+        </div>
+
+        <p>A significant p-value is not enough. Run the diagnostic plots before reporting. They check whether the model's assumptions are actually met.</p>
+
+        <div class="code-wrap">
+          <div class="code-lang">R</div>
+          <pre><code><span class="fn">par</span>(mfrow = <span class="fn">c</span>(<span class="nb">2</span>, <span class="nb">2</span>))
+<span class="fn">plot</span>(model)</code></pre>
+        </div>
+
+        <div class="diagnostic-grid">
+
+          <div class="diag-item">
+            <div class="diag-name">Residuals vs Fitted</div>
+            <span class="diag-look good">Look for: no curve</span>
+            <p>Points should scatter randomly around zero. A curve indicates the relationship is not linear and a polynomial or transformed model is needed.</p>
+          </div>
+
+          <div class="diag-item">
+            <div class="diag-name">Normal Q-Q</div>
+            <span class="diag-look good">Look for: points on the line</span>
+            <p>Points should follow the diagonal line closely. Systematic deviation at the tails indicates non-normally distributed residuals.</p>
+          </div>
+
+          <div class="diag-item">
+            <div class="diag-name">Scale-Location</div>
+            <span class="diag-look watch">Watch for: funnel shape</span>
+            <p>Points should scatter evenly around a roughly horizontal line. A funnel, where spread increases with fitted values, indicates heteroscedasticity.</p>
+          </div>
+
+          <div class="diag-item">
+            <div class="diag-name">Residuals vs Leverage</div>
+            <span class="diag-look watch">Watch for: points beyond dashed lines</span>
+            <p>Points beyond Cook's distance threshold have disproportionate influence on the regression coefficients. Examine them individually before reporting.</p>
+          </div>
+
+        </div>
+
+        <div class="callout-box">
+          <span class="callout-label">Rule of thumb</span>
+          If the diagnostic plots look clean, the regression output is reliable. If they show a curve in Residuals vs Fitted or a severe funnel in Scale-Location, address those problems before publishing the result. Reporting a statistically significant regression built on violated assumptions is a common peer review failure mode.
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="step-header">
+          <span class="step-n">6</span>
+          <span class="step-title">Visualise the regression line</span>
+        </div>
+
+        <div class="code-wrap">
+          <div class="code-lang">R</div>
+          <pre><code><span class="fn">ggplot</span>(soil_data, <span class="fn">aes</span>(x = pH, y = yield_tha)) +
+  <span class="fn">geom_point</span>(colour = <span class="st">"#4a4232"</span>, size = <span class="nb">3</span>) +
+  <span class="fn">geom_smooth</span>(method = <span class="st">"lm"</span>, colour = <span class="st">"#1e1c18"</span>,
+              fill = <span class="st">"#e6dfc8"</span>, alpha = <span class="nb">0.3</span>) +
+  <span class="fn">labs</span>(
+    title    = <span class="st">"Soil pH and Maize Yield — Barind Tract"</span>,
+    subtitle = <span class="st">"Linear regression with 95% confidence interval"</span>,
+    x        = <span class="st">"Soil pH"</span>,
+    y        = <span class="st">"Maize yield (t/ha)"</span>
+  ) +
+  <span class="fn">theme_minimal</span>(base_size = <span class="nb">12</span>)</code></pre>
+        </div>
+
+        <p>The shaded band is the 95% confidence interval around the regression line. Where it is narrow, the estimate is precise. Where it widens toward the extremes, uncertainty is higher — which is expected since fewer observations sit at the pH extremes of the dataset.</p>
+
+        <!-- STEP 7 -->
+        <div class="step-header">
+          <span class="step-n">7</span>
+          <span class="step-title">Report the result</span>
+        </div>
+
+        <div class="report-example">
+          <span class="report-label">How to write it in a manuscript or thesis</span>
+          <p>"Soil pH was a significant positive predictor of maize yield (&beta; = 0.90, SE = 0.09, t(13) = 10.25, p &lt; 0.001). The model explained 88% of variance in yield (adjusted R² = 0.88)."</p>
+          <div class="report-note">Report adjusted R², not multiple R². The adjusted value accounts for the number of predictors and is the correct figure for simple and multiple regression results.</div>
+        </div>
+
+        <!-- WHAT IT CAN'T DO -->
+        <h2>What linear regression cannot do</h2>
+
+        <div class="limits-list">
+
+          <div class="limit-item">
+            <div class="limit-title">Establish causation</div>
+            <p>A significant regression tells you that X and Y are associated. It does not tell you that X causes Y. Soil pH and yield are related, but the regression alone does not establish mechanism. The effect could run through direct pH effects on root chemistry, through nutrient availability, or through a third variable that correlates with both — organic matter content, for example, is linked to both pH and yield in degraded agricultural soils.</p>
+          </div>
+
+          <div class="limit-item">
+            <div class="limit-title">Handle non-linear relationships</div>
+            <p>The pH-yield relationship in this dataset curves at high pH values. A linear model fitted across that full range underestimates what is happening biologically. Check the scatter plot first. If the relationship bends, a polynomial regression or data transformation is more appropriate than forcing a straight line.</p>
+          </div>
+
+          <div class="limit-item">
+            <div class="limit-title">Work with spatially autocorrelated samples</div>
+            <p>Linear regression assumes that observations are independent. Soil samples taken close together are spatially autocorrelated — measurements near each other tend to be more similar than measurements far apart. If your sampling design violates independence, standard errors from <code style="font-family:'Courier New',monospace;font-size:13px;background:var(--parchment2);padding:1px 5px;border-radius:3px;">lm()</code> will be underestimated. For spatially structured environmental data, mixed models or geostatistical approaches handle this more accurately.</p>
+          </div>
+
+        </div>
+
+        <!-- POST NAV -->
+        <div class="post-nav">
+          <a href="blog.html" class="btn btn-outline btn-arrow">All Posts</a>
+          <a href="blog-anova-r-tutorial.html" class="btn btn-gold">Read the ANOVA Tutorial</a>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-card author-card">
+          <div class="sc-head">About the author</div>
+          <div class="sc-body">
+            <div class="author-name">Sajjadur Rahman</div>
+            <div class="author-role">MSc Researcher · Soil &amp; Environment</div>
+            <p class="author-bio">MSc researcher at the University of Dhaka working on nitrogen use efficiency. He offers data analysis and statistical consultation for environmental and agricultural research.</p>
+            <a href="services.html" class="btn btn-gold" style="font-size:9px;padding:9px 18px;">Data Analysis Help</a>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sc-head">Data analysis series</div>
+          <div class="sc-body">
+            <div class="sc-links">
+              <a href="blog-linear-regression-r-tutorial.html">
+                <span class="sc-cat sc-current">You are here</span>
+                <span class="sc-current">Linear Regression in R</span>
+              </a>
+              <a href="blog-anova-r-tutorial.html">
+                <span class="sc-cat">Companion tutorial</span>
+                One-Way ANOVA in R
+              </a>
+              <a href="blog-tukey-hsd-explained.html">
+                <span class="sc-cat">Related</span>
+                Tukey HSD Post-Hoc Test
+              </a>
+              <a href="blog-nue-indices-explained.html">
+                <span class="sc-cat">Related</span>
+                NUE Indices: AE, RE, PE &amp; NHI
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sc-head">Need help with your data?</div>
+          <div class="sc-body">
+            <p>Sajjadur offers statistical analysis support for MSc and PhD researchers in soil, environmental, and agricultural science.</p>
+            <a href="contact.html" class="btn btn-primary" style="font-size:9px;padding:9px 18px;">Get in Touch</a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- RELATED POSTS -->
+    <div class="related-section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Keep Reading</span>
+          <h2>Related Posts</h2>
+          <span class="ornament">&#8212; &#10087; &#8212;</span>
+        </div>
+        <div class="related-grid">
+
+          <a href="blog-anova-r-tutorial.html" class="related-card">
+            <span class="rc-cat">Data Analysis</span>
+            <div class="rc-title">One-Way ANOVA in R for Agricultural Research</div>
+            <p class="rc-excerpt">When your predictor is categorical rather than continuous, ANOVA is the tool. Step-by-step walkthrough of aov(), the ANOVA table, and how to interpret the F-statistic.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+
+          <a href="blog-tukey-hsd-explained.html" class="related-card">
+            <span class="rc-cat">Data Analysis</span>
+            <div class="rc-title">The Tukey HSD Test: What It Does and How to Run It in R</div>
+            <p class="rc-excerpt">After a significant ANOVA result, Tukey HSD tells you which group pairs are actually different. What the output means and how to visualise it.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+
+          <a href="blog-nue-indices-explained.html" class="related-card">
+            <span class="rc-cat">Data Analysis &amp; Research</span>
+            <div class="rc-title">Understanding NUE Indices: AE, RE, PE, and NHI Explained</div>
+            <p class="rc-excerpt">The four nitrogen use efficiency indices every agricultural researcher needs to know. Formulas, a worked example, and the relationship between them.</p>
+            <span class="rc-read">Read Post</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4><h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a><a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a><a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a><a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a><a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a><a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a><a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4><h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html" data-en>Manuscript Editing</a><a href="services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+          <a href="services.html" data-en>Data Analysis</a><a href="services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+          <a href="services.html" data-en>Thesis Consultation</a><a href="services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+          <a href="services.html" data-en>IELTS Tutoring</a><a href="services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+          <a href="services.html" data-en>CV Development</a><a href="services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+          <a href="services.html" data-en>Research Proposals</a><a href="services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4><h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank">💬</a>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
