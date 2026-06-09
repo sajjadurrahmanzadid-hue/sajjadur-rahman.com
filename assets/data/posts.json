@@ -1,5 +1,21 @@
 [
   {
+  "slug": "linear-regression-r-tutorial",
+  "file": "blog-linear-regression-r-tutorial.html",
+  "title_en": "Linear Regression in R for Environmental Data: A Step-by-Step Tutorial",
+  "title_bn": "পরিবেশগত ডেটার জন্য R-এ রৈখিক রিগ্রেশন: ধাপে ধাপে টিউটোরিয়াল",
+  "date": "2026-06-09",
+  "category_en": "Data Analysis",
+  "category_bn": "ডেটা বিশ্লেষণ",
+  "excerpt_en": "lm(), the coefficients table, all four diagnostic plots, ggplot2 visualisation, and how to report the result. Working example: soil pH vs. maize yield, Barind Tract.",
+  "excerpt_bn": "lm(), সহগগুলির টেবিল, চারটি ডায়াগনস্টিক প্লট, ggplot2 ভিজুয়ালাইজেশন এবং ফলাফল রিপোর্ট করার পদ্ধতি।",
+  "tags_en": ["R", "linear regression", "lm()", "ggplot2", "environmental data", "statistics", "tutorial"],
+  "tags_bn": ["আর", "রৈখিক রিগ্রেশন", "পরিবেশগত ডেটা", "পরিসংখ্যান"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 7
+},
+  {
   "slug": "daad-epos-guide",
   "file": "blog-daad-epos-guide.html",
   "title_en": "DAAD EPOS Scholarship: A Complete Guide for Bangladeshi Applicants",
