@@ -1,5 +1,21 @@
 [
   {
+  "slug": "spade-open-source",
+  "file": "blog-spade-open-source.html",
+  "title_en": "SPADE: Why I Built an Analytics Dashboard for My Wheat Experiment, and What It Does Differently",
+  "title_bn": "SPADE: কেন আমি আমার গম পরীক্ষার জন্য একটি অ্যানালিটিক্স ড্যাশবোর্ড তৈরি করলাম",
+  "date": "2026-06-10",
+  "category_en": "Research & Science",
+  "category_bn": "গবেষণা ও বিজ্ঞান",
+  "excerpt_en": "Most NUE studies report two of five indices. CLD letters are routinely wrong. Shapiro-Wilk is meaningless at n=3. SPADE fixes all three — open-source, MIT licence.",
+  "excerpt_bn": "বেশিরভাগ NUE গবেষণা পাঁচটির মধ্যে দুটি সূচক রিপোর্ট করে। SPADE স্বয়ংক্রিয়ভাবে সব পাঁচটি গণনা করে।",
+  "tags_en": ["SPADE", "open source", "NUE", "data analysis", "nano-urea", "DUNTC", "Python", "wheat"],
+  "tags_bn": ["SPADE", "ওপেন সোর্স", "NUE", "ডেটা বিশ্লেষণ", "গম"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 9
+},
+  {
   "slug": "biochar-rice-husk-soil-chemistry",
   "file": "blog-biochar-rice-husk-soil-chemistry.html",
   "title_en": "Biochar from Rice Husk: What It Does to Soil Chemistry",
