@@ -1,5 +1,21 @@
 [
   {
+  "slug": "how-to-read-scientific-paper",
+  "file": "blog-how-to-read-scientific-paper.html",
+  "title_en": "How to Read a Scientific Paper When You Have 20 Minutes",
+  "title_bn": "২০ মিনিটে একটি বৈজ্ঞানিক গবেষণাপত্র কীভাবে পড়বেন",
+  "date": "2026-06-12",
+  "category_en": "Scientific Writing",
+  "category_bn": "বৈজ্ঞানিক লেখা",
+  "excerpt_en": "A 7-step framework: figures before abstract, last paragraph first, methods in 3 minutes. Plus the three sentences worth writing down after every paper.",
+  "excerpt_bn": "একটি ৭-ধাপের কাঠামো: ফিগার আগে, শেষ অনুচ্ছেদ প্রথমে, ৩ মিনিটে মেথড। এবং প্রতিটি পেপার পড়ার পর লেখার যোগ্য তিনটি বাক্য।",
+  "tags_en": ["scientific reading", "research skills", "literature review", "academic writing", "tutorial"],
+  "tags_bn": ["বৈজ্ঞানিক পড়া", "গবেষণা দক্ষতা", "একাডেমিক লেখা"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 6
+},
+  {
   "slug": "spade-open-source",
   "file": "blog-spade-open-source.html",
   "title_en": "SPADE: Why I Built an Analytics Dashboard for My Wheat Experiment, and What It Does Differently",
