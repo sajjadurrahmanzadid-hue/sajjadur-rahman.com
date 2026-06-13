@@ -1,5 +1,29 @@
 [
   {
+  "slug": "majidi-man",
+  "file": "blog-majidi-man.html",
+  "title_en": "Majid Majidi: The Man Behind the Camera",
+  "date": "2026-06-13",
+  "category_en": "Film & Culture",
+  "excerpt_en": "His early theatre years at 14, his faith, the Denmark festival withdrawal, and why he only films people other directors walk past.",
+  "tags_en": ["Majid Majidi", "Iranian cinema", "biography", "faith and art", "world cinema"],
+  "featured": false,
+  "status": "published",
+  "read_time_min": 7
+}
+  {
+  "slug": "majidi-films",
+  "file": "blog-majidi-films.html",
+  "title_en": "Majid Majidi's Cinema: Where Ordinary Life Is the Story",
+  "date": "2026-06-13",
+  "category_en": "Film & Culture",
+  "excerpt_en": "Children of Heaven, Baran, The Color of Paradise — how an Iranian director built a filmography from ordinary people and incomplete endings.",
+  "tags_en": ["Iranian cinema", "Majid Majidi", "film criticism", "world cinema", "Children of Heaven"],
+  "featured": false,
+  "status": "published",
+  "read_time_min": 8
+}
+  {
   "slug": "how-to-read-scientific-paper",
   "file": "blog-how-to-read-scientific-paper.html",
   "title_en": "How to Read a Scientific Paper When You Have 20 Minutes",
