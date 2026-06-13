@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com                         ║
+    ║  blog-majidi-man.html                        ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html ✅ Done                       ║
+    ║  blog.html     ✅ Done                       ║
+    ║  contact.html  ✅ Done                       ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Who is Majid Majidi beyond his films? His early theatre years, his faith, his insistence on real places and untrained actors, and a Denmark film festival withdrawal that said everything about the man."/>
+  <title>Majid Majidi: The Man Behind the Camera | Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-majidi-man.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-majidi-man.html"/>
+  <meta property="og:title" content="Majid Majidi: The Man Behind the Camera"/>
+  <meta property="og:description" content="His early theatre years at 14, his faith, the Denmark withdrawal, and why he only films people other directors walk past."/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="article:published_time" content="2026-06-13"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <meta property="article:tag" content="Iranian Cinema"/>
+  <meta property="article:tag" content="Majid Majidi"/>
+  <meta property="article:tag" content="Film"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Majid Majidi: The Man Behind the Camera"/>
+  <meta name="twitter:description" content="His early theatre years at 14, his faith, the Denmark withdrawal, and why he only films people other directors walk past."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Majid Majidi: The Man Behind the Camera",
+    "description": "Who is Majid Majidi beyond his films? His early theatre years, his faith, the Denmark withdrawal, and what drives him.",
+    "url": "https://sajjadur-rahman.com/blog-majidi-man.html",
+    "datePublished": "2026-06-13",
+    "dateModified": "2026-06-13",
+    "author": { "@type": "Person", "name": "Sajjadur Rahman", "url": "https://sajjadur-rahman.com/about.html" },
+    "publisher": { "@type": "Person", "name": "Sajjadur Rahman" },
+    "inLanguage": "en",
+    "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg",
+    "keywords": ["Majid Majidi", "Iranian cinema", "film director", "biography", "faith and cinema"]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Post hero ── */
+    .post-hero {
+      background: var(--ink-soft);
+      padding: 72px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '🎥';
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 280px;
+      opacity: 0.045;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .post-hero .container { position: relative; z-index: 1; }
+    .post-hero .breadcrumb {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .post-hero .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .post-hero .breadcrumb a:hover { text-decoration: underline; }
+    .post-hero .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.15;
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+    .post-hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .post-meta span { display: flex; align-items: center; gap: 6px; }
+    .post-meta .sep {
+      width: 3px; height: 3px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ── Article layout ── */
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px;
+      align-items: start;
+      padding: 60px 0 80px;
+    }
+
+    /* ── Article body ── */
+    .post-body {
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+    .post-body p { margin-bottom: 1.5em; }
+    .post-body p:last-child { margin-bottom: 0; }
+
+    .post-body h2 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2em 0 0.7em;
+      line-height: 1.3;
+    }
+    .post-body h3 {
+      font-family: var(--font-head);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin: 1.8em 0 0.5em;
+      font-style: italic;
+    }
+
+    .post-body em { font-style: italic; }
+
+    /* Timeline entry */
+    .timeline {
+      margin: 2em 0;
+      position: relative;
+      padding-left: 28px;
+      border-left: 2px solid var(--gold-pale);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -35px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--parchment);
+      box-shadow: 0 0 0 2px var(--gold-pale);
+    }
+    .timeline-year {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .timeline-text {
+      font-size: 16px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* Pull quote */
+    .post-body blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 2em 0;
+      padding: 18px 28px;
+      background: var(--parchment2);
+      border-radius: 0 6px 6px 0;
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+    .post-body blockquote cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-style: normal;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 1.8em 0;
+      font-size: 16px;
+      color: var(--ink-muted);
+      line-height: 1.75;
+    }
+    .highlight-box strong {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-style: normal;
+    }
+
+    /* Ornamental divider */
+    .post-divider {
+      text-align: center;
+      color: var(--gold);
+      font-family: var(--font-head);
+      font-size: 18px;
+      letter-spacing: 8px;
+      margin: 2.5em 0;
+      opacity: 0.7;
+    }
+
+    /* Post navigation */
+    .post-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .post-nav a {
+      display: block;
+      padding: 20px 22px;
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .post-nav a:hover {
+      background: var(--parchment3);
+      transform: translateY(-2px);
+    }
+    .post-nav a.next { text-align: right; }
+    .post-nav-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .post-nav-title {
+      font-family: var(--font-head);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    /* Tags */
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .post-tag {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 30px;
+      padding: 5px 13px;
+    }
+
+    /* ── Sidebar ── */
+    .post-sidebar { position: sticky; top: 90px; }
+    .sb-block {
+      background: white;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .sb-block:last-child { margin-bottom: 0; }
+    .sb-head {
+      background: var(--parchment2);
+      padding: 11px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sb-body { padding: 18px; }
+    .sb-body p {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .sb-body p:last-child { margin-bottom: 0; }
+    .sb-link {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 10px 18px;
+      border-top: 0.5px solid var(--gold-pale);
+      transition: background .2s;
+    }
+    .sb-link:hover { background: var(--parchment2); }
+    .sb-link::after { content: ' →'; }
+
+    /* TOC */
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      line-height: 1.45;
+      transition: color .2s, background .2s;
+    }
+    .toc-list a:hover { color: var(--gold); background: var(--parchment2); }
+    .toc-list .toc-num {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-right: 6px;
+    }
+
+    /* Author card */
+    .author-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+    }
+    .author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--ink-soft);
+      border: 2px solid var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .author-info { flex: 1; }
+    .author-name {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .author-role {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .author-bio {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .post-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 0 60px;
+      }
+      .post-sidebar { position: static; }
+      .post-nav { grid-template-columns: 1fr; }
+      .post-nav a.next { text-align: left; }
+    }
+    @media (max-width: 600px) {
+      .post-hero { padding: 48px 0 40px; }
+      .post-hero h1 { font-size: 26px; }
+      .post-body { font-size: 16.5px; }
+      .highlight-box { padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- POST HERO -->
+  <section class="post-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="blog.html">Blog</a>
+        <span>›</span>
+        <span>Film &amp; Culture</span>
+      </div>
+      <span class="eyebrow">Film &amp; Culture</span>
+      <h1>Majid Majidi:<br/><em>The Man Behind the Camera</em></h1>
+      <div class="post-meta">
+        <span>📅 13 June 2026</span>
+        <span class="sep"></span>
+        <span>⏱ 7 min read</span>
+        <span class="sep"></span>
+        <span>✍️ Sajjadur Rahman</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ARTICLE BODY -->
+      <article class="post-body reveal">
+
+        <p>Majid Majidi was born on 17 April 1959 in Tehran. That fact tells you almost nothing about him. What tells you more is that by age 14, he was already doing theatre — irregular, amateur, the kind nobody gets paid for. This was 1973, long before the Iranian Revolution reshaped what art in that country could look like, and a teenager in Tehran finding his way to a stage was simply a teenager who needed to be near storytelling.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="education">Learning to See</h2>
+
+        <p>He trained formally at the Institute of Dramatic Arts, but his real education came from watching. He has said he watched Satyajit Ray's <em>Pather Panchali</em> more than thirty times. Not to study it, not to copy it — to understand how something so plainly made could feel so alive. Ray's films showed him that a camera pointed honestly at ordinary people produces something more interesting than any constructed drama. That lesson shows up in everything Majidi has made since.</p>
+
+        <p>His screen debut came in 1985, when Mohsen Makhmalbaf cast him in <em>Boycott</em>. Makhmalbaf was already one of the central figures of Iranian cinema, and working under him gave Majidi a close look at how a director with a clear vision moves through the world. The experience didn't make him a Makhmalbaf imitation. It pushed him toward his own questions.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="timeline">A Career Built Slowly</h2>
+
+        <p>His first feature as director, <em>Baduk</em>, came out in 1992. It was not a worldwide sensation. It was a beginning.</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1973 — Age 14</div>
+            <div class="timeline-text">Begins irregular theatre work in Tehran. No training, no pay — just a pull toward performance.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1985</div>
+            <div class="timeline-text">Screen debut in Mohsen Makhmalbaf's <em>Boycott</em>. Completes studies at the Institute of Dramatic Arts.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1992</div>
+            <div class="timeline-text">Directs his first feature film, <em>Baduk</em>. A beginning, not a breakthrough.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1997 — 2001</div>
+            <div class="timeline-text">Three consecutive films — <em>Children of Heaven</em>, <em>The Color of Paradise</em>, <em>Baran</em> — win Best Film at the Montreal International Film Festival in back-to-back-to-back years. Iran's first Oscar nomination follows.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2008</div>
+            <div class="timeline-text"><em>The Song of Sparrows</em> opens the Visakhapatnam International Film Festival. <em>Vision Beijing</em>, a documentary co-directed with four other directors, is shown at the Beijing Summer Olympics.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2015</div>
+            <div class="timeline-text"><em>Muhammad: Messenger of God</em> — the most expensive Iranian film ever made — is released after years of preparation and pre-release controversy.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2017</div>
+            <div class="timeline-text"><em>Beyond the Clouds</em>: his first Bollywood film, first digital production, shot almost entirely on the streets of Mumbai.</div>
+          </div>
+        </div>
+
+        <p>What Majidi worked out during those early years was not technique but a way of seeing. He has spoken about his belief that a film's location is itself a character — not a backdrop, not a setting, but a living presence with its own weight. A studio set, in his view, is a lie. The world already contains the places the story needs. You find them, or you don't make the film.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="faith">Faith as Foundation</h2>
+
+        <p>Shooting in real locations with non-professional actors, often in difficult conditions, requires a director who can hold a vision without controlling every variable. Majidi developed that capacity across years of unglamorous work before <em>Children of Heaven</em> brought him international attention in 1997. By then, he had been working in Iranian cinema for over a decade.</p>
+
+        <p>Faith runs through his work — not as ornamentation but as foundation. Majidi is a practicing Muslim, and this shapes how he makes films, though not through sermonizing or didacticism. It shows in how his characters are treated. Every person in a Majidi film, no matter how poor or marginal, is shown as fully human. The blind boy in <em>The Color of Paradise</em> is not a symbol. The Afghan refugee in <em>Baran</em> is not a lesson. They are people, and he films them accordingly.</p>
+
+        <div class="highlight-box">
+          <strong>The Denmark Withdrawal</strong>
+          When Denmark's International Film Festival invited him to participate, he withdrew. That year, a Danish newspaper had published cartoons mocking the Prophet Muhammad. Majidi declined to lend his presence to any cultural event in that context. He did not make a speech. He simply removed his film from the programme and said: my belief shapes how I move through the world, and this is how I move.
+        </div>
+
+        <p>It would be easy to read that as political. He described it as personal.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="actors">The People He Films</h2>
+
+        <p>The same consistency runs through his professional choices. Majidi prefers non-professional actors because he finds something in untrained people that trained ones often lose — a relationship with the present moment, an inability to perform rather than simply be. The children in his films are the clearest example. They are not acting. They are living inside the story, and the camera is catching it.</p>
+
+        <p>He has worked consistently with people from the margins of Iranian society — laborers, refugees, rural families, the urban poor. This is not charity and not politics. It is, in his words, where he finds life. A construction site is as interesting as a palace if you are looking at the right things. More interesting, usually.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="muhammad">An Investment in Muslim Cinema</h2>
+
+        <p>When <em>Muhammad: Messenger of God</em> (2015) drew criticism before release — critics questioned whether the Prophet could appear on screen at all — Majidi saw the project as an act of investment in Muslim storytelling. He found a solution that was both theologically faithful and cinematically striking: never show the Prophet's face directly. The film traces Muhammad's early childhood, and the central figure moves through every scene partially obscured — present but never fully visible. The absence becomes the point.</p>
+
+        <blockquote>
+          "This is an investment in Muslim cinema — a step forward for Muslim storytelling on the world stage."
+          <cite>Majid Majidi on <em>Muhammad: Messenger of God</em></cite>
+        </blockquote>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="philosophy">What Art Is For</h2>
+
+        <p>Look at Majidi's life alongside his films, and the two make the same argument in different forms. The films say: ordinary people contain the whole of human experience. The life says: I will only make work that treats them accordingly.</p>
+
+        <p>He described what art is for with a directness that is rare:</p>
+
+        <blockquote>
+          "Art brings people together through a common humanity — regardless of race, culture, or religion. This world is thirsty for love, hungry for friendship. Cinema, at its best, is how we remember that."
+          <cite>Majid Majidi</cite>
+        </blockquote>
+
+        <p>That is not a mission statement. It is a description of what he actually does. Watch <em>Children of Heaven</em> once and you will understand the difference.</p>
+
+        <!-- Bengali original link -->
+        <div style="margin-top: 2.5em; padding: 20px 24px; background: var(--parchment2); border: 0.5px solid var(--gold-pale); border-radius: var(--radius);">
+          <p style="font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">বাংলায় পড়ুন</p>
+          <p style="font-size: 14.5px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 12px;">This piece began as a Bengali essay published in 2020. If you read Bangla, the original — <em>মাজিদ মাজিদী: সব্যসাচী বাজপাখি</em> — covers both the man and his films in one piece, in a more personal voice.</p>
+          <a href="https://sajjadur-rahman.blogspot.com/2020/07/blog-post_23.html" target="_blank" rel="noopener" style="font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold); text-decoration: none;">Read the Bengali original →</a>
+        </div>
+
+        <!-- Tags -->
+        <div class="post-tags">
+          <span class="post-tag">Majid Majidi</span>
+          <span class="post-tag">Iranian Cinema</span>
+          <span class="post-tag">Film Director</span>
+          <span class="post-tag">Biography</span>
+          <span class="post-tag">Faith &amp; Art</span>
+          <span class="post-tag">World Cinema</span>
+        </div>
+
+        <!-- Post navigation -->
+        <nav class="post-nav" aria-label="Post navigation">
+          <a href="blog-majidi-films.html" class="prev">
+            <span class="post-nav-label">← Part One</span>
+            <span class="post-nav-title">Majidi's Cinema: Where Ordinary Life Is the Story</span>
+          </a>
+          <a href="https://sajjadur-rahman.blogspot.com/2020/07/blog-post_23.html" target="_blank" rel="noopener" class="next">
+            <span class="post-nav-label">Bengali Original ↗</span>
+            <span class="post-nav-title">মাজিদ মাজিদী: সব্যসাচী বাজপাখি</span>
+          </a>
+        </nav>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="post-sidebar">
+
+        <!-- Table of Contents -->
+        <div class="sb-block">
+          <div class="sb-head">In This Post</div>
+          <ul class="toc-list">
+            <li><a href="#education"><span class="toc-num">01</span>Learning to See</a></li>
+            <li><a href="#timeline"><span class="toc-num">02</span>A Career Built Slowly</a></li>
+            <li><a href="#faith"><span class="toc-num">03</span>Faith as Foundation</a></li>
+            <li><a href="#actors"><span class="toc-num">04</span>The People He Films</a></li>
+            <li><a href="#muhammad"><span class="toc-num">05</span>An Investment in Muslim Cinema</a></li>
+            <li><a href="#philosophy"><span class="toc-num">06</span>What Art Is For</a></li>
+          </ul>
+        </div>
+
+        <!-- Author card -->
+        <div class="sb-block">
+          <div class="sb-head">About the Author</div>
+          <div class="author-card">
+            <div class="author-avatar">🔬</div>
+            <div class="author-info">
+              <div class="author-name">Sajjadur Rahman</div>
+              <div class="author-role">Researcher · Writer</div>
+              <div class="author-bio">MSc researcher at the University of Dhaka. Writes about science, history, and culture in Bengali and English.</div>
+            </div>
+          </div>
+          <a href="about.html" class="sb-link">Learn more about me</a>
+        </div>
+
+        <!-- Related post -->
+        <div class="sb-block">
+          <div class="sb-head">Part One</div>
+          <div class="sb-body">
+            <p>The man is one side of the story. Read about his films — <em>Children of Heaven</em>, <em>Baran</em>, <em>The Color of Paradise</em> — and the philosophy woven through each of them.</p>
+          </div>
+          <a href="blog-majidi-films.html" class="sb-link">Majidi's Cinema: The Films</a>
+        </div>
+
+        <!-- Bengali original -->
+        <div class="sb-block">
+          <div class="sb-head">বাংলায় পড়ুন</div>
+          <div class="sb-body">
+            <p>The original Bengali essay — <em>মাজিদ মাজিদী: সব্যসাচী বাজপাখি</em> — published in 2020 with 13,000+ readers.</p>
+          </div>
+          <a href="https://sajjadur-rahman.blogspot.com/2020/07/blog-post_23.html" target="_blank" rel="noopener" class="sb-link">Read on Blogger ↗</a>
+        </div>
+
+        <!-- CTA -->
+        <div class="sb-block">
+          <div class="sb-head">Need Writing Help?</div>
+          <div class="sb-body">
+            <p>I offer manuscript editing, thesis consultation, and academic writing support for researchers across South Asia.</p>
+          </div>
+          <a href="services.html" class="sb-link">See my services</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a>
+          <a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a>
+          <a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html" data-en>Manuscript Editing</a>
+          <a href="services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+          <a href="services.html" data-en>Data Analysis</a>
+          <a href="services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+          <a href="services.html" data-en>Thesis Consultation</a>
+          <a href="services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+          <a href="services.html" data-en>IELTS Tutoring</a>
+          <a href="services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+          <a href="services.html" data-en>CV Development</a>
+          <a href="services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+          <a href="services.html" data-en>Research Proposals</a>
+          <a href="services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank">💬</a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
