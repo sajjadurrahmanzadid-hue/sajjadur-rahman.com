@@ -1,5 +1,29 @@
 [
   {
+  "slug": "ahmed-zewail-femtochemistry",
+  "file": "blog-ahmed-zewail-femtochemistry.html",
+  "title_en": "Ahmed Zewail: The Man Who Filmed a Chemical Reaction",
+  "date": "2026-06-14",
+  "category_en": "Science & Biography",
+  "excerpt_en": "Before Zewail, the middle of every chemical reaction was invisible. He built a camera that could catch it — at one quadrillionth of a second.",
+  "tags_en": ["Ahmed Zewail", "femtochemistry", "Nobel Prize", "Muslim scientists", "chemistry", "biography"],
+  "featured": false,
+  "status": "published",
+  "read_time_min": 9
+}
+  {
+  "slug": "jamal-nazrul-islam",
+  "file": "blog-jamal-nazrul-islam.html",
+  "title_en": "Jamal Nazrul Islam: The Physicist Who Came Home",
+  "date": "2026-06-14",
+  "category_en": "Science & Biography",
+  "excerpt_en": "He wrote about the fate of the universe before Hawking did. He published through the Royal Society on Hawking's recommendation. Then he came home to Chittagong on 2,800 taka a month.",
+  "tags_en": ["Jamal Nazrul Islam", "Bangladesh", "cosmology", "science biography", "Chittagong University", "brain drain"],
+  "featured": false,
+  "status": "published",
+  "read_time_min": 10
+}
+  {
   "slug": "majidi-man",
   "file": "blog-majidi-man.html",
   "title_en": "Majid Majidi: The Man Behind the Camera",
