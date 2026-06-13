@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com                         ║
+    ║  blog-jamal-nazrul-islam.html                ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html ✅ Done                       ║
+    ║  blog.html     ✅ Done                       ║
+    ║  contact.html  ✅ Done                       ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Jamal Nazrul Islam wrote about the fate of the universe before Stephen Hawking. He published through the Royal Society on the recommendation of Hawking and Fred Hoyle. Then he came home to Chittagong for 2,800 taka a month."/>
+  <title>Jamal Nazrul Islam: The Physicist Who Came Home | Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-jamal-nazrul-islam.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-jamal-nazrul-islam.html"/>
+  <meta property="og:title" content="Jamal Nazrul Islam: The Physicist Who Came Home"/>
+  <meta property="og:description" content="One of the world's leading cosmologists gave up a tenured London post to return to Chittagong on 2,800 taka a month. The university refused him 3,000. He took the job anyway."/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="article:published_time" content="2026-06-14"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <meta property="article:tag" content="Bangladesh"/>
+  <meta property="article:tag" content="Jamal Nazrul Islam"/>
+  <meta property="article:tag" content="Science"/>
+  <meta property="article:tag" content="Cosmology"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Jamal Nazrul Islam: The Physicist Who Came Home"/>
+  <meta name="twitter:description" content="He published research recommended by Stephen Hawking. He wrote about the fate of the universe before Hawking did. Then he came home to Chittagong on 2,800 taka a month."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Jamal Nazrul Islam: The Physicist Who Came Home",
+    "description": "The life, science, and extraordinary return of Bangladesh's greatest cosmologist — Jamal Nazrul Islam, who chose Chittagong over Cambridge.",
+    "url": "https://sajjadur-rahman.com/blog-jamal-nazrul-islam.html",
+    "datePublished": "2026-06-14",
+    "dateModified": "2026-06-14",
+    "author": { "@type": "Person", "name": "Sajjadur Rahman", "url": "https://sajjadur-rahman.com/about.html" },
+    "publisher": { "@type": "Person", "name": "Sajjadur Rahman" },
+    "inLanguage": "en",
+    "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg",
+    "keywords": ["Jamal Nazrul Islam", "Bangladesh", "cosmology", "physicist", "Chittagong University", "fate of the universe", "Stephen Hawking"]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Post hero ── */
+    .post-hero {
+      background: var(--ink-soft);
+      padding: 72px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '🌌';
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 260px;
+      opacity: 0.045;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .post-hero .container { position: relative; z-index: 1; }
+    .post-hero .breadcrumb {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .post-hero .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .post-hero .breadcrumb a:hover { text-decoration: underline; }
+    .post-hero .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.15;
+      max-width: 780px;
+      margin-bottom: 22px;
+    }
+    .post-hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .post-meta span { display: flex; align-items: center; gap: 6px; }
+    .post-meta .sep {
+      width: 3px; height: 3px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ── Article layout ── */
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px;
+      align-items: start;
+      padding: 60px 0 80px;
+    }
+
+    /* ── Article body ── */
+    .post-body {
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+    .post-body p { margin-bottom: 1.5em; }
+    .post-body p:last-child { margin-bottom: 0; }
+
+    .post-body h2 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.4em 0 0.7em;
+      line-height: 1.3;
+    }
+
+    .post-body em { font-style: italic; }
+    .post-body strong { font-weight: 600; }
+
+    /* Opening statement */
+    .post-lede {
+      font-family: var(--font-head);
+      font-size: 21px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      border-left: 3px solid var(--gold);
+      padding: 4px 0 4px 24px;
+      margin-bottom: 2em;
+    }
+
+    /* Pull quote */
+    .post-body blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 2em 0;
+      padding: 18px 28px;
+      background: var(--parchment2);
+      border-radius: 0 6px 6px 0;
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+    .post-body blockquote cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 12.5px;
+      font-style: normal;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Career timeline strip */
+    .career-strip {
+      background: var(--ink-soft);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin: 2em 0;
+    }
+    .career-strip-label {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .career-row {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .career-row:last-child { margin-bottom: 0; }
+    .career-years {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      white-space: nowrap;
+      min-width: 72px;
+    }
+    .career-place { color: var(--gold-light); }
+
+    /* Book highlight */
+    .book-card {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 1.8em 0;
+    }
+    .book-card-title {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+    .book-card-meta {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .book-card p {
+      margin: 0;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--ink-muted);
+    }
+
+    /* Salary callout */
+    .salary-box {
+      background: var(--ink-soft);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin: 2em 0;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .salary-number {
+      font-family: var(--font-head);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .salary-desc {
+      font-size: 15px;
+      color: var(--gold-light);
+      line-height: 1.7;
+    }
+
+    /* Honours list */
+    .honours-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5em 0;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .honours-list li {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      padding: 12px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-size: 15.5px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .honours-list li:last-child { border-bottom: none; }
+    .honours-list li:nth-child(odd) { background: var(--parchment2); }
+    .honour-yr {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      white-space: nowrap;
+      min-width: 38px;
+    }
+
+    /* Ornamental divider */
+    .post-divider {
+      text-align: center;
+      color: var(--gold);
+      font-family: var(--font-head);
+      font-size: 18px;
+      letter-spacing: 8px;
+      margin: 2.8em 0;
+      opacity: 0.7;
+    }
+
+    /* Closing statement */
+    .post-close {
+      margin-top: 2.5em;
+      padding: 28px 32px;
+      background: var(--ink-soft);
+      border-radius: 10px;
+      font-family: var(--font-head);
+      font-size: 19px;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Post navigation */
+    .post-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .post-nav a {
+      display: block;
+      padding: 20px 22px;
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .post-nav a:hover {
+      background: var(--parchment3);
+      transform: translateY(-2px);
+    }
+    .post-nav a.next { text-align: right; }
+    .post-nav-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .post-nav-title {
+      font-family: var(--font-head);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    /* Tags */
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .post-tag {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 30px;
+      padding: 5px 13px;
+    }
+
+    /* ── Sidebar ── */
+    .post-sidebar { position: sticky; top: 90px; }
+    .sb-block {
+      background: white;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .sb-block:last-child { margin-bottom: 0; }
+    .sb-head {
+      background: var(--parchment2);
+      padding: 11px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sb-body { padding: 18px; }
+    .sb-body p {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .sb-body p:last-child { margin-bottom: 0; }
+    .sb-link {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 10px 18px;
+      border-top: 0.5px solid var(--gold-pale);
+      transition: background .2s;
+    }
+    .sb-link:hover { background: var(--parchment2); }
+    .sb-link::after { content: ' →'; }
+
+    /* TOC */
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      line-height: 1.45;
+      transition: color .2s, background .2s;
+    }
+    .toc-list a:hover { color: var(--gold); background: var(--parchment2); }
+    .toc-list .toc-num {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-right: 6px;
+    }
+
+    /* Key fact strip */
+    .key-fact {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+    .key-fact:last-child { border-bottom: none; }
+    .key-fact-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+      width: 24px;
+      text-align: center;
+      margin-top: 1px;
+    }
+
+    /* Author card */
+    .author-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+    }
+    .author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--ink-soft);
+      border: 2px solid var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .author-info { flex: 1; }
+    .author-name {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .author-role {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .author-bio {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .post-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 0 60px;
+      }
+      .post-sidebar { position: static; }
+      .post-nav { grid-template-columns: 1fr; }
+      .post-nav a.next { text-align: left; }
+      .salary-box { flex-direction: column; gap: 12px; }
+    }
+    @media (max-width: 600px) {
+      .post-hero { padding: 48px 0 40px; }
+      .post-hero h1 { font-size: 26px; }
+      .post-body { font-size: 16.5px; }
+      .post-lede { font-size: 18px; }
+      .career-strip { padding: 18px 20px; }
+      .post-close { padding: 22px 20px; font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- POST HERO -->
+  <section class="post-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="blog.html">Blog</a>
+        <span>›</span>
+        <span>Science &amp; Biography</span>
+      </div>
+      <span class="eyebrow">Science &amp; Biography · Bangladesh</span>
+      <h1>Jamal Nazrul Islam:<br/><em>The Physicist Who Came Home</em></h1>
+      <div class="post-meta">
+        <span>📅 14 June 2026</span>
+        <span class="sep"></span>
+        <span>⏱ 10 min read</span>
+        <span class="sep"></span>
+        <span>✍️ Sajjadur Rahman</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ARTICLE BODY -->
+      <article class="post-body reveal">
+
+        <p class="post-lede">In 1981, one of the world's leading cosmologists packed up his life in London and moved to Chittagong for a salary of 2,800 taka a month. The university had refused to offer him 3,000. He took the job anyway.</p>
+
+        <p>Professor Dr. Jamal Nazrul Islam had turned down a tenured position at City University London. He had published research through the Royal Society on the recommendation of Stephen Hawking and Fred Hoyle. He had written a book on the fate of the universe that Cambridge University Press had just accepted for publication. He came home because he wanted to, and Bangladesh made it as difficult as it reasonably could.</p>
+
+        <p>This is the story of a man the country produced and barely held on to.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="early-life">Jhenaidah to Cambridge</h2>
+
+        <p>He was born on 24 February 1939 in Jhenaidah — a quiet district town in what was then British India. His father, Sirajul Islam, was a sub-judge. His mother, Rahat Ara Begum, translated Rabindranath Tagore's <em>Dakghar</em> into Urdu and sang well enough that people remembered it. There were eight children. His mother died when Jamal was ten.</p>
+
+        <p>The name carries history. His family had ties to the household of national poet Kazi Nazrul Islam, with regular visits between them. When the boy was born, the name was chosen in that spirit. Jamal means beautiful.</p>
+
+        <p>He studied up to Class 4 in Calcutta, then came to Chittagong. The principal of Chittagong Collegiate School, seeing what he was dealing with, skipped him directly to Class 6. He completed Class 8 and left for Lawrence College in Pakistan, taking his love of mathematics with him. He came back to Calcutta for Saint Xavier's College, where he found Father Gore — a teacher who explained mathematical ideas the way few could, and who was glad to have a student who wasn't afraid of them.</p>
+
+        <p>He told an interviewer years later:</p>
+
+        <blockquote>
+          "Mathematics was something many people feared. But it was where all my interest and pull lived. Perhaps that's why he liked me."
+          <cite>Jamal Nazrul Islam</cite>
+        </blockquote>
+
+        <p>He finished his BSc from Calcutta University in 1957. He was 18. Two years later he was at Trinity College, Cambridge, completing the Mathematics Tripos — a three-year course he finished in two. His classmates included Jayant Narlikar, later one of India's most prominent mathematicians, and Brian Josephson, who won the Nobel Prize in Physics in 1973 at 33. One year his senior was James Mirrlees, Nobel Economics 1996. His teacher John Pople won the Nobel Prize in Chemistry in 1998, the same year as Amartya Sen.</p>
+
+        <p>He mentioned this cohort not to claim reflected glory but to describe what it felt like to study in a place where the best minds of a generation worked in the same rooms.</p>
+
+        <p>He completed his MSc in 1960 and his PhD in 1964, at 25, in Applied Mathematics and Theoretical Physics. Cambridge awarded him a postdoctoral position before his thesis was even submitted — a distinction that is, as it sounds, uncommon. In 1982, Cambridge conferred the Doctor of Science degree, its highest research award.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="career">The Work</h2>
+
+        <p>His career moved across four countries over two decades.</p>
+
+        <div class="career-strip">
+          <span class="career-strip-label">Career — Positions Held</span>
+          <div class="career-row"><span class="career-years">1963–65</span><span class="career-place">University of Maryland — Postdoctoral Fellow</span></div>
+          <div class="career-row"><span class="career-years">1967–71</span><span class="career-place">Cambridge — Institute of Theoretical Astronomy</span></div>
+          <div class="career-row"><span class="career-years">1971–72</span><span class="career-place">Caltech — Visiting Associate</span></div>
+          <div class="career-row"><span class="career-years">1972–73</span><span class="career-place">University of Washington — Senior Research Associate</span></div>
+          <div class="career-row"><span class="career-years">1973–74</span><span class="career-place">King's College London — Lecturer, Applied Mathematics</span></div>
+          <div class="career-row"><span class="career-years">1975–78</span><span class="career-place">University of Cardiff — Fellow, Science Research Council</span></div>
+          <div class="career-row"><span class="career-years">1978–84</span><span class="career-place">City University London — Lecturer, then Reader</span></div>
+          <div class="career-row"><span class="career-years">1984 →</span><span class="career-place">Chittagong University — Professor, Mathematics</span></div>
+        </div>
+
+        <p>The work that ran through all of it was cosmology — specifically, how the universe ends.</p>
+
+        <p>In 1977, he published "Possible Ultimate Fate of the Universe" in the Quarterly Journal of the Royal Astronomical Society. It drew attention from colleagues. The following year, Steven Weinberg published <em>The First Three Minutes</em>, a book about the universe's beginning. Islam looked at both and decided someone should write about the other end.</p>
+
+        <p>In his own words:</p>
+
+        <blockquote>
+          "My colleagues found the paper interesting and exciting. Then Weinberg's book appeared — dealing with the beginning of the universe. These two things together made me think: a book on the final fate would be worthwhile. Then <em>Sky and Telescope</em> magazine asked me to write a piece for a general audience on the same subject. The response to it is what led me to write the book."
+          <cite>Jamal Nazrul Islam</cite>
+        </blockquote>
+
+        <div class="book-card">
+          <div class="book-card-title">The Ultimate Fate of the Universe</div>
+          <div class="book-card-meta">Cambridge University Press, 1983 · Predates A Brief History of Time by five years</div>
+          <p>Used as a course text at Cambridge and Harvard. Translated into French, Portuguese, German, and Italian. Six research papers in the Royal Society of London — recommended by Stephen Hawking and Fred Hoyle.</p>
+        </div>
+
+        <p>His 1985 book <em>Rotating Fields in General Relativity</em>, also from Cambridge University Press, grew from his Royal Society work and is what earned him the Doctor of Science. He also wrote <em>An Introduction to Mathematical Cosmology</em>, which remains in use today.</p>
+
+        <p>In Bengali, he wrote <em>Krishno Bibar</em> — a complete, rigorous account of black holes in eighty pages, published by Bangla Academy in 1985. A technically rigorous science book in Bengali was close to nonexistent at the time. He understood that science in your own language is science you can build on.</p>
+
+        <p>He described his widening research areas with characteristic dryness:</p>
+
+        <blockquote>
+          "I call it — jokingly — 'wider, but not necessarily deeper.'"
+          <cite>Jamal Nazrul Islam</cite>
+        </blockquote>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="return">The Return</h2>
+
+        <p>The return to Bangladesh is the part of the story that stops you.</p>
+
+        <div class="salary-box">
+          <span class="salary-number">৳ 2,800</span>
+          <span class="salary-desc">The monthly salary Jamal Nazrul Islam accepted at Chittagong University in 1981. The syndicate refused his request for ৳ 3,000. He had turned down a tenured position at City University London to take this post.</span>
+        </div>
+
+        <p>When colleagues heard he wanted to come back, they urged him toward Dhaka University. He refused. His ancestral home was in Chittagong. He would go to Chittagong University, and that was settled. A Dhaka University professor, A.M. Harun or Rashid, went to Chittagong personally to arrange the appointment — twice, because the first attempt stalled in departmental politics and the physics post fell through. Eventually a mathematics position was created.</p>
+
+        <p>A year after joining, when research needs took him back to London, the university refused him academic leave — a standard entitlement for professors. He left by resigning his post. In 1984, he sold everything he owned in London and returned for good. The university reinstated him, raised his salary to 3,000 taka, and counted the time away as academic leave.</p>
+
+        <p>Harun or Rashid wrote about it later:</p>
+
+        <blockquote>
+          "Jamal told me he wasn't going to Dhaka. He was going to Chittagong, because that's where his ancestral home was. I tried to explain that he might not find the best students there, that his research might suffer. He didn't listen to any of it. His mind was made up."
+          <cite>Prof. A.M. Harun or Rashid, Dhaka University</cite>
+        </blockquote>
+
+        <p>That was it. His mind was made up.</p>
+
+        <p>At Chittagong University, he built the Research Centre for Mathematical and Physical Sciences. He taught. He wrote. He stayed.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="honours">Honours</h2>
+
+        <ul class="honours-list">
+          <li><span class="honour-yr">1985</span>Bangladesh Academy of Science Gold Medal</li>
+          <li><span class="honour-yr">1994</span>National Science and Technology Medal</li>
+          <li><span class="honour-yr">1998</span>Third World Academy of Sciences Medal Lecture — Abdus Salam Centre for Theoretical Physics, Italy</li>
+          <li><span class="honour-yr">2001</span>Ekushey Padak — Bangladesh's second highest civilian honour</li>
+          <li><span class="honour-yr">2011</span>Razzak-Shamsun Lifetime Achievement Award — University of Dhaka</li>
+        </ul>
+
+        <p>Beyond physics and mathematics, he wrote on biology, economics, music, and the role of mother-tongue language in science education. He thought the boundaries between fields were too small to be taken seriously.</p>
+
+        <p>Professor Dr. Jamal Nazrul Islam died on 16 March 2013 in Chittagong. He was 74.</p>
+
+        <p>His research centre still operates. Researchers trained there have gone on to work internationally. The light he set going keeps going.</p>
+
+        <div class="post-close">
+          In Bangladesh, the question of brain drain comes up constantly — why the best minds leave, what might keep them. Jamal Nazrul Islam is the answer to a different question: what happens when someone with every reason to stay away chooses to come back. The country made it hard. A salary dispute over 200 taka. A university that refused him leave. He stayed anyway. He built something. It lasted.<br/><br/>
+          That is what it looks like when a person decides that where they came from is where they belong.
+        </div>
+
+        <!-- Bengali original link -->
+        <div style="margin-top: 2.5em; padding: 20px 24px; background: var(--parchment2); border: 0.5px solid var(--gold-pale); border-radius: var(--radius);">
+          <p style="font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">বাংলায় পড়ুন</p>
+          <p style="font-size: 14.5px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 12px;">This piece began as a Bengali essay published in 2021 — <em>একজন জামাল নজরুল ইসলাম</em>. The original goes deeper into his personal reflections, interviews, and the cultural texture of his life.</p>
+          <a href="https://sajjadur-rahman.blogspot.com/2021/03/blog-post_39.html" target="_blank" rel="noopener" style="font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold); text-decoration: none;">Read the Bengali original →</a>
+        </div>
+
+        <!-- Tags -->
+        <div class="post-tags">
+          <span class="post-tag">Jamal Nazrul Islam</span>
+          <span class="post-tag">Bangladesh</span>
+          <span class="post-tag">Cosmology</span>
+          <span class="post-tag">Science Biography</span>
+          <span class="post-tag">Chittagong University</span>
+          <span class="post-tag">Brain Drain</span>
+          <span class="post-tag">Muslim Scientists</span>
+        </div>
+
+        <!-- Post navigation -->
+        <nav class="post-nav" aria-label="Post navigation">
+          <a href="blog-ahmed-zewail-femtochemistry.html" class="prev">
+            <span class="post-nav-label">← Also on the Blog</span>
+            <span class="post-nav-title">Ahmed Zewail: The Man Who Filmed a Chemical Reaction</span>
+          </a>
+          <a href="https://sajjadur-rahman.blogspot.com/2021/03/blog-post_39.html" target="_blank" rel="noopener" class="next">
+            <span class="post-nav-label">Bengali Original ↗</span>
+            <span class="post-nav-title">একজন জামাল নজরুল ইসলাম</span>
+          </a>
+        </nav>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="post-sidebar">
+
+        <!-- TOC -->
+        <div class="sb-block">
+          <div class="sb-head">In This Post</div>
+          <ul class="toc-list">
+            <li><a href="#early-life"><span class="toc-num">01</span>Jhenaidah to Cambridge</a></li>
+            <li><a href="#career"><span class="toc-num">02</span>The Work</a></li>
+            <li><a href="#return"><span class="toc-num">03</span>The Return</a></li>
+            <li><a href="#honours"><span class="toc-num">04</span>Honours</a></li>
+          </ul>
+        </div>
+
+        <!-- Key facts -->
+        <div class="sb-block">
+          <div class="sb-head">Key Facts</div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🇧🇩</span>
+            <span>Born Jhenaidah, Bangladesh, 24 Feb 1939. Died Chittagong, 16 Mar 2013.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🎓</span>
+            <span>PhD Cambridge 1964, age 25. DSc Cambridge 1982.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">📖</span>
+            <span><em>The Ultimate Fate of the Universe</em> (CUP 1983) predates Hawking's <em>A Brief History of Time</em> by five years.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🔬</span>
+            <span>6 papers in the Royal Society of London. Recommended by Stephen Hawking and Fred Hoyle.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🏠</span>
+            <span>Returned to Chittagong University in 1981. Sold his London possessions and came back permanently in 1984.</span>
+          </div>
+        </div>
+
+        <!-- Author card -->
+        <div class="sb-block">
+          <div class="sb-head">About the Author</div>
+          <div class="author-card">
+            <div class="author-avatar">🔬</div>
+            <div class="author-info">
+              <div class="author-name">Sajjadur Rahman</div>
+              <div class="author-role">Researcher · Writer</div>
+              <div class="author-bio">MSc researcher at the University of Dhaka. Writes about science, history, and culture in Bengali and English.</div>
+            </div>
+          </div>
+          <a href="about.html" class="sb-link">Learn more about me</a>
+        </div>
+
+        <!-- Related -->
+        <div class="sb-block">
+          <div class="sb-head">Also on the Blog</div>
+          <div class="sb-body">
+            <p>Ahmed Zewail invented femtochemistry, won the Nobel Prize, and founded a science city in Cairo. Another Muslim scientist who refused to stay in the West.</p>
+          </div>
+          <a href="blog-ahmed-zewail-femtochemistry.html" class="sb-link">Ahmed Zewail: The Man Who Filmed a Reaction</a>
+        </div>
+
+        <!-- Bengali original -->
+        <div class="sb-block">
+          <div class="sb-head">বাংলায় পড়ুন</div>
+          <div class="sb-body">
+            <p>The original Bengali essay — <em>একজন জামাল নজরুল ইসলাম</em> — published in 2021 on Blogger.</p>
+          </div>
+          <a href="https://sajjadur-rahman.blogspot.com/2021/03/blog-post_39.html" target="_blank" rel="noopener" class="sb-link">Read on Blogger ↗</a>
+        </div>
+
+        <!-- CTA -->
+        <div class="sb-block">
+          <div class="sb-head">Need Writing Help?</div>
+          <div class="sb-body">
+            <p>I offer manuscript editing, thesis consultation, and academic writing support for researchers across South Asia.</p>
+          </div>
+          <a href="services.html" class="sb-link">See my services</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a>
+          <a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a>
+          <a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html" data-en>Manuscript Editing</a>
+          <a href="services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+          <a href="services.html" data-en>Data Analysis</a>
+          <a href="services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+          <a href="services.html" data-en>Thesis Consultation</a>
+          <a href="services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+          <a href="services.html" data-en>IELTS Tutoring</a>
+          <a href="services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+          <a href="services.html" data-en>CV Development</a>
+          <a href="services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+          <a href="services.html" data-en>Research Proposals</a>
+          <a href="services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank">💬</a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

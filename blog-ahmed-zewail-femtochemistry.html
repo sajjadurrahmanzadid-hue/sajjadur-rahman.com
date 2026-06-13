@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com                         ║
+    ║  blog-ahmed-zewail-femtochemistry.html       ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html ✅ Done                       ║
+    ║  blog.html     ✅ Done                       ║
+    ║  contact.html  ✅ Done                       ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Ahmed Zewail dropped a cat off a roof to understand motion. Then he solved the same problem for chemistry — at one quadrillionth of a second. The life and science of the Nobel laureate who invented femtochemistry."/>
+  <title>Ahmed Zewail: The Man Who Filmed a Chemical Reaction | Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-ahmed-zewail-femtochemistry.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-ahmed-zewail-femtochemistry.html"/>
+  <meta property="og:title" content="Ahmed Zewail: The Man Who Filmed a Chemical Reaction"/>
+  <meta property="og:description" content="Before Zewail, chemists could see the reactants going in and the products coming out. The middle — the actual event — was invisible. He built a camera that could catch it."/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="article:published_time" content="2026-06-14"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <meta property="article:tag" content="Science"/>
+  <meta property="article:tag" content="Ahmed Zewail"/>
+  <meta property="article:tag" content="Femtochemistry"/>
+  <meta property="article:tag" content="Nobel Prize"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Ahmed Zewail: The Man Who Filmed a Chemical Reaction"/>
+  <meta name="twitter:description" content="Before Zewail, the middle of every chemical reaction was invisible. He built a camera that could catch it — at one quadrillionth of a second."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Ahmed Zewail: The Man Who Filmed a Chemical Reaction",
+    "description": "The life and science of Ahmed Hassan Zewail — Nobel laureate, father of femtochemistry, founder of Zewail City, and Egypt's greatest modern scientist.",
+    "url": "https://sajjadur-rahman.com/blog-ahmed-zewail-femtochemistry.html",
+    "datePublished": "2026-06-14",
+    "dateModified": "2026-06-14",
+    "author": { "@type": "Person", "name": "Sajjadur Rahman", "url": "https://sajjadur-rahman.com/about.html" },
+    "publisher": { "@type": "Person", "name": "Sajjadur Rahman" },
+    "inLanguage": "en",
+    "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg",
+    "keywords": ["Ahmed Zewail", "femtochemistry", "Nobel Prize", "chemistry", "femtosecond spectroscopy", "Muslim scientists"]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Post hero ── */
+    .post-hero {
+      background: var(--ink-soft);
+      padding: 72px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '⚗️';
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 260px;
+      opacity: 0.045;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .post-hero .container { position: relative; z-index: 1; }
+    .post-hero .breadcrumb {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .post-hero .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .post-hero .breadcrumb a:hover { text-decoration: underline; }
+    .post-hero .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.15;
+      max-width: 780px;
+      margin-bottom: 22px;
+    }
+    .post-hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .post-meta span { display: flex; align-items: center; gap: 6px; }
+    .post-meta .sep {
+      width: 3px; height: 3px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ── Article layout ── */
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px;
+      align-items: start;
+      padding: 60px 0 80px;
+    }
+
+    /* ── Article body ── */
+    .post-body {
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+    .post-body p { margin-bottom: 1.5em; }
+    .post-body p:last-child { margin-bottom: 0; }
+
+    .post-body h2 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.4em 0 0.7em;
+      line-height: 1.3;
+    }
+
+    .post-body em { font-style: italic; }
+    .post-body strong { font-weight: 600; }
+
+    /* Science callout — key number */
+    .science-box {
+      background: var(--ink-soft);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin: 2em 0;
+      text-align: center;
+    }
+    .science-box .sci-number {
+      font-family: var(--font-head);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .science-box .sci-label {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .science-box .sci-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--gold-light);
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    /* Method box */
+    .method-box {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 22px 28px;
+      margin: 2em 0;
+    }
+    .method-box-title {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .method-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: step;
+    }
+    .method-steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      font-size: 16px;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+    .method-steps li:last-child { margin-bottom: 0; }
+    .method-steps li::before {
+      content: counter(step);
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      background: var(--parchment3);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Pull quote */
+    .post-body blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 2em 0;
+      padding: 18px 28px;
+      background: var(--parchment2);
+      border-radius: 0 6px 6px 0;
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+    .post-body blockquote cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 12.5px;
+      font-style: normal;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Honours grid */
+    .honours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 1.8em 0;
+    }
+    .honour-item {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+    .honour-year {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .honour-title {
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* Ornamental divider */
+    .post-divider {
+      text-align: center;
+      color: var(--gold);
+      font-family: var(--font-head);
+      font-size: 18px;
+      letter-spacing: 8px;
+      margin: 2.8em 0;
+      opacity: 0.7;
+    }
+
+    /* Post navigation */
+    .post-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .post-nav a {
+      display: block;
+      padding: 20px 22px;
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .post-nav a:hover {
+      background: var(--parchment3);
+      transform: translateY(-2px);
+    }
+    .post-nav a.next { text-align: right; }
+    .post-nav-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .post-nav-title {
+      font-family: var(--font-head);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    /* Tags */
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .post-tag {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 30px;
+      padding: 5px 13px;
+    }
+
+    /* ── Sidebar ── */
+    .post-sidebar { position: sticky; top: 90px; }
+    .sb-block {
+      background: white;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .sb-block:last-child { margin-bottom: 0; }
+    .sb-head {
+      background: var(--parchment2);
+      padding: 11px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sb-body { padding: 18px; }
+    .sb-body p {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .sb-body p:last-child { margin-bottom: 0; }
+    .sb-link {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 10px 18px;
+      border-top: 0.5px solid var(--gold-pale);
+      transition: background .2s;
+    }
+    .sb-link:hover { background: var(--parchment2); }
+    .sb-link::after { content: ' →'; }
+
+    /* TOC */
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      line-height: 1.45;
+      transition: color .2s, background .2s;
+    }
+    .toc-list a:hover { color: var(--gold); background: var(--parchment2); }
+    .toc-list .toc-num {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-right: 6px;
+    }
+
+    /* Key fact strip */
+    .key-fact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .key-fact:last-child { border-bottom: none; }
+    .key-fact-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+    }
+
+    /* Author card */
+    .author-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+    }
+    .author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--ink-soft);
+      border: 2px solid var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .author-info { flex: 1; }
+    .author-name {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .author-role {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .author-bio {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .post-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 0 60px;
+      }
+      .post-sidebar { position: static; }
+      .post-nav { grid-template-columns: 1fr; }
+      .post-nav a.next { text-align: left; }
+      .honours-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .post-hero { padding: 48px 0 40px; }
+      .post-hero h1 { font-size: 26px; }
+      .post-body { font-size: 16.5px; }
+      .science-box { padding: 22px 20px; }
+      .science-box .sci-number { font-size: 34px; }
+      .method-box { padding: 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- POST HERO -->
+  <section class="post-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="blog.html">Blog</a>
+        <span>›</span>
+        <span>Science &amp; Biography</span>
+      </div>
+      <span class="eyebrow">Science &amp; Biography</span>
+      <h1>Ahmed Zewail:<br/><em>The Man Who Filmed a Chemical Reaction</em></h1>
+      <div class="post-meta">
+        <span>📅 14 June 2026</span>
+        <span class="sep"></span>
+        <span>⏱ 9 min read</span>
+        <span class="sep"></span>
+        <span>✍️ Sajjadur Rahman</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ARTICLE BODY -->
+      <article class="post-body reveal">
+
+        <p>Riyad carried a white cat up to the roof of a two-storey house, held it upside down by its four paws, and dropped it. A friend waited below with a camera. They wanted to photograph every moment of the fall — the twist, the correction, the landing. What they got was two frames: the cat at the top, and the cat at the bottom. Everything in between happened too fast.</p>
+
+        <p>This is the problem Ahmed Zewail spent his life solving. Not for cats. For chemistry.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="the-problem">The Invisible Middle</h2>
+
+        <p>A chemical reaction takes between 10 and 100 femtoseconds to complete. One femtosecond is 10⁻¹⁵ seconds — one quadrillionth of a second, or one millionth of one billionth of a second. The atoms rearrange, bonds break, new molecules form. Before Zewail, chemists could see the reactants going in and the products coming out. The middle — the actual event — was invisible. No camera existed that could catch it.</p>
+
+        <div class="science-box">
+          <span class="sci-number">10⁻¹⁵</span>
+          <span class="sci-label">One Femtosecond</span>
+          <span class="sci-desc">One quadrillionth of a second. One millionth of one billionth of a second. The timescale on which a chemical reaction happens — and the timescale Zewail learned to see.</span>
+        </div>
+
+        <p>Zewail built one.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="the-beginning">Alexandria to Caltech</h2>
+
+        <p>He was born on 26 February 1946 in Damanhur, Egypt, and grew up along the Nile in Alexandria. Three sisters. A city full of old knowledge. He was the kind of child who turned his mother's kitchen stove into a makeshift Bunsen burner to watch wood burn, encouraged by an uncle who found this entirely reasonable. His bedroom door already carried a sign: <em>Dr. Ahmed</em>.</p>
+
+        <p>He completed his BSc and MSc at Alexandria University, then crossed the Atlantic to the University of Pennsylvania for his PhD under Robin Hochstrasser. His own description of arriving in America has stayed in the record:</p>
+
+        <blockquote>
+          "The feeling of being thrown into an ocean. The ocean was full of knowledge, culture, and opportunities, and the choice was clear: I could either learn to swim or sink."
+          <cite>Ahmed Zewail</cite>
+        </blockquote>
+
+        <p>He swam. His PhD came in 1974. He moved to Berkeley, then to Caltech — the California Institute of Technology — where the work that would define his career finally took shape.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="the-method">How He Did It</h2>
+
+        <p>The old question came back at Caltech. During chemical reactions, something happens between reactants and products. Atoms move, electrons shift, energy transfers. All of it occurs in femtoseconds. Could it be seen?</p>
+
+        <div class="method-box">
+          <span class="method-box-title">Femtosecond Spectroscopy — the method</span>
+          <ol class="method-steps">
+            <li>Place molecules in a sealed vacuum tube.</li>
+            <li>Fire the first ultrafast laser pulse through them — this provides energy to start the reaction.</li>
+            <li>Fire the second pulse femtoseconds later — this observes the reaction mid-progress, reading the molecules' characteristic spectra and light patterns.</li>
+            <li>From the light pattern, determine what the molecular structure looks like at the moment of transformation.</li>
+          </ol>
+        </div>
+
+        <p>The reaction, visible. In slow motion. At the scale of atoms.</p>
+
+        <p>By the late 1980s, it worked. The technique became femtosecond spectroscopy. The Nobel Assembly described what this made possible:</p>
+
+        <blockquote>
+          "With femtosecond spectroscopy we can for the first time observe in 'slow motion' what happens as the reaction barrier is crossed."
+          <cite>The Nobel Assembly, 1999</cite>
+        </blockquote>
+
+        <p>From this came the 4D Electron Microscope — space in three dimensions, time as the fourth — allowing scientists to observe atomic motion a billion times faster than any previous instrument. In 1999, the Nobel Prize in Chemistry went to Ahmed Hassan Zewail for the development of femtochemistry.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="the-honours">The Honours</h2>
+
+        <p>The awards came in quantities that are slightly absurd to list. Over a hundred prizes in total, from academies of science across the United States, Russia, China, England, and Sweden.</p>
+
+        <div class="honours-grid">
+          <div class="honour-item">
+            <span class="honour-year">1999</span>
+            <div class="honour-title">Nobel Prize in Chemistry</div>
+          </div>
+          <div class="honour-item">
+            <span class="honour-year">France</span>
+            <div class="honour-title">Légion d'honneur</div>
+          </div>
+          <div class="honour-item">
+            <span class="honour-year">Egypt</span>
+            <div class="honour-title">Order of the Grand Collar of the Nile</div>
+          </div>
+          <div class="honour-item">
+            <span class="honour-year">2009</span>
+            <div class="honour-title">US Presidential Science Advisory Council</div>
+          </div>
+          <div class="honour-item">
+            <span class="honour-year">2009</span>
+            <div class="honour-title">America's First Science Envoy to the Middle East</div>
+          </div>
+          <div class="honour-item">
+            <span class="honour-year">2013</span>
+            <div class="honour-title">UN Scientific Advisory Board</div>
+          </div>
+        </div>
+
+        <p>He also holds honorary doctorates from Oxford, Cambridge, Yale, Peking University, and Alexandria University. He became one of a small group of scientists to hold honorary doctorates from both Oxford and Cambridge. The others: Dmitri Mendeleev, Marie Curie, and Michael Faraday.</p>
+
+        <p>In 2011, he founded Zewail City of Science and Technology in Cairo — a research institution built on the belief that the Arab world needed its own centre of scientific gravity, not just participants in other people's institutions.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="the-history">History as Evidence</h2>
+
+        <p>That belief was inseparable from how he understood the past. Zewail was a practicing Muslim who took the record of Islamic science not as comfort but as evidence. He spoke about Ibn al-Haytham, whose Camera Obscura established that light travels in straight lines and whose optics work preceded modern instruments by centuries. About Jabir ibn Hayyan in chemistry, al-Khwarizmi in mathematics, Ibn Sina in medicine, Ibn al-Nafis on blood circulation. He noted that Aristarchus proposed heliocentrism nineteen centuries before Copernicus.</p>
+
+        <p>At a 1991 lecture at the Royal Institution of Great Britain, Zewail used femtosecond laser photography to project an image of the Egyptian pharaoh Akhenaten — a ruler from the 14th century BCE, associated with early monotheism — as the first photographic demonstration that light travels in a straight line. The image was chosen with care.</p>
+
+        <p>Zewail published around 600 research articles and fourteen books. He worked on children's education, women's education, and science diplomacy alongside his technical output. Science, for him, did not stop at the laboratory door.</p>
+
+        <p>He described the reach of femtochemistry in plain terms:</p>
+
+        <blockquote>
+          "Applications range from how catalysts function and how molecular electronic components must be designed, to the most delicate mechanisms in life processes and how the medicines of the future should be produced."
+          <cite>Ahmed Zewail</cite>
+        </blockquote>
+
+        <p>Ahmed Hassan Zewail died on 2 October 2016 in California. He was 70. Egypt issued a postage stamp in his name.</p>
+
+        <p>The cat, for what it's worth, almost certainly survived.</p>
+
+        <!-- Bengali original link -->
+        <div style="margin-top: 2.5em; padding: 20px 24px; background: var(--parchment2); border: 0.5px solid var(--gold-pale); border-radius: var(--radius);">
+          <p style="font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">বাংলায় পড়ুন</p>
+          <p style="font-size: 14.5px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 12px;">This piece began as a Bengali essay published in 2021 — <em>ফেমটোকেমিস্ট্রি কথকতা এবং আবিষ্কারকের সাতকাহন</em>. If you read Bangla, the original goes deeper into Zewail's personal journey and his vision for Islamic science.</p>
+          <a href="https://sajjadur-rahman.blogspot.com/2021/02/blog-post.html" target="_blank" rel="noopener" style="font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold); text-decoration: none;">Read the Bengali original →</a>
+        </div>
+
+        <!-- Tags -->
+        <div class="post-tags">
+          <span class="post-tag">Ahmed Zewail</span>
+          <span class="post-tag">Femtochemistry</span>
+          <span class="post-tag">Nobel Prize</span>
+          <span class="post-tag">Muslim Scientists</span>
+          <span class="post-tag">Science Biography</span>
+          <span class="post-tag">Chemistry</span>
+        </div>
+
+        <!-- Post navigation -->
+        <nav class="post-nav" aria-label="Post navigation">
+          <a href="blog-majidi-films.html" class="prev">
+            <span class="post-nav-label">← Also on the Blog</span>
+            <span class="post-nav-title">Majid Majidi's Cinema: Where Ordinary Life Is the Story</span>
+          </a>
+          <a href="https://sajjadur-rahman.blogspot.com/2021/02/blog-post.html" target="_blank" rel="noopener" class="next">
+            <span class="post-nav-label">Bengali Original ↗</span>
+            <span class="post-nav-title">ফেমটোকেমিস্ট্রি কথকতা এবং আবিষ্কারকের সাতকাহন</span>
+          </a>
+        </nav>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="post-sidebar">
+
+        <!-- TOC -->
+        <div class="sb-block">
+          <div class="sb-head">In This Post</div>
+          <ul class="toc-list">
+            <li><a href="#the-problem"><span class="toc-num">01</span>The Invisible Middle</a></li>
+            <li><a href="#the-beginning"><span class="toc-num">02</span>Alexandria to Caltech</a></li>
+            <li><a href="#the-method"><span class="toc-num">03</span>How He Did It</a></li>
+            <li><a href="#the-honours"><span class="toc-num">04</span>The Honours</a></li>
+            <li><a href="#the-history"><span class="toc-num">05</span>History as Evidence</a></li>
+          </ul>
+        </div>
+
+        <!-- Key facts -->
+        <div class="sb-block">
+          <div class="sb-head">Key Facts</div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🇪🇬</span>
+            <span>Born Damanhur, Egypt, 1946. Raised in Alexandria.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🎓</span>
+            <span>PhD, University of Pennsylvania, 1974. Professor at Caltech from 1976.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🏆</span>
+            <span>Nobel Prize in Chemistry, 1999 — sole recipient.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🔬</span>
+            <span>~600 research articles. 14 books. Founder, Zewail City of Science and Technology.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">✝</span>
+            <span>Died 2 October 2016, California. Age 70.</span>
+          </div>
+        </div>
+
+        <!-- Author card -->
+        <div class="sb-block">
+          <div class="sb-head">About the Author</div>
+          <div class="author-card">
+            <div class="author-avatar">🔬</div>
+            <div class="author-info">
+              <div class="author-name">Sajjadur Rahman</div>
+              <div class="author-role">Researcher · Writer</div>
+              <div class="author-bio">MSc researcher at the University of Dhaka. Writes about science, history, and culture in Bengali and English.</div>
+            </div>
+          </div>
+          <a href="about.html" class="sb-link">Learn more about me</a>
+        </div>
+
+        <!-- Bengali original -->
+        <div class="sb-block">
+          <div class="sb-head">বাংলায় পড়ুন</div>
+          <div class="sb-body">
+            <p>The original Bengali essay — <em>ফেমটোকেমিস্ট্রি কথকতা এবং আবিষ্কারকের সাতকাহন</em> — published in 2021 with 13,000+ readers on Blogger.</p>
+          </div>
+          <a href="https://sajjadur-rahman.blogspot.com/2021/02/blog-post.html" target="_blank" rel="noopener" class="sb-link">Read on Blogger ↗</a>
+        </div>
+
+        <!-- CTA -->
+        <div class="sb-block">
+          <div class="sb-head">Need Writing Help?</div>
+          <div class="sb-body">
+            <p>I offer manuscript editing, thesis consultation, and academic writing support for researchers across South Asia.</p>
+          </div>
+          <a href="services.html" class="sb-link">See my services</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a>
+          <a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a>
+          <a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html" data-en>Manuscript Editing</a>
+          <a href="services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+          <a href="services.html" data-en>Data Analysis</a>
+          <a href="services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+          <a href="services.html" data-en>Thesis Consultation</a>
+          <a href="services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+          <a href="services.html" data-en>IELTS Tutoring</a>
+          <a href="services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+          <a href="services.html" data-en>CV Development</a>
+          <a href="services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+          <a href="services.html" data-en>Research Proposals</a>
+          <a href="services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank">💬</a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
