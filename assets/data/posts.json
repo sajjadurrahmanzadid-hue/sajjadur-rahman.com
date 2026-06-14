@@ -1,5 +1,21 @@
 [
   {
+  "slug": "erasmus-mundus-environment-overview",
+  "file": "blog-erasmus-mundus-environment-overview.html",
+  "title_en": "Erasmus Mundus for Environmental Researchers: 8 Programmes Worth Knowing",
+  "title_bn": "পরিবেশ গবেষকদের জন্য ইরাসমাস মুন্ডাস: জানার মতো ৮টি প্রোগ্রাম",
+  "date": "2026-06-15",
+  "category_en": "CV & Career",
+  "category_bn": "সিভি ও ক্যারিয়ার",
+  "excerpt_en": "IMSOGLO, ECT+, MESPOM, MERGED, FLOODRisk, GroundwatCh, SUFONAMA, PlantHealth — what each programme is for and who should choose it.",
+  "excerpt_bn": "IMSOGLO, ECT+, MESPOM, MERGED, FLOODRisk, GroundwatCh, SUFONAMA, PlantHealth — প্রতিটি প্রোগ্রাম কী এবং কাকে বেছে নেওয়া উচিত।",
+  "tags_en": ["Erasmus Mundus", "scholarship", "environment", "soil science", "water", "Bangladesh", "Europe", "graduate school"],
+  "tags_bn": ["ইরাসমাস মুন্ডাস", "বৃত্তি", "পরিবেশ", "মৃত্তিকা বিজ্ঞান", "ইউরোপ"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 9
+},
+  {
   "slug": "aq-khan",
   "file": "blog-aq-khan.html",
   "title_en": "Abdul Qadir Khan: A Scientist, a Nation, and the Atom",
