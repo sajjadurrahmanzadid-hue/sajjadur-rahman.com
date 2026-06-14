@@ -1,5 +1,17 @@
 [
   {
+  "slug": "aq-khan",
+  "file": "blog-aq-khan.html",
+  "title_en": "Abdul Qadir Khan: A Scientist, a Nation, and the Atom",
+  "date": "2026-06-14",
+  "category_en": "Science & Biography",
+  "excerpt_en": "He built Pakistan's nuclear deterrent from stolen blueprints in under a decade. Then he sold the same knowledge to Iran, North Korea, and Libya.",
+  "tags_en": ["A.Q. Khan", "nuclear history", "Pakistan", "Muslim scientists", "science biography", "proliferation"],
+  "featured": false,
+  "status": "published",
+  "read_time_min": 8
+},
+  {
   "slug": "ahmed-zewail-femtochemistry",
   "file": "blog-ahmed-zewail-femtochemistry.html",
   "title_en": "Ahmed Zewail: The Man Who Filmed a Chemical Reaction",

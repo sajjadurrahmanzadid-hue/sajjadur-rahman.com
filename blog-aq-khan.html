@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  sajjadur-rahman.com                         ║
+    ║  blog-aq-khan.html                           ║
+    ║  STATUS TRACKER                              ║
+    ║  style.css     ✅ Done                       ║
+    ║  main.js       ✅ Done                       ║
+    ║  index.html    ✅ Done                       ║
+    ║  about.html    ✅ Done                       ║
+    ║  services.html ✅ Done                       ║
+    ║  research.html ✅ Done                       ║
+    ║  blog.html     ✅ Done                       ║
+    ║  contact.html  ✅ Done                       ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="He built Pakistan's nuclear deterrent from stolen blueprints in under a decade. Then he sold the same knowledge to Iran, North Korea, and Libya. The life of Abdul Qadir Khan — scientist, national hero, and the most consequential proliferator of the nuclear age."/>
+  <title>Abdul Qadir Khan: A Scientist, a Nation, and the Atom | Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-aq-khan.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-aq-khan.html"/>
+  <meta property="og:title" content="Abdul Qadir Khan: A Scientist, a Nation, and the Atom"/>
+  <meta property="og:description" content="He built Pakistan's nuclear deterrent from stolen blueprints in under a decade. Then he sold the same knowledge to Iran, North Korea, and Libya."/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="article:published_time" content="2026-06-14"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <meta property="article:tag" content="Science"/>
+  <meta property="article:tag" content="A.Q. Khan"/>
+  <meta property="article:tag" content="Nuclear History"/>
+  <meta property="article:tag" content="Pakistan"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Abdul Qadir Khan: A Scientist, a Nation, and the Atom"/>
+  <meta name="twitter:description" content="He built Pakistan's nuclear deterrent from stolen blueprints in under a decade. Then he sold the same knowledge to Iran, North Korea, and Libya."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Abdul Qadir Khan: A Scientist, a Nation, and the Atom",
+    "description": "The life of Abdul Qadir Khan — metallurgist, founder of Khan Research Laboratories, architect of Pakistan's nuclear deterrent, and the most consequential nuclear proliferator of the 20th century.",
+    "url": "https://sajjadur-rahman.com/blog-aq-khan.html",
+    "datePublished": "2026-06-14",
+    "dateModified": "2026-06-14",
+    "author": { "@type": "Person", "name": "Sajjadur Rahman", "url": "https://sajjadur-rahman.com/about.html" },
+    "publisher": { "@type": "Person", "name": "Sajjadur Rahman" },
+    "inLanguage": "en",
+    "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg",
+    "keywords": ["A.Q. Khan", "Abdul Qadir Khan", "Pakistan nuclear programme", "KRL", "Kahuta", "nuclear proliferation", "Muslim scientists"]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Post hero ── */
+    .post-hero {
+      background: var(--ink-soft);
+      padding: 72px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content: '⚛️';
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 260px;
+      opacity: 0.045;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .post-hero .container { position: relative; z-index: 1; }
+    .post-hero .breadcrumb {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .post-hero .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .post-hero .breadcrumb a:hover { text-decoration: underline; }
+    .post-hero .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.15;
+      max-width: 780px;
+      margin-bottom: 22px;
+    }
+    .post-hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .post-meta span { display: flex; align-items: center; gap: 6px; }
+    .post-meta .sep {
+      width: 3px; height: 3px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ── Article layout ── */
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px;
+      align-items: start;
+      padding: 60px 0 80px;
+    }
+
+    /* ── Article body ── */
+    .post-body {
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+    .post-body p { margin-bottom: 1.5em; }
+    .post-body p:last-child { margin-bottom: 0; }
+
+    .post-body h2 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.4em 0 0.7em;
+      line-height: 1.3;
+    }
+
+    .post-body em { font-style: italic; }
+    .post-body strong { font-weight: 600; }
+
+    /* Science callout */
+    .science-box {
+      background: var(--ink-soft);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin: 2em 0;
+      text-align: center;
+    }
+    .science-box .sci-number {
+      font-family: var(--font-head);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .science-box .sci-label {
+      font-family: var(--font-ui);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .science-box .sci-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--gold-light);
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    /* Network grid */
+    .honours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 1.8em 0;
+    }
+    .honour-item {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+    .honour-year {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .honour-title {
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .honour-sub {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+
+    /* Pull quote */
+    .post-body blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 2em 0;
+      padding: 18px 28px;
+      background: var(--parchment2);
+      border-radius: 0 6px 6px 0;
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+    .post-body blockquote cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 12.5px;
+      font-style: normal;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Ornamental divider */
+    .post-divider {
+      text-align: center;
+      color: var(--gold);
+      font-family: var(--font-head);
+      font-size: 18px;
+      letter-spacing: 8px;
+      margin: 2.8em 0;
+      opacity: 0.7;
+    }
+
+    /* Post navigation */
+    .post-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .post-nav a {
+      display: block;
+      padding: 20px 22px;
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .post-nav a:hover {
+      background: var(--parchment3);
+      transform: translateY(-2px);
+    }
+    .post-nav a.next { text-align: right; }
+    .post-nav-label {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .post-nav-title {
+      font-family: var(--font-head);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    /* Tags */
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 0.5px solid var(--gold-pale);
+    }
+    .post-tag {
+      font-family: var(--font-ui);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-radius: 30px;
+      padding: 5px 13px;
+    }
+
+    /* ── Sidebar ── */
+    .post-sidebar { position: sticky; top: 90px; }
+    .sb-block {
+      background: white;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .sb-block:last-child { margin-bottom: 0; }
+    .sb-head {
+      background: var(--parchment2);
+      padding: 11px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sb-body { padding: 18px; }
+    .sb-body p {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .sb-body p:last-child { margin-bottom: 0; }
+    .sb-link {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 10px 18px;
+      border-top: 0.5px solid var(--gold-pale);
+      transition: background .2s;
+    }
+    .sb-link:hover { background: var(--parchment2); }
+    .sb-link::after { content: ' →'; }
+
+    /* TOC */
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      line-height: 1.45;
+      transition: color .2s, background .2s;
+    }
+    .toc-list a:hover { color: var(--gold); background: var(--parchment2); }
+    .toc-list .toc-num {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-right: 6px;
+    }
+
+    /* Key fact strip */
+    .key-fact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .key-fact:last-child { border-bottom: none; }
+    .key-fact-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+    }
+
+    /* Author card */
+    .author-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+    }
+    .author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--ink-soft);
+      border: 2px solid var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .author-info { flex: 1; }
+    .author-name {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .author-role {
+      font-family: var(--font-ui);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .author-bio {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .post-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 0 60px;
+      }
+      .post-sidebar { position: static; }
+      .post-nav { grid-template-columns: 1fr; }
+      .post-nav a.next { text-align: left; }
+      .honours-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .post-hero { padding: 48px 0 40px; }
+      .post-hero h1 { font-size: 26px; }
+      .post-body { font-size: 16.5px; }
+      .science-box { padding: 22px 20px; }
+      .science-box .sci-number { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- POST HERO -->
+  <section class="post-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="blog.html">Blog</a>
+        <span>›</span>
+        <span>Science &amp; Biography</span>
+      </div>
+      <span class="eyebrow">Science &amp; Biography</span>
+      <h1>Abdul Qadir Khan:<br/><em>A Scientist, a Nation, and the Atom</em></h1>
+      <div class="post-meta">
+        <span>📅 14 June 2026</span>
+        <span class="sep"></span>
+        <span>⏱ 8 min read</span>
+        <span class="sep"></span>
+        <span>✍️ Sajjadur Rahman</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ARTICLE BODY -->
+      <article class="post-body reveal">
+
+        <p>The room was quiet. Outside, a European winter pressed against the walls. Inside the Physical Dynamics Research Laboratory in the Netherlands, a Pakistani metallurgist sat surrounded by something more valuable than gold: engineering documents, centrifuge schematics, and classified files on uranium enrichment technology. To Abdul Qadir Khan, these were not just papers. They were the promise of a morning his country had not yet seen.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="bhopal-to-delft">Bhopal to Karachi to Delft</h2>
+
+        <p>Abdul Qadir Khan was born on 1 April 1936 in Bhopal, in undivided India, to an educated and well-regarded family. He was sixteen when partition sent his family across the border, in 1952. He went to Karachi University for metallurgy, then to Europe for postgraduate work: Berlin Technical University, Delft University of Technology in the Netherlands, and the Catholic University of Leuven in Belgium. By the time he finished his PhD, he had mastered metals engineering at a level few people anywhere could match.</p>
+
+        <p>In the spring of 1972, he joined a subcontractor of Urenco, a British-German-Dutch consortium established in 1971 to develop uranium enrichment using ultracentrifuges. His security clearance was low-level. The oversight was loose. One of his assigned tasks was translating German centrifuge documents into Dutch, which pulled him deep into the machinery: how the centrifuges were built, where the components came from, who the suppliers were. He visited the Urenco plant at Almelo several times.</p>
+
+        <p>Under international law, what he was accumulating amounted to theft of classified material. Khan did not see it that way. His country had just lost a war, lost a province, and watched its larger neighbour detonate a nuclear device. In that frame, the ethics of industrial espionage were not the question he was asking.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="the-letter">The Letter</h2>
+
+        <p>On 17 September 1974, Khan wrote a long letter to Pakistan's Prime Minister Zulfikar Ali Bhutto. India had tested a nuclear device in Rajasthan on 18 May that year. Pakistan already ran a nuclear programme based on plutonium reactors, but Khan argued that enriched uranium produced by gas centrifuge offered a faster and less detectable route. He told Bhutto he could build it.</p>
+
+        <p>Bhutto met him in December 1974 and left encouraged.</p>
+
+        <p>The following year, Khan copied the Zippe-type centrifuge blueprints and compiled a list of European suppliers from whom the components could be sourced. On 15 December 1975, he flew home to Pakistan with his wife and two daughters.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="kahuta">Kahuta</h2>
+
+        <p>He went first to the Pakistan Atomic Energy Commission, where he clashed quickly with its director, Munir Ahmed Khan. The PAEC moved by institutional rhythms. Abdul Qadir Khan had no patience for that. By mid-1976, on Bhutto's directive, he founded the Engineering Research Laboratories at Kahuta, fifty kilometres south-east of Islamabad. The laboratories were renamed Khan Research Laboratories, or KRL, in 1981.</p>
+
+        <p>At Kahuta, he ran a centrifuge enrichment operation built on the Zippe design, sourcing parts through Swiss, Dutch, British, and German companies. Western intelligence agencies spent years monitoring Kahuta before they fully understood what was happening inside it. By 1981, KRL could produce high-speed centrifuges without importing them. Pakistan's enriched uranium supply depended on nobody outside.</p>
+
+        <p>In parallel, Pakistan had obtained a nuclear weapon implosion design from China, based on a device China had tested successfully in 1966. China may have tested a variant of that design at Lop Nur in May 1990 on Pakistan's behalf — that is the account given in most analyses of the programme, though never officially confirmed.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="chagai-1998">Chagai, 28 May 1998</h2>
+
+        <p>India conducted five nuclear tests at Pokhran in May 1998. Pakistan came under enormous international pressure to hold back. The United States pushed hard through diplomatic channels and economic warnings. Islamabad was not persuaded.</p>
+
+        <div class="science-box">
+          <span class="sci-number">28 May 1998</span>
+          <span class="sci-label">The Chagai Tests</span>
+          <span class="sci-desc">Six nuclear devices detonated over two days in the Balochistan desert. Pakistan became the seventh nuclear state in the world, and the first in the Muslim world. The fuel came from KRL.</span>
+        </div>
+
+        <p>The celebrations were large. Khan received the Nishan-e-Imtiaz twice — Pakistan's highest civilian honour. Schools, roads, and research centres took his name. In the country's telling, he was the man who had looked at a nuclear-armed India and said: "We can do this too." And had done it.</p>
+
+        <p>The regional calculation changed. Before 1998, India's conventional military superiority was wide enough that a sustained conflict would have had a foreseeable outcome. After 1998, that possibility went off the table. Pakistan adopted a doctrine of Minimum Credible Deterrence: not matching India's arsenal, but maintaining enough to guarantee a destructive response to any first strike. Both countries now sat under what strategists call "stable instability" — full-scale war deterred by mutual destruction, smaller conflicts and border tensions a permanent feature of the relationship.</p>
+
+        <p>The international response was swift and hard. The United States, Japan, and the European Union imposed economic, technological, and military sanctions. IMF and World Bank credit tightened. China stood close. Pakistan worked through the sanctions slowly, and over years parts of them were lifted.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="the-network">The Network</h2>
+
+        <p>This is where the story changes direction.</p>
+
+        <p>From the mid-1980s, while Pakistan's own programme was running at Kahuta, Khan had built a second operation alongside it. Through front companies in Dubai and Malaysia, he sold centrifuge components, technical designs, and working expertise to other countries. The network ran for nearly two decades.</p>
+
+        <div class="honours-grid">
+          <div class="honour-item">
+            <span class="honour-year">Iran</span>
+            <div class="honour-title">Uranium enrichment complex</div>
+            <div class="honour-sub">Built on the KRL model; Khan's network supplied designs and components.</div>
+          </div>
+          <div class="honour-item">
+            <span class="honour-year">North Korea</span>
+            <div class="honour-title">Enrichment technology</div>
+            <div class="honour-sub">Khan visited at least 13 times. KRL received ballistic missile assistance in exchange.</div>
+          </div>
+          <div class="honour-item" style="grid-column: span 2;">
+            <span class="honour-year">Libya</span>
+            <div class="honour-title">Nuclear weapons programme — intercepted</div>
+            <div class="honour-sub">Libya used network components to start a weapons programme. The United States intercepted the effort in 2003; the seized documents pointed back to Khan.</div>
+          </div>
+        </div>
+
+        <p>On 31 January 2004, Khan was arrested.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="the-confession">4 February 2004</h2>
+
+        <p>Three days later, Abdul Qadir Khan appeared on Pakistani television. He read a prepared statement. He took full personal responsibility for the proliferation activities. He stated that the Pakistani army, the government, and every official institution were blameless. The network, he said, was his alone.</p>
+
+        <blockquote>
+          "I take full responsibility for my actions and seek your pardon."
+          <cite>Abdul Qadir Khan — 4 February 2004</cite>
+        </blockquote>
+
+        <p>Almost no nuclear analyst accepted the statement at face value. The network had run for twenty years, used Pakistani state infrastructure, and operated in countries Pakistan maintained active intelligence relationships with. No independent investigation has ever concluded it functioned without institutional knowledge.</p>
+
+        <p>The following day, President Pervez Musharraf pardoned him.</p>
+
+        <p>Khan spent five years under house arrest in Islamabad. International investigators from the IAEA were never given direct access to him. After 2009, he moved more freely within Pakistan, though overseas travel remained prohibited. He gave occasional newspaper columns and kept a low profile.</p>
+
+        <p>He died on 10 October 2021 in Islamabad from COVID-19 complications. He was 85. Pakistan gave him a state funeral.</p>
+
+        <div class="post-divider">— ❧ —</div>
+
+        <h2 id="what-he-built">What He Built, and What It Cost</h2>
+
+        <p>The question A.Q. Khan's life leaves open is not comfortable. How far does a scientist's obligation to his country extend, and where does an obligation to the wider world begin?</p>
+
+        <p>In Pakistan, the answer has largely been settled. He gave the country a deterrent when it believed it needed one, under conditions that made the need feel real to anyone living through them: a lost war, a nuclear neighbour, an asymmetry that showed no sign of closing on its own. His methods were ones the West condemned. The outcome was a Pakistan that could not be attacked without consequence. For many Pakistanis, that accounting is enough.</p>
+
+        <p>Outside Pakistan, it runs differently. Iran's nuclear programme, North Korea's enrichment capability, and Libya's weapons attempt all trace, in part, to what Khan distributed through his network. The downstream effects of that proliferation are not yet fully resolved.</p>
+
+        <p>He was one man who believed, with complete conviction, that what he was doing was right. He built Pakistan's nuclear deterrent from stolen blueprints in under a decade. The record also shows what he did with the knowledge afterward.</p>
+
+        <!-- Tags -->
+        <div class="post-tags">
+          <span class="post-tag">A.Q. Khan</span>
+          <span class="post-tag">Nuclear History</span>
+          <span class="post-tag">Pakistan</span>
+          <span class="post-tag">Muslim Scientists</span>
+          <span class="post-tag">Science Biography</span>
+          <span class="post-tag">Proliferation</span>
+        </div>
+
+        <!-- Post navigation -->
+        <nav class="post-nav" aria-label="Post navigation">
+          <a href="blog-ahmed-zewail-femtochemistry.html" class="prev">
+            <span class="post-nav-label">← Science &amp; Biography</span>
+            <span class="post-nav-title">Ahmed Zewail: The Man Who Filmed a Chemical Reaction</span>
+          </a>
+          <a href="blog.html" class="next">
+            <span class="post-nav-label">All Posts →</span>
+            <span class="post-nav-title">Back to the Blog</span>
+          </a>
+        </nav>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="post-sidebar">
+
+        <!-- TOC -->
+        <div class="sb-block">
+          <div class="sb-head">In This Post</div>
+          <ul class="toc-list">
+            <li><a href="#bhopal-to-delft"><span class="toc-num">01</span>Bhopal to Delft</a></li>
+            <li><a href="#the-letter"><span class="toc-num">02</span>The Letter</a></li>
+            <li><a href="#kahuta"><span class="toc-num">03</span>Kahuta</a></li>
+            <li><a href="#chagai-1998"><span class="toc-num">04</span>Chagai, 1998</a></li>
+            <li><a href="#the-network"><span class="toc-num">05</span>The Network</a></li>
+            <li><a href="#the-confession"><span class="toc-num">06</span>The Confession</a></li>
+            <li><a href="#what-he-built"><span class="toc-num">07</span>What He Built</a></li>
+          </ul>
+        </div>
+
+        <!-- Key facts -->
+        <div class="sb-block">
+          <div class="sb-head">Key Facts</div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🇵🇰</span>
+            <span>Born Bhopal, India, 1936. Family migrated to Pakistan in 1952.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🎓</span>
+            <span>PhD in metallurgy. Studied at Delft and KU Leuven. Worked at Urenco's subcontractor, 1972–75.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🔬</span>
+            <span>Founded Khan Research Laboratories (KRL) at Kahuta, 1976. Producing centrifuges domestically by 1981.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">☢️</span>
+            <span>Pakistan's nuclear tests: 6 devices, 28–30 May 1998. First Muslim-majority nuclear state.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">🏅</span>
+            <span>Nishan-e-Imtiaz twice — Pakistan's highest civilian honour.</span>
+          </div>
+          <div class="key-fact">
+            <span class="key-fact-icon">✝</span>
+            <span>Died 10 October 2021, Islamabad. Age 85. State funeral.</span>
+          </div>
+        </div>
+
+        <!-- Author card -->
+        <div class="sb-block">
+          <div class="sb-head">About the Author</div>
+          <div class="author-card">
+            <div class="author-avatar">🔬</div>
+            <div class="author-info">
+              <div class="author-name">Sajjadur Rahman</div>
+              <div class="author-role">Researcher · Writer</div>
+              <div class="author-bio">MSc researcher at the University of Dhaka. Writes about science, history, and culture in Bengali and English.</div>
+            </div>
+          </div>
+          <a href="about.html" class="sb-link">Learn more about me</a>
+        </div>
+
+        <!-- Also read -->
+        <div class="sb-block">
+          <div class="sb-head">Also on the Blog</div>
+          <div class="sb-body">
+            <p>Ahmed Zewail built a camera fast enough to film a chemical reaction — at one quadrillionth of a second.</p>
+          </div>
+          <a href="blog-ahmed-zewail-femtochemistry.html" class="sb-link">Read: Ahmed Zewail</a>
+        </div>
+
+        <!-- CTA -->
+        <div class="sb-block">
+          <div class="sb-head">Need Writing Help?</div>
+          <div class="sb-body">
+            <p>I offer manuscript editing, thesis consultation, and academic writing support for researchers across South Asia.</p>
+          </div>
+          <a href="services.html" class="sb-link">See my services</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়। বৈজ্ঞানিক লেখা, ডেটা বিশ্লেষণ, আইইএলটিএস এবং সিভি উন্নয়ন সেবা প্রদান।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net" title="ResearchGate">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <h4 data-bn class="bn">পাতাসমূহ</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="index.html" data-bn class="bn">প্রচ্ছদ</a>
+          <a href="about.html" data-en>About</a>
+          <a href="about.html" data-bn class="bn">পরিচিতি</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="services.html" data-bn class="bn">সেবাসমূহ</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="research.html" data-bn class="bn">গবেষণা</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="blog.html" data-bn class="bn">ব্লগ</a>
+          <a href="contact.html" data-en>Contact</a>
+          <a href="contact.html" data-bn class="bn">যোগাযোগ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <h4 data-bn class="bn">সেবাসমূহ</h4>
+          <a href="services.html" data-en>Manuscript Editing</a>
+          <a href="services.html" data-bn class="bn">পাণ্ডুলিপি সম্পাদনা</a>
+          <a href="services.html" data-en>Data Analysis</a>
+          <a href="services.html" data-bn class="bn">ডেটা বিশ্লেষণ</a>
+          <a href="services.html" data-en>Thesis Consultation</a>
+          <a href="services.html" data-bn class="bn">থিসিস পরামর্শ</a>
+          <a href="services.html" data-en>IELTS Tutoring</a>
+          <a href="services.html" data-bn class="bn">আইইএলটিএস টিউটরিং</a>
+          <a href="services.html" data-en>CV Development</a>
+          <a href="services.html" data-bn class="bn">সিভি উন্নয়ন</a>
+          <a href="services.html" data-en>Research Proposals</a>
+          <a href="services.html" data-bn class="bn">গবেষণা প্রস্তাব</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <h4 data-bn class="bn">যোগাযোগ</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+          <a href="#" data-bn class="bn">ঢাকা, বাংলাদেশ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+        <p data-bn class="bn">ঢাকা বিশ্ববিদ্যালয় · বিসিএসআইআর · ডিইউএনটিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank">💬</a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

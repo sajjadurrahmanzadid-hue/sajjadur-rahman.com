@@ -40,7 +40,7 @@
   <!-- Blog index — update lastmod every time a new post is published -->
   <url>
     <loc>https://sajjadur-rahman.com/blog.html</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -60,6 +60,13 @@
        Add one <url> block below for each new post
        file as it is published to this domain.
        ═══════════════════════════════════════════════ -->
+  <!-- Abdul Qadir Khan: A Scientist, a Nation, and the Atom -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-aq-khan.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
   <loc>https://sajjadur-rahman.com/blog-ahmed-zewail-femtochemistry.html</loc>
   <lastmod>2026-06-14</lastmod>
