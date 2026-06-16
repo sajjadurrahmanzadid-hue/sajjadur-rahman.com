@@ -1,5 +1,21 @@
 [
   {
+  "slug": "correlation-vs-causation",
+  "file": "blog-correlation-vs-causation.html",
+  "title_en": "Correlation vs Causation in Environmental Research: A Practical Guide",
+  "title_bn": "পরিবেশ গবেষণায় পারস্পরিক সম্পর্ক বনাম কার্যকারণ: একটি ব্যবহারিক গাইড",
+  "date": "2026-06-16",
+  "category_en": "Data Analysis",
+  "category_bn": "ডেটা বিশ্লেষণ",
+  "excerpt_en": "Most observational environmental studies generate correlational evidence but use causal language. How to spot the difference, identify confounders, and report accurately.",
+  "excerpt_bn": "বেশিরভাগ পর্যবেক্ষণমূলক গবেষণা পারস্পরিক সম্পর্কের প্রমাণ তৈরি করে কিন্তু কার্যকারণের ভাষা ব্যবহার করে।",
+  "tags_en": ["statistics", "correlation", "causation", "research methods", "environmental science", "thesis writing"],
+  "tags_bn": ["পরিসংখ্যান", "পারস্পরিক সম্পর্ক", "গবেষণা পদ্ধতি"],
+  "featured": true,
+  "status": "published",
+  "read_time_min": 6
+},
+  {
   "slug": "erasmus-mundus-environment-overview",
   "file": "blog-erasmus-mundus-environment-overview.html",
   "title_en": "Erasmus Mundus for Environmental Researchers: 8 Programmes Worth Knowing",
