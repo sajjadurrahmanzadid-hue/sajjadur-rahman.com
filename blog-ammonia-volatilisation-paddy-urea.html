@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    sajjadur-rahman.com
+    blog-ammonia-volatilisation-paddy-urea.html
+    Category: Soil Science / Research
+    Connects: blog-nitrogen-cycling-urea.html · blog-slow-release-fertilizer.html · research.html (BBCU/SPADE)
+  -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ammonia Volatilisation from Urea in Paddy Soils — How Nitrogen Escapes Before Crops Can Use It | Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-ammonia-volatilisation-paddy-urea.html"/>
+  <meta name="description" content="A deep look at ammonia volatilisation from urea in flooded paddy soils — the chemistry of hydrolysis, the ammonium-ammonia equilibrium, Bangladesh-specific loss rates from literature, measurement methods, and what researchers are doing to slow the process."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="ammonia volatilisation paddy soil, urea hydrolysis flooded rice, nitrogen loss Bangladesh rice, NH3 volatilisation measurement, urease inhibitor, slow release fertilizer paddy, NUE paddy, ammonia loss urea Bangladesh"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Ammonia Volatilisation from Urea in Paddy Soils — How Nitrogen Escapes Before Crops Can Use It"/>
+  <meta property="og:description" content="The chemistry of urea hydrolysis in flooded soils, why flooding accelerates ammonia loss, Bangladesh-specific loss rates from the literature, and three approaches to measuring it in the field."/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-ammonia-volatilisation-paddy-urea.html"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta property="article:published_time" content="2026-06-18"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TFCD42G87F');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Ammonia Volatilisation from Urea in Paddy Soils — How Nitrogen Escapes Before Crops Can Use It",
+    "description": "The chemistry of urea hydrolysis in flooded soils, why flooding accelerates ammonia loss, Bangladesh-specific loss rates, and measurement methods.",
+    "url": "https://sajjadur-rahman.com/blog-ammonia-volatilisation-paddy-urea.html",
+    "datePublished": "2026-06-18",
+    "dateModified": "2026-06-18",
+    "author": {"@type": "Person", "name": "Sajjadur Rahman", "url": "https://sajjadur-rahman.com/about.html"},
+    "publisher": {"@type": "Person", "name": "Sajjadur Rahman", "url": "https://sajjadur-rahman.com"}
+  }
+  </script>
+  <style>
+    /* HERO */
+    .post-hero{background:var(--ink-soft);padding:64px 0 56px;position:relative;overflow:hidden}
+    .post-hero::before{content:'🌾';position:absolute;right:4%;top:50%;transform:translateY(-50%);font-size:230px;opacity:.05;line-height:1;pointer-events:none}
+    .post-breadcrumb{font-family:var(--font-ui);font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-bottom:18px}
+    .post-breadcrumb a{color:var(--gold);text-decoration:none}
+    .post-breadcrumb a:hover{text-decoration:underline}
+    .post-hero .eyebrow{margin-bottom:14px}
+    .post-hero h1{font-family:var(--font-head);font-size:clamp(24px,4vw,42px);font-weight:600;color:var(--parchment);line-height:1.26;max-width:820px;margin-bottom:22px}
+    .post-hero h1 em{font-style:italic;color:var(--gold-light)}
+    .post-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--font-ui);font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-light);margin-bottom:18px}
+    .post-meta .dot{color:var(--gold);opacity:.55}
+    .post-meta .author{color:var(--gold-light)}
+    .post-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .post-tag{font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);background:rgba(139,126,90,.15);border:.5px solid rgba(139,126,90,.3);padding:4px 10px;border-radius:20px}
+
+    /* LAYOUT */
+    .article-wrap{display:grid;grid-template-columns:1fr 260px;gap:52px;align-items:start;max-width:1100px;margin:0 auto;padding:56px 24px 80px}
+    @media(max-width:860px){.article-wrap{grid-template-columns:1fr;gap:32px;padding:40px 20px 60px}}
+
+    /* ARTICLE BODY */
+    .article-body{font-family:var(--font-body);font-size:16px;line-height:1.88;color:var(--ink);min-width:0}
+    .article-body p{margin-bottom:1.45em}
+    .article-body h2{font-family:var(--font-head);font-size:23px;font-weight:600;color:var(--ink);line-height:1.3;margin:2.4em 0 .7em;padding-top:.5em;border-top:1px solid var(--gold-pale)}
+    .article-body h2:first-of-type{margin-top:1.6em}
+    .article-body h3{font-family:var(--font-head);font-size:18px;font-weight:600;color:var(--ink-soft);font-style:italic;margin:1.8em 0 .5em}
+    .article-body strong{font-weight:600;color:var(--ink)}
+    .article-body em{font-style:italic}
+    .article-body a{color:var(--gold);text-decoration:underline;text-underline-offset:2px}
+    .article-body a:hover{color:var(--ink)}
+    .article-body ul,.article-body ol{padding-left:1.6em;margin-bottom:1.5em}
+    .article-body ul{list-style:disc}
+    .article-body ol{list-style:decimal}
+    .article-body li{margin-bottom:.4em}
+
+    /* CHEMISTRY BOX */
+    .chem-box{background:var(--parchment2);border:.5px solid var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:20px 28px;margin:2em 0;font-family:'Courier New',monospace;font-size:14px;line-height:2;color:var(--ink-soft)}
+    .chem-box .chem-label{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+
+    /* DATA TABLE */
+    .data-table-wrap{overflow-x:auto;margin:2em 0}
+    .data-table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:13.5px;color:var(--ink-soft)}
+    .data-table th{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);background:var(--parchment2);padding:10px 14px;text-align:left;border-bottom:1px solid var(--gold-pale)}
+    .data-table td{padding:10px 14px;border-bottom:.5px solid var(--gold-pale);line-height:1.5}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table tr:hover td{background:var(--parchment2)}
+
+    /* CALLOUT */
+    .callout-box{background:var(--white);border:.5px solid var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:2em 0}
+    .callout-label{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+    .callout-box p{font-size:14.5px;color:var(--ink-soft);line-height:1.75;margin-bottom:0;font-family:var(--font-body)}
+
+    /* PULL QUOTE */
+    .pull-quote{border-left:3px solid var(--gold);background:var(--parchment2);border-radius:0 var(--radius) var(--radius) 0;padding:20px 26px;margin:2.2em 0}
+    .pull-quote p{font-family:var(--font-head);font-size:18px;font-style:italic;color:var(--ink-soft);line-height:1.65;margin-bottom:0}
+
+    /* ORNAMENT */
+    .article-ornament{text-align:center;font-family:var(--font-head);color:var(--gold);font-size:18px;letter-spacing:6px;margin:2.8em 0;opacity:.55}
+
+    /* TAGS */
+    .article-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:2.8em;padding-top:1.6em;border-top:1px solid var(--gold-pale)}
+    .a-tag{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);border:.5px solid var(--gold-pale);padding:5px 13px;border-radius:20px;text-decoration:none;transition:color .2s,border-color .2s,background .2s}
+    .a-tag:hover{color:var(--gold);border-color:var(--gold);background:var(--parchment2)}
+
+    /* AUTHOR BIO */
+    .article-bio{background:var(--parchment2);border:.5px solid var(--gold-pale);border-radius:var(--radius);padding:26px 28px;margin-top:3.2em;display:flex;gap:22px;align-items:flex-start}
+    .bio-avatar-lg{width:58px;height:58px;border-radius:50%;background:var(--parchment3);border:2px solid var(--gold-pale);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--gold);flex-shrink:0}
+    .bio-inner h4{font-family:var(--font-head);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:2px}
+    .bio-role-lbl{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+    .bio-inner p{font-size:13.5px;color:var(--text-muted);line-height:1.72;margin-bottom:14px}
+    .bio-links{display:flex;gap:8px;flex-wrap:wrap}
+    .bio-lnk{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border:.5px solid var(--gold-pale);padding:5px 12px;border-radius:20px;text-decoration:none;transition:background .2s,border-color .2s}
+    .bio-lnk:hover{background:var(--parchment3);border-color:var(--gold)}
+    @media(max-width:680px){.article-bio{flex-direction:column;gap:14px}}
+
+    /* POST NAV */
+    .post-nav{display:flex;gap:12px;flex-wrap:wrap;margin-top:2.4em;padding-top:1.6em;border-top:1px solid var(--gold-pale)}
+
+    /* SIDEBAR */
+    .article-sidebar{position:sticky;top:90px}
+    .sb-card{background:var(--white);border:.5px solid var(--gold-pale);border-radius:var(--radius);overflow:hidden;margin-bottom:18px;box-shadow:var(--shadow-sm)}
+    .sb-head{background:var(--parchment2);border-bottom:.5px solid var(--gold-pale);padding:11px 16px}
+    .sb-head span{font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+    .sb-body{padding:14px 16px}
+    .toc-list{list-style:none;margin:0;padding:0}
+    .toc-list li{border-bottom:.5px solid var(--gold-pale)}
+    .toc-list li:last-child{border-bottom:none}
+    .toc-list a{display:flex;align-items:flex-start;gap:8px;padding:9px 2px;font-family:var(--font-ui);font-size:10.5px;color:var(--text-muted);text-decoration:none;line-height:1.45;transition:color .18s,padding-left .18s}
+    .toc-list a:hover{color:var(--gold);padding-left:4px}
+    .toc-list a.active-toc{color:var(--gold);font-weight:700}
+    .toc-n{font-size:9px;font-weight:700;color:var(--gold);flex-shrink:0;padding-top:1px}
+    .sb-cta{background:var(--ink-soft);border-radius:var(--radius);padding:20px;margin-bottom:18px}
+    .sb-cta h4{font-family:var(--font-head);font-size:15.5px;font-weight:600;color:var(--parchment);margin-bottom:7px;line-height:1.35}
+    .sb-cta h4 em{font-style:italic;color:var(--gold)}
+    .sb-cta p{font-size:12.5px;color:var(--text-light);line-height:1.65;margin-bottom:14px}
+    .sb-cta .btn{display:block;text-align:center}
+    .share-btns{display:flex;gap:6px}
+    .share-b{flex:1;display:block;font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);border:.5px solid var(--gold-pale);border-radius:var(--radius);padding:8px 4px;text-align:center;text-decoration:none;background:var(--white);transition:color .18s,border-color .18s,background .18s}
+    .share-b:hover{color:var(--gold);border-color:var(--gold);background:var(--parchment2)}
+    .related-link{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:.5px solid var(--gold-pale);text-decoration:none;color:inherit;transition:opacity .18s}
+    .related-link:last-child{border-bottom:none;padding-bottom:0}
+    .related-link:hover{opacity:.72}
+    .rel-icon{font-size:18px;flex-shrink:0;line-height:1}
+    .rel-title{font-family:var(--font-body);font-size:13px;color:var(--ink-soft);line-height:1.45}
+    @media(max-width:860px){.article-sidebar{position:static}}
+  </style>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress" style="position:fixed;top:0;left:0;height:2px;width:0%;background:var(--gold);z-index:9999;transition:width .08s linear"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <header class="post-hero">
+      <div class="container">
+        <div class="post-breadcrumb">
+          <a href="blog.html">Blog</a> &rsaquo; Soil Science
+        </div>
+        <span class="eyebrow" data-en>Soil Science · Nitrogen</span>
+        <h1>Ammonia Volatilisation from Urea in Paddy Soils <em>— How Nitrogen Escapes Before Crops Can Use It</em></h1>
+        <div class="post-meta">
+          <span class="author">Sajjadur Rahman</span>
+          <span class="dot">·</span>
+          <span>18 June 2026</span>
+          <span class="dot">·</span>
+          <span>12 min read</span>
+          <span class="dot">·</span>
+          <span>Soil Science</span>
+        </div>
+        <div class="post-tags">
+          <span class="post-tag">Ammonia Volatilisation</span>
+          <span class="post-tag">Paddy Soil</span>
+          <span class="post-tag">Nitrogen Loss</span>
+          <span class="post-tag">Urea</span>
+          <span class="post-tag">Bangladesh</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div style="background:var(--parchment);">
+    <div class="article-wrap">
+
+      <!-- PROSE -->
+      <article class="article-body" id="articleBody">
+
+        <p>Urea is the world's most widely used nitrogen fertilizer. It is cheap, concentrated at 46% nitrogen by weight, and easy to handle and transport. It is also surprisingly easy to lose. Apply urea to a flooded paddy field on a warm morning, and a substantial fraction of the nitrogen you applied may have volatilised as ammonia gas before the rice roots ever encounter it.</p>
+
+        <p>The previous posts on this site have covered <a href="blog-nitrogen-cycling-urea.html">nitrogen cycling broadly</a> and the case for <a href="blog-slow-release-fertilizer.html">slow-release alternatives</a>. This post goes deeper on the specific mechanism that drives the largest single-pathway loss in tropical paddy agriculture: ammonia volatilisation. Understanding it at a chemical level is what makes the engineering of coated fertilizers and urease inhibitors more than guesswork.</p>
+
+        <h2 id="s1">The Chemistry: What Happens to Urea After It Enters the Floodwater</h2>
+
+        <p>Urea dissolves readily in water. Once in solution, it is hydrolysed by the enzyme urease, produced by soil bacteria. The reaction proceeds in two stages. First, urea is converted to ammonium carbonate:</p>
+
+        <div class="chem-box">
+          <span class="chem-label">Urea Hydrolysis — Stage 1</span>
+          CO(NH₂)₂ + 2H₂O → (NH₄)₂CO₃
+        </div>
+
+        <p>The intermediate ammonium carbonate is unstable and rapidly breaks down:</p>
+
+        <div class="chem-box">
+          <span class="chem-label">Urea Hydrolysis — Stage 2</span>
+          (NH₄)₂CO₃ → 2NH₃↑ + CO₂↑ + H₂O
+        </div>
+
+        <p>Urease drives this hydrolysis remarkably fast under warm conditions. In tropical soils at 30°C, hydrolysis can be 80 to 90% complete within 48 to 72 hours of application. The nitrogen does not sit in the urea molecule waiting to be taken up — it is transformed within days into a pool that is partly plant-available and partly vulnerable to loss.</p>
+
+        <p>The critical step for volatilisation is the equilibrium between ammonium and free ammonia in the floodwater:</p>
+
+        <div class="chem-box">
+          <span class="chem-label">Ammonium–Ammonia Equilibrium (pKa ≈ 9.25)</span>
+          NH₄⁺  ⇌  NH₃ + H⁺
+        </div>
+
+        <p>At pH values below 7, almost all the ammonium-nitrogen exists as NH₄⁺, which is non-volatile and can be taken up directly by roots or held by the cation exchange complex of the soil. As pH rises above 8, the equilibrium shifts and a growing proportion exists as free NH₃, which can escape from the floodwater surface into the atmosphere. At pH 9, roughly half is in the NH₃ form. Above pH 9, the majority is free ammonia.</p>
+
+        <h2 id="s2">Why Flooding Makes Everything Worse</h2>
+
+        <p>The flooding that defines paddy cultivation creates conditions that maximise volatilisation losses. Three mechanisms operate simultaneously.</p>
+
+        <p><strong>The pH spike.</strong> When urea hydrolyses, the process consumes hydrogen ions and produces hydroxide equivalents, raising the pH of the floodwater around the urea granule. In a closed container, this spike can push pH from 7.0 to above 9.5 within the first 24 to 48 hours. In a real paddy field, algal photosynthesis during daylight hours further raises pH — sometimes to 9 or above by mid-afternoon — because photosynthesis removes dissolved CO₂ from the water, pushing the carbonate equilibrium toward higher pH. The combination of urea hydrolysis and afternoon photosynthesis creates a daily window during which volatilisation rates peak.</p>
+
+        <p><strong>Warm floodwater.</strong> Temperature directly increases both the rate of urease activity and the volatility of NH₃. The Henry's law constant for ammonia rises steeply with temperature — the same ammonium concentration in 35°C floodwater produces roughly twice the atmospheric ammonia pressure as at 20°C. Bangladesh's paddy seasons bracket temperatures that drive high volatilisation: the boro (dry) season occupies cooler months but floodwater can still reach 25–30°C, while aman (monsoon) conditions push temperatures higher.</p>
+
+        <p><strong>Shallow water with a large surface area.</strong> Volatilisation occurs at the floodwater-atmosphere interface. A shallow water layer presents a proportionally large surface relative to volume, and the NH₃ that escapes from this surface is replaced by upward diffusion from the bulk of the water. Deep water would dilute the ammonium concentration — but paddy fields are typically maintained at shallow depths of 5 to 10 cm, which maximises the problem.</p>
+
+        <div class="callout-box">
+          <span class="callout-label">The Timing Window</span>
+          <p>Peak volatilisation from surface-applied urea in tropical paddy occurs between Day 1 and Day 5 after application, driven by the pH spike from hydrolysis. This early-burst loss is what slow-release formulations and urease inhibitors are specifically designed to interrupt. If the urea can be protected through the first 72 hours, most of the critical loss period passes and the nitrogen enters the soil matrix where losses from volatilisation are lower.</p>
+        </div>
+
+        <h2 id="s3">What the Literature Says About Loss Rates</h2>
+
+        <p>Estimating how much nitrogen actually leaves the field as ammonia is not straightforward, and published values vary considerably depending on measurement method, soil type, temperature, water management, and urea application rate. The range in tropical and subtropical paddy literature runs from below 10% to above 50% of applied nitrogen lost via volatilisation in a single season.</p>
+
+        <p>For South Asia and Bangladesh specifically, the picture is reasonably consistent. Freney and colleagues, working across Asian paddy systems in the early 1990s, found losses ranging from 10 to 40% of applied urea-N depending on conditions, with the higher end associated with alkaline soils, high temperatures, and direct surface application to floodwater. Choudhury and Kennedy (2005), reviewing fertilizer nitrogen losses in lowland rice, cited 20 to 30% as a typical volatilisation loss for surface-broadcast urea in tropical paddy under standard management.</p>
+
+        <p>Islam and colleagues, working in Bangladeshi conditions, have reported losses broadly consistent with this range. NUE values below 40% are commonly cited for urea in flooded boro rice — meaning that at minimum 60% of applied nitrogen is either lost (via volatilisation, leaching, and denitrification) or immobilised in organic matter. Volatilisation is generally the dominant loss pathway when urea is applied directly to floodwater surface, as is common practice.</p>
+
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Loss Factor</th>
+                <th>Direction of Effect on Volatilisation</th>
+                <th>Approximate Influence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Floodwater pH above 8</td>
+                <td>Strongly increases</td>
+                <td>Major driver; doubles loss rate per unit pH above 8</td>
+              </tr>
+              <tr>
+                <td>Temperature (per 10°C rise)</td>
+                <td>Increases</td>
+                <td>Roughly 2× the volatilisation rate</td>
+              </tr>
+              <tr>
+                <td>Wind speed at field surface</td>
+                <td>Increases</td>
+                <td>Removes NH₃ from boundary layer; increases gradient</td>
+              </tr>
+              <tr>
+                <td>Deep placement vs. surface broadcast</td>
+                <td>Strongly decreases</td>
+                <td>Placement at 7–10 cm depth can reduce loss by 50–80%</td>
+              </tr>
+              <tr>
+                <td>Soil CEC (high organic matter, clay)</td>
+                <td>Decreases</td>
+                <td>More NH₄⁺ adsorbed, less free in floodwater</td>
+              </tr>
+              <tr>
+                <td>Urease inhibitor (e.g. NBPT)</td>
+                <td>Strongly decreases</td>
+                <td>Delays hydrolysis 7–14 days; reduces peak pH spike</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="s4">How Researchers Measure It</h2>
+
+        <p>Measuring ammonia volatilisation from paddy fields is methodologically tricky. The gas escapes at the water surface in a spatially variable way, rates change across the day (highest midday, lower at night), and any measurement device placed on the field surface inevitably alters the microenvironment it is trying to observe. Three approaches dominate the literature:</p>
+
+        <h3>Closed-Chamber / Alkali Trap Method</h3>
+        <p>A floating chamber placed on the floodwater surface captures the gas escaping from a defined area. Inside the chamber, a vessel containing dilute acid (typically sulphuric acid, H₂SO₄) absorbs the NH₃ as it accumulates. At timed intervals, the acid solution is collected and analysed for ammonium by Kjeldahl distillation or colorimetry. The loss rate is calculated from the mass of NH₄-N trapped per unit area per unit time.</p>
+        <p>This is the most common method in Bangladesh and South Asia research because the equipment is low-cost and field-portable. Its limitation is that the chamber disrupts the wind environment at the surface — real field conditions involve turbulent air movement that removes NH₃ faster than a static chamber captures it. As a result, closed-chamber methods may underestimate actual losses, though careful design minimises this bias.</p>
+
+        <h3>Vented (Semi-Open) Chamber Method</h3>
+        <p>A modification that draws air through the chamber at a controlled flow rate, passing it through an acid trap. This better replicates natural ventilation. The IPNI (International Plant Nutrition Institute) method using a semi-open system has been widely adopted in Asian paddy research because it gives more reproducible results than purely closed chambers while remaining practical at field scale.</p>
+
+        <h3>Micrometeorological Methods</h3>
+        <p>At larger spatial scales, micrometeorological approaches measure ammonia concentration at multiple heights above the canopy and use boundary layer theory to back-calculate flux. Techniques include the integrated horizontal flux method and eddy covariance systems. These are non-intrusive and capture field-scale behaviour, but require expensive instrumentation and technical expertise that limits their use in developing-country research contexts. They are most commonly seen in European and North American studies but have been applied in Asian rice systems in collaboration with international institutions.</p>
+
+        <div class="article-ornament">— ❧ —</div>
+
+        <h2 id="s5">The SPADE Connection: Monitoring What You Cannot See</h2>
+
+        <p>One of the fundamental problems with nitrogen management is that loss is invisible. A field that loses 30% of applied nitrogen to volatilisation looks identical to one that loses 5%. There is no colour change, no physical evidence, no alarm. The crop may show early greenness from the initial dose, then gradually decline — but by the time yield loss is obvious, the loss has already happened.</p>
+
+        <p>This is partly what drives interest in tools like SPAD meters and spectral analysis platforms for crop nitrogen status. The <a href="blog-spade-open-source.html">SPADE open-source tool</a> I have been involved with works by measuring leaf chlorophyll content as a proxy for nitrogen status, allowing researchers and farmers to detect nitrogen deficiency before it translates to yield loss. If floodwater volatilisation has already stripped a portion of the applied dose, SPADE-based monitoring can catch the deficit early enough for a corrective split-dose application.</p>
+
+        <p>The monitoring approach does not address the underlying loss mechanism — but it changes the decision point from "how much did I lose?" to "what does the crop need now?" In practical terms that shift can be meaningful for yield and for total nitrogen input across a season.</p>
+
+        <h2 id="s6">What Can Be Done</h2>
+
+        <p>Three main strategies reduce ammonia volatilisation losses from paddy urea, each attacking the problem at a different point in the loss chain.</p>
+
+        <p><strong>Deep placement.</strong> Moving the urea from the floodwater surface to the reduced zone below the soil surface (7 to 10 cm depth) is the single most effective intervention available under current technology. Nitrogen placed below the soil-water interface is protected from the high-pH floodwater environment. Deep placement can reduce volatilisation losses by 50 to 80% compared to surface broadcast. The barrier is labour: placement requires either manual insertion of urea supergranules or mechanical applicators, both of which add cost in systems where surface broadcasting is the norm.</p>
+
+        <p><strong>Urease inhibitors.</strong> Compounds like N-(n-butyl) thiophosphoric triamide (NBPT) can be applied as coatings or surface treatments on urea granules. They temporarily block urease activity, delaying hydrolysis by 7 to 14 days. This delays the pH spike and spreads the ammonium release over a longer period when the crop is better positioned to capture it. NBPT is approved in several markets and has shown 20 to 50% reductions in volatilisation in controlled studies. Cost and availability remain constraints in South Asian markets.</p>
+
+        <p><strong>Coated slow-release fertilizers.</strong> The approach at the centre of my BBCU research is physically encapsulating the urea in a matrix material that controls the rate of water ingress and urea dissolution, thereby slowing hydrolysis. A bentonite and biochar coating around each granule delays the release of urea into the floodwater, reducing the initial-burst loss that accounts for most of the seasonal volatilisation. The goal is not to eliminate hydrolysis but to spread it over a period — 10 to 14 days rather than 2 to 4 — that better matches the crop's nitrogen uptake window. A detailed post on how this works is available on the <a href="blog-slow-release-fertilizer.html">slow-release fertilizer page</a>.</p>
+
+        <div class="pull-quote">
+          <p>The most effective intervention is deep placement. The most accessible at scale is coating. The gap between those two options is where most slow-release research is working.</p>
+        </div>
+
+        <h2 id="s7">Why This Matters Beyond Bangladesh</h2>
+
+        <p>Ammonia volatilisation from paddy systems is not only a productivity problem. It is an atmospheric chemistry problem. Ammonia deposited downwind of agricultural areas contributes to secondary particulate matter formation, eutrophication of sensitive ecosystems, and acidification of soils distant from the source. South and Southeast Asia are among the largest regional sources of agricultural ammonia globally, and paddy rice is a major contributor within that region.</p>
+
+        <p>Improving NUE in paddy systems therefore has a double return: more nitrogen stays in the crop, and less nitrogen enters the atmosphere. Researchers working on coatings, inhibitors, and management practices are working on both simultaneously, which is part of what makes this a productive area of investigation.</p>
+
+        <!-- Tags -->
+        <div class="article-tags">
+          <a href="blog.html" class="a-tag">Soil Science</a>
+          <a href="blog.html" class="a-tag">Nitrogen</a>
+          <a href="blog.html" class="a-tag">Ammonia Volatilisation</a>
+          <a href="blog.html" class="a-tag">Paddy Rice</a>
+          <a href="blog.html" class="a-tag">Bangladesh</a>
+          <a href="blog.html" class="a-tag">Urea</a>
+          <a href="blog.html" class="a-tag">NUE</a>
+        </div>
+
+        <div class="post-nav">
+          <a href="blog-nitrogen-cycling-urea.html" class="btn btn-outline btn-arrow">← Nitrogen Cycling in Urea</a>
+          <a href="blog-slow-release-fertilizer.html" class="btn btn-gold">Slow-Release Fertilizer →</a>
+        </div>
+
+        <!-- Author bio -->
+        <div class="article-bio">
+          <div class="bio-avatar-lg">SR</div>
+          <div class="bio-inner">
+            <h4>Sajjadur Rahman</h4>
+            <span class="bio-role-lbl">MSc Researcher · University of Dhaka · Soil &amp; Environmental Science</span>
+            <p>NST Fellow researching bentonite-biochar coated urea for improved nitrogen use efficiency in Bangladeshi paddy systems. Affiliated with BCSIR and DUNTC. Available for data analysis, thesis consultation, and manuscript editing.</p>
+            <div class="bio-links">
+              <a href="research.html" class="bio-lnk">My Research</a>
+              <a href="blog-slow-release-fertilizer.html" class="bio-lnk">BBCU Post</a>
+              <a href="services.html" class="bio-lnk">Services</a>
+              <a href="contact.html" class="bio-lnk">Contact</a>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <!-- Key facts -->
+        <div class="sb-card">
+          <div class="sb-head"><span>Key Numbers</span></div>
+          <div class="sb-body" style="font-family:var(--font-body);font-size:13px;line-height:1.7;color:var(--ink-soft)">
+            <div style="padding:8px 0;border-bottom:.5px solid var(--gold-pale)"><strong style="color:var(--gold)">~40%</strong><br/>Average NUE for urea in Bangladeshi paddy systems</div>
+            <div style="padding:8px 0;border-bottom:.5px solid var(--gold-pale)"><strong style="color:var(--gold)">10–40%</strong><br/>N lost via volatilisation from surface-broadcast urea (tropical paddy, literature range)</div>
+            <div style="padding:8px 0;border-bottom:.5px solid var(--gold-pale)"><strong style="color:var(--gold)">48–72 hrs</strong><br/>Time for 80–90% urea hydrolysis at 30°C</div>
+            <div style="padding:8px 0;border-bottom:.5px solid var(--gold-pale)"><strong style="color:var(--gold)">pKa 9.25</strong><br/>NH₄⁺/NH₃ equilibrium; pH &gt;8 significantly increases free ammonia</div>
+            <div style="padding:8px 0"><strong style="color:var(--gold)">50–80%</strong><br/>Reduction in loss achievable with deep placement</div>
+          </div>
+        </div>
+
+        <!-- TOC -->
+        <div class="sb-card">
+          <div class="sb-head"><span>In This Article</span></div>
+          <div class="sb-body">
+            <ol class="toc-list">
+              <li><a href="#s1" class="toc-link"><span class="toc-n">01</span>The Chemistry</a></li>
+              <li><a href="#s2" class="toc-link"><span class="toc-n">02</span>Why Flooding Makes It Worse</a></li>
+              <li><a href="#s3" class="toc-link"><span class="toc-n">03</span>Literature Loss Rates</a></li>
+              <li><a href="#s4" class="toc-link"><span class="toc-n">04</span>Measurement Methods</a></li>
+              <li><a href="#s5" class="toc-link"><span class="toc-n">05</span>SPADE Connection</a></li>
+              <li><a href="#s6" class="toc-link"><span class="toc-n">06</span>What Can Be Done</a></li>
+              <li><a href="#s7" class="toc-link"><span class="toc-n">07</span>Beyond Bangladesh</a></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Thesis CTA -->
+        <div class="sb-cta">
+          <h4>Need help with <em>soil science data analysis</em>?</h4>
+          <p>Statistical analysis, NUE calculations, R scripts, and interpretation for agricultural research. I work with thesis students and researchers.</p>
+          <a href="services.html#data-analysis" class="btn btn-gold">Data Analysis →</a>
+        </div>
+
+        <!-- Share -->
+        <div class="sb-card">
+          <div class="sb-head"><span>Share This Post</span></div>
+          <div class="sb-body">
+            <div class="share-btns">
+              <a class="share-b" href="https://wa.me/?text=Ammonia%20Volatilisation%20from%20Urea%20in%20Paddy%20Soils%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-ammonia-volatilisation-paddy-urea.html" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="share-b" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-ammonia-volatilisation-paddy-urea.html" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="share-b" href="https://twitter.com/intent/tweet?text=Ammonia%20Volatilisation%20from%20Urea%20in%20Paddy%20Soils&amp;url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-ammonia-volatilisation-paddy-urea.html" target="_blank" rel="noopener">X</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related -->
+        <div class="sb-card">
+          <div class="sb-head"><span>Related Posts</span></div>
+          <div class="sb-body">
+            <a href="blog-nitrogen-cycling-urea.html" class="related-link">
+              <span class="rel-icon">🔄</span>
+              <span class="rel-title">What Happens to Urea After It's Applied: Nitrogen Cycling Explained</span>
+            </a>
+            <a href="blog-slow-release-fertilizer.html" class="related-link">
+              <span class="rel-icon">🧪</span>
+              <span class="rel-title">What is Slow-Release Fertilizer and Why Does Bangladesh Need It?</span>
+            </a>
+            <a href="blog-nue-indices-explained.html" class="related-link">
+              <span class="rel-icon">📊</span>
+              <span class="rel-title">Understanding NUE Indices — AE, RE, PE, and NHI Explained</span>
+            </a>
+            <a href="blog-spade-open-source.html" class="related-link">
+              <span class="rel-icon">📱</span>
+              <span class="rel-title">SPADE: Open-Source Crop Nitrogen Monitoring</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="https://www.facebook.com/sajjad.rahman68/" title="Facebook" target="_blank" rel="noopener" style="font-family:var(--font-ui);font-weight:700;font-size:13px;">f</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const bar = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) { window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' }); history.pushState(null, '', link.getAttribute('href')); }
+      });
+    });
+    const sids = ['s1','s2','s3','s4','s5','s6','s7'];
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { tocLinks.forEach(l => l.classList.remove('active-toc')); const a = document.querySelector('.toc-link[href="#'+e.target.id+'"]'); if(a) a.classList.add('active-toc'); }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sids.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+  </script>
+
+</body>
+</html>

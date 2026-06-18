@@ -40,7 +40,7 @@
   <!-- Blog index — update lastmod every time a new post is published -->
   <url>
     <loc>https://sajjadur-rahman.com/blog.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -60,18 +60,51 @@
        Add one <url> block below for each new post
        file as it is published to this domain.
        ═══════════════════════════════════════════════ -->
+
+  <!-- How to Write an Abstract for a Research Paper — With a Template -->
   <url>
-  <loc>https://sajjadur-rahman.com/blog-correlation-vs-causation.html</loc>
-  <lastmod>2026-06-16</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-abstract-writing-guide.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ammonia Volatilisation from Urea in Paddy Soils -->
   <url>
-  <loc>https://sajjadur-rahman.com/blog-erasmus-mundus-environment-overview.html</loc>
-  <lastmod>2026-06-14</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-ammonia-volatilisation-paddy-urea.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Heavy Metals in Dhaka's Urban Environment — What Active Research Shows -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-heavy-metals-dhaka.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Erasmus Mundus Scholarships for Bangladeshi Students — The Complete Guide -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-erasmus-mundus-bangladeshi-guide.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-correlation-vs-causation.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-erasmus-mundus-environment-overview.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Abdul Qadir Khan: A Scientist, a Nation, and the Atom -->
   <url>
     <loc>https://sajjadur-rahman.com/blog-aq-khan.html</loc>
@@ -80,59 +113,59 @@
     <priority>0.6</priority>
   </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-ahmed-zewail-femtochemistry.html</loc>
-  <lastmod>2026-06-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-ahmed-zewail-femtochemistry.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-jamal-nazrul-islam.html</loc>
-  <lastmod>2026-06-14</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-jamal-nazrul-islam.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-majidi-films.html</loc>
-  <lastmod>2026-06-13</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-majidi-films.html</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-majidi-man.html</loc>
-  <lastmod>2026-06-13</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-majidi-man.html</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-how-to-read-scientific-paper.html</loc>
-  <lastmod>2026-06-12</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-how-to-read-scientific-paper.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-spade-open-source.html</loc>
-  <lastmod>2026-06-10</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-spade-open-source.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-biochar-rice-husk-soil-chemistry.html</loc>
-  <lastmod>2026-06-10</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-biochar-rice-husk-soil-chemistry.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-linear-regression-r-tutorial.html</loc>
-  <lastmod>2026-06-09</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-linear-regression-r-tutorial.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-daad-epos-guide.html</loc>
-  <lastmod>2026-06-08</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-daad-epos-guide.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- How to Write the Discussion Section -->
   <url>
     <loc>https://sajjadur-rahman.com/blog-discussion-section-guide.html</loc>
@@ -141,35 +174,35 @@
     <priority>0.7</priority>
   </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-literature-review-guide.html</loc>
-  <lastmod>2026-06-07</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-literature-review-guide.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-statement-of-purpose-guide.html</loc>
-  <lastmod>2026-06-06</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-statement-of-purpose-guide.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
-  <loc>https://sajjadur-rahman.com/blog-nitrogen-n2o-climate.html</loc>
-  <lastmod>2026-06-05</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://sajjadur-rahman.com/blog-bangladesh-climate-crisis.html</loc>
-  <lastmod>2026-06-05</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://sajjadur-rahman.com/blog-soil-ph-bangladesh.html</loc>
-  <lastmod>2026-06-04</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
+    <loc>https://sajjadur-rahman.com/blog-nitrogen-n2o-climate.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-bangladesh-climate-crisis.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-soil-ph-bangladesh.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders -->
   <url>
     <loc>https://sajjadur-rahman.com/blog-air-quality-bangladesh-pm25.html</loc>
@@ -177,13 +210,13 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-<!-- What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling -->
-<url>
-  <loc>https://sajjadur-rahman.com/blog-nitrogen-cycling-urea.html</loc>
-  <lastmod>2026-06-03</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.7</priority>
-</url>
+  <!-- What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-nitrogen-cycling-urea.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- How to Write a Research Proposal That Actually Gets Funded -->
   <url>
     <loc>https://sajjadur-rahman.com/blog-how-to-write-research-proposal.html</loc>
@@ -249,13 +282,6 @@
   </url>
 
   <!-- ── PENDING BUILDS (uncomment when files are published) ──────────
-
-  <url>
-    <loc>https://sajjadur-rahman.com/blog-spade-open-source.html</loc>
-    <lastmod>YYYY-MM-DD</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <url>
     <loc>https://sajjadur-rahman.com/blog-nst-fellowship-guide.html</loc>
