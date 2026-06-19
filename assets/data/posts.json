@@ -1,5 +1,65 @@
 [
   {
+    "slug": "statistical-test-decision-guide",
+    "file": "blog-statistical-test-decision-guide.html",
+    "title_en": "How to Choose the Right Statistical Test for Your Thesis — A Decision Guide",
+    "title_bn": "গবেষণার জন্য সঠিক পরিসংখ্যান পরীক্ষা বেছে নিন — একটি সিদ্ধান্ত গাইড",
+    "date": "2026-06-19",
+    "category_en": "Data Analysis",
+    "category_bn": "ডেটা বিশ্লেষণ",
+    "excerpt_en": "A decision-tree guide to choosing between t-test, ANOVA, chi-square, Mann-Whitney, Pearson, Spearman, and regression — based on your data type, distribution, and research question.",
+    "excerpt_bn": "t-test, ANOVA, chi-square, Mann-Whitney, Pearson, Spearman এবং regression-এর মধ্যে পছন্দ করার জন্য একটি সিদ্ধান্ত-বৃক্ষ গাইড।",
+    "tags_en": [
+      "Statistical Tests",
+      "Decision Tree",
+      "ANOVA",
+      "t-test",
+      "Non-Parametric",
+      "R Tutorial",
+      "Thesis Statistics"
+    ],
+    "tags_bn": [
+      "পরিসংখ্যান পরীক্ষা",
+      "সিদ্ধান্ত বৃক্ষ",
+      "ANOVA",
+      "গবেষণা পদ্ধতি"
+    ],
+    "featured": true,
+    "status": "published",
+    "read_time_min": 11
+  },
+  {
+    "slug": "pca-r-environmental-data",
+    "file": "blog-pca-r-environmental-data.html",
+    "title_en": "Principal Component Analysis (PCA) in R for Environmental Data",
+    "title_bn": "পরিবেশগত ডেটার জন্য R-এ প্রধান উপাদান বিশ্লেষণ (PCA)",
+    "date": "2026-06-19",
+    "category_en": "Data Analysis",
+    "category_bn": "ডেটা বিশ্লেষণ",
+    "excerpt_en": "Step-by-step PCA in R: data scaling, prcomp(), scree plot, loading interpretation, biplot, and score extraction. Worked example uses Haor basin paddy soil chemistry data from Bangladesh.",
+    "excerpt_bn": "R-এ ধাপে ধাপে PCA: ডেটা স্কেলিং, prcomp(), scree plot, loading ব্যাখ্যা, biplot এবং score extraction। হাওর বেসিন ধান জমির মাটির তথ্য ব্যবহার করে।",
+    "tags_en": [
+      "PCA",
+      "R Tutorial",
+      "Multivariate Analysis",
+      "Soil Science",
+      "Environmental Data",
+      "prcomp",
+      "Biplot",
+      "Bangladesh"
+    ],
+    "tags_bn": [
+      "PCA",
+      "R টিউটোরিয়াল",
+      "বহুচলক বিশ্লেষণ",
+      "মাটি বিজ্ঞান",
+      "পরিবেশগত ডেটা"
+    ],
+    "featured": true,
+    "status": "published",
+    "read_time_min": 13
+  },
+  {
     "slug": "abstract-writing-guide",
     "file": "blog-abstract-writing-guide.html",
     "title_en": "How to Write an Abstract for a Research Paper — With a Template",
