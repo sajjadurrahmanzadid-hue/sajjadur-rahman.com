@@ -40,7 +40,7 @@
   <!-- Blog index — update lastmod every time a new post is published -->
   <url>
     <loc>https://sajjadur-rahman.com/blog.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -60,6 +60,14 @@
        Add one <url> block below for each new post
        file as it is published to this domain.
        ═══════════════════════════════════════════════ -->
+
+  <!-- What a P-Value Actually Means (and Five Things It Doesn't) -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-p-value-meaning.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- How to Choose the Right Statistical Test for Your Thesis — A Decision Guide -->
   <url>

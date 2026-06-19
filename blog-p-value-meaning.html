@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A p-value is not the probability your null hypothesis is true. It's not the probability your result happened by chance. Here's what it is, and five things it definitely isn't — with a fertilizer example throughout."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="what is a p-value, p-value explained, p-value misconceptions, statistical significance, effect size, confidence interval, p-value vs effect size, research statistics"/>
+  <meta property="og:title" content="What a P-Value Actually Means (and Five Things It Doesn't) — Sajjadur Rahman"/>
+  <meta property="og:description" content="Almost everyone who uses p-values misreads them. Here's the correct definition, five specific misconceptions — each with the wrong sentence, the correction, and why the mistake is tempting — and what to report instead."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-p-value-meaning.html"/>
+  <meta property="article:published_time" content="2026-06-20"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>What a P-Value Actually Means (and Five Things It Doesn't) — Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-p-value-meaning.html"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.8vw, 42px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--parchment3); border: 1.5px solid var(--gold-pale); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .meta-author-name { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px; }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); display: block; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 23px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.4em 0 0.75em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.8em 0 0.5em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+    .article-prose em { font-style: italic; }
+
+    /* ── Misconception number badge ── */
+    .misconception-head {
+      display: flex; align-items: center; gap: 16px;
+      margin: 2.6em 0 0.8em;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--gold-pale);
+    }
+    .mis-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: var(--ink); color: var(--gold-light);
+      font-family: var(--font-ui); font-size: 12px;
+      font-weight: 700; letter-spacing: 0.5px;
+      border-radius: 50%;
+    }
+    .mis-title {
+      font-family: var(--font-head); font-size: 22px;
+      font-weight: 600; color: var(--ink); line-height: 1.25;
+    }
+
+    /* ── Wrong / Right boxes ── */
+    .claim-wrong {
+      background: rgba(180,60,40,0.04);
+      border: 0.5px solid rgba(180,60,40,0.22);
+      border-left: 3px solid #b44028;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 22px; margin: 1.4em 0 0.4em;
+    }
+    .claim-wrong-label {
+      font-family: var(--font-ui); font-size: 8px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #b44028;
+      display: block; margin-bottom: 8px;
+    }
+    .claim-wrong p {
+      font-family: var(--font-body); font-size: 15px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.7; margin: 0;
+    }
+    .temptation {
+      background: var(--parchment2);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold-pale);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 13px 20px; margin: 1em 0 1.6em;
+    }
+    .temptation-label {
+      font-family: var(--font-ui); font-size: 8px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--text-light);
+      display: block; margin-bottom: 6px;
+    }
+    .temptation p {
+      font-family: var(--font-body); font-size: 14px;
+      color: var(--text-muted); line-height: 1.7; margin: 0;
+    }
+    .definition-box {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 26px 30px; margin: 1.8em 0;
+    }
+    .definition-box .def-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 12px;
+    }
+    .definition-box p {
+      font-family: var(--font-head); font-size: 19px;
+      font-style: italic; color: var(--parchment);
+      line-height: 1.6; margin: 0 !important;
+    }
+    .definition-box p strong { color: var(--gold-light); }
+
+    /* ── Code block ── */
+    .code-wrap {
+      margin: 1.8em 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 0.5px solid rgba(139,126,90,0.2);
+    }
+    .code-header {
+      background: #151310;
+      padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .code-lang {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .code-copy-btn {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-light);
+      background: none; border: 0.5px solid rgba(139,126,90,0.3);
+      border-radius: 4px; padding: 4px 10px; cursor: pointer;
+      transition: color .2s, border-color .2s;
+    }
+    .code-copy-btn:hover { color: var(--gold); border-color: var(--gold); }
+    .code-copy-btn.copied { color: #5a7a4a; border-color: #5a7a4a; }
+    .code-pre {
+      background: #1a1714; margin: 0; padding: 20px 22px;
+      overflow-x: auto;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 13.5px; line-height: 1.75;
+      color: #e8dfc8; white-space: pre;
+    }
+    .code-pre .cm { color: #7a7060; }
+    .code-pre .kw { color: #c8a86e; }
+    .code-pre .st { color: #a8c480; }
+    .code-pre .nu { color: #d4a47c; }
+    .output-wrap {
+      margin: -0.8em 0 1.8em;
+      border-radius: 0 0 var(--radius) var(--radius);
+      overflow: hidden;
+      border: 0.5px solid rgba(139,126,90,0.15);
+      border-top: none;
+    }
+    .output-header {
+      background: #242018; padding: 7px 18px;
+      border-bottom: 0.5px solid rgba(139,126,90,0.15);
+    }
+    .output-header span {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #6a6052;
+    }
+    .output-pre {
+      background: #201d19; margin: 0; padding: 16px 22px;
+      overflow-x: auto;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 13px; line-height: 1.8;
+      color: #b8af98; white-space: pre;
+    }
+    .output-pre .hi { color: var(--gold-light); font-weight: bold; }
+    .output-pre .sig { color: #5a7a4a; }
+
+    /* ── Report checklist (sidebar) ── */
+    .report-step {
+      display: flex; gap: 11px; padding: 11px 0;
+      border-bottom: 0.5px solid var(--gold-pale);
+      align-items: flex-start;
+    }
+    .report-step:last-child { border-bottom: none; padding-bottom: 0; }
+    .rs-num {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--ink); color: var(--gold);
+      font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .rs-content .rs-name {
+      font-family: var(--font-ui); font-size: 10.5px;
+      font-weight: 700; color: var(--ink);
+      display: block; margin-bottom: 2px;
+    }
+    .rs-content .rs-detail {
+      font-family: var(--font-body); font-size: 12px;
+      color: var(--text-muted); line-height: 1.45;
+    }
+
+    /* ── Callout, pullquote ── */
+    .callout-box {
+      background: var(--white); border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.8em 0;
+    }
+    .callout-label { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+    .callout-box p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 0; font-family: var(--font-body); }
+    .pull-quote {
+      border-left: 3px solid var(--gold); background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p { font-family: var(--font-head); font-size: 17.5px; font-style: italic; color: var(--ink-soft); line-height: 1.65; margin-bottom: 0 !important; }
+    .article-ornament { text-align: center; font-family: var(--font-head); color: var(--gold); font-size: 18px; letter-spacing: 6px; margin: 2.8em 0; opacity: 0.55; }
+
+    /* ── Tags ── */
+    .article-tags { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 2.8em; padding-top: 1.6em; border-top: 1px solid var(--gold-pale); }
+    .a-tag { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); padding: 5px 13px; border-radius: 20px; text-decoration: none; transition: color .2s, border-color .2s, background .2s; }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio { background: var(--parchment2); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em; display: flex; gap: 22px; align-items: flex-start; }
+    .bio-avatar-lg { width: 58px; height: 58px; border-radius: 50%; background: var(--parchment3); border: 2px solid var(--gold-pale); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .bio-inner h4 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .bio-role-lbl { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-pale); padding: 5px 12px; border-radius: 20px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sb-body { padding: 14px 16px; }
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px; color: var(--text-muted); text-decoration: none; line-height: 1.45; transition: color .18s, padding-left .18s; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--parchment); margin-bottom: 7px; line-height: 1.35; }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+    .share-btns { display: flex; gap: 6px; }
+    .share-b { flex: 1; display: block; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 8px 4px; text-align: center; text-decoration: none; background: var(--white); transition: color .18s, border-color .18s, background .18s; }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+    .related-link { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale); text-decoration: none; color: inherit; transition: opacity .18s; }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    .post-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 2.8em; padding-top: 1.6em; border-top: 1px solid var(--gold-pale); flex-wrap: wrap; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 23px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .mis-title { font-size: 18px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What a P-Value Actually Means (and Five Things It Doesn't)",
+    "description": "Almost everyone who uses p-values misreads them. Here's the correct definition, five specific misconceptions, and what to report instead — with a fertilizer example throughout.",
+    "url": "https://sajjadur-rahman.com/blog-p-value-meaning.html",
+    "datePublished": "2026-06-20",
+    "dateModified": "2026-06-20",
+    "author": {
+      "@type": "Person",
+      "name": "Sajjadur Rahman",
+      "url": "https://sajjadur-rahman.com/about.html"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Sajjadur Rahman",
+      "url": "https://sajjadur-rahman.com"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Data Analysis</span>
+        </div>
+        <h1 class="article-h1">
+          What a P-Value <em>Actually Means</em><br/>and Five Things It Doesn't
+        </h1>
+        <p class="article-deck">Almost everyone who uses p-values misreads them — including published researchers. Here's the correct definition, five specific misconceptions with their corrections, and what to actually report instead. A fertilizer example runs throughout.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · R &amp; SPSS · Soil &amp; Environmental Science</span>
+            </div>
+          </div>
+          <span class="meta-chip">June 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">10 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Data Analysis</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <!-- S1 -->
+          <h2 id="s1">The Sentence That Starts This Conversation</h2>
+
+          <p>Imagine you've collected data from an experiment comparing two nitrogen treatments on paddy rice — a control (no nitrogen) and urea at 80 kg N/ha — across eight replicate plots each. You harvest, weigh the grain, and run a t-test in R. The output tells you <code>p = 0.03</code>. You write, in your Results section:</p>
+
+          <div class="pull-quote">
+            <p>"The urea treatment had a statistically significant effect on grain yield (p = 0.03)."</p>
+          </div>
+
+          <p>That sentence is probably wrong — or at least, it claims considerably more than the number in front of you can support.</p>
+
+          <p>Not because the analysis was done badly. Because p-values are among the most routinely misread outputs in all of quantitative research, and the misreading is built into the language most researchers use without noticing: "significant," "proved," "due to chance." A 2016 study published in <em>Psychonomic Bulletin &amp; Review</em> found that the majority of researchers — including psychology professors who teach statistics — described p-values incorrectly when given a list of definitions and asked to select which ones were accurate. The same survey found that even experienced statisticians made errors at rates higher than you'd expect from a group who should know better.</p>
+
+          <p>This is not a beginner mistake. It runs through the literature of every empirical field.</p>
+
+          <p>This post fixes it. One definition. Five specific misreadings, each with the wrong sentence, the correction, and an explanation of why the mistake is so tempting. Then what to write instead.</p>
+
+          <!-- S2 -->
+          <h2 id="s2">What a P-Value Actually Is</h2>
+
+          <p>The definition has been stated precisely many times, and it is still widely misread because it looks like it's saying something different from what it actually says. Here it is:</p>
+
+          <div class="definition-box">
+            <span class="def-label">The definition</span>
+            <p>A p-value is the probability of observing data <strong>at least as extreme as what you observed</strong>, assuming the null hypothesis is true.</p>
+          </div>
+
+          <p>Three parts, all of which matter. Let's unpack them with the fertilizer data.</p>
+
+          <p>The <strong>null hypothesis</strong> is the assumption you're testing against — in this case, that nitrogen treatment has no effect on yield. The population means of the two groups are equal. Your experiment produced a gap of 0.52 t/ha between the control group (mean 3.12 t/ha) and the urea group (mean 3.64 t/ha). The t-test asks: if the null hypothesis were true and the true population means were identical, how often would random sampling produce a gap this large or larger?</p>
+
+          <p>The answer is 3% of the time. That is what <code>p = 0.03</code> tells you.</p>
+
+          <p>Notice what it is not telling you. It is not telling you the probability that your result is "real." It is not telling you the probability that nitrogen treatment works. It is not partitioning your result into a real part and a chance part. It is a conditional probability — the probability of the data, given an assumed world in which H₀ is true.</p>
+
+          <p>That single distinction — between P(data | H₀) and P(H₀ | data) — is the source of four out of five misconceptions in this post.</p>
+
+          <!-- S3 -->
+          <div class="misconception-head" id="s3">
+            <span class="mis-num">1</span>
+            <span class="mis-title">It's not the probability the null hypothesis is true</span>
+          </div>
+
+          <div class="claim-wrong">
+            <span class="claim-wrong-label">What researchers write</span>
+            <p>"p = 0.03 means there's only a 3% chance the null hypothesis is true."</p>
+          </div>
+
+          <p>The null hypothesis is either true or it isn't. It's a statement about the world — about whether nitrogen really does change yield in this crop under these conditions — and the world doesn't come with a probability distribution attached. Saying H₀ has a 3% probability of being true would require knowing something about the prior likelihood of the hypothesis, which is exactly what you're trying to learn from the data.</p>
+
+          <p>What the p-value does is condition on H₀ being true. It asks: if this is the world, how likely is your data? It cannot simultaneously be the probability that this assumed world is wrong.</p>
+
+          <div class="temptation">
+            <span class="temptation-label">Why the mistake is tempting</span>
+            <p>P(data | H₀) and P(H₀ | data) look like they should be interchangeable by symmetry. They're not — flipping that conditional requires Bayes' theorem and prior probabilities that you don't have. Our intuition for conditional probability is poor, and the temptation to flip the conditioning is extremely natural.</p>
+          </div>
+
+          <!-- S4 -->
+          <div class="misconception-head" id="s4">
+            <span class="mis-num">2</span>
+            <span class="mis-title">It's not the probability your result happened by chance</span>
+          </div>
+
+          <div class="claim-wrong">
+            <span class="claim-wrong-label">What researchers write</span>
+            <p>"There's only a 3% probability that the yield difference occurred by chance."</p>
+          </div>
+
+          <p>"Occurred by chance" implies that some fraction of your result is "real" and the rest is random noise, and that the p-value quantifies the noise fraction. That's not what it does. The p-value doesn't decompose your result at all. It says: if chance were the only mechanism (i.e., if H₀ were true), the probability of seeing a gap this large is 3%. Chance is already embedded in the null model — the p-value is conditional on it, not a proportion of it.</p>
+
+          <p>The phrase "due to chance" also implies you already know the alternative is real. If you knew that, you wouldn't need the test.</p>
+
+          <div class="temptation">
+            <span class="temptation-label">Why the mistake is tempting</span>
+            <p>"Due to chance" is an intuitive shorthand for "consistent with random sampling variation under H₀," but it's loose enough to imply things the number doesn't support. The translation from the technical definition to plain language almost always loses something.</p>
+          </div>
+
+          <!-- S5 -->
+          <div class="misconception-head" id="s5">
+            <span class="mis-num">3</span>
+            <span class="mis-title">A smaller p doesn't mean a bigger or more important effect</span>
+          </div>
+
+          <div class="claim-wrong">
+            <span class="claim-wrong-label">What researchers write</span>
+            <p>"Treatment A (p = 0.001) had a stronger effect than Treatment B (p = 0.04)."</p>
+          </div>
+
+          <p>This is the most practically consequential misconception, because it leads directly to ignoring effect size.</p>
+
+          <p>A p-value conflates two things: how big the effect is, and how precisely you estimated it. With a large enough sample, a trivially small yield difference — 0.02 t/ha, agronomically irrelevant — can produce p &lt; 0.0001. With a small sample, a practically important difference of 0.8 t/ha might produce p = 0.09. The p-value goes down as n goes up, regardless of whether the effect itself is large or small.</p>
+
+          <p>What you actually want to know is how large the effect is in real, interpretable units. For the fertilizer comparison: the mean yield difference is 0.52 t/ha. That's the number. It tells you something about whether the treatment is worth applying. The p-value tells you nothing about that — only about whether you have sufficient evidence to reject the null.</p>
+
+          <p>Cohen's d is the standard effect size measure for comparing two means. It expresses the difference in pooled standard deviation units, so it's comparable across studies:</p>
+
+          <div class="callout-box">
+            <span class="callout-label">Effect size thresholds (Cohen, 1988)</span>
+            <p><strong>Small:</strong> d ≈ 0.2 — the groups differ by one-fifth of a standard deviation; the overlap is large and the effect is usually not practically meaningful. <strong>Medium:</strong> d ≈ 0.5. <strong>Large:</strong> d ≈ 0.8 or above — the groups are meaningfully separated and the effect is likely to matter in practice.</p>
+          </div>
+
+          <p>In the paddy yield example, the pooled SD is about 0.42 t/ha. Cohen's d = 0.52 / 0.42 = 1.24 — a large effect. A p-value of 0.03 tells you that the result is statistically detectable. A d of 1.24 tells you that nitrogen at 80 kg/ha roughly doubled the typical between-plot variation. These are different pieces of information and you need both.</p>
+
+          <div class="temptation">
+            <span class="temptation-label">Why the mistake is tempting</span>
+            <p>A more extreme result intuitively feels like a bigger result. And in a single, fixed design — same n, same measurement error — it often is. But the moment you compare across studies with different sample sizes, or across outputs from a single study with different sample sizes per group, p-values are no longer comparable as measures of effect magnitude.</p>
+          </div>
+
+          <!-- S6 -->
+          <div class="misconception-head" id="s6">
+            <span class="mis-num">4</span>
+            <span class="mis-title">p &gt; 0.05 doesn't prove there's no effect</span>
+          </div>
+
+          <div class="claim-wrong">
+            <span class="claim-wrong-label">What researchers write</span>
+            <p>"The treatment had no effect on soil pH (p = 0.12)."</p>
+          </div>
+
+          <p>"No effect" means the true difference is zero. But p = 0.12 means only that the data are not inconsistent with H₀ — which is a very different statement. A non-significant result is consistent with at least three situations:</p>
+
+          <p>(a) The true effect is zero and you have correctly failed to reject H₀. (b) There is a real effect, but your sample was too small to detect it reliably — a power problem. (c) There is a real effect, but it was obscured by measurement error, poor experimental control, or an unhappy draw of random variation.</p>
+
+          <p>Without knowing which of these applies, you cannot write "no effect." You can write: "We did not detect a significant effect of treatment on soil pH (p = 0.12). The study may have been underpowered to detect effects smaller than X units." That is honest. It is also, unfortunately, much more useful to the reader than the false confidence of "no effect."</p>
+
+          <div class="temptation">
+            <span class="temptation-label">Why the mistake is tempting</span>
+            <p>"Non-significant" sounds like "not different," which sounds like "the same." It isn't. Absence of evidence is not evidence of absence — a principle that's easier to state than to internalise when you've been hoping your treatment would work.</p>
+          </div>
+
+          <!-- S7 -->
+          <div class="misconception-head" id="s7">
+            <span class="mis-num">5</span>
+            <span class="mis-title">0.05 is not a law of nature</span>
+          </div>
+
+          <div class="claim-wrong">
+            <span class="claim-wrong-label">What researchers write</span>
+            <p>"p = 0.049 is significant; p = 0.051 is not significant."</p>
+          </div>
+
+          <p>The 0.05 threshold was introduced by R.A. Fisher in the 1920s as a rough guideline for when a result would be worth investigating further in agricultural experiments. It was never intended as a binary gate on scientific truth. In Fisher's own words, a single experiment with p &lt; 0.05 is "an indication that something deserves further investigation" — not a verdict.</p>
+
+          <p>A result at p = 0.049 and a result at p = 0.051 are statistically indistinguishable. The difference in sampling variation required to shift a result from one side of that line to the other is smaller than almost any source of real measurement uncertainty in your experiment. Treating them differently is not science; it's threshold worship.</p>
+
+          <p>The American Statistical Association's 2016 statement on p-values made this explicit: "The widespread use of 'statistical significance' as a license for making a claim of a scientific finding leads to considerable distortion of the scientific process." Their guidance was to report p-values as continuous values and to consider them alongside the context of the study, the prior evidence, and — above all — the effect size.</p>
+
+          <div class="temptation">
+            <span class="temptation-label">Why the mistake is tempting</span>
+            <p>Journals and supervisors have reinforced the 0.05 threshold for so long that it feels like a rule rather than a convention. When "significant" determines publication and "non-significant" means rejection, researchers naturally optimise for the line rather than interrogate it.</p>
+          </div>
+
+          <div class="article-ornament">✦ ✦ ✦</div>
+
+          <!-- S8 -->
+          <h2 id="s8">What to Report Instead</h2>
+
+          <p>The corrective is not to abandon p-values. They carry real information about the probability of your data under H₀, and when combined with the right context, they're useful. The problem is reporting them alone as though they answer the question "does this work?"</p>
+
+          <p>Every result sentence in a thesis or manuscript should carry three things together:</p>
+
+          <p><strong>1. The effect size</strong> in interpretable units. For a t-test: the mean difference (with units), Cohen's d. For <a href="blog-anova-r-tutorial.html">ANOVA</a>: η² or partial η². For <a href="blog-linear-regression-r-tutorial.html">regression</a>: the coefficient with units. The effect size is what tells you whether the finding is biologically, agronomically, or practically meaningful — something the p-value cannot tell you at all.</p>
+
+          <p><strong>2. The 95% confidence interval</strong>. A CI gives you a plausible range for the true population effect, based on your data. If the 95% CI for the yield difference is [0.09, 0.95] t/ha, you can see that the effect is positive, that you're confident it's real, and that the range of plausible effect sizes is relatively wide — useful information even before you look at the p-value. Crucially, the CI is in the same units as the effect, so it's directly interpretable.</p>
+
+          <p><strong>3. The p-value</strong> — as context, not as a verdict. It tells you how surprising the data are under H₀. Below 0.05 means you'd see results this extreme less than 5% of the time by sampling chance alone. Report the actual value (p = 0.03), not "p &lt; 0.05" — the precision matters.</p>
+
+          <p>Here is how to extract all three from a t-test in R:</p>
+
+          <div class="code-wrap" id="cw1">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw1')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># t.test() gives you the CI automatically</span>
+result &lt;- <span class="kw">t.test</span>(yield ~ treatment, data = soil,
+                  var.equal = <span class="nu">FALSE</span>)
+result
+
+<span class="cm"># Effect size: Cohen's d (manual — no extra package needed)</span>
+means &lt;- <span class="kw">tapply</span>(soil$yield, soil$treatment, mean)
+sds   &lt;- <span class="kw">tapply</span>(soil$yield, soil$treatment, sd)
+ns    &lt;- <span class="kw">tapply</span>(soil$yield, soil$treatment, length)
+
+pooled_sd &lt;- <span class="kw">sqrt</span>(((ns[<span class="nu">1</span>]-<span class="nu">1</span>)*sds[<span class="nu">1</span>]^<span class="nu">2</span> + (ns[<span class="nu">2</span>]-<span class="nu">1</span>)*sds[<span class="nu">2</span>]^<span class="nu">2</span>) /
+                   (ns[<span class="nu">1</span>] + ns[<span class="nu">2</span>] - <span class="nu">2</span>))
+cohens_d  &lt;- <span class="kw">abs</span>(<span class="kw">diff</span>(means)) / pooled_sd
+
+<span class="kw">cat</span>(<span class="st">"Mean difference: "</span>, <span class="kw">round</span>(<span class="kw">diff</span>(means), <span class="nu">3</span>), <span class="st">"t/ha\n"</span>)
+<span class="kw">cat</span>(<span class="st">"95% CI:         "</span>, <span class="kw">round</span>(result$conf.int, <span class="nu">3</span>), <span class="st">"t/ha\n"</span>)
+<span class="kw">cat</span>(<span class="st">"Cohen's d:       "</span>, <span class="kw">round</span>(cohens_d, <span class="nu">3</span>), <span class="st">"\n"</span>)
+<span class="kw">cat</span>(<span class="st">"p-value:         "</span>, <span class="kw">round</span>(result$p.value, <span class="nu">3</span>), <span class="st">"\n"</span>)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">Mean difference:  <span class="hi">0.52</span> t/ha
+95% CI:          <span class="hi">0.09  0.95</span> t/ha
+Cohen's d:        <span class="hi">1.24</span>
+p-value:          <span class="hi">0.028</span></pre>
+          </div>
+
+          <p>Now you can write a complete result sentence — one that actually communicates what you found:</p>
+
+          <div class="callout-box">
+            <span class="callout-label">The correct result sentence</span>
+            <p>"Urea application at 80 kg N/ha increased mean paddy grain yield by 0.52 t/ha compared to the unfertilized control (95% CI: 0.09–0.95 t/ha; Cohen's d = 1.24; t(14) = 2.57, p = 0.028)."</p>
+          </div>
+
+          <p>That sentence tells the reader what happened (a 0.52 t/ha increase), how certain you are (the CI doesn't contain zero), how large the effect is relative to variability (d = 1.24, large), and what the p-value was. The reader can judge significance by their own threshold — and can see that the effect is likely real and agronomically meaningful, regardless of where 0.05 lands.</p>
+
+          <p>The habit change is simple. Before you write any result sentence, ask two questions: what is the effect, and how certain am I? Then write that. The p-value goes at the end, in parentheses, as one piece of evidence — not as the answer.</p>
+
+          <p>Every test in the rest of this blog's data analysis series — <a href="blog-anova-r-tutorial.html">ANOVA</a>, <a href="blog-tukey-hsd-explained.html">Tukey HSD</a>, <a href="blog-linear-regression-r-tutorial.html">linear regression</a>, <a href="blog-pca-r-environmental-data.html">PCA</a> — produces effect sizes and confidence intervals alongside p-values. This post is the reason why.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">P-Value</a>
+            <a href="blog.html" class="a-tag">Statistical Significance</a>
+            <a href="blog.html" class="a-tag">Effect Size</a>
+            <a href="blog.html" class="a-tag">Cohen's d</a>
+            <a href="blog.html" class="a-tag">Confidence Interval</a>
+            <a href="blog.html" class="a-tag">Research Methods</a>
+            <a href="blog.html" class="a-tag">Thesis Statistics</a>
+            <a href="blog.html" class="a-tag">R Tutorial</a>
+          </div>
+
+          <div class="post-nav">
+            <a href="blog-pca-r-environmental-data.html" class="btn btn-outline btn-arrow">← PCA in R</a>
+            <a href="blog-statistical-test-decision-guide.html" class="btn btn-gold">Statistical Test Guide →</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · Data Analyst · University of Dhaka</span>
+              <p>NST Fellow running experiments in soil and environmental science, using R and SPSS for analysis across both my own research and consulting work. I help graduate students understand what their output actually means — and write it correctly.</p>
+              <div class="bio-links">
+                <a href="services.html#data" class="bio-lnk">Data Analysis</a>
+                <a href="research.html" class="bio-lnk">My Research</a>
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- Report checklist -->
+          <div class="sb-card">
+            <div class="sb-head"><span>The Full Result Checklist</span></div>
+            <div class="sb-body">
+              <div class="report-step">
+                <span class="rs-num">1</span>
+                <div class="rs-content">
+                  <span class="rs-name">Effect Size</span>
+                  <span class="rs-detail">Mean diff. (units) + Cohen's d, η², or β. Tells you whether the effect matters in practice.</span>
+                </div>
+              </div>
+              <div class="report-step">
+                <span class="rs-num">2</span>
+                <div class="rs-content">
+                  <span class="rs-name">95% Confidence Interval</span>
+                  <span class="rs-detail">Plausible range for the true effect. Same units as the effect — directly interpretable.</span>
+                </div>
+              </div>
+              <div class="report-step">
+                <span class="rs-num">3</span>
+                <div class="rs-content">
+                  <span class="rs-name">P-Value (as context)</span>
+                  <span class="rs-detail">Report the exact value (p = 0.03, not p &lt; 0.05). Never the only number in a result sentence.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1" class="toc-link"><span class="toc-n">–</span>The Opening Scene</a></li>
+                <li><a href="#s2" class="toc-link"><span class="toc-n">–</span>What a P-Value Is</a></li>
+                <li><a href="#s3" class="toc-link"><span class="toc-n">1</span>Not the probability H₀ is true</a></li>
+                <li><a href="#s4" class="toc-link"><span class="toc-n">2</span>Not the probability of chance</a></li>
+                <li><a href="#s5" class="toc-link"><span class="toc-n">3</span>Smaller p ≠ bigger effect</a></li>
+                <li><a href="#s6" class="toc-link"><span class="toc-n">4</span>p &gt; 0.05 ≠ no effect</a></li>
+                <li><a href="#s7" class="toc-link"><span class="toc-n">5</span>0.05 is arbitrary</a></li>
+                <li><a href="#s8" class="toc-link"><span class="toc-n">–</span>What to Report Instead</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="sb-cta">
+            <h4>Need help writing up <em>your results?</em></h4>
+            <p>I help researchers write correct, complete result sentences — effect sizes, CIs, and p-values together. Thesis chapters, manuscripts, journal submissions.</p>
+            <a href="services.html#data" class="btn btn-gold">Data Analysis Service →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=What%20a%20P-Value%20Actually%20Means%20%E2%80%94%20and%20five%20things%20it%20doesn%27t%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-p-value-meaning.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=What%20a%20p-value%20actually%20means%20%E2%80%94%20and%20five%20things%20it%20doesn%27t%3A&url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-p-value-meaning.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-statistical-test-decision-guide.html" class="related-link">
+                <span class="rel-icon">🗂️</span>
+                <span class="rel-title">How to choose the right statistical test — decision guide</span>
+              </a>
+              <a href="blog-anova-r-tutorial.html" class="related-link">
+                <span class="rel-icon">📊</span>
+                <span class="rel-title">One-Way ANOVA in R — complete tutorial</span>
+              </a>
+              <a href="blog-tukey-hsd-explained.html" class="related-link">
+                <span class="rel-icon">📐</span>
+                <span class="rel-title">Tukey HSD test explained — when and how to use it</span>
+              </a>
+              <a href="blog-linear-regression-r-tutorial.html" class="related-link">
+                <span class="rel-icon">📈</span>
+                <span class="rel-title">Linear regression in R — a practical guide</span>
+              </a>
+              <a href="blog-correlation-vs-causation.html" class="related-link">
+                <span class="rel-icon">🔗</span>
+                <span class="rel-title">Correlation vs causation — what the data can't tell you</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sectionIds = ['s1','s2','s3','s4','s5','s6','s7','s8'];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+    function copyCode(wrapId) {
+      const wrap = document.getElementById(wrapId);
+      const pre  = wrap.querySelector('.code-pre');
+      const btn  = wrap.querySelector('.code-copy-btn');
+      const text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
