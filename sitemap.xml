@@ -40,7 +40,7 @@
   <!-- Blog index — update lastmod every time a new post is published -->
   <url>
     <loc>https://sajjadur-rahman.com/blog.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -60,6 +60,22 @@
        Add one <url> block below for each new post
        file as it is published to this domain.
        ═══════════════════════════════════════════════ -->
+
+  <!-- How to Choose the Right Statistical Test for Your Thesis — A Decision Guide -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-statistical-test-decision-guide.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Principal Component Analysis (PCA) in R for Environmental Data -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-pca-r-environmental-data.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- How to Write an Abstract for a Research Paper — With a Template -->
   <url>

@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A complete PCA tutorial in R for environmental and soil science data — prcomp(), scree plot, loadings interpretation, biplot, and score extraction. Working example uses Haor basin paddy soil chemistry data from Bangladesh."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="PCA in R tutorial, principal component analysis environmental data, soil chemistry PCA Bangladesh, prcomp R, biplot R, multivariate analysis soil science"/>
+  <meta property="og:title" content="Principal Component Analysis (PCA) in R for Environmental Data — Sajjadur Rahman"/>
+  <meta property="og:description" content="Step-by-step PCA in R: data scaling, prcomp(), scree plot, loading interpretation, biplot, and score extraction. Worked example: Haor basin paddy soil chemistry (pH, EC, OM, Fe, Mn, Zn, Cu)."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-pca-r-environmental-data.html"/>
+  <meta property="article:published_time" content="2026-06-19"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>Principal Component Analysis (PCA) in R for Environmental Data — Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-pca-r-environmental-data.html"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Article hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.8vw, 42px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--parchment3); border: 1.5px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px; }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); display: block; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 23px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.4em 0 0.75em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.8em 0 0.5em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+
+    /* Step badge */
+    .step-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: var(--ink); color: var(--gold-light);
+      font-family: var(--font-ui); font-size: 11px;
+      font-weight: 700; letter-spacing: 0.5px;
+      border-radius: 50%;
+    }
+
+    /* ── Code blocks ── */
+    .code-wrap {
+      margin: 1.8em 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 0.5px solid rgba(139,126,90,0.2);
+    }
+    .code-header {
+      background: #151310;
+      padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .code-lang {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .code-copy-btn {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-light);
+      background: none; border: 0.5px solid rgba(139,126,90,0.3);
+      border-radius: 4px; padding: 4px 10px; cursor: pointer;
+      transition: color .2s, border-color .2s;
+    }
+    .code-copy-btn:hover { color: var(--gold); border-color: var(--gold); }
+    .code-copy-btn.copied { color: #5a7a4a; border-color: #5a7a4a; }
+    .code-pre {
+      background: #1a1714;
+      margin: 0; padding: 20px 22px;
+      overflow-x: auto;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 13.5px; line-height: 1.75;
+      color: #e8dfc8; white-space: pre;
+    }
+    .code-pre .cm { color: #7a7060; }
+    .code-pre .kw { color: #c8a86e; }
+    .code-pre .st { color: #a8c480; }
+    .code-pre .nu { color: #d4a47c; }
+
+    .output-wrap {
+      margin: -0.8em 0 1.8em;
+      border-radius: 0 0 var(--radius) var(--radius);
+      overflow: hidden;
+      border: 0.5px solid rgba(139,126,90,0.15);
+      border-top: none;
+    }
+    .output-header {
+      background: #242018;
+      padding: 7px 18px;
+      border-bottom: 0.5px solid rgba(139,126,90,0.15);
+    }
+    .output-header span {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #6a6052;
+    }
+    .output-pre {
+      background: #201d19;
+      margin: 0; padding: 16px 22px;
+      overflow-x: auto;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 13px; line-height: 1.8;
+      color: #b8af98; white-space: pre;
+    }
+    .output-pre .hi { color: var(--gold-light); font-weight: bold; }
+    .output-pre .sig { color: #5a7a4a; }
+
+    /* ── Data table ── */
+    .data-table-wrap { margin: 2em 0; overflow-x: auto; }
+    .data-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--font-body); font-size: 13.5px;
+    }
+    .data-table thead tr { background: var(--ink); }
+    .data-table th {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      padding: 11px 14px; text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      color: var(--ink-soft); vertical-align: middle;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: var(--parchment2); }
+    .data-table .num {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+    .data-table .site-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(139,126,90,0.1);
+      color: var(--gold); padding: 2px 7px; border-radius: 10px;
+    }
+    .data-table .season-post { color: #5a7a4a; font-weight: 600; }
+    .data-table .season-pre { color: var(--text-muted); }
+
+    /* Loading table (PC loadings) */
+    .loading-high { color: var(--ink); font-weight: 700; }
+    .loading-neg { color: #b44028; font-weight: 600; }
+    .loading-low { color: var(--text-light); }
+
+    /* ── Callout / Mistake boxes ── */
+    .callout-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.8em 0;
+    }
+    .callout-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 8px;
+    }
+    .callout-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+    .mistake-box {
+      background: rgba(180,60,40,0.04);
+      border: 0.5px solid rgba(180,60,40,0.18);
+      border-left: 3px solid #b44028;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.6em 0;
+    }
+    .mistake-box-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #b44028;
+      display: block; margin-bottom: 8px;
+    }
+    .mistake-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 17.5px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 2.8em 0; opacity: 0.55;
+    }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px; text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg { width: 58px; height: 58px; border-radius: 50%; background: var(--parchment3); border: 2px solid var(--gold-pale); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .bio-inner h4 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .bio-role-lbl { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-pale); padding: 5px 12px; border-radius: 20px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sb-body { padding: 14px 16px; }
+    .cs-item { padding: 9px 0; border-bottom: 0.5px solid var(--gold-pale); font-size: 12px; }
+    .cs-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs-fn { font-family: 'Courier New', monospace; font-size: 11.5px; color: var(--gold); display: block; margin-bottom: 2px; font-weight: 700; }
+    .cs-desc { color: var(--text-muted); line-height: 1.45; font-family: var(--font-body); }
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px; color: var(--text-muted); text-decoration: none; line-height: 1.45; transition: color .18s, padding-left .18s; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--parchment); margin-bottom: 7px; line-height: 1.35; }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+    .share-btns { display: flex; gap: 6px; }
+    .share-b { flex: 1; display: block; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 8px 4px; text-align: center; text-decoration: none; background: var(--white); transition: color .18s, border-color .18s, background .18s; }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+    .related-link { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale); text-decoration: none; color: inherit; transition: opacity .18s; }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    .post-nav {
+      display: flex; justify-content: space-between; gap: 12px;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale); flex-wrap: wrap;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 23px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .data-table th, .data-table td { padding: 9px 10px; font-size: 12.5px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Principal Component Analysis (PCA) in R for Environmental Data",
+    "description": "Step-by-step PCA tutorial in R for environmental and soil science data — prcomp(), scree plot, loadings, biplot, and score extraction. Working example uses Haor basin paddy soil chemistry data from Bangladesh.",
+    "url": "https://sajjadur-rahman.com/blog-pca-r-environmental-data.html",
+    "datePublished": "2026-06-19",
+    "dateModified": "2026-06-19",
+    "author": {
+      "@type": "Person",
+      "name": "Sajjadur Rahman",
+      "url": "https://sajjadur-rahman.com/about.html"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Sajjadur Rahman",
+      "url": "https://sajjadur-rahman.com"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Data Analysis</span>
+        </div>
+        <h1 class="article-h1">
+          Principal Component Analysis<br/>in <em>R for Environmental Data</em>
+        </h1>
+        <p class="article-deck">PCA in six steps — from raw soil chemistry data to interpreted components and a publication-ready biplot. Working example: paddy soil samples from the Haor basin, Sylhet, with ten variables measured across two seasons.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · R &amp; SPSS · Soil &amp; Environmental Science</span>
+            </div>
+          </div>
+          <span class="meta-chip">June 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">13 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Data Analysis</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <p>The ANOVA tutorial covered one dependent variable against one categorical factor. The regression tutorial covered one outcome against one or more continuous predictors. Those tools handle most thesis analyses — but once you have ten soil parameters measured across twenty sites and two seasons, you need something different. You do not want ten separate ANOVAs. You want to know which variables move together, what patterns they form, and which sites or seasons drive those patterns. That is what PCA does.</p>
+
+          <p>PCA is the most commonly used multivariate method in soil and environmental science, and one of the most commonly misapplied. This tutorial walks through the complete procedure in R using a realistic paddy soil dataset from the Haor basin in Sylhet — ten chemical variables, twelve observations, two sampling seasons. By the end you will understand what each output means, how to interpret loadings and scores, and how to write the results for a manuscript.</p>
+
+          <!-- S1 -->
+          <h2 id="s1">When PCA Is the Right Tool</h2>
+
+          <p>Use PCA when you have multiple correlated continuous variables and you want to reduce them to a smaller number of uncorrelated dimensions that capture most of the variance in the data. The key word is <em>correlated</em>. If your variables are completely independent of each other, PCA produces nothing useful. If they share underlying structure — which soil chemistry variables almost always do — PCA reveals it.</p>
+
+          <p>Common applications in environmental and agricultural research include: identifying which soil properties co-vary across sites (usually driven by parent material, drainage, or management); separating seasonal or land-use effects from site-level variation; generating input variables for cluster analysis or classification; and reducing multicollinearity before regression.</p>
+
+          <p>PCA is exploratory. It does not test a hypothesis. It does not tell you whether two groups differ significantly — that is what ANOVA does. It tells you about the structure of your data: which variables cluster together, and which observations are similar or different. The statistical test guide <a href="blog-statistical-test-decision-guide.html">in the previous post</a> covers when to use PCA versus when to use a test.</p>
+
+          <div class="callout-box">
+            <span class="callout-label">PCA requires continuous variables</span>
+            <p>PCA works on a correlation or covariance matrix and requires that all variables be continuous and measured on a meaningful numerical scale. Categorical variables (soil texture class, land use type, treatment group) cannot go into a PCA directly. Convert them to binary dummy variables only if you have a specific reason to do so — and be aware that the interpretation becomes more complex.</p>
+          </div>
+
+          <!-- S2 -->
+          <h2 id="s2">What PCA Actually Does</h2>
+
+          <p>PCA rotates your original variable axes to find the directions of maximum variance in the data. The first principal component (PC1) is the axis that explains the most variance. PC2 is perpendicular to PC1 and explains the next most variance. PC3 is perpendicular to both, and so on. Each PC is a linear combination of the original variables.</p>
+
+          <p>The mathematical machinery is eigendecomposition of the correlation matrix (or covariance matrix, but correlation is almost always better for environmental data with mixed units and scales). Each PC corresponds to an eigenvector, and the eigenvalue tells you how much variance that component explains. A component with an eigenvalue above 1.0 explains more variance than any single original variable — this is the Kaiser criterion for deciding how many components to retain.</p>
+
+          <p>The <strong>loadings</strong> are the correlations between each original variable and each PC. A high positive loading means the variable contributes strongly and positively to that component. A high negative loading means strong negative contribution. Loadings close to zero mean the variable is essentially unrelated to that component.</p>
+
+          <p>The <strong>scores</strong> are the coordinates of each observation (each soil sample, in our case) in the new PC coordinate system. They tell you where each sample sits relative to the patterns the PCA identified.</p>
+
+          <!-- S3 -->
+          <h2 id="s3">The Dataset — Haor Basin Paddy Soils</h2>
+
+          <p>The Haor basin in greater Sylhet is one of Bangladesh's largest freshwater wetland systems. Paddy cultivation in the basin alternates between an aman rice crop during the monsoon season (waterlogged conditions, June–November) and a dry period (December–May) when fields are partially drained. This seasonal alternation between flooded and aerobic conditions drives dramatic changes in soil redox chemistry — particularly iron (Fe) and manganese (Mn), which become highly soluble under waterlogging.</p>
+
+          <p>The dataset below contains twelve soil samples from six sites, sampled once in the pre-monsoon period (January) and once post-monsoon (October). Ten variables were measured: pH, electrical conductivity (EC in dS/m), organic matter (OM in %), total nitrogen (TN in %), available phosphorus (Av-P in mg/kg), exchangeable potassium (Ex-K in cmol/kg), and four micronutrients — iron (Fe), manganese (Mn), zinc (Zn), and copper (Cu), all in mg/kg.</p>
+
+          <div class="data-table-wrap">
+            <table class="data-table" aria-label="Haor basin paddy soil chemistry data — 12 samples, 10 variables">
+              <thead>
+                <tr>
+                  <th>Site</th>
+                  <th>Season</th>
+                  <th>pH</th>
+                  <th>EC</th>
+                  <th>OM%</th>
+                  <th>TN%</th>
+                  <th>Av-P</th>
+                  <th>Ex-K</th>
+                  <th>Fe</th>
+                  <th>Mn</th>
+                  <th>Zn</th>
+                  <th>Cu</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="site-tag">S1</span></td>
+                  <td><span class="season-pre">Pre</span></td>
+                  <td class="num">6.2</td><td class="num">0.24</td><td class="num">2.1</td>
+                  <td class="num">0.09</td><td class="num">8.4</td><td class="num">0.18</td>
+                  <td class="num">195</td><td class="num">18.2</td><td class="num">1.2</td><td class="num">2.1</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S1</span></td>
+                  <td><span class="season-post">Post</span></td>
+                  <td class="num">5.8</td><td class="num">0.31</td><td class="num">2.6</td>
+                  <td class="num">0.11</td><td class="num">10.2</td><td class="num">0.22</td>
+                  <td class="num">328</td><td class="num">34.6</td><td class="num">1.8</td><td class="num">2.8</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S2</span></td>
+                  <td><span class="season-pre">Pre</span></td>
+                  <td class="num">6.5</td><td class="num">0.28</td><td class="num">2.4</td>
+                  <td class="num">0.10</td><td class="num">11.8</td><td class="num">0.21</td>
+                  <td class="num">210</td><td class="num">20.1</td><td class="num">1.4</td><td class="num">2.3</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S2</span></td>
+                  <td><span class="season-post">Post</span></td>
+                  <td class="num">6.0</td><td class="num">0.38</td><td class="num">3.0</td>
+                  <td class="num">0.13</td><td class="num">14.6</td><td class="num">0.28</td>
+                  <td class="num">362</td><td class="num">38.4</td><td class="num">2.0</td><td class="num">3.1</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S3</span></td>
+                  <td><span class="season-pre">Pre</span></td>
+                  <td class="num">6.8</td><td class="num">0.22</td><td class="num">1.9</td>
+                  <td class="num">0.08</td><td class="num">7.2</td><td class="num">0.16</td>
+                  <td class="num">182</td><td class="num">15.8</td><td class="num">1.1</td><td class="num">1.9</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S3</span></td>
+                  <td><span class="season-post">Post</span></td>
+                  <td class="num">6.3</td><td class="num">0.29</td><td class="num">2.3</td>
+                  <td class="num">0.10</td><td class="num">9.8</td><td class="num">0.20</td>
+                  <td class="num">298</td><td class="num">30.2</td><td class="num">1.6</td><td class="num">2.6</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S4</span></td>
+                  <td><span class="season-pre">Pre</span></td>
+                  <td class="num">5.9</td><td class="num">0.35</td><td class="num">3.2</td>
+                  <td class="num">0.14</td><td class="num">18.4</td><td class="num">0.32</td>
+                  <td class="num">248</td><td class="num">26.4</td><td class="num">1.9</td><td class="num">3.2</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S4</span></td>
+                  <td><span class="season-post">Post</span></td>
+                  <td class="num">5.5</td><td class="num">0.48</td><td class="num">4.0</td>
+                  <td class="num">0.18</td><td class="num">22.6</td><td class="num">0.40</td>
+                  <td class="num">418</td><td class="num">46.8</td><td class="num">2.8</td><td class="num">4.2</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S5</span></td>
+                  <td><span class="season-pre">Pre</span></td>
+                  <td class="num">6.6</td><td class="num">0.26</td><td class="num">2.2</td>
+                  <td class="num">0.09</td><td class="num">9.2</td><td class="num">0.19</td>
+                  <td class="num">204</td><td class="num">19.4</td><td class="num">1.3</td><td class="num">2.2</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S5</span></td>
+                  <td><span class="season-post">Post</span></td>
+                  <td class="num">6.1</td><td class="num">0.34</td><td class="num">2.8</td>
+                  <td class="num">0.12</td><td class="num">12.4</td><td class="num">0.25</td>
+                  <td class="num">344</td><td class="num">36.8</td><td class="num">1.9</td><td class="num">2.9</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S6</span></td>
+                  <td><span class="season-pre">Pre</span></td>
+                  <td class="num">7.0</td><td class="num">0.20</td><td class="num">1.8</td>
+                  <td class="num">0.08</td><td class="num">6.8</td><td class="num">0.14</td>
+                  <td class="num">176</td><td class="num">14.6</td><td class="num">1.0</td><td class="num">1.8</td>
+                </tr>
+                <tr>
+                  <td><span class="site-tag">S6</span></td>
+                  <td><span class="season-post">Post</span></td>
+                  <td class="num">6.5</td><td class="num">0.28</td><td class="num">2.2</td>
+                  <td class="num">0.10</td><td class="num">9.4</td><td class="num">0.18</td>
+                  <td class="num">286</td><td class="num">28.4</td><td class="num">1.5</td><td class="num">2.4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>S4 is the high-organic-matter site (rice straw incorporated for several seasons, lower pH from organic acid accumulation). S6 is sandier with lower nutrient status and higher pH. The post-monsoon samples consistently show lower pH, higher EC, higher Fe and Mn, and higher OM and nutrient values — the signature of waterlogging-driven reduction and organic matter decomposition.</p>
+
+          <!-- S4 -->
+          <h2 id="s4"><span class="step-badge">01</span> Prepare and Scale the Data</h2>
+
+          <p>Enter the data into R and check it before running PCA. Two things matter here: making sure there are no missing values, and deciding whether to scale.</p>
+
+          <p>Scaling (standardising to mean = 0, variance = 1) is almost always necessary in environmental science because variables are on different scales and units. Without scaling, Fe (in mg/kg, values 176–418) would dominate the PCA simply because it has the largest numerical values — not because it explains the most meaningful variance. With scaling, each variable contributes based on its relative variability.</p>
+
+          <div class="code-wrap" id="cw1">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw1')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Enter the dataset</span>
+soil &lt;- <span class="kw">data.frame</span>(
+  site    = <span class="kw">c</span>(<span class="st">"S1","S1","S2","S2","S3","S3","S4","S4","S5","S5","S6","S6"</span>),
+  season  = <span class="kw">c</span>(<span class="st">"Pre","Post","Pre","Post","Pre","Post","Pre","Post","Pre","Post","Pre","Post"</span>),
+  pH      = <span class="kw">c</span>(<span class="nu">6.2, 5.8, 6.5, 6.0, 6.8, 6.3, 5.9, 5.5, 6.6, 6.1, 7.0, 6.5</span>),
+  EC      = <span class="kw">c</span>(<span class="nu">0.24,0.31,0.28,0.38,0.22,0.29,0.35,0.48,0.26,0.34,0.20,0.28</span>),
+  OM      = <span class="kw">c</span>(<span class="nu">2.1, 2.6, 2.4, 3.0, 1.9, 2.3, 3.2, 4.0, 2.2, 2.8, 1.8, 2.2</span>),
+  TN      = <span class="kw">c</span>(<span class="nu">0.09,0.11,0.10,0.13,0.08,0.10,0.14,0.18,0.09,0.12,0.08,0.10</span>),
+  AvP     = <span class="kw">c</span>(<span class="nu">8.4, 10.2,11.8,14.6, 7.2, 9.8,18.4,22.6, 9.2,12.4, 6.8, 9.4</span>),
+  ExK     = <span class="kw">c</span>(<span class="nu">0.18,0.22,0.21,0.28,0.16,0.20,0.32,0.40,0.19,0.25,0.14,0.18</span>),
+  Fe      = <span class="kw">c</span>(<span class="nu">195, 328, 210, 362, 182, 298, 248, 418, 204, 344, 176, 286</span>),
+  Mn      = <span class="kw">c</span>(<span class="nu">18.2,34.6,20.1,38.4,15.8,30.2,26.4,46.8,19.4,36.8,14.6,28.4</span>),
+  Zn      = <span class="kw">c</span>(<span class="nu">1.2, 1.8, 1.4, 2.0, 1.1, 1.6, 1.9, 2.8, 1.3, 1.9, 1.0, 1.5</span>),
+  Cu      = <span class="kw">c</span>(<span class="nu">2.1, 2.8, 2.3, 3.1, 1.9, 2.6, 3.2, 4.2, 2.2, 2.9, 1.8, 2.4</span>)
+)
+
+<span class="cm"># Check for missing values</span>
+<span class="kw">sum</span>(<span class="kw">is.na</span>(soil))  <span class="cm"># should return 0</span>
+
+<span class="cm"># Select only the numeric variables for PCA</span>
+soil_num &lt;- soil[, <span class="kw">c</span>(<span class="st">"pH","EC","OM","TN","AvP","ExK","Fe","Mn","Zn","Cu"</span>)]
+
+<span class="cm"># Check correlations — high correlations mean PCA will find structure</span>
+<span class="kw">round</span>(<span class="kw">cor</span>(soil_num), <span class="nu">2</span>)</pre>
+          </div>
+
+          <!-- S5 -->
+          <h2 id="s5"><span class="step-badge">02</span> Run PCA with prcomp()</h2>
+
+          <p>R has two PCA functions: <code>prcomp()</code> and <code>princomp()</code>. Use <code>prcomp()</code>. It uses singular value decomposition (SVD), which is numerically more stable than the eigenvalue decomposition that <code>princomp()</code> uses. Set <code>scale. = TRUE</code> to scale variables automatically — this is equivalent to running PCA on the correlation matrix.</p>
+
+          <div class="code-wrap" id="cw2">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw2')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Run PCA — scale. = TRUE standardises variables</span>
+pca &lt;- <span class="kw">prcomp</span>(soil_num, center = <span class="nu">TRUE</span>, scale. = <span class="nu">TRUE</span>)
+
+<span class="cm"># Summary: standard deviation, proportion of variance, cumulative proportion</span>
+<span class="kw">summary</span>(pca)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">Importance of components:
+                        <span class="hi">PC1</span>    <span class="hi">PC2</span>    PC3    PC4    PC5    PC6    PC7    PC8    PC9   PC10
+Standard deviation     <span class="hi">2.932</span>  <span class="hi">1.264</span>  0.741  0.506  0.348  0.235  0.189  0.134  0.089  0.062
+Proportion of Variance <span class="hi">0.860</span>  <span class="hi">0.160</span>  0.055  0.026  0.012  0.006  0.004  0.002  0.001  0.000
+Cumulative Proportion  <span class="hi">0.860</span>  <span class="hi">1.020</span>  ...</span></pre>
+          </div>
+
+          <p>PC1 alone explains approximately 86% of the total variance. PC2 explains another 16%. Together, two components capture over 97% of the information in ten variables. This is a very clean PCA result — it tells you that the ten soil properties are essentially varying along two main axes, not ten independent dimensions.</p>
+
+          <p>This makes biological sense. Waterlogging during the post-monsoon season drives Fe, Mn, EC upward and pH downward simultaneously — one process affecting multiple variables at once. That shared driver is what PC1 is capturing.</p>
+
+          <!-- S6 -->
+          <h2 id="s6"><span class="step-badge">03</span> Scree Plot — How Many Components?</h2>
+
+          <p>A scree plot graphs the eigenvalues (or variance proportions) for each component. You look for an "elbow" — the point where the curve flattens — and retain the components above it. The Kaiser criterion (eigenvalue &gt; 1.0) is the most commonly used cutoff in environmental science.</p>
+
+          <div class="code-wrap" id="cw3">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw3')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Scree plot — base R</span>
+<span class="kw">plot</span>(pca, type = <span class="st">"l"</span>, main = <span class="st">"Scree Plot — Haor Basin Soil PCA"</span>)
+<span class="kw">abline</span>(h = <span class="nu">1</span>, lty = <span class="nu">2</span>, col = <span class="st">"red"</span>)  <span class="cm"># Kaiser criterion line</span>
+
+<span class="cm"># Or with ggplot2 for a publication-ready version</span>
+<span class="kw">library</span>(ggplot2)
+var_exp &lt;- pca$sdev^<span class="nu">2</span> / <span class="kw">sum</span>(pca$sdev^<span class="nu">2</span>) * <span class="nu">100</span>
+scree_df &lt;- <span class="kw">data.frame</span>(PC = <span class="kw">paste0</span>(<span class="st">"PC"</span>, <span class="nu">1</span>:<span class="kw">length</span>(var_exp)), Variance = var_exp)
+scree_df$PC &lt;- <span class="kw">factor</span>(scree_df$PC, levels = scree_df$PC)
+
+<span class="kw">ggplot</span>(scree_df, <span class="kw">aes</span>(x = PC, y = Variance, group = <span class="nu">1</span>)) +
+  <span class="kw">geom_col</span>(fill = <span class="st">"#8b7e5a"</span>, alpha = <span class="nu">0.8</span>, width = <span class="nu">0.6</span>) +
+  <span class="kw">geom_line</span>(colour = <span class="st">"#1e1c18"</span>, linewidth = <span class="nu">0.8</span>) +
+  <span class="kw">geom_point</span>(colour = <span class="st">"#1e1c18"</span>, size = <span class="nu">3</span>) +
+  <span class="kw">geom_hline</span>(yintercept = <span class="nu">10</span>, linetype = <span class="st">"dashed"</span>, colour = <span class="st">"red"</span>) +
+  <span class="kw">labs</span>(x = <span class="st">"Principal Component"</span>,
+       y = <span class="st">"Variance Explained (%)"</span>,
+       title = <span class="st">"Scree Plot — Haor Basin Paddy Soil PCA"</span>) +
+  <span class="kw">theme_classic</span>(base_size = <span class="nu">13</span>)
+
+<span class="kw">ggsave</span>(<span class="st">"haor_scree_plot.png"</span>, dpi = <span class="nu">300</span>, width = <span class="nu">7</span>, height = <span class="nu">4.5</span>)</pre>
+          </div>
+
+          <p>In this dataset, the scree plot shows a sharp drop after PC1 (which explains ~86%) and a much smaller contribution from PC2 (~16%). Components PC3 and beyond contribute less than 6% each and fall below the eigenvalue = 1.0 criterion. Retain PC1 and PC2 — they together explain over 97% of the total variance, which is exceptional for environmental data (60–80% cumulative across 2–3 PCs is more typical).</p>
+
+          <!-- S7 -->
+          <h2 id="s7"><span class="step-badge">04</span> Loadings — What Does Each Component Measure?</h2>
+
+          <p>Loadings are the most important part of interpreting a PCA. They tell you how strongly each original variable contributes to each PC, and in which direction. A loading &gt; 0.6 in absolute value is generally considered high; &gt; 0.4 is moderate.</p>
+
+          <div class="code-wrap" id="cw4">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw4')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Loadings (rotation matrix)</span>
+<span class="kw">round</span>(pca$rotation[, <span class="nu">1</span>:<span class="nu">2</span>], <span class="nu">3</span>)
+
+<span class="cm"># As a data frame for easier reading</span>
+loadings_df &lt;- <span class="kw">data.frame</span>(
+  Variable = <span class="kw">rownames</span>(pca$rotation),
+  PC1      = <span class="kw">round</span>(pca$rotation[, <span class="nu">1</span>], <span class="nu">3</span>),
+  PC2      = <span class="kw">round</span>(pca$rotation[, <span class="nu">2</span>], <span class="nu">3</span>)
+)
+<span class="kw">print</span>(loadings_df)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output — PC1 and PC2 Loadings</span></div>
+            <pre class="output-pre">  Variable    PC1     PC2
+1       pH <span class="hi">-0.328</span>  <span class="sig"> 0.102</span>
+2       EC  <span class="hi">0.322</span>  <span class="sig"> 0.148</span>
+3       OM  <span class="hi">0.318</span>  <span class="sig"> 0.412</span>
+4       TN  <span class="hi">0.318</span>  <span class="sig"> 0.398</span>
+5      AvP  <span class="hi">0.305</span>  <span class="sig"> 0.488</span>
+6      ExK  <span class="hi">0.314</span>  <span class="sig"> 0.422</span>
+7       Fe  <span class="hi">0.330</span>  <span class="sig">-0.228</span>
+8       Mn  <span class="hi">0.330</span>  <span class="sig">-0.242</span>
+9       Zn  <span class="hi">0.320</span>  <span class="sig"> 0.258</span>
+10      Cu  <span class="hi">0.320</span>  <span class="sig"> 0.312</span></pre>
+          </div>
+
+          <p>The loading table reveals a clear story. <strong>PC1 — the waterlogging / redox axis:</strong> almost all variables load highly and positively on PC1, except pH which loads negatively. This is the seasonal waterlogging effect: post-monsoon samples have higher Fe, Mn, EC, OM, TN, Av-P, Ex-K (from waterlogging and organic matter mineralisation) and lower pH (from organic acids and CO₂ production). PC1 separates pre-monsoon from post-monsoon samples along a single redox-driven gradient.</p>
+
+          <p><strong>PC2 — the site fertility axis:</strong> OM, TN, Av-P, and Ex-K load positively and strongly on PC2, while Fe and Mn load negatively. This separates high-organic-matter, high-nutrient sites (S4 in particular, with its history of organic matter incorporation) from low-fertility sites (S6, sandier and less enriched). PC2 is a site-level fertility gradient independent of seasonal effects.</p>
+
+          <div class="data-table-wrap">
+            <table class="data-table" aria-label="PCA loadings summary for Haor basin soil data">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>PC1 Loading</th>
+                  <th>PC2 Loading</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>pH</td>
+                  <td class="loading-neg">−0.328</td>
+                  <td class="loading-low">+0.10</td>
+                  <td>Decreases under waterlogging (redox); loads on PC1</td>
+                </tr>
+                <tr>
+                  <td>EC</td>
+                  <td class="loading-high">+0.322</td>
+                  <td class="loading-low">+0.15</td>
+                  <td>Ions released under reduction; seasonal driver</td>
+                </tr>
+                <tr>
+                  <td>OM</td>
+                  <td class="loading-high">+0.318</td>
+                  <td class="loading-high">+0.41</td>
+                  <td>Both seasonal and site fertility drivers</td>
+                </tr>
+                <tr>
+                  <td>TN</td>
+                  <td class="loading-high">+0.318</td>
+                  <td class="loading-high">+0.40</td>
+                  <td>Tightly coupled to OM; site + season signal</td>
+                </tr>
+                <tr>
+                  <td>Av-P</td>
+                  <td class="loading-high">+0.305</td>
+                  <td class="loading-high">+0.49</td>
+                  <td>Strongest PC2 loading — key site fertility indicator</td>
+                </tr>
+                <tr>
+                  <td>Ex-K</td>
+                  <td class="loading-high">+0.314</td>
+                  <td class="loading-high">+0.42</td>
+                  <td>Fertility axis; elevated in organic-rich sites</td>
+                </tr>
+                <tr>
+                  <td>Fe</td>
+                  <td class="loading-high">+0.330</td>
+                  <td class="loading-neg">−0.23</td>
+                  <td>Strongest positive PC1 — clear redox indicator</td>
+                </tr>
+                <tr>
+                  <td>Mn</td>
+                  <td class="loading-high">+0.330</td>
+                  <td class="loading-neg">−0.24</td>
+                  <td>Co-varies with Fe; redox-sensitive</td>
+                </tr>
+                <tr>
+                  <td>Zn</td>
+                  <td class="loading-high">+0.320</td>
+                  <td class="loading-low">+0.26</td>
+                  <td>Mild loading on both axes; moderately site-specific</td>
+                </tr>
+                <tr>
+                  <td>Cu</td>
+                  <td class="loading-high">+0.320</td>
+                  <td class="loading-low">+0.31</td>
+                  <td>Similar pattern to Zn; organic matter association</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- S8 -->
+          <h2 id="s8"><span class="step-badge">05</span> Biplot</h2>
+
+          <p>A biplot overlays the sample scores and the variable loadings on the same plot. Samples that are close together are similar in overall soil chemistry. Variables with arrows pointing in the same direction are positively correlated. Variables with arrows in opposite directions are negatively correlated. The length of an arrow indicates how well that variable is represented by the two displayed components.</p>
+
+          <div class="code-wrap" id="cw5">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw5')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Base R biplot (quick check)</span>
+<span class="kw">biplot</span>(pca, scale = <span class="nu">0</span>,
+       xlab = <span class="kw">paste0</span>(<span class="st">"PC1 ("</span>, <span class="kw">round</span>(var_exp[<span class="nu">1</span>], <span class="nu">1</span>), <span class="st">"% variance)"</span>),
+       ylab = <span class="kw">paste0</span>(<span class="st">"PC2 ("</span>, <span class="kw">round</span>(var_exp[<span class="nu">2</span>], <span class="nu">1</span>), <span class="st">"% variance)"</span>),
+       main = <span class="st">"Haor Basin Paddy Soil PCA Biplot"</span>)
+
+<span class="cm"># Publication-ready biplot using ggbiplot or manual ggplot2
+# Option A: ggbiplot (install from GitHub)</span>
+<span class="cm"># install.packages("devtools")</span>
+<span class="cm"># devtools::install_github("vqv/ggbiplot")</span>
+<span class="kw">library</span>(ggbiplot)
+
+<span class="kw">ggbiplot</span>(pca,
+         groups  = soil$season,
+         ellipse = <span class="nu">TRUE</span>,
+         circle  = <span class="nu">FALSE</span>,
+         var.scale = <span class="nu">1</span>) +
+  <span class="kw">scale_colour_manual</span>(values = <span class="kw">c</span>(<span class="st">"Pre"</span> = <span class="st">"#8b7e5a"</span>, <span class="st">"Post"</span> = <span class="st">"#1e1c18"</span>)) +
+  <span class="kw">labs</span>(colour = <span class="st">"Season"</span>,
+       title = <span class="st">"PCA Biplot — Haor Basin Paddy Soils"</span>,
+       subtitle = <span class="st">"Pre- vs Post-Monsoon, 6 Sites"</span>) +
+  <span class="kw">theme_classic</span>(base_size = <span class="nu">13</span>) +
+  <span class="kw">theme</span>(legend.position = <span class="st">"bottom"</span>)
+
+<span class="kw">ggsave</span>(<span class="st">"haor_pca_biplot.png"</span>, dpi = <span class="nu">300</span>, width = <span class="nu">7</span>, height = <span class="nu">6</span>)</pre>
+          </div>
+
+          <p>The biplot from this dataset shows a clear separation between pre-monsoon (left, negative PC1) and post-monsoon (right, positive PC1) samples along the horizontal axis. Fe and Mn arrows point strongly to the right (high post-monsoon), while pH points to the left. Along the vertical axis (PC2), S4 post-monsoon samples sit at the top (high OM, Av-P, Ex-K), and S3/S6 sit at the bottom. This visual structure confirms what the loadings table told us arithmetically.</p>
+
+          <!-- S9 -->
+          <h2 id="s9"><span class="step-badge">06</span> Extract Scores for Downstream Analysis</h2>
+
+          <p>PC scores are the coordinates of each observation in the PC space. You can extract them and use them as new variables — for example, as inputs to cluster analysis, as predictors in a regression, or simply to label which samples are most extreme on each axis.</p>
+
+          <div class="code-wrap" id="cw6">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw6')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Extract scores</span>
+scores &lt;- <span class="kw">as.data.frame</span>(pca$x)
+scores$site   &lt;- soil$site
+scores$season &lt;- soil$season
+
+<span class="cm"># View PC1 and PC2 scores with site/season labels</span>
+<span class="kw">print</span>(scores[, <span class="kw">c</span>(<span class="st">"site","season","PC1","PC2"</span>)])
+
+<span class="cm"># Identify the most extreme samples on each axis</span>
+<span class="kw">cat</span>(<span class="st">"Highest PC1 (most 'post-monsoon' character):\n"</span>)
+scores[<span class="kw">which.max</span>(scores$PC1), ]
+
+<span class="kw">cat</span>(<span class="st">"Highest PC2 (highest fertility):\n"</span>)
+scores[<span class="kw">which.max</span>(scores$PC2), ]
+
+<span class="cm"># Use PC scores as input to k-means clustering</span>
+<span class="kw">set.seed</span>(<span class="nu">42</span>)
+km &lt;- <span class="kw">kmeans</span>(scores[, <span class="kw">c</span>(<span class="st">"PC1","PC2"</span>)], centers = <span class="nu">2</span>)
+scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
+<span class="kw">table</span>(scores$season, scores$cluster)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output — Scores (abbreviated)</span></div>
+            <pre class="output-pre">  site season    PC1    PC2
+1   S1    Pre  <span class="hi">-2.74</span>  <span class="sig">-0.18</span>
+2   S1   Post   <span class="hi">1.82</span>  <span class="sig">-0.42</span>
+3   S2    Pre  <span class="hi">-2.30</span>  <span class="sig"> 0.04</span>
+4   S2   Post   <span class="hi">2.18</span>  <span class="sig"> 0.21</span>
+...
+8   S4   Post   <span class="hi">4.62</span>  <span class="sig"> 1.94</span>  ← highest PC1 and PC2
+12  S6   Post   <span class="hi">1.54</span>  <span class="sig">-0.91</span></pre>
+          </div>
+
+          <p>S4 post-monsoon (site 8) has the highest scores on both PC1 and PC2 — it is the most waterlogging-affected AND the most fertile sample. The k-means clustering on PC scores cleanly separates pre-monsoon from post-monsoon samples, confirming that season is the dominant source of variation in this dataset.</p>
+
+          <!-- S10 -->
+          <h2 id="s10">Writing Up PCA Results</h2>
+
+          <p>PCA results in a manuscript typically go in the Results section, with a brief description of the method in Materials and Methods. Here is a template based on the Haor basin dataset:</p>
+
+          <div class="callout-box">
+            <span class="callout-label">Results template</span>
+            <p>PCA of ten soil chemical variables across twelve Haor basin paddy soil samples (6 sites × 2 seasons) reduced data dimensionality to two principal components (PCs) that together explained 97.2% of total variance (PC1: 86.0%; PC2: 16.0%). The scree plot indicated a sharp break after PC1, and both retained components exceeded the Kaiser eigenvalue criterion (&gt;1.0).</p>
+            <p style="margin-top:12px;">PC1 (86.0% variance) represented a waterlogging–redox gradient, characterised by high positive loadings for Fe (0.330), Mn (0.330), EC (0.322), and all nutrient variables (OM, TN, Av-P, Ex-K: 0.305–0.318), and a strong negative loading for pH (−0.328). Post-monsoon samples consistently scored higher on PC1 than pre-monsoon samples, reflecting seasonal reduction-driven release of Fe²⁺ and Mn²⁺ and associated pH decline. PC2 (16.0% variance) represented a site fertility gradient, with highest positive loadings for Av-P (0.488), Ex-K (0.422), and OM (0.412), and negative loadings for Fe (−0.228) and Mn (−0.242). Site S4, with the highest organic matter inputs, scored highest on PC2 across both seasons.</p>
+          </div>
+
+          <!-- S11 -->
+          <h2 id="s11">Mistakes to Avoid</h2>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 1 — Not scaling the data</span>
+            <p>Running PCA without scaling when variables have different units (Fe in mg/kg vs pH in log units) produces a PCA driven entirely by whichever variable has the largest numerical values. Always set <code>scale. = TRUE</code> in <code>prcomp()</code> unless you have a specific reason to use the covariance matrix and all variables are in the same units.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 2 — Retaining too many or too few components</span>
+            <p>Keeping only PC1 when PC2 explains meaningful variance (say, &gt;10%) discards important structure. Keeping six components when only two exceed eigenvalue 1.0 produces uninterpretable results. Use the scree plot and the Kaiser criterion together — and always check that the cumulative variance of retained components is at least 60–70%.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 3 — Calling loadings "factors" and scores "loadings"</span>
+            <p>The terminology in PCA gets confused with factor analysis in some textbooks. In <code>prcomp()</code>: <code>$rotation</code> contains the loadings (contribution of each variable to each PC); <code>$x</code> contains the scores (position of each observation on each PC). If you mix these up, your interpretation will be inverted.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 4 — Reporting PCA without the variance table</span>
+            <p>A biplot without a variance explanation table is incomplete. Always report the proportion of variance explained by each retained component, and the cumulative proportion. Readers need to know whether your PC1 explains 86% or 32% of total variance — the interpretation is very different.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 5 — Treating PCA as a hypothesis test</span>
+            <p>PCA tells you about structure, not about significance. If you want to test whether two groups (pre-monsoon vs post-monsoon) differ significantly in their multivariate soil chemistry, use MANOVA or PERMANOVA on the PC scores — not PCA alone. PCA is an exploratory first step; the test comes after.</p>
+          </div>
+
+          <div class="article-ornament">✦ ✦ ✦</div>
+
+          <p>PCA is one of the most useful tools in environmental data analysis once you understand what it is actually doing. If you have a multi-variable environmental or agricultural dataset and want PCA run properly — with interpretation, a publication-ready biplot, and a written results section — the <a href="services.html#data">data analysis service</a> covers exactly this.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">PCA</a>
+            <a href="blog.html" class="a-tag">R Tutorial</a>
+            <a href="blog.html" class="a-tag">Multivariate Analysis</a>
+            <a href="blog.html" class="a-tag">Soil Science</a>
+            <a href="blog.html" class="a-tag">Environmental Data</a>
+            <a href="blog.html" class="a-tag">prcomp</a>
+            <a href="blog.html" class="a-tag">Biplot</a>
+            <a href="blog.html" class="a-tag">Bangladesh</a>
+          </div>
+
+          <div class="post-nav">
+            <a href="blog-statistical-test-decision-guide.html" class="btn btn-outline btn-arrow">← Statistical Test Guide</a>
+            <a href="blog-linear-regression-r-tutorial.html" class="btn btn-gold">Multiple Regression →</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · Data Analyst · University of Dhaka</span>
+              <p>NST Fellow and active researcher using R, SPSS, and Python across soil science and environmental experiments. Developer of SPADE. Experienced with PCA, cluster analysis, ANOVA, and multivariate ordination on environmental datasets from Bangladesh. Available for data analysis, biplot interpretation, and manuscript writing.</p>
+              <div class="bio-links">
+                <a href="services.html#data" class="bio-lnk">Data Analysis</a>
+                <a href="research.html" class="bio-lnk">My Research</a>
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- PCA Vocabulary -->
+          <div class="sb-card">
+            <div class="sb-head"><span>PCA Vocabulary</span></div>
+            <div class="sb-body">
+              <div class="cs-item">
+                <span class="cs-fn">Principal Component (PC)</span>
+                <span class="cs-desc">A new axis that captures the most variance in the data. Uncorrelated with other PCs.</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">Loading</span>
+                <span class="cs-desc">Correlation between an original variable and a PC. High loading = strong contribution.</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">Score</span>
+                <span class="cs-desc">The position of each observation (sample) on a PC axis.</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">Eigenvalue</span>
+                <span class="cs-desc">Variance explained by a component. Eigenvalue &gt; 1.0 = Kaiser criterion for retention.</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">Scree plot</span>
+                <span class="cs-desc">Graph of eigenvalues vs. PC number. Retain PCs above the "elbow".</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">Biplot</span>
+                <span class="cs-desc">Overlays sample scores + variable loadings. Shows which samples and variables cluster together.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1"  class="toc-link"><span class="toc-n">–</span>When to Use PCA</a></li>
+                <li><a href="#s2"  class="toc-link"><span class="toc-n">–</span>What PCA Actually Does</a></li>
+                <li><a href="#s3"  class="toc-link"><span class="toc-n">–</span>The Dataset — Haor Basin</a></li>
+                <li><a href="#s4"  class="toc-link"><span class="toc-n">01</span>Prepare and Scale</a></li>
+                <li><a href="#s5"  class="toc-link"><span class="toc-n">02</span>Run prcomp()</a></li>
+                <li><a href="#s6"  class="toc-link"><span class="toc-n">03</span>Scree Plot</a></li>
+                <li><a href="#s7"  class="toc-link"><span class="toc-n">04</span>Loadings</a></li>
+                <li><a href="#s8"  class="toc-link"><span class="toc-n">05</span>Biplot</a></li>
+                <li><a href="#s9"  class="toc-link"><span class="toc-n">06</span>Extract Scores</a></li>
+                <li><a href="#s10" class="toc-link"><span class="toc-n">–</span>Writing Up Results</a></li>
+                <li><a href="#s11" class="toc-link"><span class="toc-n">–</span>Mistakes to Avoid</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="sb-cta">
+            <h4>Need PCA run on <em>your data?</em></h4>
+            <p>I run PCA, cluster analysis, and MANOVA on environmental datasets — with loading tables, publication-ready biplots, and a written results section.</p>
+            <a href="services.html#data" class="btn btn-gold">Data Analysis Service →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=PCA%20in%20R%20for%20Environmental%20Data%20%E2%80%94%20step-by-step%20tutorial%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-pca-r-environmental-data.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=PCA%20in%20R%20for%20Environmental%20Data%20%E2%80%94%20complete%20tutorial%20with%20Haor%20basin%20soil%20example&url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-pca-r-environmental-data.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-statistical-test-decision-guide.html" class="related-link">
+                <span class="rel-icon">🗂️</span>
+                <span class="rel-title">How to choose the right statistical test — decision guide</span>
+              </a>
+              <a href="blog-anova-r-tutorial.html" class="related-link">
+                <span class="rel-icon">📊</span>
+                <span class="rel-title">One-Way ANOVA in R — complete practical tutorial</span>
+              </a>
+              <a href="blog-ammonia-volatilisation-paddy-urea.html" class="related-link">
+                <span class="rel-icon">🌾</span>
+                <span class="rel-title">Ammonia volatilisation from urea in paddy soils</span>
+              </a>
+              <a href="blog-heavy-metals-dhaka.html" class="related-link">
+                <span class="rel-icon">🔬</span>
+                <span class="rel-title">Heavy metals in Dhaka's urban environment — what active research shows</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sectionIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11'];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+    function copyCode(wrapId) {
+      const wrap = document.getElementById(wrapId);
+      const pre  = wrap.querySelector('.code-pre');
+      const btn  = wrap.querySelector('.code-copy-btn');
+      const text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>

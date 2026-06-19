@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A decision-tree guide to choosing the right statistical test for your thesis — one IV or many, categorical or continuous, normal or non-normal. Covers t-test, ANOVA, regression, Mann-Whitney, Kruskal-Wallis, and more."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="statistical test selection, choose right statistical test thesis, ANOVA vs t-test, parametric vs non-parametric test, statistical test decision tree, research methods Bangladesh"/>
+  <meta property="og:title" content="How to Choose the Right Statistical Test for Your Thesis — Sajjadur Rahman"/>
+  <meta property="og:description" content="A decision-tree guide: describe your data and the flowchart walks you to the correct test. Covers all major parametric and non-parametric options used in thesis research."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-statistical-test-decision-guide.html"/>
+  <meta property="article:published_time" content="2026-06-19"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>How to Choose the Right Statistical Test for Your Thesis — A Decision Guide — Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-statistical-test-decision-guide.html"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Article hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-ui); font-size: 9.5px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 3.8vw, 42px);
+      font-weight: 600; color: var(--ink);
+      line-height: 1.16; letter-spacing: -0.4px;
+      margin-bottom: 22px;
+    }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck {
+      font-family: var(--font-body); font-size: 17.5px;
+      color: var(--text-muted); line-height: 1.78;
+      font-style: italic; margin-bottom: 28px; max-width: 680px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; padding-top: 20px;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--parchment3); border: 1.5px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .meta-author-name {
+      font-family: var(--font-ui); font-size: 11.5px;
+      font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px;
+    }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); display: block; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout {
+      display: grid; grid-template-columns: 1fr 288px;
+      gap: 60px; align-items: start;
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* ── Prose ── */
+    .article-prose {
+      font-family: var(--font-body); font-size: 16.5px;
+      color: var(--ink-soft); line-height: 1.92;
+    }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 {
+      font-family: var(--font-head); font-size: 23px;
+      font-weight: 600; color: var(--ink); line-height: 1.28;
+      margin: 2.4em 0 0.75em; padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-pale);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .article-prose h3 {
+      font-family: var(--font-head); font-size: 18px;
+      font-weight: 600; color: var(--ink);
+      font-style: italic; margin: 1.8em 0 0.5em;
+    }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+
+    /* ── Decision flowchart ── */
+    .flow-chart {
+      margin: 2.2em 0;
+      font-family: var(--font-body);
+    }
+    .flow-start {
+      background: var(--ink);
+      color: var(--parchment);
+      border-radius: 6px;
+      padding: 14px 22px;
+      font-size: 15px; font-weight: 600;
+      text-align: center;
+      max-width: 480px; margin: 0 auto 0;
+    }
+    .flow-start strong { color: var(--gold); }
+    .flow-connector {
+      width: 2px; height: 20px;
+      background: var(--gold-pale);
+      margin: 0 auto;
+    }
+    .flow-branches {
+      display: grid;
+      gap: 16px;
+    }
+    .flow-branches.cols-2 { grid-template-columns: 1fr 1fr; }
+    .flow-branches.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .flow-branch-wrap {
+      position: relative;
+    }
+    .flow-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      text-align: center; display: block;
+      padding: 6px 4px 4px;
+    }
+    .flow-q {
+      background: var(--parchment2);
+      border: 1px solid var(--gold-pale);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 14px; color: var(--ink-soft);
+      text-align: center;
+    }
+    .flow-q strong { color: var(--ink); }
+    .flow-result {
+      background: var(--white);
+      border: 1.5px solid var(--gold);
+      border-radius: 6px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .flow-test-name {
+      font-family: var(--font-head);
+      font-size: 15.5px; font-weight: 600;
+      color: var(--ink); display: block; margin-bottom: 3px;
+    }
+    .flow-test-sub {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .flow-alt {
+      font-family: var(--font-body); font-size: 12px;
+      color: var(--text-muted); display: block; margin-top: 4px;
+    }
+    .flow-indent {
+      border-left: 2px solid var(--gold-pale);
+      margin-left: 24px;
+      padding-left: 16px;
+      margin-top: 0;
+    }
+    .flow-row { margin-bottom: 6px; }
+
+    /* Simpler tree — numbered question cascade */
+    .dt-wrap {
+      margin: 2em 0;
+      border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .dt-q {
+      background: var(--ink);
+      color: var(--parchment);
+      padding: 14px 20px;
+      display: flex; align-items: flex-start; gap: 14px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    }
+    .dt-q-num {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      flex-shrink: 0; padding-top: 2px; min-width: 24px;
+    }
+    .dt-q-text { font-size: 15px; font-family: var(--font-body); line-height: 1.5; }
+    .dt-q-text strong { color: var(--gold); }
+    .dt-answers { background: var(--parchment2); }
+    .dt-answer {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 12px 20px 12px 58px;
+      border-bottom: 0.5px solid var(--gold-pale);
+    }
+    .dt-answer:last-child { border-bottom: none; }
+    .dt-arrow {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1px;
+      color: var(--gold); flex-shrink: 0; padding-top: 2px;
+      text-transform: uppercase; min-width: 80px;
+    }
+    .dt-dest { font-size: 14px; color: var(--ink-soft); font-family: var(--font-body); line-height: 1.5; }
+    .dt-dest strong { color: var(--ink); font-weight: 600; }
+    .dt-dest .test-pill {
+      display: inline-block;
+      background: var(--white);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--gold);
+      margin-left: 6px;
+    }
+
+    /* ── Reference table ── */
+    .data-table-wrap { margin: 2em 0; overflow-x: auto; }
+    .data-table {
+      width: 100%; border-collapse: collapse;
+      font-family: var(--font-body); font-size: 13.5px;
+    }
+    .data-table thead tr { background: var(--ink); }
+    .data-table th {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      padding: 11px 14px; text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 0.5px solid var(--gold-pale);
+      color: var(--ink-soft); vertical-align: middle;
+      line-height: 1.5;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: var(--parchment2); }
+    .test-name-cell {
+      font-weight: 600; color: var(--ink);
+      font-family: var(--font-body);
+    }
+    .test-r-fn {
+      font-family: 'Courier New', monospace;
+      font-size: 12px; color: var(--gold);
+      display: block; margin-top: 2px;
+    }
+    .tag-pill {
+      display: inline-block;
+      font-family: var(--font-ui); font-size: 8px;
+      font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 8px; border-radius: 20px;
+    }
+    .tag-param { background: rgba(139,126,90,0.12); color: var(--gold); }
+    .tag-nonparam { background: rgba(90,122,74,0.12); color: #5a7a4a; }
+
+    /* ── Code blocks ── */
+    .code-wrap {
+      margin: 1.8em 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 0.5px solid rgba(139,126,90,0.2);
+    }
+    .code-header {
+      background: #151310;
+      padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .code-lang {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .code-copy-btn {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-light);
+      background: none; border: 0.5px solid rgba(139,126,90,0.3);
+      border-radius: 4px; padding: 4px 10px; cursor: pointer;
+      transition: color .2s, border-color .2s;
+    }
+    .code-copy-btn:hover { color: var(--gold); border-color: var(--gold); }
+    .code-copy-btn.copied { color: #5a7a4a; border-color: #5a7a4a; }
+    .code-pre {
+      background: #1a1714;
+      margin: 0; padding: 20px 22px;
+      overflow-x: auto;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 13.5px; line-height: 1.75;
+      color: #e8dfc8; white-space: pre;
+    }
+    .code-pre .cm { color: #7a7060; }
+    .code-pre .kw { color: #c8a86e; }
+    .code-pre .st { color: #a8c480; }
+    .code-pre .nu { color: #d4a47c; }
+
+    /* ── Callout / Mistake boxes ── */
+    .callout-box {
+      background: var(--white);
+      border: 0.5px solid var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.8em 0;
+    }
+    .callout-label {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 8px;
+    }
+    .callout-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+    .mistake-box {
+      background: rgba(180,60,40,0.04);
+      border: 0.5px solid rgba(180,60,40,0.18);
+      border-left: 3px solid #b44028;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 1.6em 0;
+    }
+    .mistake-box-label {
+      font-family: var(--font-ui); font-size: 8.5px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #b44028;
+      display: block; margin-bottom: 8px;
+    }
+    .mistake-box p {
+      font-size: 14.5px; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 0;
+      font-family: var(--font-body);
+    }
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--parchment2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 26px; margin: 2.2em 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-head); font-size: 17.5px;
+      font-style: italic; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 0 !important;
+    }
+    .article-ornament {
+      text-align: center; font-family: var(--font-head);
+      color: var(--gold); font-size: 18px; letter-spacing: 6px;
+      margin: 2.8em 0; opacity: 0.55;
+    }
+
+    /* ── Tags ── */
+    .article-tags {
+      display: flex; gap: 7px; flex-wrap: wrap;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale);
+    }
+    .a-tag {
+      font-family: var(--font-ui); font-size: 9px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-muted);
+      border: 0.5px solid var(--gold-pale);
+      padding: 5px 13px; border-radius: 20px; text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio {
+      background: var(--parchment2); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em;
+      display: flex; gap: 22px; align-items: flex-start;
+    }
+    .bio-avatar-lg {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--parchment3); border: 2px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px;
+      font-weight: 700; color: var(--gold); flex-shrink: 0;
+    }
+    .bio-inner h4 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .bio-role-lbl { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-pale); padding: 5px 12px; border-radius: 20px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sb-body { padding: 14px 16px; }
+    .cs-item { padding: 9px 0; border-bottom: 0.5px solid var(--gold-pale); font-size: 12px; }
+    .cs-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs-fn { font-family: 'Courier New', monospace; font-size: 11.5px; color: var(--gold); display: block; margin-bottom: 2px; font-weight: 700; }
+    .cs-desc { color: var(--text-muted); line-height: 1.45; font-family: var(--font-body); }
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px; color: var(--text-muted); text-decoration: none; line-height: 1.45; transition: color .18s, padding-left .18s; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--parchment); margin-bottom: 7px; line-height: 1.35; }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+    .share-btns { display: flex; gap: 6px; }
+    .share-b { flex: 1; display: block; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 8px 4px; text-align: center; text-decoration: none; background: var(--white); transition: color .18s, border-color .18s, background .18s; }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+    .related-link { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale); text-decoration: none; color: inherit; transition: opacity .18s; }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+    /* Post navigation */
+    .post-nav {
+      display: flex; justify-content: space-between; gap: 12px;
+      margin-top: 2.8em; padding-top: 1.6em;
+      border-top: 1px solid var(--gold-pale); flex-wrap: wrap;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 23px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+      .data-table th, .data-table td { padding: 9px 10px; font-size: 12.5px; }
+      .flow-branches.cols-2, .flow-branches.cols-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Choose the Right Statistical Test for Your Thesis — A Decision Guide",
+    "description": "A decision-tree guide to choosing the right statistical test — one IV or many, categorical or continuous, normal or non-normal. Covers t-test, ANOVA, regression, Mann-Whitney, Kruskal-Wallis, and more.",
+    "url": "https://sajjadur-rahman.com/blog-statistical-test-decision-guide.html",
+    "datePublished": "2026-06-19",
+    "dateModified": "2026-06-19",
+    "author": {
+      "@type": "Person",
+      "name": "Sajjadur Rahman",
+      "url": "https://sajjadur-rahman.com/about.html"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Sajjadur Rahman",
+      "url": "https://sajjadur-rahman.com"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Data Analysis</span>
+        </div>
+        <h1 class="article-h1">
+          How to Choose the Right<br/><em>Statistical Test</em> for Your Thesis
+        </h1>
+        <p class="article-deck">A decision guide for thesis researchers — describe your data type, number of variables, and distribution, and the flowchart walks you to the correct test. Includes a full reference table and assumption-checking code in R.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · R &amp; SPSS · Developer of SPADE</span>
+            </div>
+          </div>
+          <span class="meta-chip">June 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">11 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Data Analysis</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <!-- PROSE -->
+        <article class="article-prose" id="articleBody">
+
+          <p>Every week I get a version of the same question from thesis students: "I have my data — which test should I use?" Sometimes the data is right there in a spreadsheet. Sometimes the student has already run a test and wants to know if they chose correctly. Either way, the answer comes from the same four questions about the data, not from the test name itself.</p>
+
+          <p>This post gives you a decision flowchart followed by a reference table covering every major test you are likely to encounter in an agricultural, environmental, or social science thesis. The flowchart is faster. The table has more detail. Use both.</p>
+
+          <!-- S1 -->
+          <h2 id="s1">Why the Test Choice Matters</h2>
+
+          <p>Using the wrong test does not just give you a wrong p-value. It can invalidate your entire analysis. A t-test used where ANOVA belongs inflates your Type I error rate. Running ANOVA on data that violates normality makes your F-statistic unreliable. Applying Pearson's correlation to ranked data misses the structure in your variables.</p>
+
+          <p>Reviewers catch this. The Methods section of any manuscript includes a statistical analysis subsection, and the first thing a reviewer checks is whether the test matches the data structure. Getting it right at the thesis stage means your results are defensible — and your published paper does not get a revision request about statistical methods.</p>
+
+          <div class="pull-quote">
+            <p>"The best statistical test is not the most sophisticated one — it is the one whose assumptions your data actually meets."</p>
+          </div>
+
+          <!-- S2 -->
+          <h2 id="s2">Four Questions to Ask First</h2>
+
+          <p>Before you look at any test, answer these four questions about your data:</p>
+
+          <p><strong>1. What type is your dependent variable (DV)?</strong> Is the outcome you are measuring continuous (yield in t/ha, pH, temperature) or categorical (survived/died, treatment group, land use class)? This is the single biggest fork in the decision tree.</p>
+
+          <p><strong>2. How many independent variables (IVs) do you have?</strong> One IV or multiple? One-IV situations use simpler tests. Multiple IVs open up regression models and factorial ANOVA designs.</p>
+
+          <p><strong>3. What type are your independent variables?</strong> Categorical IVs (treatment, group, variety) lead to t-tests and ANOVA. Continuous IVs (temperature, rainfall, dose) lead to regression and correlation. You can have both at once — that is ANCOVA.</p>
+
+          <p><strong>4. Is your data normally distributed?</strong> This determines whether you use a parametric test (assumes normality, more statistical power) or a non-parametric alternative (no distribution assumption, but less power). Check this with a Shapiro-Wilk test for small samples (&lt;50) or a histogram/Q-Q plot for larger ones.</p>
+
+          <!-- S3 -->
+          <h2 id="s3">The Decision Flowchart</h2>
+
+          <p>Work through the questions in order. Each question branches you toward a smaller set of options until you reach a specific test.</p>
+
+          <!-- Decision tree — Q1 -->
+          <div class="dt-wrap">
+            <div class="dt-q">
+              <span class="dt-q-num">Q1</span>
+              <span class="dt-q-text">What type is your <strong>dependent variable</strong>?</span>
+            </div>
+            <div class="dt-answers">
+              <div class="dt-answer">
+                <span class="dt-arrow">Continuous →</span>
+                <span class="dt-dest">Go to <strong>Q2</strong> (about your independent variable)</span>
+              </div>
+              <div class="dt-answer">
+                <span class="dt-arrow">Categorical →</span>
+                <span class="dt-dest">Use <span class="test-pill">Chi-square test</span> (association between two categorical variables) or <span class="test-pill">Logistic Regression</span> (predicting a binary outcome from one or more predictors)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="dt-wrap">
+            <div class="dt-q">
+              <span class="dt-q-num">Q2</span>
+              <span class="dt-q-text">How many <strong>independent variables</strong> do you have?</span>
+            </div>
+            <div class="dt-answers">
+              <div class="dt-answer">
+                <span class="dt-arrow">One IV →</span>
+                <span class="dt-dest">Go to <strong>Q3</strong> (what type is your IV?)</span>
+              </div>
+              <div class="dt-answer">
+                <span class="dt-arrow">Multiple IVs →</span>
+                <span class="dt-dest">All continuous predictors? → <span class="test-pill">Multiple Linear Regression</span>. Two categorical factors? → <span class="test-pill">Two-Way ANOVA</span>. One categorical + one continuous? → <span class="test-pill">ANCOVA</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="dt-wrap">
+            <div class="dt-q">
+              <span class="dt-q-num">Q3</span>
+              <span class="dt-q-text">What <strong>type</strong> is your one independent variable?</span>
+            </div>
+            <div class="dt-answers">
+              <div class="dt-answer">
+                <span class="dt-arrow">Categorical →</span>
+                <span class="dt-dest">Go to <strong>Q4</strong> (how many groups?)</span>
+              </div>
+              <div class="dt-answer">
+                <span class="dt-arrow">Continuous →</span>
+                <span class="dt-dest">Go to <strong>Q5</strong> (what type of relationship?)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="dt-wrap">
+            <div class="dt-q">
+              <span class="dt-q-num">Q4</span>
+              <span class="dt-q-text">Your IV is <strong>categorical</strong>. How many groups?</span>
+            </div>
+            <div class="dt-answers">
+              <div class="dt-answer">
+                <span class="dt-arrow">2 groups →</span>
+                <span class="dt-dest">Go to <strong>Q6</strong> (normality check for two-group comparison)</span>
+              </div>
+              <div class="dt-answer">
+                <span class="dt-arrow">3 or more →</span>
+                <span class="dt-dest">Go to <strong>Q7</strong> (normality check for multi-group comparison)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="dt-wrap">
+            <div class="dt-q">
+              <span class="dt-q-num">Q5</span>
+              <span class="dt-q-text">Your IV is <strong>continuous</strong>. Are you predicting the DV, or measuring association?</span>
+            </div>
+            <div class="dt-answers">
+              <div class="dt-answer">
+                <span class="dt-arrow">Predicting →</span>
+                <span class="dt-dest"><span class="test-pill">Simple Linear Regression</span> — use when IV causes or predicts DV. Assumes linear relationship and normal residuals.</span>
+              </div>
+              <div class="dt-answer">
+                <span class="dt-arrow">Association only →</span>
+                <span class="dt-dest">Data normally distributed? → <span class="test-pill">Pearson's r</span>. Non-normal or ordinal data? → <span class="test-pill">Spearman's ρ</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="dt-wrap">
+            <div class="dt-q">
+              <span class="dt-q-num">Q6</span>
+              <span class="dt-q-text">Comparing <strong>2 groups</strong>. Is the data approximately normally distributed? (Check with Shapiro-Wilk or histogram)</span>
+            </div>
+            <div class="dt-answers">
+              <div class="dt-answer">
+                <span class="dt-arrow">Yes, normal →</span>
+                <span class="dt-dest">Independent samples (different subjects)? → <span class="test-pill">Independent t-test</span>. Same subjects measured twice? → <span class="test-pill">Paired t-test</span></span>
+              </div>
+              <div class="dt-answer">
+                <span class="dt-arrow">No, non-normal →</span>
+                <span class="dt-dest">Independent samples? → <span class="test-pill">Mann-Whitney U test</span>. Paired/repeated? → <span class="test-pill">Wilcoxon Signed-Rank test</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="dt-wrap">
+            <div class="dt-q">
+              <span class="dt-q-num">Q7</span>
+              <span class="dt-q-text">Comparing <strong>3 or more groups</strong>. Is the data approximately normally distributed with equal variances across groups?</span>
+            </div>
+            <div class="dt-answers">
+              <div class="dt-answer">
+                <span class="dt-arrow">Yes →</span>
+                <span class="dt-dest"><span class="test-pill">One-Way ANOVA</span>, then <span class="test-pill">Tukey HSD</span> (or LSD/Duncan) for pairwise comparisons. See the <a href="blog-anova-r-tutorial.html">ANOVA tutorial</a> for the full R walkthrough.</span>
+              </div>
+              <div class="dt-answer">
+                <span class="dt-arrow">No →</span>
+                <span class="dt-dest"><span class="test-pill">Kruskal-Wallis test</span> (non-parametric alternative to one-way ANOVA). Follow with Dunn's test for pairwise comparisons.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- S4 -->
+          <h2 id="s4">The Complete Reference Table</h2>
+
+          <p>The table below covers all the major tests in one place. Use it to double-check your choice after the flowchart, or as a quick reference when reviewing statistical methods in a manuscript.</p>
+
+          <div class="data-table-wrap">
+            <table class="data-table" aria-label="Statistical test reference table">
+              <thead>
+                <tr>
+                  <th>Test</th>
+                  <th>DV Type</th>
+                  <th>IV Type</th>
+                  <th>Groups / IVs</th>
+                  <th>Key Assumption</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Independent t-test</span>
+                    <span class="test-r-fn">t.test(y ~ group)</span>
+                  </td>
+                  <td>Continuous</td>
+                  <td>Categorical</td>
+                  <td>2 groups</td>
+                  <td>Normal, equal variance</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Paired t-test</span>
+                    <span class="test-r-fn">t.test(a, b, paired=TRUE)</span>
+                  </td>
+                  <td>Continuous</td>
+                  <td>Categorical</td>
+                  <td>2 (paired)</td>
+                  <td>Normal differences</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Mann-Whitney U</span>
+                    <span class="test-r-fn">wilcox.test(y ~ group)</span>
+                  </td>
+                  <td>Continuous / Ordinal</td>
+                  <td>Categorical</td>
+                  <td>2 groups</td>
+                  <td>None (rank-based)</td>
+                  <td><span class="tag-pill tag-nonparam">Non-Param.</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Wilcoxon Signed-Rank</span>
+                    <span class="test-r-fn">wilcox.test(a, b, paired=TRUE)</span>
+                  </td>
+                  <td>Continuous / Ordinal</td>
+                  <td>Categorical</td>
+                  <td>2 (paired)</td>
+                  <td>Symmetric differences</td>
+                  <td><span class="tag-pill tag-nonparam">Non-Param.</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">One-Way ANOVA</span>
+                    <span class="test-r-fn">aov(y ~ group)</span>
+                  </td>
+                  <td>Continuous</td>
+                  <td>Categorical</td>
+                  <td>3+ groups</td>
+                  <td>Normal, equal variance</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Kruskal-Wallis</span>
+                    <span class="test-r-fn">kruskal.test(y ~ group)</span>
+                  </td>
+                  <td>Continuous / Ordinal</td>
+                  <td>Categorical</td>
+                  <td>3+ groups</td>
+                  <td>None (rank-based)</td>
+                  <td><span class="tag-pill tag-nonparam">Non-Param.</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Two-Way ANOVA</span>
+                    <span class="test-r-fn">aov(y ~ A * B)</span>
+                  </td>
+                  <td>Continuous</td>
+                  <td>2 Categorical</td>
+                  <td>3+ per factor</td>
+                  <td>Normal, equal variance</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Simple Linear Regression</span>
+                    <span class="test-r-fn">lm(y ~ x)</span>
+                  </td>
+                  <td>Continuous</td>
+                  <td>Continuous</td>
+                  <td>1 IV</td>
+                  <td>Linear, normal residuals</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Multiple Linear Regression</span>
+                    <span class="test-r-fn">lm(y ~ x1 + x2 + ...)</span>
+                  </td>
+                  <td>Continuous</td>
+                  <td>Multiple (any)</td>
+                  <td>2+ IVs</td>
+                  <td>Linear, normal residuals, no multicollinearity</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">ANCOVA</span>
+                    <span class="test-r-fn">aov(y ~ group + covariate)</span>
+                  </td>
+                  <td>Continuous</td>
+                  <td>Categorical + Continuous</td>
+                  <td>Mixed</td>
+                  <td>Normal, equal slopes</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Pearson's r</span>
+                    <span class="test-r-fn">cor.test(x, y)</span>
+                  </td>
+                  <td>Continuous</td>
+                  <td>Continuous</td>
+                  <td>1 IV</td>
+                  <td>Normal, linear relationship</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Spearman's ρ</span>
+                    <span class="test-r-fn">cor.test(x, y, method="spearman")</span>
+                  </td>
+                  <td>Continuous / Ordinal</td>
+                  <td>Continuous / Ordinal</td>
+                  <td>1 IV</td>
+                  <td>Monotonic relationship</td>
+                  <td><span class="tag-pill tag-nonparam">Non-Param.</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Chi-square test</span>
+                    <span class="test-r-fn">chisq.test(table)</span>
+                  </td>
+                  <td>Categorical</td>
+                  <td>Categorical</td>
+                  <td>2+ categories each</td>
+                  <td>Expected count ≥ 5 per cell</td>
+                  <td><span class="tag-pill tag-nonparam">Non-Param.</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="test-name-cell">Logistic Regression</span>
+                    <span class="test-r-fn">glm(y ~ x, family=binomial)</span>
+                  </td>
+                  <td>Binary (0/1)</td>
+                  <td>Any</td>
+                  <td>Any</td>
+                  <td>Large sample, no multicollinearity</td>
+                  <td><span class="tag-pill tag-param">Parametric</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- S5 -->
+          <h2 id="s5">Parametric vs Non-Parametric — When Does It Matter?</h2>
+
+          <p>Parametric tests (t-test, ANOVA, linear regression) assume that your data, or more precisely your residuals, follow a roughly normal distribution. This assumption makes them more powerful — they detect real effects with smaller sample sizes. Non-parametric tests make no such assumption; they work on ranks rather than raw values, which makes them robust but slightly less sensitive when the normality assumption would actually hold.</p>
+
+          <p>In practice, with sample sizes above 30, the normality assumption matters less because the Central Limit Theorem ensures that sample means approach a normal distribution regardless of the underlying distribution. Below 30, check normality seriously. Below 15 (which happens a lot in pot experiments and small field trials), a non-parametric test is safer even if the Shapiro-Wilk p-value is above 0.05, because the test has low power to detect non-normality in small samples.</p>
+
+          <div class="callout-box">
+            <span class="callout-label">Practical rule</span>
+            <p>n &gt; 30 and data looks roughly symmetric on a histogram? Use the parametric test. n &lt; 15 or the histogram is clearly skewed or multimodal? Use the non-parametric alternative. The 15–30 range is where the Shapiro-Wilk result matters most.</p>
+          </div>
+
+          <!-- S6 -->
+          <h2 id="s6">The Two-Group Situation — t-test vs Mann-Whitney U</h2>
+
+          <p>You have two groups and a continuous DV. The two candidates are the independent t-test and the Mann-Whitney U test.</p>
+
+          <p>The t-test compares group means and assumes that the data in each group are approximately normally distributed with similar variance. It produces an interpretable test statistic (t) and a confidence interval for the difference in means. When the assumptions hold, it is the right choice.</p>
+
+          <p>Mann-Whitney U compares the distributions of the two groups without assuming normality. It works by ranking all observations together, then testing whether one group tends to have higher ranks than the other. It does not test means — it tests whether one group stochastically dominates the other — so you need to be precise about what you claim in your results section.</p>
+
+          <p>One situation that trips people up: the paired vs independent distinction. If you are comparing the same subjects before and after a treatment, or matched pairs (plot A on soil type X and plot B on soil type Y, matched by other properties), you have paired data. Use the paired t-test or Wilcoxon Signed-Rank, not the independent versions. Using independent tests on paired data ignores within-subject correlation and loses statistical power.</p>
+
+          <!-- S7 -->
+          <h2 id="s7">Three or More Groups — ANOVA vs Kruskal-Wallis</h2>
+
+          <p>Most agricultural and environmental experiments compare more than two treatments. This is where one-way ANOVA becomes the standard choice — and where the most common error in thesis statistics shows up.</p>
+
+          <p>ANOVA tests whether any of the group means differ significantly. A significant F-statistic (p &lt; 0.05) tells you that not all means are equal, but it does not tell you which ones differ. That is what the post-hoc test does — and this is where you need Tukey HSD, LSD, or Duncan's test. See the <a href="blog-anova-r-tutorial.html">ANOVA tutorial</a> and the <a href="blog-tukey-hsd-explained.html">Tukey HSD post</a> for the full procedure.</p>
+
+          <p>When normality fails (Shapiro-Wilk p &lt; 0.05 on residuals, or n is very small), Kruskal-Wallis is the right alternative. It is the non-parametric version of one-way ANOVA. A significant result tells you the groups differ in distribution — follow up with Dunn's test with Bonferroni correction for pairwise comparisons.</p>
+
+          <div class="callout-box">
+            <span class="callout-label">Check variance too</span>
+            <p>ANOVA assumes equal variance across groups (homoscedasticity). Check this with Levene's test in R: <code>leveneTest(y ~ group, data=df)</code>. If Levene's test is significant (p &lt; 0.05), use Welch's ANOVA instead: <code>oneway.test(y ~ group, var.equal=FALSE)</code>.</p>
+          </div>
+
+          <!-- S8 -->
+          <h2 id="s8">Checking Assumptions in R</h2>
+
+          <p>Here is the minimum assumption-checking code you should run before reporting any parametric test result. Run this before ANOVA, before t-tests, and before regression.</p>
+
+          <div class="code-wrap" id="cw1">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw1')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># === Assumption checks before parametric tests ===</span>
+
+<span class="cm"># 1. Normality — Shapiro-Wilk (best for n < 50)</span>
+<span class="kw">shapiro.test</span>(df$yield)
+<span class="cm">#   W = 0.962, p-value = 0.483  → p > 0.05 means normality OK</span>
+
+<span class="cm"># 2. Normality by group (before ANOVA or t-test)</span>
+<span class="kw">by</span>(df$yield, df$treatment, shapiro.test)
+
+<span class="cm"># 3. Q-Q plot — visual check (points near the line = normal)</span>
+<span class="kw">qqnorm</span>(<span class="kw">residuals</span>(aov(yield ~ treatment, data = df)))
+<span class="kw">qqline</span>(<span class="kw">residuals</span>(aov(yield ~ treatment, data = df)), col = <span class="st">"red"</span>)
+
+<span class="cm"># 4. Homogeneity of variance — Levene's test</span>
+<span class="kw">library</span>(car)
+<span class="kw">leveneTest</span>(yield ~ treatment, data = df)
+<span class="cm">#   p > 0.05 = variances are equal → ANOVA assumption met</span>
+
+<span class="cm"># 5. If normality fails → run Kruskal-Wallis instead</span>
+<span class="kw">kruskal.test</span>(yield ~ treatment, data = df)
+
+<span class="cm"># 6. Dunn's pairwise test after Kruskal-Wallis</span>
+<span class="kw">library</span>(dunn.test)
+<span class="kw">dunn.test</span>(df$yield, df$treatment, method = <span class="st">"bonferroni"</span>)</pre>
+          </div>
+
+          <p>For regression, the assumption checks are slightly different — you check residuals rather than raw data:</p>
+
+          <div class="code-wrap" id="cw2">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw2')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># === Assumption checks for linear regression ===</span>
+
+model &lt;- <span class="kw">lm</span>(yield ~ soil_ph, data = df)
+
+<span class="cm"># Four diagnostic plots in one call</span>
+<span class="kw">par</span>(mfrow = <span class="kw">c</span>(<span class="nu">2</span>, <span class="nu">2</span>))
+<span class="kw">plot</span>(model)
+<span class="cm">#   Plot 1: Residuals vs Fitted — should show no pattern
+#   Plot 2: Q-Q plot — points should follow the diagonal
+#   Plot 3: Scale-Location — should be flat (equal variance)
+#   Plot 4: Cook's distance — identifies influential outliers</span>
+
+<span class="cm"># Shapiro-Wilk on residuals</span>
+<span class="kw">shapiro.test</span>(<span class="kw">residuals</span>(model))</pre>
+          </div>
+
+          <!-- S9 -->
+          <h2 id="s9">Reporting Your Test Result Correctly</h2>
+
+          <p>Once you have chosen and run the right test, you need to report it in a way that lets readers replicate your decision. Here are the standard reporting formats for the tests covered above.</p>
+
+          <p><strong>ANOVA:</strong> "Fertilizer treatment had a significant effect on grain yield (F<sub>3,8</sub> = 24.6, p &lt; 0.001, one-way ANOVA). Tukey HSD post-hoc comparison showed that T4 produced significantly higher yield than T1 and T3 (p &lt; 0.05) but did not differ significantly from T2."</p>
+
+          <p><strong>t-test:</strong> "Mean yield under urea treatment (5.94 t/ha) was significantly higher than the control (3.83 t/ha; t<sub>4</sub> = 12.3, p &lt; 0.001, independent-samples t-test)."</p>
+
+          <p><strong>Mann-Whitney U:</strong> "Soil pH was significantly higher in the pre-monsoon sampling than the post-monsoon period (W = 68, p = 0.009, Mann-Whitney U test)."</p>
+
+          <p><strong>Kruskal-Wallis:</strong> "Available phosphorus differed significantly across sampling sites (H<sub>5</sub> = 14.8, p = 0.011, Kruskal-Wallis test). Dunn's pairwise test with Bonferroni correction identified significant differences between sites S4 and S6 (p = 0.008)."</p>
+
+          <p><strong>Linear regression:</strong> "Soil pH explained 68% of the variance in maize yield (R² = 0.68, F<sub>1,10</sub> = 21.4, p &lt; 0.001). For each unit increase in pH, yield increased by an estimated 0.84 t/ha (β = 0.84, 95% CI [0.52, 1.16], p &lt; 0.001)."</p>
+
+          <!-- S10 — common mistakes -->
+          <h2 id="s10">Five Mistakes That Show Up in Every Third Thesis</h2>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 1 — Multiple t-tests instead of ANOVA</span>
+            <p>Running three t-tests to compare three groups (T1 vs T2, T1 vs T3, T2 vs T3) is wrong. Each test carries a 5% Type I error risk, and running three of them inflates your overall error rate to roughly 14%. Use ANOVA, which tests all groups simultaneously while controlling this rate.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 2 — ANOVA without a post-hoc test</span>
+            <p>A significant ANOVA p-value only tells you that some groups differ — it does not tell you which ones. You must follow ANOVA with a post-hoc comparison (Tukey HSD, LSD, or Duncan depending on your context). Stopping at the F-statistic leaves the main scientific question unanswered.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 3 — Pearson correlation on non-normal data</span>
+            <p>Pearson's r assumes both variables are continuous and approximately normally distributed with a linear relationship. If your data is ordinal, heavily skewed, or shows a non-linear relationship, Spearman's ρ is the correct tool. Running Pearson on ranked data gives you a coefficient that is harder to interpret and potentially misleading.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 4 — Not checking assumptions at all</span>
+            <p>Assumption checking is not optional. Journals increasingly require you to state which normality and variance tests were performed and to report their results. Run Shapiro-Wilk and Levene's test, plot your residuals, and include the results in your Methods or as a supplementary table.</p>
+          </div>
+
+          <div class="mistake-box">
+            <span class="mistake-box-label">Mistake 5 — Ignoring paired structure in paired data</span>
+            <p>If your data has a paired structure — before/after measurements on the same plot, matched sites, repeated measures on the same plant — and you use an independent-samples test, you discard within-subject correlation and lose power. Always identify whether your design is independent or paired before choosing the test.</p>
+          </div>
+
+          <div class="article-ornament">✦ ✦ ✦</div>
+
+          <p>If you have a dataset in front of you right now and are unsure which test to use — or if you have already run an analysis and want a second pair of eyes — the <a href="services.html#data">data analysis service</a> on this site covers exactly this: test selection, assumption checking, running the analysis in R or SPSS, and writing up the statistical methods and results sections for you.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">Statistical Tests</a>
+            <a href="blog.html" class="a-tag">Decision Tree</a>
+            <a href="blog.html" class="a-tag">ANOVA</a>
+            <a href="blog.html" class="a-tag">t-test</a>
+            <a href="blog.html" class="a-tag">Non-Parametric</a>
+            <a href="blog.html" class="a-tag">R Tutorial</a>
+            <a href="blog.html" class="a-tag">Research Methods</a>
+            <a href="blog.html" class="a-tag">Thesis Statistics</a>
+          </div>
+
+          <div class="post-nav">
+            <a href="blog-linear-regression-r-tutorial.html" class="btn btn-outline btn-arrow">← Linear Regression in R</a>
+            <a href="blog-anova-r-tutorial.html" class="btn btn-gold">One-Way ANOVA Tutorial →</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · Data Analyst · University of Dhaka</span>
+              <p>NST Fellow and active researcher using R, SPSS, and Python across soil science and agricultural experiments. Developer of SPADE — open-source software for NUE analysis, ANOVA, and publication-ready figures. Available for statistical test selection, data analysis, and thesis consultation.</p>
+              <div class="bio-links">
+                <a href="services.html#data" class="bio-lnk">Data Analysis</a>
+                <a href="research.html#spade" class="bio-lnk">About SPADE</a>
+                <a href="about.html" class="bio-lnk">About Me</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- Quick Reference: 4 Questions -->
+          <div class="sb-card">
+            <div class="sb-head"><span>The 4 Key Questions</span></div>
+            <div class="sb-body">
+              <div class="cs-item">
+                <span class="cs-fn">1. What type is your DV?</span>
+                <span class="cs-desc">Continuous → parametric family. Categorical → Chi-sq / Logistic.</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">2. How many IVs?</span>
+                <span class="cs-desc">One IV → simpler tests. Multiple → regression or factorial ANOVA.</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">3. What type is your IV?</span>
+                <span class="cs-desc">Categorical → ANOVA / t-test. Continuous → regression / correlation.</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">4. Is your data normal?</span>
+                <span class="cs-desc">Normal → parametric. Non-normal or n &lt; 15 → non-parametric alternative.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1"  class="toc-link"><span class="toc-n">–</span>Why Test Choice Matters</a></li>
+                <li><a href="#s2"  class="toc-link"><span class="toc-n">–</span>Four Questions to Ask First</a></li>
+                <li><a href="#s3"  class="toc-link"><span class="toc-n">–</span>The Decision Flowchart</a></li>
+                <li><a href="#s4"  class="toc-link"><span class="toc-n">–</span>Complete Reference Table</a></li>
+                <li><a href="#s5"  class="toc-link"><span class="toc-n">–</span>Parametric vs Non-Parametric</a></li>
+                <li><a href="#s6"  class="toc-link"><span class="toc-n">–</span>Two Groups: t-test vs Mann-Whitney</a></li>
+                <li><a href="#s7"  class="toc-link"><span class="toc-n">–</span>3+ Groups: ANOVA vs Kruskal-Wallis</a></li>
+                <li><a href="#s8"  class="toc-link"><span class="toc-n">–</span>Checking Assumptions in R</a></li>
+                <li><a href="#s9"  class="toc-link"><span class="toc-n">–</span>Reporting Results Correctly</a></li>
+                <li><a href="#s10" class="toc-link"><span class="toc-n">–</span>Five Common Mistakes</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="sb-cta">
+            <h4>Not sure which test fits <em>your data?</em></h4>
+            <p>I help thesis students and researchers choose the right test, check assumptions, run the analysis, and write up the statistical methods section — in R, SPSS, or Python.</p>
+            <a href="services.html#data" class="btn btn-gold">Data Analysis Service →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=Statistical%20Test%20Decision%20Guide%20for%20Thesis%20Research%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-statistical-test-decision-guide.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=How%20to%20Choose%20the%20Right%20Statistical%20Test%20for%20Your%20Thesis%20%E2%80%94%20decision%20guide&url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-statistical-test-decision-guide.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-anova-r-tutorial.html" class="related-link">
+                <span class="rel-icon">📊</span>
+                <span class="rel-title">One-Way ANOVA in R — complete practical tutorial</span>
+              </a>
+              <a href="blog-tukey-hsd-explained.html" class="related-link">
+                <span class="rel-icon">🔢</span>
+                <span class="rel-title">Tukey HSD test — when to use it and how to read the results</span>
+              </a>
+              <a href="blog-linear-regression-r-tutorial.html" class="related-link">
+                <span class="rel-icon">📈</span>
+                <span class="rel-title">Linear regression in R — step-by-step tutorial</span>
+              </a>
+              <a href="blog-pca-r-environmental-data.html" class="related-link">
+                <span class="rel-icon">🔬</span>
+                <span class="rel-title">PCA in R for environmental data — when one test isn't enough</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html" data-en>Home</a>
+          <a href="about.html" data-en>About</a>
+          <a href="services.html" data-en>Services</a>
+          <a href="research.html" data-en>Research</a>
+          <a href="blog.html" data-en>Blog</a>
+          <a href="contact.html" data-en>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sectionIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10'];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+    function copyCode(wrapId) {
+      const wrap = document.getElementById(wrapId);
+      const pre  = wrap.querySelector('.code-pre');
+      const btn  = wrap.querySelector('.code-copy-btn');
+      const text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
