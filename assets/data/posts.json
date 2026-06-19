@@ -1,5 +1,34 @@
 [
   {
+    "slug": "p-value-meaning",
+    "file": "blog-p-value-meaning.html",
+    "title_en": "What a P-Value Actually Means (and Five Things It Doesn't)",
+    "title_bn": "P-Value আসলে কী বোঝায় (এবং পাঁচটি জিনিস যা এটি বোঝায় না)",
+    "date": "2026-06-20",
+    "category_en": "Data Analysis",
+    "category_bn": "ডেটা বিশ্লেষণ",
+    "excerpt_en": "The correct definition of a p-value, five specific misconceptions with their corrections, and what to actually report instead — effect size, confidence interval, and p-value together.",
+    "excerpt_bn": "p-value এর সঠিক সংজ্ঞা, পাঁচটি ভুল ধারণা তাদের সংশোধন সহ, এবং পরিবর্তে আসলে কী রিপোর্ট করতে হবে — effect size, confidence interval এবং p-value একসাথে।",
+    "tags_en": [
+      "P-Value",
+      "Statistical Significance",
+      "Effect Size",
+      "Cohen's d",
+      "Confidence Interval",
+      "Research Methods",
+      "Thesis Statistics"
+    ],
+    "tags_bn": [
+      "P-Value",
+      "পরিসংখ্যানগত তাৎপর্য",
+      "প্রভাবের আকার",
+      "গবেষণা পদ্ধতি"
+    ],
+    "featured": true,
+    "status": "published",
+    "read_time_min": 10
+  },
+  {
     "slug": "statistical-test-decision-guide",
     "file": "blog-statistical-test-decision-guide.html",
     "title_en": "How to Choose the Right Statistical Test for Your Thesis — A Decision Guide",
