@@ -687,13 +687,17 @@ pca &lt;- <span class="kw">prcomp</span>(soil_num, center = <span class="nu">TRU
           <div class="output-wrap">
             <div class="output-header"><span>Output</span></div>
             <pre class="output-pre">Importance of components:
-                        <span class="hi">PC1</span>    <span class="hi">PC2</span>    PC3    PC4    PC5    PC6    PC7    PC8    PC9   PC10
-Standard deviation     <span class="hi">2.932</span>  <span class="hi">1.264</span>  0.741  0.506  0.348  0.235  0.189  0.134  0.089  0.062
-Proportion of Variance <span class="hi">0.860</span>  <span class="hi">0.160</span>  0.055  0.026  0.012  0.006  0.004  0.002  0.001  0.000
-Cumulative Proportion  <span class="hi">0.860</span>  <span class="hi">1.020</span>  ...</span></pre>
+                          <span class="hi">PC1</span>     <span class="hi">PC2</span>     PC3     PC4     PC5     PC6     PC7
+Standard deviation     <span class="hi">3.0323</span> <span class="hi">0.76705</span> 0.43303 0.11347 0.08004 0.06760 0.05622
+Proportion of Variance <span class="hi">0.9195</span> <span class="hi">0.05884</span> 0.01875 0.00129 0.00064 0.00046 0.00032
+Cumulative Proportion  <span class="hi">0.9195</span> <span class="hi">0.97829</span> 0.99704 0.99833 0.99897 0.99943 0.99974
+                           PC8     PC9    PC10
+Standard deviation     0.04512 0.01881 0.01281
+Proportion of Variance 0.00020 0.00004 0.00002
+Cumulative Proportion  0.99995 0.99998 1.00000</pre>
           </div>
 
-          <p>PC1 alone explains approximately 86% of the total variance. PC2 explains another 16%. Together, two components capture over 97% of the information in ten variables. This is a very clean PCA result — it tells you that the ten soil properties are essentially varying along two main axes, not ten independent dimensions.</p>
+          <p>PC1 alone explains 91.95% of the total variance. PC2 explains another 5.88%. Together, two components capture 97.83% of the information in ten variables. This is an exceptionally clean PCA result — it tells you that the ten soil properties are essentially varying along one dominant axis, with a secondary axis capturing most of the remaining structure.</p>
 
           <p>This makes biological sense. Waterlogging during the post-monsoon season drives Fe, Mn, EC upward and pH downward simultaneously — one process affecting multiple variables at once. That shared driver is what PC1 is capturing.</p>
 
@@ -756,22 +760,22 @@ loadings_df &lt;- <span class="kw">data.frame</span>(
 
           <div class="output-wrap">
             <div class="output-header"><span>Output — PC1 and PC2 Loadings</span></div>
-            <pre class="output-pre">  Variable    PC1     PC2
-1       pH <span class="hi">-0.328</span>  <span class="sig"> 0.102</span>
-2       EC  <span class="hi">0.322</span>  <span class="sig"> 0.148</span>
-3       OM  <span class="hi">0.318</span>  <span class="sig"> 0.412</span>
-4       TN  <span class="hi">0.318</span>  <span class="sig"> 0.398</span>
-5      AvP  <span class="hi">0.305</span>  <span class="sig"> 0.488</span>
-6      ExK  <span class="hi">0.314</span>  <span class="sig"> 0.422</span>
-7       Fe  <span class="hi">0.330</span>  <span class="sig">-0.228</span>
-8       Mn  <span class="hi">0.330</span>  <span class="sig">-0.242</span>
-9       Zn  <span class="hi">0.320</span>  <span class="sig"> 0.258</span>
-10      Cu  <span class="hi">0.320</span>  <span class="sig"> 0.312</span></pre>
+            <pre class="output-pre">    Variable    PC1    PC2
+pH        pH  <span class="sig">0.300</span>  <span class="sig"> 0.102</span>
+EC        EC <span class="hi">-0.328</span>  <span class="sig">-0.001</span>
+OM        OM <span class="hi">-0.325</span>  <span class="sig"> 0.211</span>
+TN        TN <span class="hi">-0.325</span>  <span class="sig"> 0.199</span>
+AvP      AvP <span class="hi">-0.309</span>  <span class="sig"> 0.439</span>
+ExK      ExK <span class="hi">-0.319</span>  <span class="sig"> 0.321</span>
+Fe        Fe <span class="hi">-0.293</span>  <span class="hi">-0.586</span>
+Mn        Mn <span class="hi">-0.303</span>  <span class="hi">-0.509</span>
+Zn        Zn <span class="hi">-0.328</span>  <span class="sig">-0.080</span>
+Cu        Cu <span class="hi">-0.329</span>  <span class="sig"> 0.036</span></pre>
           </div>
 
-          <p>The loading table reveals a clear story. <strong>PC1 — the waterlogging / redox axis:</strong> almost all variables load highly and positively on PC1, except pH which loads negatively. This is the seasonal waterlogging effect: post-monsoon samples have higher Fe, Mn, EC, OM, TN, Av-P, Ex-K (from waterlogging and organic matter mineralisation) and lower pH (from organic acids and CO₂ production). PC1 separates pre-monsoon from post-monsoon samples along a single redox-driven gradient.</p>
+          <p>The loading table reveals a clear story. <strong>PC1 — the waterlogging / redox axis:</strong> almost all variables load highly and negatively on PC1, except pH which loads positively (+0.300). This reflects the seasonal waterlogging effect: under post-monsoon flooding, Fe, Mn, EC, OM, TN, Av-P, and Ex-K all increase while pH drops — so post-monsoon samples score negatively on PC1, and pre-monsoon samples score positively. The sign of a PC is arbitrary in PCA; what matters is that PC1 cleanly separates the two seasons along a single redox-driven gradient.</p>
 
-          <p><strong>PC2 — the site fertility axis:</strong> OM, TN, Av-P, and Ex-K load positively and strongly on PC2, while Fe and Mn load negatively. This separates high-organic-matter, high-nutrient sites (S4 in particular, with its history of organic matter incorporation) from low-fertility sites (S6, sandier and less enriched). PC2 is a site-level fertility gradient independent of seasonal effects.</p>
+          <p><strong>PC2 — the site fertility axis:</strong> Av-P (+0.439), Ex-K (+0.321), OM (+0.211), and TN (+0.199) load positively on PC2, while Fe (−0.586) and Mn (−0.509) load strongly negatively. This separates high-nutrient sites (S4 pre-monsoon: high organic matter accumulation, elevated P and K) from sites where Fe and Mn dominate the chemistry (lower-nutrient, higher-reduction sites). PC2 is a site-level fertility signal independent of season.</p>
 
           <div class="data-table-wrap">
             <table class="data-table" aria-label="PCA loadings summary for Haor basin soil data">
@@ -786,63 +790,63 @@ loadings_df &lt;- <span class="kw">data.frame</span>(
               <tbody>
                 <tr>
                   <td>pH</td>
-                  <td class="loading-neg">−0.328</td>
+                  <td class="loading-low">+0.300</td>
                   <td class="loading-low">+0.10</td>
-                  <td>Decreases under waterlogging (redox); loads on PC1</td>
+                  <td>Only variable to load positively on PC1; decreases under waterlogging</td>
                 </tr>
                 <tr>
                   <td>EC</td>
-                  <td class="loading-high">+0.322</td>
-                  <td class="loading-low">+0.15</td>
-                  <td>Ions released under reduction; seasonal driver</td>
+                  <td class="loading-neg">−0.328</td>
+                  <td class="loading-low">−0.00</td>
+                  <td>Ions released under reduction; strongly seasonal, minimal PC2 signal</td>
                 </tr>
                 <tr>
                   <td>OM</td>
-                  <td class="loading-high">+0.318</td>
-                  <td class="loading-high">+0.41</td>
+                  <td class="loading-neg">−0.325</td>
+                  <td class="loading-low">+0.21</td>
                   <td>Both seasonal and site fertility drivers</td>
                 </tr>
                 <tr>
                   <td>TN</td>
-                  <td class="loading-high">+0.318</td>
-                  <td class="loading-high">+0.40</td>
+                  <td class="loading-neg">−0.325</td>
+                  <td class="loading-low">+0.20</td>
                   <td>Tightly coupled to OM; site + season signal</td>
                 </tr>
                 <tr>
                   <td>Av-P</td>
-                  <td class="loading-high">+0.305</td>
-                  <td class="loading-high">+0.49</td>
-                  <td>Strongest PC2 loading — key site fertility indicator</td>
+                  <td class="loading-neg">−0.309</td>
+                  <td class="loading-high">+0.44</td>
+                  <td>Strongest positive PC2 loading — key site fertility indicator</td>
                 </tr>
                 <tr>
                   <td>Ex-K</td>
-                  <td class="loading-high">+0.314</td>
-                  <td class="loading-high">+0.42</td>
+                  <td class="loading-neg">−0.319</td>
+                  <td class="loading-high">+0.32</td>
                   <td>Fertility axis; elevated in organic-rich sites</td>
                 </tr>
                 <tr>
                   <td>Fe</td>
-                  <td class="loading-high">+0.330</td>
-                  <td class="loading-neg">−0.23</td>
-                  <td>Strongest positive PC1 — clear redox indicator</td>
+                  <td class="loading-neg">−0.293</td>
+                  <td class="loading-neg">−0.586</td>
+                  <td>Strongest negative PC2 loading — pure redox indicator</td>
                 </tr>
                 <tr>
                   <td>Mn</td>
-                  <td class="loading-high">+0.330</td>
-                  <td class="loading-neg">−0.24</td>
-                  <td>Co-varies with Fe; redox-sensitive</td>
+                  <td class="loading-neg">−0.303</td>
+                  <td class="loading-neg">−0.509</td>
+                  <td>Co-varies with Fe; second strongest PC2 loading</td>
                 </tr>
                 <tr>
                   <td>Zn</td>
-                  <td class="loading-high">+0.320</td>
-                  <td class="loading-low">+0.26</td>
-                  <td>Mild loading on both axes; moderately site-specific</td>
+                  <td class="loading-neg">−0.328</td>
+                  <td class="loading-low">−0.08</td>
+                  <td>Mainly a seasonal signal; minimal PC2 contribution</td>
                 </tr>
                 <tr>
                   <td>Cu</td>
-                  <td class="loading-high">+0.320</td>
-                  <td class="loading-low">+0.31</td>
-                  <td>Similar pattern to Zn; organic matter association</td>
+                  <td class="loading-neg">−0.329</td>
+                  <td class="loading-low">+0.04</td>
+                  <td>Strong PC1 loading; essentially no PC2 signal</td>
                 </tr>
               </tbody>
             </table>
@@ -864,28 +868,44 @@ loadings_df &lt;- <span class="kw">data.frame</span>(
        ylab = <span class="kw">paste0</span>(<span class="st">"PC2 ("</span>, <span class="kw">round</span>(var_exp[<span class="nu">2</span>], <span class="nu">1</span>), <span class="st">"% variance)"</span>),
        main = <span class="st">"Haor Basin Paddy Soil PCA Biplot"</span>)
 
-<span class="cm"># Publication-ready biplot using ggbiplot or manual ggplot2
-# Option A: ggbiplot (install from GitHub)</span>
-<span class="cm"># install.packages("devtools")</span>
-<span class="cm"># devtools::install_github("vqv/ggbiplot")</span>
-<span class="kw">library</span>(ggbiplot)
+<span class="cm"># Publication-ready biplot using ggplot2 only (no extra packages needed)</span>
+scores_plot &lt;- <span class="kw">as.data.frame</span>(pca$x[, <span class="nu">1</span>:<span class="nu">2</span>])
+scores_plot$site   &lt;- soil$site
+scores_plot$season &lt;- soil$season
 
-<span class="kw">ggbiplot</span>(pca,
-         groups  = soil$season,
-         ellipse = <span class="nu">TRUE</span>,
-         circle  = <span class="nu">FALSE</span>,
-         var.scale = <span class="nu">1</span>) +
-  <span class="kw">scale_colour_manual</span>(values = <span class="kw">c</span>(<span class="st">"Pre"</span> = <span class="st">"#8b7e5a"</span>, <span class="st">"Post"</span> = <span class="st">"#1e1c18"</span>)) +
-  <span class="kw">labs</span>(colour = <span class="st">"Season"</span>,
-       title = <span class="st">"PCA Biplot — Haor Basin Paddy Soils"</span>,
-       subtitle = <span class="st">"Pre- vs Post-Monsoon, 6 Sites"</span>) +
+<span class="cm"># Scale loadings to overlay on score plot</span>
+scale_factor &lt;- <span class="nu">3</span>
+loadings_plot &lt;- <span class="kw">as.data.frame</span>(pca$rotation[, <span class="nu">1</span>:<span class="nu">2</span>] * scale_factor)
+loadings_plot$var &lt;- <span class="kw">rownames</span>(loadings_plot)
+
+<span class="kw">ggplot</span>() +
+  <span class="cm"># Sample scores</span>
+  <span class="kw">geom_point</span>(data = scores_plot,
+             <span class="kw">aes</span>(x = PC1, y = PC2, colour = season, shape = site), size = <span class="nu">3.5</span>) +
+  <span class="kw">geom_text</span>(data = scores_plot,
+            <span class="kw">aes</span>(x = PC1, y = PC2,
+                label = <span class="kw">paste0</span>(site, <span class="st">"-"</span>, <span class="kw">substr</span>(season, <span class="nu">1</span>, <span class="nu">2</span>))),
+            nudge_y = <span class="nu">0.22</span>, size = <span class="nu">3</span>) +
+  <span class="cm"># Loading arrows</span>
+  <span class="kw">geom_segment</span>(data = loadings_plot,
+               <span class="kw">aes</span>(x = <span class="nu">0</span>, y = <span class="nu">0</span>, xend = PC1, yend = PC2),
+               arrow = <span class="kw">arrow</span>(length = <span class="kw">unit</span>(<span class="nu">0.2</span>, <span class="st">"cm"</span>)),
+               colour = <span class="st">"#8b7e5a"</span>, linewidth = <span class="nu">0.7</span>) +
+  <span class="kw">geom_text</span>(data = loadings_plot,
+            <span class="kw">aes</span>(x = PC1 * <span class="nu">1.12</span>, y = PC2 * <span class="nu">1.12</span>, label = var),
+            colour = <span class="st">"#8b7e5a"</span>, size = <span class="nu">3.2</span>, fontface = <span class="st">"bold"</span>) +
+  <span class="kw">scale_colour_manual</span>(values = <span class="kw">c</span>(<span class="st">"Pre"</span> = <span class="st">"#1e1c18"</span>, <span class="st">"Post"</span> = <span class="st">"#b44028"</span>)) +
+  <span class="kw">labs</span>(x = <span class="kw">paste0</span>(<span class="st">"PC1 ("</span>, <span class="kw">round</span>(var_exp[<span class="nu">1</span>], <span class="nu">1</span>), <span class="st">"% variance)"</span>),
+       y = <span class="kw">paste0</span>(<span class="st">"PC2 ("</span>, <span class="kw">round</span>(var_exp[<span class="nu">2</span>], <span class="nu">1</span>), <span class="st">"% variance)"</span>),
+       colour = <span class="st">"Season"</span>,
+       title = <span class="st">"PCA Biplot — Haor Basin Paddy Soils"</span>) +
   <span class="kw">theme_classic</span>(base_size = <span class="nu">13</span>) +
   <span class="kw">theme</span>(legend.position = <span class="st">"bottom"</span>)
 
 <span class="kw">ggsave</span>(<span class="st">"haor_pca_biplot.png"</span>, dpi = <span class="nu">300</span>, width = <span class="nu">7</span>, height = <span class="nu">6</span>)</pre>
           </div>
 
-          <p>The biplot from this dataset shows a clear separation between pre-monsoon (left, negative PC1) and post-monsoon (right, positive PC1) samples along the horizontal axis. Fe and Mn arrows point strongly to the right (high post-monsoon), while pH points to the left. Along the vertical axis (PC2), S4 post-monsoon samples sit at the top (high OM, Av-P, Ex-K), and S3/S6 sit at the bottom. This visual structure confirms what the loadings table told us arithmetically.</p>
+          <p>The biplot from this dataset shows a clear separation between pre-monsoon samples (positive PC1, right side) and post-monsoon samples (negative PC1, left side) along the horizontal axis. Because pH is the only variable with a positive loading on PC1, its arrow points right (pre-monsoon = higher pH), while Fe, Mn, EC, and all nutrient arrows point left (post-monsoon = more waterlogging, higher Fe/Mn/EC). Along the vertical axis (PC2), S4 pre-monsoon sits at the top (high Av-P, Ex-K, OM relative to Fe/Mn) — the fertility signal. S1 post-monsoon sits at the bottom of PC2 (Fe and Mn elevated relative to nutrients). This visual structure confirms what the loadings table told us arithmetically.</p>
 
           <!-- S9 -->
           <h2 id="s9"><span class="step-badge">06</span> Extract Scores for Downstream Analysis</h2>
@@ -921,17 +941,24 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
 
           <div class="output-wrap">
             <div class="output-header"><span>Output — Scores (abbreviated)</span></div>
-            <pre class="output-pre">  site season    PC1    PC2
-1   S1    Pre  <span class="hi">-2.74</span>  <span class="sig">-0.18</span>
-2   S1   Post   <span class="hi">1.82</span>  <span class="sig">-0.42</span>
-3   S2    Pre  <span class="hi">-2.30</span>  <span class="sig"> 0.04</span>
-4   S2   Post   <span class="hi">2.18</span>  <span class="sig"> 0.21</span>
-...
-8   S4   Post   <span class="hi">4.62</span>  <span class="sig"> 1.94</span>  ← highest PC1 and PC2
-12  S6   Post   <span class="hi">1.54</span>  <span class="sig">-0.91</span></pre>
+            <pre class="output-pre">   site season        PC1        PC2
+1    S1    Pre  <span class="sig"> 2.186</span>  <span class="sig"> 0.240</span>
+2    S1   Post  <span class="hi">-0.872</span>  <span class="hi">-1.055</span>  ← lowest PC2
+3    S2    Pre  <span class="sig"> 1.262</span>  <span class="sig"> 0.700</span>
+4    S2   Post  <span class="hi">-2.526</span>  <span class="sig">-0.522</span>
+5    S3    Pre  <span class="sig"> 3.348</span>  <span class="sig"> 0.267</span>
+6    S3   Post  <span class="sig"> 0.408</span>  <span class="sig">-0.771</span>
+7    S4    Pre  <span class="hi">-2.315</span>  <span class="hi"> 1.568</span>  ← highest PC2
+8    S4   Post  <span class="hi">-6.936</span>  <span class="sig"> 0.405</span>  ← lowest PC1 (most post-monsoon)
+9    S5    Pre  <span class="sig"> 2.046</span>  <span class="sig"> 0.349</span>
+10   S5   Post  <span class="hi">-1.521</span>  <span class="sig">-0.752</span>
+11   S6    Pre  <span class="sig"> 3.907</span>  <span class="sig"> 0.271</span>  ← highest PC1 (most pre-monsoon)
+12   S6   Post  <span class="sig"> 1.013</span>  <span class="sig">-0.699</span></pre>
           </div>
 
-          <p>S4 post-monsoon (site 8) has the highest scores on both PC1 and PC2 — it is the most waterlogging-affected AND the most fertile sample. The k-means clustering on PC scores cleanly separates pre-monsoon from post-monsoon samples, confirming that season is the dominant source of variation in this dataset.</p>
+          <p>S4 post-monsoon (row 8) has the most negative PC1 score (−6.94), making it the most waterlogging-affected sample in the dataset. S6 pre-monsoon has the highest PC1 score (+3.91), representing the most aerobic, pre-flood state. On PC2, S4 pre-monsoon scores highest (+1.57) — this site has high OM and nutrients accumulated from organic matter inputs, but measured before the onset of waterlogging so Fe and Mn are still low. S1 post-monsoon scores most negatively on PC2 (−1.06), reflecting Fe and Mn elevated relative to its nutrient status.</p>
+
+          <p>The k-means clustering on PC scores mostly separates seasons (5 Pre in one cluster, 4 Post in another), though S4 Pre clusters with the post-monsoon group because its negative PC1 score reflects its characteristically higher OM and nutrients even before flooding. This imperfect separation confirms that site-level differences (PC2) add meaningful variation beyond the dominant seasonal signal.</p>
 
           <!-- S10 -->
           <h2 id="s10">Writing Up PCA Results</h2>
@@ -940,8 +967,8 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
 
           <div class="callout-box">
             <span class="callout-label">Results template</span>
-            <p>PCA of ten soil chemical variables across twelve Haor basin paddy soil samples (6 sites × 2 seasons) reduced data dimensionality to two principal components (PCs) that together explained 97.2% of total variance (PC1: 86.0%; PC2: 16.0%). The scree plot indicated a sharp break after PC1, and both retained components exceeded the Kaiser eigenvalue criterion (&gt;1.0).</p>
-            <p style="margin-top:12px;">PC1 (86.0% variance) represented a waterlogging–redox gradient, characterised by high positive loadings for Fe (0.330), Mn (0.330), EC (0.322), and all nutrient variables (OM, TN, Av-P, Ex-K: 0.305–0.318), and a strong negative loading for pH (−0.328). Post-monsoon samples consistently scored higher on PC1 than pre-monsoon samples, reflecting seasonal reduction-driven release of Fe²⁺ and Mn²⁺ and associated pH decline. PC2 (16.0% variance) represented a site fertility gradient, with highest positive loadings for Av-P (0.488), Ex-K (0.422), and OM (0.412), and negative loadings for Fe (−0.228) and Mn (−0.242). Site S4, with the highest organic matter inputs, scored highest on PC2 across both seasons.</p>
+            <p>PCA of ten soil chemical variables across twelve Haor basin paddy soil samples (6 sites × 2 seasons) reduced data dimensionality to two principal components (PCs) that together explained 97.83% of total variance (PC1: 91.95%; PC2: 5.88%). The scree plot indicated a sharp break after PC1, and the first component substantially exceeded the Kaiser eigenvalue criterion (&gt;1.0) while PC2 was retained based on the scree plot elbow.</p>
+            <p style="margin-top:12px;">PC1 (91.95% variance) represented a seasonal waterlogging–redox gradient, characterised by strong negative loadings for EC (−0.328), Zn (−0.328), Cu (−0.329), OM (−0.325), TN (−0.325), and positive loading for pH (+0.300). Post-monsoon samples consistently scored negatively on PC1, reflecting reduction-driven release of Fe²⁺ and Mn²⁺ and associated pH decline, while pre-monsoon samples scored positively. PC2 (5.88% variance) represented a site fertility gradient, with the highest positive loadings for Av-P (+0.439), Ex-K (+0.321), and OM (+0.211), and the strongest negative loadings for Fe (−0.586) and Mn (−0.509). Site S4 pre-monsoon scored highest on PC2, reflecting its history of organic matter inputs and elevated plant-available nutrients independent of seasonal flooding.</p>
           </div>
 
           <!-- S11 -->
