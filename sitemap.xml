@@ -40,7 +40,7 @@
   <!-- Blog index — update lastmod every time a new post is published -->
   <url>
     <loc>https://sajjadur-rahman.com/blog.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -60,6 +60,86 @@
        Add one <url> block below for each new post
        file as it is published to this domain.
        ═══════════════════════════════════════════════ -->
+
+  <!-- The Complete IELTS Guide for Bangladeshi Candidates (2026) -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-complete-guide-bangladesh.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IELTS Academic vs General Training: Which One Should You Take? -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-academic-vs-general-training.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IELTS Listening: The Traps That Cost Easy Marks -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-listening-traps.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IELTS Reading: A Time-Management Strategy for All Question Types -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-reading-time-management.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Five Mistakes Bangladeshi IELTS Candidates Make -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-mistakes-bangladeshi-candidates.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IELTS Academic Writing Task 1: How to Describe Data -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-writing-task-1-data-description.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IELTS Speaking: What Actually Loses You Marks -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-speaking-mark-losses.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- What IELTS Band Score Do You Actually Need? A Guide for Bangladeshi Applicants -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-band-score-guide-bangladesh.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- IELTS Writing Task 2: The Structure That Gets You Band 7 -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-ielts-writing-task-2-band-7.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- How Many Replicates Do You Actually Need for a Pot Experiment? -->
+  <url>
+    <loc>https://sajjadur-rahman.com/blog-pot-experiment-replicates.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- What a P-Value Actually Means (and Five Things It Doesn't) -->
   <url>

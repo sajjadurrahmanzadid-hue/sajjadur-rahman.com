@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="How many pots do you actually need for a CRD experiment? The answer depends on four levers — effect size, variability, α, and power. This post walks through a power analysis in R using realistic wheat yield data, plus a reverse calculation for when your pot count is already fixed."/>
+  <meta name="author" content="Sajjadur Rahman"/>
+  <meta name="keywords" content="pot experiment replicates, sample size calculation plant science, power analysis R agriculture, pwr.anova.test tutorial, CRD experimental design, Cohen's f ANOVA, greenhouse experiment design, wheat pot experiment Bangladesh"/>
+  <meta property="og:title" content="How Many Replicates Do You Actually Need for a Pot Experiment? — Sajjadur Rahman"/>
+  <meta property="og:description" content="The four levers that determine your replicate count, a step-by-step power analysis in R with realistic wheat yield data, a reverse calculation for fixed pot counts, and a pre-planting checklist."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-pot-experiment-replicates.html"/>
+  <meta property="article:published_time" content="2026-06-21"/>
+  <meta property="article:author" content="Sajjadur Rahman"/>
+  <title>How Many Replicates Do You Actually Need for a Pot Experiment? — Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-pot-experiment-replicates.html"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-TFCD42G87F");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <style>
+    /* ── Progress bar ── */
+    .read-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--gold); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Hero ── */
+    .article-hero {
+      background: var(--parchment2);
+      border-bottom: 1px solid var(--gold-pale);
+      padding: 60px 0 54px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,126,90,0.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .article-hero .container { max-width: 860px; position: relative; }
+
+    .article-breadcrumb { display: flex; align-items: center; gap: 8px; font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+    .article-breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.7; }
+    .article-breadcrumb a:hover { opacity: 1; }
+    .article-breadcrumb .sep { opacity: 0.35; font-size: 11px; }
+
+    .article-h1 { font-family: var(--font-head); font-size: clamp(24px, 3.8vw, 42px); font-weight: 600; color: var(--ink); line-height: 1.16; letter-spacing: -0.4px; margin-bottom: 22px; }
+    .article-h1 em { font-style: italic; color: var(--gold); }
+
+    .article-deck { font-family: var(--font-body); font-size: 17.5px; color: var(--text-muted); line-height: 1.78; font-style: italic; margin-bottom: 28px; max-width: 680px; }
+
+    .article-meta-bar { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--gold-pale); }
+    .meta-author-block { display: flex; align-items: center; gap: 11px; }
+    .meta-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--parchment3); border: 1.5px solid var(--gold-pale); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .meta-author-name { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; color: var(--ink); display: block; letter-spacing: 0.3px; }
+    .meta-author-role { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); display: block; }
+    .meta-chip { font-family: var(--font-ui); font-size: 10px; color: var(--text-light); }
+    .meta-dot { color: var(--gold-pale); margin: 0 2px; }
+
+    /* ── Layout ── */
+    .article-wrap { padding: 60px 0 80px; }
+    .article-layout { display: grid; grid-template-columns: 1fr 288px; gap: 60px; align-items: start; max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── Prose ── */
+    .article-prose { font-family: var(--font-body); font-size: 16.5px; color: var(--ink-soft); line-height: 1.92; }
+    .article-prose p { margin-bottom: 1.55em; }
+    .article-prose h2 { font-family: var(--font-head); font-size: 23px; font-weight: 600; color: var(--ink); line-height: 1.28; margin: 2.4em 0 0.75em; padding-bottom: 10px; border-bottom: 1px solid var(--gold-pale); }
+    .article-prose h3 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); font-style: italic; margin: 1.8em 0 0.5em; }
+    .article-prose strong { font-weight: 600; color: var(--ink); }
+    .article-prose a { color: var(--gold); text-underline-offset: 3px; }
+    .article-prose a:hover { color: var(--ink); }
+    .article-prose em { font-style: italic; }
+
+    /* ── Levers grid ── */
+    .levers-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin: 1.8em 0;
+    }
+    .lever-card {
+      background: var(--white); border: 0.5px solid var(--gold-pale);
+      border-radius: var(--radius); padding: 18px 20px;
+    }
+    .lever-num {
+      font-family: var(--font-ui); font-size: 8px;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 8px;
+    }
+    .lever-name {
+      font-family: var(--font-head); font-size: 16px;
+      font-weight: 600; color: var(--ink);
+      display: block; margin-bottom: 6px;
+    }
+    .lever-desc {
+      font-family: var(--font-body); font-size: 13px;
+      color: var(--text-muted); line-height: 1.6;
+    }
+    .lever-direction {
+      margin-top: 10px;
+      font-family: var(--font-ui); font-size: 10px;
+      font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px; border-radius: 10px;
+      display: inline-block;
+    }
+    .ld-up { background: rgba(180,60,40,0.08); color: #b44028; }
+    .ld-down { background: rgba(90,122,74,0.10); color: #4a6a36; }
+
+    /* ── Code blocks ── */
+    .code-wrap { margin: 1.8em 0; border-radius: var(--radius); overflow: hidden; border: 0.5px solid rgba(139,126,90,0.2); }
+    .code-header { background: #151310; padding: 9px 18px; display: flex; align-items: center; justify-content: space-between; }
+    .code-lang { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .code-copy-btn { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); background: none; border: 0.5px solid rgba(139,126,90,0.3); border-radius: 4px; padding: 4px 10px; cursor: pointer; transition: color .2s, border-color .2s; }
+    .code-copy-btn:hover { color: var(--gold); border-color: var(--gold); }
+    .code-copy-btn.copied { color: #5a7a4a; border-color: #5a7a4a; }
+    .code-pre { background: #1a1714; margin: 0; padding: 20px 22px; overflow-x: auto; font-family: 'Courier New', 'Lucida Console', monospace; font-size: 13.5px; line-height: 1.75; color: #e8dfc8; white-space: pre; }
+    .code-pre .cm { color: #7a7060; }
+    .code-pre .kw { color: #c8a86e; }
+    .code-pre .st { color: #a8c480; }
+    .code-pre .nu { color: #d4a47c; }
+    .output-wrap { margin: -0.8em 0 1.8em; border-radius: 0 0 var(--radius) var(--radius); overflow: hidden; border: 0.5px solid rgba(139,126,90,0.15); border-top: none; }
+    .output-header { background: #242018; padding: 7px 18px; border-bottom: 0.5px solid rgba(139,126,90,0.15); }
+    .output-header span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6a6052; }
+    .output-pre { background: #201d19; margin: 0; padding: 16px 22px; overflow-x: auto; font-family: 'Courier New', 'Lucida Console', monospace; font-size: 13px; line-height: 1.8; color: #b8af98; white-space: pre; }
+    .output-pre .hi { color: var(--gold-light); font-weight: bold; }
+    .output-pre .sig { color: #5a7a4a; }
+    .output-pre .warn { color: #b44028; }
+
+    /* ── Data tables ── */
+    .data-table-wrap { margin: 2em 0; overflow-x: auto; }
+    .data-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); font-size: 13.5px; }
+    .data-table thead tr { background: var(--ink); }
+    .data-table th { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding: 11px 14px; text-align: left; }
+    .data-table td { padding: 10px 14px; border-bottom: 0.5px solid var(--gold-pale); color: var(--ink-soft); vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: var(--parchment2); }
+    .data-table .num { font-family: 'Courier New', monospace; font-size: 13px; }
+    .impractical { color: #b44028; }
+    .challenging { color: #8b6a00; }
+    .feasible { color: #4a6a36; font-weight: 600; }
+
+    /* ── Callout / pull quote ── */
+    .callout-box { background: var(--white); border: 0.5px solid var(--gold-pale); border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 1.8em 0; }
+    .callout-label { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+    .callout-box p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 0; font-family: var(--font-body); }
+    .pull-quote { border-left: 3px solid var(--gold); background: var(--parchment2); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 26px; margin: 2.2em 0; }
+    .pull-quote p { font-family: var(--font-head); font-size: 17.5px; font-style: italic; color: var(--ink-soft); line-height: 1.65; margin-bottom: 0 !important; }
+
+    /* ── Checklist ── */
+    .checklist { list-style: none; margin: 1.6em 0; padding: 0; }
+    .checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-bottom: 0.5px solid var(--gold-pale); font-size: 15px; color: var(--ink-soft); line-height: 1.6; font-family: var(--font-body); }
+    .checklist li:last-child { border-bottom: none; }
+    .ck-box { width: 20px; height: 20px; flex-shrink: 0; border: 1.5px solid var(--gold); border-radius: 4px; margin-top: 2px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--gold); }
+
+    .article-ornament { text-align: center; font-family: var(--font-head); color: var(--gold); font-size: 18px; letter-spacing: 6px; margin: 2.8em 0; opacity: 0.55; }
+    .article-tags { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 2.8em; padding-top: 1.6em; border-top: 1px solid var(--gold-pale); }
+    .a-tag { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); padding: 5px 13px; border-radius: 20px; text-decoration: none; transition: color .2s, border-color .2s, background .2s; }
+    .a-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+
+    /* ── Author bio ── */
+    .article-bio { background: var(--parchment2); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 26px 28px; margin-top: 3.2em; display: flex; gap: 22px; align-items: flex-start; }
+    .bio-avatar-lg { width: 58px; height: 58px; border-radius: 50%; background: var(--parchment3); border: 2px solid var(--gold-pale); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .bio-inner h4 { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .bio-role-lbl { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .bio-inner p { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 14px; }
+    .bio-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-lnk { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-pale); padding: 5px 12px; border-radius: 20px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .bio-lnk:hover { background: var(--parchment3); border-color: var(--gold); }
+
+    /* ── Sidebar ── */
+    .article-sidebar { position: sticky; top: 90px; }
+    .sb-card { background: var(--white); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); overflow: hidden; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+    .sb-head { background: var(--parchment2); border-bottom: 0.5px solid var(--gold-pale); padding: 11px 16px; }
+    .sb-head span { font-family: var(--font-ui); font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+    .sb-body { padding: 14px 16px; }
+    .cs-item { padding: 9px 0; border-bottom: 0.5px solid var(--gold-pale); font-size: 12px; }
+    .cs-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs-fn { font-family: 'Courier New', monospace; font-size: 11.5px; color: var(--gold); display: block; margin-bottom: 2px; font-weight: 700; }
+    .cs-desc { color: var(--text-muted); line-height: 1.45; font-family: var(--font-body); }
+    .cs-dir { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 7px; border-radius: 8px; display: inline-block; margin-top: 4px; }
+    .cs-dir-up { background: rgba(180,60,40,0.08); color: #b44028; }
+    .cs-dir-dn { background: rgba(90,122,74,0.10); color: #4a6a36; }
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { border-bottom: 0.5px solid var(--gold-pale); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: flex-start; gap: 8px; padding: 9px 2px; font-family: var(--font-ui); font-size: 10.5px; color: var(--text-muted); text-decoration: none; line-height: 1.45; transition: color .18s, padding-left .18s; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+    .toc-list a.active-toc { color: var(--gold); font-weight: 700; }
+    .toc-n { font-size: 9px; font-weight: 700; color: var(--gold); flex-shrink: 0; padding-top: 1px; }
+    .sb-cta { background: var(--ink-soft); border-radius: var(--radius); padding: 20px; margin-bottom: 18px; }
+    .sb-cta h4 { font-family: var(--font-head); font-size: 15.5px; font-weight: 600; color: var(--parchment); margin-bottom: 7px; line-height: 1.35; }
+    .sb-cta h4 em { font-style: italic; color: var(--gold); }
+    .sb-cta p { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+    .sb-cta .btn { display: block; text-align: center; }
+    .share-btns { display: flex; gap: 6px; }
+    .share-b { flex: 1; display: block; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 0.5px solid var(--gold-pale); border-radius: var(--radius); padding: 8px 4px; text-align: center; text-decoration: none; background: var(--white); transition: color .18s, border-color .18s, background .18s; }
+    .share-b:hover { color: var(--gold); border-color: var(--gold); background: var(--parchment2); }
+    .related-link { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--gold-pale); text-decoration: none; color: inherit; transition: opacity .18s; }
+    .related-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-link:hover { opacity: 0.72; }
+    .rel-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+    .rel-title { font-family: var(--font-body); font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+    .post-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 2.8em; padding-top: 1.6em; border-top: 1px solid var(--gold-pale); flex-wrap: wrap; }
+
+    @media (max-width: 960px) {
+      .article-layout { grid-template-columns: 1fr; gap: 44px; padding: 0 20px; }
+      .article-sidebar { position: static; }
+      .levers-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .article-h1 { font-size: 23px; }
+      .article-deck { font-size: 15.5px; }
+      .article-prose { font-size: 15.5px; }
+      .article-bio { flex-direction: column; gap: 14px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Many Replicates Do You Actually Need for a Pot Experiment?",
+    "description": "The four levers that determine your replicate count, a step-by-step power analysis in R with realistic wheat yield data, a reverse calculation for fixed pot counts, and a pre-planting checklist.",
+    "url": "https://sajjadur-rahman.com/blog-pot-experiment-replicates.html",
+    "datePublished": "2026-06-21",
+    "dateModified": "2026-06-21",
+    "author": {
+      "@type": "Person",
+      "name": "Sajjadur Rahman",
+      "url": "https://sajjadur-rahman.com/about.html"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Sajjadur Rahman",
+      "url": "https://sajjadur-rahman.com"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="read-progress" id="readProgress"></div>
+
+  <div id="top-bar">
+    <span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span>
+    <span data-bn class="bn">গবেষক · লেখক · পরামর্শদাতা · ঢাকা, বাংলাদেশ</span>
+  </div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langEN">EN</button>
+          <button class="lang-btn" id="langBN">বাং</button>
+        </div>
+        <a href="services.html" class="btn-hire">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb">
+          <a href="blog.html">Blog</a>
+          <span class="sep">›</span>
+          <span>Data Analysis</span>
+        </div>
+        <h1 class="article-h1">
+          How Many Replicates Do You<br/><em>Actually Need</em> for a Pot Experiment?
+        </h1>
+        <p class="article-deck">The honest answer is somewhere between three and infinity, and "whatever the supervisor says" is not a power analysis. Here's how to make the decision with real numbers — before you plant anything.</p>
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">SR</div>
+            <div>
+              <span class="meta-author-name">Sajjadur Rahman</span>
+              <span class="meta-author-role">MSc Researcher · CRD Experiments · Soil &amp; Environmental Science · DUNTC</span>
+            </div>
+          </div>
+          <span class="meta-chip">June 2026</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">11 min read</span>
+          <span class="meta-chip meta-dot">·</span>
+          <span class="meta-chip">Data Analysis</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="article-wrap">
+      <div class="article-layout">
+
+        <article class="article-prose" id="articleBody">
+
+          <!-- S1 -->
+          <h2 id="s1">The Real Stakes of Getting This Wrong</h2>
+
+          <p>Before my 24-pot CRD experiment on BARI Gom 33 wheat at DUNTC, the most useful piece of experimental design advice I received was: "use three or four." Three or four replicates. That was it. The reasoning, such as it was, involved tradition, space constraints, and the fact that everyone else in the department also used three or four. A power analysis was not mentioned.</p>
+
+          <p>Then a hailstorm hit mid-season and destroyed four pots. You don't get a do-over in a greenhouse experiment. You work with what survives, you run your ANOVA on reduced data, and you spend a long time wondering whether the non-significant result you got means the treatment didn't work or means you simply didn't have enough pots to see that it did.</p>
+
+          <p>That uncertainty — between "the effect is not there" and "the effect is there but I couldn't detect it" — is exactly what a power analysis is designed to prevent. It's the difference between planning your experiment and hoping your experiment. The cost of getting it wrong is measured in pots, soil, fertilizer, greenhouse time, months of your degree, and the specific kind of frustration that comes from results you can't trust in either direction.</p>
+
+          <p>So. How many replicates do you actually need?</p>
+
+          <p>The answer depends on four numbers, and you have to supply all four before the experiment starts — not after.</p>
+
+          <!-- S2 -->
+          <h2 id="s2">The Four Levers</h2>
+
+          <p>Understanding these conceptually before touching any formula will save you from running the calculation without knowing what you're asking.</p>
+
+          <div class="levers-grid">
+            <div class="lever-card">
+              <span class="lever-num">Lever 1</span>
+              <span class="lever-name">Effect Size (f)</span>
+              <span class="lever-desc">The minimum difference between treatment means that you actually care about detecting, expressed as a ratio of the between-group variability to the within-group variability. You choose this. The data can't tell you.</span>
+              <span class="lever-direction ld-up">↑ smaller effect → more pots</span>
+            </div>
+            <div class="lever-card">
+              <span class="lever-num">Lever 2</span>
+              <span class="lever-name">Variability (σ)</span>
+              <span class="lever-desc">How noisy your measurements are within a treatment group — the within-group standard deviation. Estimated from a pilot run, a similar published experiment, or a literature CV for the crop and variable.</span>
+              <span class="lever-direction ld-up">↑ noisier data → more pots</span>
+            </div>
+            <div class="lever-card">
+              <span class="lever-num">Lever 3</span>
+              <span class="lever-name">Significance Level (α)</span>
+              <span class="lever-desc">The false positive rate — the probability of concluding there's an effect when there isn't one. The 0.05 convention is arbitrary but standard. Lowering it to 0.01 requires more pots.</span>
+              <span class="lever-direction ld-up">↓ stricter α → more pots</span>
+            </div>
+            <div class="lever-card">
+              <span class="lever-num">Lever 4</span>
+              <span class="lever-name">Power (1−β)</span>
+              <span class="lever-desc">Your probability of detecting a real effect when it exists. The standard floor is 0.80 — meaning you accept a 1-in-5 chance of missing a true effect. Power = 0.90 requires more pots.</span>
+              <span class="lever-direction ld-up">↑ higher power → more pots</span>
+            </div>
+          </div>
+
+          <p>The effect size lever (f) deserves the most attention because it's the one researchers most often set badly. Cohen's f — the conventional measure for ANOVA — is the standard deviation of the treatment group means divided by the within-group standard deviation. You calculate it by deciding what means you realistically expect to see and what the background variability is. Both of those come from your brain and your literature search, not from the data you haven't yet collected.</p>
+
+          <p>Cohen's conventional thresholds are f = 0.10 (small), f = 0.25 (medium), and f = 0.40 (large). In controlled greenhouse and pot conditions, agricultural effects tend to produce large f values because the within-pot variability is lower than field variability. This is one reason why pot experiments work at all with only 4–6 replicates. But "tends to produce large effects" is not a power analysis.</p>
+
+          <div class="callout-box">
+            <span class="callout-label">The honest calibration question</span>
+            <p>Before calculating n, ask yourself: if the treatment worked perfectly as expected, what would the group means look like, and what within-group SD would I expect? Write those numbers down. Your f is derived from them. If you can't answer those questions from the literature, the power analysis will tell you nothing useful — and that is information worth having before you plant.</p>
+          </div>
+
+          <!-- S3 -->
+          <h2 id="s3">Running the Power Analysis in R</h2>
+
+          <p>The <code>pwr</code> package handles power calculations for common statistical tests, including one-way ANOVA. Install it once, then use <code>pwr.anova.test()</code> to find any one of the four parameters given the other three.</p>
+
+          <p>The running example: a 4-treatment CRD on BARI Gom 33 wheat, testing 0, 40, 80, and 120 kg N/ha as urea. From published studies on similar wheat varieties in Bangladesh, you estimate that grain yield will follow a diminishing-returns pattern with N: means approximately 2.8, 3.5, 3.9, 4.1 t/ha. You also estimate that within any single nitrogen treatment, pot-to-pot variation — due to minor soil differences, pot placement effects, and measurement error — will produce a standard deviation of about 0.55 t/ha. That SD is your estimate of σ.</p>
+
+          <div class="code-wrap" id="cw1">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw1')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Install once, then load</span>
+<span class="cm"># install.packages("pwr")</span>
+<span class="kw">library</span>(pwr)
+
+<span class="cm"># Step 1: calculate Cohen's f from expected means and within-group SD</span>
+k        &lt;- <span class="nu">4</span>                           <span class="cm"># number of treatments</span>
+mu       &lt;- <span class="kw">c</span>(<span class="nu">2.8, 3.5, 3.9, 4.1</span>)      <span class="cm"># expected group means (t/ha)</span>
+sigma    &lt;- <span class="nu">0.55</span>                         <span class="cm"># within-group SD (t/ha) from literature</span>
+
+mu_grand &lt;- <span class="kw">mean</span>(mu)
+sigma_m  &lt;- <span class="kw">sqrt</span>(<span class="kw">mean</span>((mu - mu_grand)^<span class="nu">2</span>))  <span class="cm"># SD of the group means</span>
+f        &lt;- sigma_m / sigma
+
+<span class="kw">cat</span>(<span class="st">"Grand mean:  "</span>, <span class="kw">round</span>(mu_grand, <span class="nu">2</span>), <span class="st">"t/ha\n"</span>)
+<span class="kw">cat</span>(<span class="st">"sigma_m:     "</span>, <span class="kw">round</span>(sigma_m, <span class="nu">3</span>), <span class="st">"\n"</span>)
+<span class="kw">cat</span>(<span class="st">"Cohen's f:   "</span>, <span class="kw">round</span>(f, <span class="nu">3</span>), <span class="st">"\n\n"</span>)
+
+<span class="cm"># Step 2: find required n per group</span>
+<span class="kw">pwr.anova.test</span>(k = k, f = f, sig.level = <span class="nu">0.05</span>, power = <span class="nu">0.80</span>)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">Grand mean:   3.57 t/ha
+sigma_m:      0.497
+Cohen's f:    <span class="hi">0.903</span>
+
+     Balanced one-way analysis of variance power calculation
+
+              k = 4
+              <span class="hi">n = 4.449</span>
+              f = 0.903
+      sig.level = 0.05
+          power = 0.8
+
+NOTE: n is number in each group</pre>
+          </div>
+
+          <p>Round up to <strong>5 pots per group</strong>, giving 20 pots total. With the expected effect size in this scenario (f = 0.90, which is large — a consequence of the strong N response and controlled pot conditions), you need fewer replicates than you might expect. Your design is efficient precisely because you're working in a controlled environment.</p>
+
+          <p>But notice how sensitive this is to σ. If the within-group variability is higher than you estimated — say σ = 0.75 t/ha instead of 0.55, because pot placement near the greenhouse wall or edge effects turn out to matter more than you thought:</p>
+
+          <div class="code-wrap" id="cw2">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw2')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Same means, higher within-group SD</span>
+sigma_high &lt;- <span class="nu">0.75</span>
+f_high     &lt;- sigma_m / sigma_high
+
+<span class="kw">cat</span>(<span class="st">"Cohen's f (higher variability):"</span>, <span class="kw">round</span>(f_high, <span class="nu">3</span>), <span class="st">"\n"</span>)
+<span class="kw">pwr.anova.test</span>(k = k, f = f_high, sig.level = <span class="nu">0.05</span>, power = <span class="nu">0.80</span>)</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">Cohen's f (higher variability): <span class="hi">0.662</span>
+
+              <span class="hi">n = 7.265</span>
+
+NOTE: n is number in each group</pre>
+          </div>
+
+          <p>Now you need 8 pots per group — 32 total. The same expected treatment effect, but noisier conditions, and the required n jumps by 60%. This is why your estimate of σ matters as much as your estimate of the treatment means, and why a small pilot run of 3–4 pots is worth the investment if you have no good literature estimate.</p>
+
+          <!-- S4 -->
+          <h2 id="s4">How Required n Responds to Effect Size</h2>
+
+          <p>The most instructive thing you can do with a power analysis is run it across a range of f values to see how quickly the required sample size grows as you try to detect smaller effects. The table below spans from a modest medium effect to a large one, at k = 4 treatments with 80% power and α = 0.05:</p>
+
+          <div class="code-wrap" id="cw3">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw3')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Sensitivity: required n as Cohen's f changes</span>
+f_values &lt;- <span class="kw">c</span>(<span class="nu">0.25, 0.35, 0.50, 0.65, 0.80, 1.00</span>)
+
+<span class="kw">for</span> (f_val <span class="kw">in</span> f_values) {
+  n_req &lt;- <span class="kw">ceiling</span>(<span class="kw">pwr.anova.test</span>(k = <span class="nu">4</span>, f = f_val,
+                                     sig.level = <span class="nu">0.05</span>, power = <span class="nu">0.80</span>)$n)
+  <span class="kw">cat</span>(<span class="kw">sprintf</span>(<span class="st">"f = %.2f | n = %2d per group | %3d pots total\n"</span>,
+              f_val, n_req, n_req * <span class="nu">4</span>))
+}</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">f = 0.25 | n = <span class="warn">45</span> per group | <span class="warn">180</span> pots total
+f = 0.35 | n = <span class="warn">24</span> per group | <span class="warn"> 96</span> pots total
+f = 0.50 | n = <span class="hi">12</span> per group | <span class="hi"> 48</span> pots total
+f = 0.65 | n =  <span class="sig">8</span> per group |  <span class="sig">32</span> pots total
+f = 0.80 | n =  <span class="sig">6</span> per group |  <span class="sig">24</span> pots total
+f = 1.00 | n =  <span class="sig">4</span> per group |  <span class="sig">16</span> pots total</pre>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table" aria-label="Required pots by effect size — 4 treatments, α=0.05, 80% power">
+              <thead>
+                <tr>
+                  <th>Cohen's f</th>
+                  <th>Effect Category</th>
+                  <th>n per Group</th>
+                  <th>Total Pots (k=4)</th>
+                  <th>Feasibility</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="num">0.25</td>
+                  <td>Medium</td>
+                  <td class="num impractical">45</td>
+                  <td class="num impractical">180</td>
+                  <td class="impractical">Impractical for most setups</td>
+                </tr>
+                <tr>
+                  <td class="num">0.35</td>
+                  <td>Medium–Large</td>
+                  <td class="num impractical">24</td>
+                  <td class="num impractical">96</td>
+                  <td class="impractical">Very challenging</td>
+                </tr>
+                <tr>
+                  <td class="num">0.50</td>
+                  <td>Large</td>
+                  <td class="num challenging">12</td>
+                  <td class="num challenging">48</td>
+                  <td class="challenging">Challenging but possible</td>
+                </tr>
+                <tr>
+                  <td class="num">0.65</td>
+                  <td>Large</td>
+                  <td class="num feasible">8</td>
+                  <td class="num feasible">32</td>
+                  <td class="feasible">Feasible for most labs</td>
+                </tr>
+                <tr>
+                  <td class="num">0.80</td>
+                  <td>Very Large</td>
+                  <td class="num feasible">6</td>
+                  <td class="num feasible">24</td>
+                  <td class="feasible">Standard pot experiment range</td>
+                </tr>
+                <tr>
+                  <td class="num">1.00</td>
+                  <td>Very Large</td>
+                  <td class="num feasible">4</td>
+                  <td class="num feasible">16</td>
+                  <td class="feasible">Minimum for large expected effects</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The table makes the underlying logic visible. The 4–6 replicates that tradition prescribes are only appropriate when you expect a very large effect size (f ≥ 0.80). In highly controlled pot experiments with strong N response curves, that expectation is often justified — which is why the tradition holds. But if you're testing a subtle micronutrient interaction or a soil amendment that produces modest yield responses, 4–6 replicates may leave you fundamentally unable to see the effect you're looking for.</p>
+
+          <!-- S5 -->
+          <h2 id="s5">The Reverse Calculation — Working Back from Fixed Pots</h2>
+
+          <p>Most graduate students don't choose their pot count from scratch. They inherit a greenhouse bay with space for 24 pots, or a supervisor who says "you can have 30 pots maximum." The more useful question then is not "how many do I need?" but "given what I have, what can I actually detect?"</p>
+
+          <p>You run the same function, supplying n instead of leaving it empty, and solve for f:</p>
+
+          <div class="code-wrap" id="cw4">
+            <div class="code-header">
+              <span class="code-lang">R</span>
+              <button class="code-copy-btn" onclick="copyCode('cw4')">Copy</button>
+            </div>
+            <pre class="code-pre"><span class="cm"># Reverse: minimum detectable f at different n values</span>
+n_values &lt;- <span class="kw">c</span>(<span class="nu">3, 4, 5, 6, 8, 10</span>)
+
+<span class="kw">for</span> (n_val <span class="kw">in</span> n_values) {
+  f_min &lt;- <span class="kw">pwr.anova.test</span>(k = <span class="nu">4</span>, n = n_val,
+                            sig.level = <span class="nu">0.05</span>, power = <span class="nu">0.80</span>)$f
+  <span class="kw">cat</span>(<span class="kw">sprintf</span>(<span class="st">"n = %2d per group (%2d pots): min detectable f = %.2f\n"</span>,
+              n_val, n_val * <span class="nu">4</span>, f_min))
+}</pre>
+          </div>
+
+          <div class="output-wrap">
+            <div class="output-header"><span>Output</span></div>
+            <pre class="output-pre">n =  3 per group (12 pots): min detectable f = <span class="warn">1.22</span>
+n =  4 per group (16 pots): min detectable f = <span class="hi">0.97</span>
+n =  5 per group (20 pots): min detectable f = <span class="hi">0.84</span>
+n =  6 per group (24 pots): min detectable f = <span class="sig">0.74</span>
+n =  8 per group (32 pots): min detectable f = <span class="sig">0.63</span>
+n = 10 per group (40 pots): min detectable f = <span class="sig">0.55</span></pre>
+          </div>
+
+          <p>Read this table as a contract between you and your design. With 6 pots per treatment (24 pots total), you can reliably detect effects where f ≥ 0.74. To know whether that threshold is achievable in your experiment, you translate it back into yield units. If σ = 0.55 t/ha, then an f of 0.74 means the standard deviation of the group means needs to be at least 0.74 × 0.55 = 0.41 t/ha. In the BARI Gom 33 context, with a full N response curve from 0 to 120 kg/ha, that's a reasonable expectation. If you were testing two slow-release fertilizer formulations that differ only slightly in their N release profile, f = 0.74 would be far too optimistic and 24 pots would be a recipe for undetectable effects.</p>
+
+          <p>Knowing this ahead of planting is more useful than discovering it after harvest. If your reverse calculation shows your available pots can only detect very large effects, you have three options: reduce the number of treatments (fewer groups → more pots per group), constrain the scope of the comparison (test your two most contrasting treatments rather than five), or be honest in your thesis that the study is exploratory and powered to detect only large effects.</p>
+
+          <!-- S6 -->
+          <h2 id="s6">Buffer Pots and the Hailstorm Lesson</h2>
+
+          <p>The power analysis gives you the minimum n for the experiment you're planning. It does not account for the experiment you're actually running.</p>
+
+          <p>Pots fail. A fungal infection wipes out two replicates in the highest-N treatment. A pipe burst in mid-January floods one end of the greenhouse bay. A hailstorm — and yes, this happens to covered and semi-covered structures at DUNTC — dislodges several pots and compromises data quality in a way you only discover during harvest. Any experiment that runs from planting to harvest over 90–120 days is exposed to a hundred small disasters that your power calculation didn't model.</p>
+
+          <div class="pull-quote">
+            <p>Plan for 15–20% more pots than your power analysis requires. You're not padding unnecessarily — you're buying a minimum viable experiment even if things go wrong.</p>
+          </div>
+
+          <p>In practice: if your power analysis says 6 pots per group, plan for 7 or 8. If it says 20 total, prepare soil and procure materials for 24–26. The incremental cost of an extra pot at the planning stage is trivial compared to the cost of running a 90-day experiment and arriving at a result you can't defend.</p>
+
+          <p>For CRD experiments specifically, losing even one or two pots from one treatment group creates an unbalanced design. That's not catastrophic — unbalanced ANOVA is straightforward in R using <code>aov()</code> with Type III sums of squares — but it reduces your power in proportion to the imbalance, which is exactly the opposite direction from where you want to be going.</p>
+
+          <!-- S7 -->
+          <h2 id="s7">The Pre-Planting Checklist</h2>
+
+          <p>The discipline of running a power analysis is not the calculation itself. It's the discipline of making all four decisions explicitly, before any seeds go into soil, instead of justifying them after harvest. Here is what that looks like as a concrete sequence:</p>
+
+          <ul class="checklist">
+            <li>
+              <span class="ck-box">1</span>
+              <div><strong>Decide the minimum meaningful effect size.</strong> From the published literature on similar crops, management practices, and measurement variables, estimate what treatment means you realistically expect. Write them down. This is your f numerator.</div>
+            </li>
+            <li>
+              <span class="ck-box">2</span>
+              <div><strong>Estimate within-group variability.</strong> Look for CV or SD values reported in similar pot experiments. As a rule of thumb, pot experiments in controlled environments typically have CV of 8–15% for grain yield. Apply that to your expected grand mean. This is σ, your f denominator.</div>
+            </li>
+            <li>
+              <span class="ck-box">3</span>
+              <div><strong>Set your significance level and power.</strong> α = 0.05 and power = 0.80 are the field standards, and departing from them requires a specific reason. If your experiment has serious resource constraints, document that the study is powered for large effects only.</div>
+            </li>
+            <li>
+              <span class="ck-box">4</span>
+              <div><strong>Run <code>pwr.anova.test()</code>.</strong> Get n. Round up. Multiply by k. That's your baseline total pot count.</div>
+            </li>
+            <li>
+              <span class="ck-box">5</span>
+              <div><strong>Add 15–20% buffer pots.</strong> Procure soil, fertilizer, and materials for this inflated total. Prepare them all. You may not need the extras, and that's fine.</div>
+            </li>
+            <li>
+              <span class="ck-box">6</span>
+              <div><strong>If fixed constraints apply, run the reverse calculation.</strong> Check whether the minimum detectable f is realistic for your system. If it isn't — if your available pots can only detect effects so large they'd be visible to the naked eye at harvest — revise the experimental question before planting.</div>
+            </li>
+          </ul>
+
+          <p>None of this is mathematically difficult. What it requires is the willingness to make explicit commitments before the data exist — to say, "I believe this treatment will produce roughly this much difference, with this much within-group variation, and I'm going to design around that belief." That is the scientific discipline that separates an experiment from an experience.</p>
+
+          <p>If you find that your available resources can only detect very large effects, that's useful information too. Write a thesis chapter that uses a controlled, well-powered comparison of two treatments instead of an underpowered comparison of six. The quality of evidence you produce matters more than the number of treatments you test.</p>
+
+          <p>The <a href="blog-p-value-meaning.html">p-value post</a> explains what α and power mean in terms of the errors they control — false positives and false negatives. The <a href="blog-anova-r-tutorial.html">ANOVA tutorial</a> covers what you do with the data once you've collected it. This post is what goes in between: the moment before planting when you commit to a design that gives you a fair chance of finding what you're looking for.</p>
+
+          <div class="article-ornament">✦ ✦ ✦</div>
+
+          <p>If you're designing a pot experiment and want the power analysis run for your specific crop, variable, and constraint, that's the kind of pre-experiment consultation the <a href="services.html#data">data analysis service</a> covers — including the experimental design, not just the statistics at the end.</p>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <a href="blog.html" class="a-tag">Experimental Design</a>
+            <a href="blog.html" class="a-tag">Power Analysis</a>
+            <a href="blog.html" class="a-tag">Sample Size</a>
+            <a href="blog.html" class="a-tag">R Tutorial</a>
+            <a href="blog.html" class="a-tag">CRD</a>
+            <a href="blog.html" class="a-tag">ANOVA</a>
+            <a href="blog.html" class="a-tag">Cohen's f</a>
+            <a href="blog.html" class="a-tag">Thesis Research</a>
+          </div>
+
+          <div class="post-nav">
+            <a href="blog-p-value-meaning.html" class="btn btn-outline btn-arrow">← What a P-Value Means</a>
+            <a href="blog-anova-r-tutorial.html" class="btn btn-gold">One-Way ANOVA Tutorial →</a>
+          </div>
+
+          <!-- Author bio -->
+          <div class="article-bio">
+            <div class="bio-avatar-lg">SR</div>
+            <div class="bio-inner">
+              <h4>Sajjadur Rahman</h4>
+              <span class="bio-role-lbl">MSc Researcher · University of Dhaka · DUNTC Field Experiments</span>
+              <p>NST Fellow who has run CRD and RCBD pot experiments on BARI Gom 33 and other varieties under controlled and semi-controlled conditions. Developer of SPADE. Available for pre-experiment design consultation — power analysis, replicate planning, and CRD/RCBD layout — as well as post-harvest data analysis.</p>
+              <div class="bio-links">
+                <a href="services.html#data" class="bio-lnk">Data Analysis</a>
+                <a href="blog-spade-open-source.html" class="bio-lnk">SPADE Tool</a>
+                <a href="research.html" class="bio-lnk">My Research</a>
+                <a href="contact.html" class="bio-lnk">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar">
+
+          <!-- Four Levers card -->
+          <div class="sb-card">
+            <div class="sb-head"><span>The Four Levers</span></div>
+            <div class="sb-body">
+              <div class="cs-item">
+                <span class="cs-fn">Effect size (f)</span>
+                <span class="cs-desc">σ_means / σ_within. You decide the minimum difference worth detecting.</span>
+                <span class="cs-dir cs-dir-up">smaller f → more pots</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">Variability (σ)</span>
+                <span class="cs-desc">Within-group SD from pilot data or published CVs. Controlled pots → lower σ.</span>
+                <span class="cs-dir cs-dir-up">higher σ → more pots</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">α = 0.05</span>
+                <span class="cs-desc">False positive rate. Standard convention — lower threshold means more pots.</span>
+                <span class="cs-dir cs-dir-up">stricter α → more pots</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-fn">Power = 0.80</span>
+                <span class="cs-desc">80% chance of catching a true effect. Higher power = fewer misses, more pots.</span>
+                <span class="cs-dir cs-dir-up">higher power → more pots</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="sb-card">
+            <div class="sb-head"><span>In This Article</span></div>
+            <div class="sb-body">
+              <ol class="toc-list">
+                <li><a href="#s1" class="toc-link"><span class="toc-n">–</span>The Real Stakes</a></li>
+                <li><a href="#s2" class="toc-link"><span class="toc-n">–</span>The Four Levers</a></li>
+                <li><a href="#s3" class="toc-link"><span class="toc-n">–</span>Power Analysis in R</a></li>
+                <li><a href="#s4" class="toc-link"><span class="toc-n">–</span>Sensitivity: n vs f</a></li>
+                <li><a href="#s5" class="toc-link"><span class="toc-n">–</span>Fixed Pots → Reverse Calc</a></li>
+                <li><a href="#s6" class="toc-link"><span class="toc-n">–</span>Buffer Pots</a></li>
+                <li><a href="#s7" class="toc-link"><span class="toc-n">–</span>Pre-Planting Checklist</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="sb-cta">
+            <h4>Need help <em>designing</em> your experiment?</h4>
+            <p>I run pre-experiment power analyses and help design CRD/RCBD layouts — pot count, treatment structure, and sampling strategy — before you commit resources.</p>
+            <a href="services.html#data" class="btn btn-gold">Data Analysis Service →</a>
+          </div>
+
+          <!-- Share -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Share This Post</span></div>
+            <div class="sb-body">
+              <div class="share-btns">
+                <a class="share-b"
+                   href="https://wa.me/?text=How%20many%20replicates%20do%20you%20need%20for%20a%20pot%20experiment%3F%20Power%20analysis%20in%20R%20https%3A%2F%2Fsajjadur-rahman.com%2Fblog-pot-experiment-replicates.html"
+                   target="_blank" rel="noopener">WhatsApp</a>
+                <a class="share-b"
+                   href="https://twitter.com/intent/tweet?text=How%20many%20replicates%20do%20you%20actually%20need%20for%20a%20pot%20experiment%3F%20Power%20analysis%20walkthrough%20in%20R&url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-pot-experiment-replicates.html"
+                   target="_blank" rel="noopener">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related posts -->
+          <div class="sb-card">
+            <div class="sb-head"><span>Related Posts</span></div>
+            <div class="sb-body">
+              <a href="blog-p-value-meaning.html" class="related-link">
+                <span class="rel-icon">🎯</span>
+                <span class="rel-title">What a p-value actually means — and five things it doesn't</span>
+              </a>
+              <a href="blog-anova-r-tutorial.html" class="related-link">
+                <span class="rel-icon">📊</span>
+                <span class="rel-title">One-Way ANOVA in R — the test you're designing around</span>
+              </a>
+              <a href="blog-tukey-hsd-explained.html" class="related-link">
+                <span class="rel-icon">📐</span>
+                <span class="rel-title">Tukey HSD test — comparing treatment means after ANOVA</span>
+              </a>
+              <a href="blog-spade-open-source.html" class="related-link">
+                <span class="rel-icon">🌾</span>
+                <span class="rel-title">SPADE — the open-source tool built for pot experiment data</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Sajjadur <span>Rahman</span></div>
+          <p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka. Offering scientific writing, data analysis, IELTS tutoring, and CV development services.</p>
+          <p data-bn class="bn">এমএস গবেষক · মৃত্তিকা, পানি ও পরিবেশ · ঢাকা বিশ্ববিদ্যালয়।</p>
+          <div class="footer-social">
+            <a href="https://wa.me/8801941582285" title="WhatsApp">💬</a>
+            <a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a>
+            <a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" title="ResearchGate" target="_blank" rel="noopener">🔬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="research.html">Research</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Services</h4>
+          <a href="services.html">Manuscript Editing</a>
+          <a href="services.html">Data Analysis</a>
+          <a href="services.html">Thesis Consultation</a>
+          <a href="services.html">IELTS Tutoring</a>
+          <a href="services.html">CV Development</a>
+          <a href="services.html">Research Proposals</a>
+          <a href="services.html">Soil Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en>Contact</h4>
+          <a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a>
+          <a href="mailto:services@sajjadur-rahman.com">services@sajjadur-rahman.com</a>
+          <a href="https://wa.me/8801941582285">WhatsApp: +880 1941-582285</a>
+          <a href="#" data-en>Dhaka, Bangladesh</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p>
+        <p data-en>University of Dhaka · BCSIR · DUNTC</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/8801941582285" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    const bar  = document.getElementById('readProgress');
+    const body = document.getElementById('articleBody');
+    window.addEventListener('scroll', () => {
+      if (!body) return;
+      const top = body.getBoundingClientRect().top + window.scrollY;
+      const pct = Math.min(100, Math.max(0, ((window.scrollY - top) / body.offsetHeight) * 100));
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    const tocLinks = document.querySelectorAll('.toc-link');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+          history.pushState(null, '', link.getAttribute('href'));
+        }
+      });
+    });
+
+    const sectionIds = ['s1','s2','s3','s4','s5','s6','s7'];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active-toc'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active-toc');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+    function copyCode(wrapId) {
+      const wrap = document.getElementById(wrapId);
+      const pre  = wrap.querySelector('.code-pre');
+      const btn  = wrap.querySelector('.code-copy-btn');
+      const text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>

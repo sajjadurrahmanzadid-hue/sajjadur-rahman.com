@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="IELTS Academic Reading time management: 60 minutes, 40 questions, 3 passages. How to allocate time by question type, use skim and scan, and handle True/False/Not Given and Matching Headings."/>
+  <meta name="keywords" content="IELTS Reading time management, IELTS Academic Reading strategy, IELTS True False Not Given, IELTS Matching Headings, IELTS Reading Bangladesh"/>
+  <meta property="og:title" content="IELTS Reading: A Time-Management Strategy for All Question Types"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://sajjadur-rahman.com/blog-ielts-reading-time-management.html"/>
+  <meta property="article:published_time" content="2026-06-27"/>
+  <title>IELTS Reading: Time Management Strategy — Sajjadur Rahman</title>
+  <link rel="canonical" href="https://sajjadur-rahman.com/blog-ielts-reading-time-management.html"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-TFCD42G87F");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Raleway:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .read-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--gold);z-index:9999;transition:width .08s linear}
+    .article-hero{background:var(--parchment2);border-bottom:1px solid var(--gold-pale);padding:60px 0 54px;position:relative;overflow:hidden}
+    .article-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(139,126,90,0.06) 0%,transparent 68%);pointer-events:none}
+    .article-hero .container{max-width:860px;position:relative}
+    .article-breadcrumb{display:flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:9.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+    .article-breadcrumb a{color:var(--gold);text-decoration:none;opacity:0.7}.article-breadcrumb a:hover{opacity:1}.article-breadcrumb .sep{opacity:0.35;font-size:11px}
+    .article-h1{font-family:var(--font-head);font-size:clamp(24px,3.8vw,42px);font-weight:600;color:var(--ink);line-height:1.16;letter-spacing:-0.4px;margin-bottom:22px}
+    .article-h1 em{font-style:italic;color:var(--gold)}
+    .article-deck{font-family:var(--font-body);font-size:17.5px;color:var(--text-muted);line-height:1.78;font-style:italic;margin-bottom:28px;max-width:680px}
+    .article-meta-bar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--gold-pale)}
+    .meta-author-block{display:flex;align-items:center;gap:11px}
+    .meta-avatar{width:40px;height:40px;border-radius:50%;background:var(--parchment3);border:1.5px solid var(--gold-pale);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--gold);flex-shrink:0}
+    .meta-author-name{font-family:var(--font-ui);font-size:11.5px;font-weight:700;color:var(--ink);display:block}.meta-author-role{font-family:var(--font-ui);font-size:10px;color:var(--text-light);display:block}
+    .meta-chip{font-family:var(--font-ui);font-size:10px;color:var(--text-light)}.meta-dot{color:var(--gold-pale);margin:0 2px}
+    .article-wrap{padding:60px 0 80px}
+    .article-layout{display:grid;grid-template-columns:1fr 288px;gap:60px;align-items:start;max-width:1080px;margin:0 auto;padding:0 28px}
+    .article-prose{font-family:var(--font-body);font-size:16.5px;color:var(--ink-soft);line-height:1.92}
+    .article-prose p{margin-bottom:1.55em}
+    .article-prose h2{font-family:var(--font-head);font-size:23px;font-weight:600;color:var(--ink);line-height:1.28;margin:2.4em 0 0.75em;padding-bottom:10px;border-bottom:1px solid var(--gold-pale)}
+    .article-prose h3{font-family:var(--font-head);font-size:18px;font-weight:600;color:var(--ink);font-style:italic;margin:1.8em 0 0.5em}
+    .article-prose strong{font-weight:600;color:var(--ink)}.article-prose a{color:var(--gold);text-underline-offset:3px}.article-prose a:hover{color:var(--ink)}
+    .time-plan{background:var(--ink);border-radius:var(--radius);padding:24px 26px;margin:2em 0}
+    .time-plan-title{font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:16px}
+    .tp-row{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:0.5px solid rgba(139,126,90,0.2)}
+    .tp-row:last-child{border-bottom:none;padding-bottom:0}
+    .tp-time{font-family:var(--font-ui);font-size:10px;font-weight:700;color:var(--gold);width:60px;flex-shrink:0;padding-top:2px}
+    .tp-desc{font-family:var(--font-body);font-size:14px;color:var(--parchment);line-height:1.6}
+    .data-table-wrap{margin:2em 0;overflow-x:auto}
+    .data-table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:13.5px}
+    .data-table thead tr{background:var(--ink)}
+    .data-table th{font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:11px 14px;text-align:left}
+    .data-table td{padding:10px 14px;border-bottom:0.5px solid var(--gold-pale);color:var(--ink-soft);vertical-align:top}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table tr:nth-child(even) td{background:var(--parchment2)}
+    .callout-box{background:var(--white);border:0.5px solid var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:1.8em 0}
+    .callout-label{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+    .callout-box p{font-size:14.5px;color:var(--ink-soft);line-height:1.75;margin-bottom:0;font-family:var(--font-body)}
+    .example-box{background:var(--parchment2);border-radius:var(--radius);padding:16px 20px;margin:1.2em 0;border:0.5px solid var(--gold-pale)}
+    .ex-label{font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:8px}
+    .ex-label-warn{color:#8a6a00}
+    .ex-text{font-family:var(--font-body);font-size:14.5px;line-height:1.65}
+    .article-ornament{text-align:center;font-family:var(--font-head);color:var(--gold);font-size:18px;letter-spacing:6px;margin:2.8em 0;opacity:0.55}
+    .article-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:2.8em;padding-top:1.6em;border-top:1px solid var(--gold-pale)}
+    .a-tag{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);border:0.5px solid var(--gold-pale);padding:5px 13px;border-radius:20px;text-decoration:none;transition:color .2s,border-color .2s,background .2s}
+    .a-tag:hover{color:var(--gold);border-color:var(--gold);background:var(--parchment2)}
+    .article-bio{background:var(--parchment2);border:0.5px solid var(--gold-pale);border-radius:var(--radius);padding:26px 28px;margin-top:3.2em;display:flex;gap:22px;align-items:flex-start}
+    .bio-avatar-lg{width:58px;height:58px;border-radius:50%;background:var(--parchment3);border:2px solid var(--gold-pale);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--gold);flex-shrink:0}
+    .bio-inner h4{font-family:var(--font-head);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:2px}
+    .bio-role-lbl{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+    .bio-inner p{font-size:13.5px;color:var(--text-muted);line-height:1.72;margin-bottom:14px}
+    .bio-links{display:flex;gap:8px;flex-wrap:wrap}
+    .bio-lnk{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border:0.5px solid var(--gold-pale);padding:5px 12px;border-radius:20px;text-decoration:none;transition:background .2s,border-color .2s}
+    .bio-lnk:hover{background:var(--parchment3);border-color:var(--gold)}
+    .article-sidebar{position:sticky;top:90px}
+    .sb-card{background:var(--white);border:0.5px solid var(--gold-pale);border-radius:var(--radius);overflow:hidden;margin-bottom:18px;box-shadow:var(--shadow-sm)}
+    .sb-head{background:var(--parchment2);border-bottom:0.5px solid var(--gold-pale);padding:11px 16px}
+    .sb-head span{font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+    .sb-body{padding:14px 16px}
+    .toc-list{list-style:none;margin:0;padding:0}.toc-list li{border-bottom:0.5px solid var(--gold-pale)}.toc-list li:last-child{border-bottom:none}
+    .toc-list a{display:flex;align-items:flex-start;gap:8px;padding:9px 2px;font-family:var(--font-ui);font-size:10.5px;color:var(--text-muted);text-decoration:none;line-height:1.45;transition:color .18s}
+    .toc-list a:hover,.toc-list a.active-toc{color:var(--gold)}.toc-list a.active-toc{font-weight:700}
+    .toc-n{font-size:9px;font-weight:700;color:var(--gold);flex-shrink:0;padding-top:1px}
+    .sb-cta{background:var(--ink-soft);border-radius:var(--radius);padding:20px;margin-bottom:18px}
+    .sb-cta h4{font-family:var(--font-head);font-size:15.5px;font-weight:600;color:var(--parchment);margin-bottom:7px;line-height:1.35}
+    .sb-cta h4 em{font-style:italic;color:var(--gold)}.sb-cta p{font-size:12.5px;color:var(--text-light);line-height:1.65;margin-bottom:14px}
+    .share-btns{display:flex;gap:6px}
+    .share-b{flex:1;display:block;font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);border:0.5px solid var(--gold-pale);border-radius:var(--radius);padding:8px 4px;text-align:center;text-decoration:none;background:var(--white);transition:color .18s,border-color .18s,background .18s}
+    .share-b:hover{color:var(--gold);border-color:var(--gold);background:var(--parchment2)}
+    .related-link{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:0.5px solid var(--gold-pale);text-decoration:none;color:inherit;transition:opacity .18s}
+    .related-link:last-child{border-bottom:none;padding-bottom:0}.related-link:hover{opacity:0.72}
+    .rel-icon{font-size:18px;flex-shrink:0;line-height:1}.rel-title{font-family:var(--font-body);font-size:13px;color:var(--ink-soft);line-height:1.45}
+    .post-nav{display:flex;justify-content:space-between;gap:12px;margin-top:2.8em;padding-top:1.6em;border-top:1px solid var(--gold-pale);flex-wrap:wrap}
+    @media(max-width:960px){.article-layout{grid-template-columns:1fr;gap:44px;padding:0 20px}.article-sidebar{position:static}}
+    @media(max-width:680px){.article-h1{font-size:23px}.article-deck{font-size:15.5px}.article-prose{font-size:15.5px}.article-bio{flex-direction:column;gap:14px}}
+  </style>
+</head>
+<body>
+  <div class="read-progress" id="readProgress"></div>
+  <div id="top-bar"><span data-en>Researcher · Writer · Consultant · Dhaka, Bangladesh</span></div>
+  <nav id="navbar"><div class="nav-inner"><a href="index.html" class="nav-logo">Sajjadur <span>Rahman</span></a><div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="research.html">Research</a><a href="blog.html" class="active">Blog</a><a href="contact.html">Contact</a></div><div class="nav-right"><div class="lang-toggle"><button class="lang-btn active" id="langEN">EN</button><button class="lang-btn" id="langBN">বাং</button></div><a href="services.html" class="btn-hire">Hire Me</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav>
+  <div class="mobile-nav" id="mobileNav"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="research.html">Research</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+
+  <main>
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-breadcrumb"><a href="blog.html">Blog</a><span class="sep">›</span><span>IELTS Prep</span></div>
+        <h1 class="article-h1">IELTS Reading:<br/><em>A Time-Management Strategy</em> for All Question Types</h1>
+        <p class="article-deck">Sixty minutes, forty questions, three passages — roughly 90 seconds per question including the time to locate and verify the answer in the text. The constraint is not vocabulary or comprehension but task management. The strategy below addresses that constraint directly.</p>
+        <div class="article-meta-bar"><div class="meta-author-block"><div class="meta-avatar">SR</div><div><span class="meta-author-name">Sajjadur Rahman</span><span class="meta-author-role">IELTS Tutor · University of Dhaka</span></div></div><span class="meta-chip">June 2026</span><span class="meta-chip meta-dot">·</span><span class="meta-chip">9 min read</span><span class="meta-chip meta-dot">·</span><span class="meta-chip">IELTS Prep</span></div>
+      </div>
+    </header>
+
+    <div class="article-wrap">
+      <div class="article-layout">
+        <article class="article-prose" id="articleBody">
+
+          <h2 id="s1">The Time Pressure — and Why It Catches Candidates</h2>
+          <p>IELTS Academic Reading presents three passages totalling approximately 2,750 words across 40 questions in 60 minutes. Unlike Listening, where the audio sets the pace, Reading is entirely candidate-managed. There is no external signal that time is being wasted. Candidates who read carefully and methodically often find, at the 50-minute mark, that they have completed two passages and have twenty questions remaining with ten minutes to answer them.</p>
+          <p>The underlying cause is a reading habit mismatch. Academic and educational reading in English-medium institutions trains close, careful, linear reading — proceeding word by word through a text to understand it fully before moving on. This is the correct approach for studying a textbook. It is the wrong approach for a test where most questions reward the ability to locate specific information quickly, not the ability to comprehend and retain the full passage.</p>
+          <p>IELTS Reading is not a comprehension test in the academic sense. It is an information-retrieval test with a time constraint. The skills it rewards — skim reading for structure, scan reading for specific information, and selective close reading for verification — are distinct from deep comprehension, and they require deliberate practice to develop if they are not already part of a candidate's reading toolkit.</p>
+
+          <h2 id="s2">Question Type Families and What Each Requires</h2>
+          <div class="data-table-wrap">
+            <table class="data-table" aria-label="IELTS Reading question types and strategies">
+              <thead><tr><th>Question Type</th><th>What It Tests</th><th>Strategy</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Matching Headings</strong></td><td>Paragraph main idea</td><td>Read first and last sentence of each paragraph; match to heading; skim only if needed</td></tr>
+                <tr><td><strong>True / False / Not Given</strong></td><td>Precise factual match</td><td>Questions follow text order; find the relevant sentence; verify word by word — do not infer</td></tr>
+                <tr><td><strong>Yes / No / Not Given</strong></td><td>Author's view vs. fact</td><td>Same order principle; look for hedging language (suggests, argues) not just facts</td></tr>
+                <tr><td><strong>Sentence Completion</strong></td><td>Detail + paraphrase</td><td>Identify keywords in stem; scan for paraphrase of those keywords in text; copy exactly (word limit!)</td></tr>
+                <tr><td><strong>Matching Information</strong></td><td>Locating detail in paragraphs</td><td>Does not follow order; scan each paragraph for the target concept; fastest to do after passage skim</td></tr>
+                <tr><td><strong>Multiple Choice</strong></td><td>Detail or main idea</td><td>Read question and options first; locate relevant section; eliminate distractors rather than confirm</td></tr>
+                <tr><td><strong>Summary Completion</strong></td><td>Paraphrase and vocabulary</td><td>Locate the passage section the summary covers; fill from the text, not from knowledge</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="s3">Time Allocation Per Passage</h2>
+          <p>The three passages in IELTS Academic Reading increase in difficulty. Passage 3 typically contains the most abstract academic language, the most inferential question types, and the highest density of distractor answers. Treating all three passages as equally time-consuming leads to spending too long on Passage 1 and running out of time on Passage 3.</p>
+
+          <div class="time-plan">
+            <span class="time-plan-title">Suggested Time Plan — Per Passage</span>
+            <div class="tp-row"><span class="tp-time">2–3 min</span><span class="tp-desc">Skim the passage: first sentence of each paragraph, any headings, bold terms, proper nouns. Build a mental map of where different topics appear in the text.</span></div>
+            <div class="tp-row"><span class="tp-time">1 min</span><span class="tp-desc">Read all questions. Identify question types. Note which are in passage order (T/F/NG, sentence completion) and which are not (Matching Information).</span></div>
+            <div class="tp-row"><span class="tp-time">14–16 min</span><span class="tp-desc">Answer questions using scan-and-verify: locate the relevant section quickly, read closely only to verify. Move on if stuck — return at the end.</span></div>
+            <div class="tp-row"><span class="tp-time">Total: 18–20 min</span><span class="tp-desc">Per passage. Passage 1: aim for 18 min. Passage 2: 18–20 min. Passage 3: 20–22 min (harder; budget slightly more time). Leaves 2 min at the end to return to skipped questions.</span></div>
+          </div>
+
+          <h2 id="s4">Skim and Scan — What Each Means in Practice</h2>
+          <p><strong>Skimming</strong> is reading for structure and main ideas. The goal is not to understand every sentence but to know which part of the passage contains which kind of information. The first sentence of a paragraph (the topic sentence in most academic prose) gives the main idea; the rest of the paragraph elaborates. Skimming a 900-word passage should take two minutes at most, and the output is a mental (or, on screen, a highlighted) map: paragraph A covers X, paragraph B covers Y, paragraph C introduces Z.</p>
+          <p><strong>Scanning</strong> is reading for specific information. The goal is to locate a particular word, name, date, or concept as quickly as possible. The eye moves down the page looking for keywords rather than reading linearly. When the keyword is found, close reading begins — but only at that point, and only for the surrounding sentences.</p>
+          <p>The transition between the two modes is the core skill. Skimming generates the map; scanning uses the map to navigate to the right location; close reading verifies the answer. Candidates who skip the skim and scan directly — reading every word of every sentence to find answers — spend three to four times as long per question as candidates who use all three modes efficiently.</p>
+
+          <h2 id="s5">True / False / Not Given — The Distinction That Costs Marks</h2>
+          <p>True/False/Not Given (T/F/NG) is the question type most frequently answered incorrectly at Band 6–7 range, not because candidates fail to understand the passage but because they conflate "False" and "Not Given."</p>
+          <p><strong>True:</strong> the statement matches what the passage says, with possible paraphrase.</p>
+          <p><strong>False:</strong> the passage says something that directly contradicts the statement.</p>
+          <p><strong>Not Given:</strong> the passage neither confirms nor contradicts the statement. The information is simply absent.</p>
+
+          <div class="callout-box"><span class="callout-label">The Not Given trap</span><p>A statement is Not Given when the topic appears in the passage but the specific claim in the question does not. If the passage says "the company was founded in 1998" and the question says "the company was profitable in its first year," the answer is Not Given — not False. False would require the passage to say "the company was not profitable in its first year" or something that directly contradicts the claim. The absence of confirmation is not contradiction.</p></div>
+
+          <div class="example-box"><span class="ex-label ex-label-warn">Common error</span><p class="ex-text">Passage states: "Renewable energy investment increased in OECD countries between 2010 and 2020."<br/>Question: "OECD countries invested more in renewables than in fossil fuels between 2010 and 2020."<br/><br/>The passage confirms an increase in renewable investment but makes no comparison to fossil fuel investment. The answer is Not Given — not True, even though the passage is positive about renewable investment, and not False, because the passage does not say fossil fuel investment was higher.</p></div>
+
+          <h2 id="s6">Matching Headings — the Most Time-Consuming Type</h2>
+          <p>Matching Headings asks candidates to match a heading from a list to each numbered paragraph or section of the passage. The list typically contains more headings than there are paragraphs, so wrong answers from the list exist purely as distractors.</p>
+          <p>The first step is to read the heading list before the passage. Then, for each paragraph, read the first sentence — and if the main idea is not immediately clear, the last sentence. The heading that captures the main idea of the paragraph, not a supporting detail, is the answer. Distractors are typically correct words from the paragraph but describe a detail rather than the paragraph's main point.</p>
+          <p>If two headings seem equally plausible for one paragraph, move to the next paragraph, assign its heading, and return. Process of elimination often resolves the ambiguous case.</p>
+
+          <h2 id="s7">Suggested Overall Time Plan</h2>
+          <div class="time-plan">
+            <span class="time-plan-title">Full 60-Minute Reading Test</span>
+            <div class="tp-row"><span class="tp-time">0:00</span><span class="tp-desc">Start Passage 1. Skim (2 min) → read questions → answer. Target: finish by 0:18.</span></div>
+            <div class="tp-row"><span class="tp-time">0:18</span><span class="tp-desc">Start Passage 2. Skim → read questions → answer. Target: finish by 0:37.</span></div>
+            <div class="tp-row"><span class="tp-time">0:37</span><span class="tp-desc">Start Passage 3. Skim → read questions → answer. Target: finish by 0:58.</span></div>
+            <div class="tp-row"><span class="tp-time">0:58</span><span class="tp-desc">Return to any skipped questions. Make a best guess rather than leaving blank — there is no negative marking on IELTS Reading.</span></div>
+          </div>
+
+          <p>There is no negative marking on IELTS Reading. A blank answer scores zero; a wrong guess also scores zero. An unanswered question at the end of the test is a missed opportunity. For any question that cannot be answered with confidence in the time available, a best guess is always preferable to no answer.</p>
+
+          <div class="article-ornament">✦ ✦ ✦</div>
+          <p>The <a href="blog-ielts-listening-traps.html">Listening guide</a> covers the computer-delivered format and the specific trap questions that appear in Parts 3 and 4. For the mistakes Bangladeshi candidates make most often across all four skills, see the <a href="blog-ielts-mistakes-bangladeshi-candidates.html">common mistakes post</a>.</p>
+
+          <div class="article-tags"><a href="blog.html" class="a-tag">IELTS Reading</a><a href="blog.html" class="a-tag">Time Management</a><a href="blog.html" class="a-tag">True False Not Given</a><a href="blog.html" class="a-tag">IELTS Prep</a><a href="blog.html" class="a-tag">Skimming Scanning</a></div>
+          <div class="post-nav"><a href="blog-ielts-mistakes-bangladeshi-candidates.html" class="btn btn-outline btn-arrow">← Five BD Mistakes</a><a href="blog-ielts-listening-traps.html" class="btn btn-gold">Listening Traps →</a></div>
+          <div class="article-bio"><div class="bio-avatar-lg">SR</div><div class="bio-inner"><h4>Sajjadur Rahman</h4><span class="bio-role-lbl">IELTS Tutor · University of Dhaka</span><p>Provides IELTS preparation covering all four skills, including Reading strategy, question-type technique, and timed practice under computer-delivered conditions.</p><div class="bio-links"><a href="services.html#ielts" class="bio-lnk">IELTS Tutoring</a><a href="blog-ielts-band-score-guide-bangladesh.html" class="bio-lnk">Band Score Guide</a><a href="contact.html" class="bio-lnk">Contact</a></div></div></div>
+
+        </article>
+        <aside class="article-sidebar">
+          <div class="sb-card"><div class="sb-head"><span>Time per Passage</span></div><div class="sb-body"><div style="padding:8px 0;border-bottom:0.5px solid var(--gold-pale)"><span style="font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px">Passage 1</span><span style="font-family:var(--font-body);font-size:12.5px;color:var(--text-muted)">~18 min — easiest, don't linger</span></div><div style="padding:8px 0;border-bottom:0.5px solid var(--gold-pale)"><span style="font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px">Passage 2</span><span style="font-family:var(--font-body);font-size:12.5px;color:var(--text-muted)">~19 min — mid-difficulty</span></div><div style="padding:8px 0"><span style="font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px">Passage 3</span><span style="font-family:var(--font-body);font-size:12.5px;color:var(--text-muted)">~21 min — hardest, most inferential</span></div></div></div>
+          <div class="sb-card"><div class="sb-head"><span>In This Article</span></div><div class="sb-body"><ol class="toc-list"><li><a href="#s1" class="toc-link"><span class="toc-n">–</span>The Time Pressure</a></li><li><a href="#s2" class="toc-link"><span class="toc-n">–</span>Question Type Families</a></li><li><a href="#s3" class="toc-link"><span class="toc-n">–</span>Time per Passage</a></li><li><a href="#s4" class="toc-link"><span class="toc-n">–</span>Skim and Scan</a></li><li><a href="#s5" class="toc-link"><span class="toc-n">–</span>True/False/Not Given</a></li><li><a href="#s6" class="toc-link"><span class="toc-n">–</span>Matching Headings</a></li><li><a href="#s7" class="toc-link"><span class="toc-n">–</span>Full Time Plan</a></li></ol></div></div>
+          <div class="sb-cta"><h4>Reading band still <em>not where it needs to be?</em></h4><p>Timed practice with question-type analysis and strategy coaching for Band 7+ targets.</p><a href="services.html#ielts" class="btn btn-gold">IELTS Tutoring →</a></div>
+          <div class="sb-card"><div class="sb-head"><span>Share</span></div><div class="sb-body"><div class="share-btns"><a class="share-b" href="https://wa.me/?text=IELTS+Reading+time+management+strategy+https%3A%2F%2Fsajjadur-rahman.com%2Fblog-ielts-reading-time-management.html" target="_blank" rel="noopener">WhatsApp</a><a class="share-b" href="https://twitter.com/intent/tweet?text=IELTS+Reading+time+management+strategy&url=https%3A%2F%2Fsajjadur-rahman.com%2Fblog-ielts-reading-time-management.html" target="_blank" rel="noopener">X / Twitter</a></div></div></div>
+          <div class="sb-card"><div class="sb-head"><span>IELTS Cluster</span></div><div class="sb-body"><a href="blog-ielts-writing-task-2-band-7.html" class="related-link"><span class="rel-icon">✍️</span><span class="rel-title">Writing Task 2: Band 7 structure</span></a><a href="blog-ielts-band-score-guide-bangladesh.html" class="related-link"><span class="rel-icon">🎯</span><span class="rel-title">Band score guide for Bangladeshi applicants</span></a><a href="blog-ielts-mistakes-bangladeshi-candidates.html" class="related-link"><span class="rel-icon">🇧🇩</span><span class="rel-title">Five mistakes Bangladeshi candidates make</span></a><a href="blog-ielts-listening-traps.html" class="related-link"><span class="rel-icon">🎧</span><span class="rel-title">Listening: traps that cost easy marks</span></a></div></div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <footer id="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="logo">Sajjadur <span>Rahman</span></div><p data-en>MSc Researcher · Soil, Water &amp; Environment · University of Dhaka.</p><div class="footer-social"><a href="https://wa.me/8801941582285" title="WhatsApp">💬</a><a href="mailto:info@sajjadur-rahman.com" title="Email">✉️</a><a href="https://www.researchgate.net/profile/Sajjadur-Rahman-6" target="_blank" rel="noopener">🔬</a></div></div><div class="footer-col"><h4>Pages</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div><div class="footer-col"><h4>Services</h4><a href="services.html">IELTS Tutoring</a><a href="services.html">Data Analysis</a></div><div class="footer-col"><h4>Contact</h4><a href="mailto:info@sajjadur-rahman.com">info@sajjadur-rahman.com</a></div></div><div class="footer-bottom"><p>© 2026 Sajjadur Rahman · sajjadur-rahman.com</p></div></div></footer>
+  <a href="https://wa.me/8801941582285" class="wa-float" title="WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const bar=document.getElementById('readProgress'),body=document.getElementById('articleBody');
+    window.addEventListener('scroll',()=>{if(!body)return;const t=body.getBoundingClientRect().top+window.scrollY,p=Math.min(100,Math.max(0,((window.scrollY-t)/body.offsetHeight)*100));bar.style.width=p+'%'},{passive:true});
+    const tocLinks=document.querySelectorAll('.toc-link');
+    tocLinks.forEach(l=>l.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(l.getAttribute('href'));if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-96,behavior:'smooth'});}));
+    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active-toc'));const a=document.querySelector('.toc-link[href="#'+e.target.id+'"]');if(a)a.classList.add('active-toc');}}),{rootMargin:'-80px 0px -60% 0px'});
+    ['s1','s2','s3','s4','s5','s6','s7'].forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
+  </script>
+</body>
+</html>
