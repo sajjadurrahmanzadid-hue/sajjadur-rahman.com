@@ -14,10 +14,11 @@
   --gold:        #8b7e5a;
   --gold-light:  #c8bfa0;
   --gold-pale:   #e6dfc8;
+  --gold-text:   #6e6038;
   --parchment:   #faf8f3;
   --parchment2:  #f2ede0;
   --parchment3:  #e8e0cc;
-  --text-muted:  #7a6e50;
+  --text-muted:  #6a5e42;
   --text-light:  #9a8e72;
   --white:       #ffffff;
   --accent:      #5a7a4a;
@@ -120,7 +121,7 @@ button, input, textarea, select { font-family: inherit; }
 }
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--gold);
+  color: var(--gold-text);
   border-bottom-color: var(--gold);
 }
 .nav-right {
@@ -243,7 +244,7 @@ button, input, textarea, select { font-family: inherit; }
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   display: block;
   margin-bottom: 10px;
 }
@@ -326,7 +327,7 @@ button, input, textarea, select { font-family: inherit; }
   padding-bottom: 1px;
   transition: color .2s, border-color .2s;
 }
-.text-link:hover { color: var(--gold); border-color: var(--gold); }
+.text-link:hover { color: var(--gold-text); border-color: var(--gold-text); }
 .text-link::after { content: ' →'; }
 
 /* ═══════════════════════════════════════════════════
@@ -344,7 +345,7 @@ button, input, textarea, select { font-family: inherit; }
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   display: block;
   margin-bottom: 10px;
 }
@@ -404,7 +405,7 @@ button, input, textarea, select { font-family: inherit; }
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   background: var(--parchment2);
   border: 0.5px solid var(--gold-light);
   padding: 3px 9px;
@@ -483,7 +484,7 @@ button, input, textarea, select { font-family: inherit; }
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 4px;
 }
 .timeline-item h4 {
@@ -510,7 +511,7 @@ button, input, textarea, select { font-family: inherit; }
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 7px;
 }
 .form-group input,
@@ -531,7 +532,7 @@ button, input, textarea, select { font-family: inherit; }
 .form-group textarea:focus,
 .form-group select:focus { border-color: var(--gold); }
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: var(--text-light); font-style: italic; }
+.form-group textarea::placeholder { color: var(--text-muted); font-style: italic; }
 .form-group textarea { resize: vertical; min-height: 130px; }
 
 /* ═══════════════════════════════════════════════════
@@ -681,7 +682,7 @@ button, input, textarea, select { font-family: inherit; }
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   background: var(--parchment2);
   border: 0.5px solid var(--gold-light);
   padding: 3px 9px;
