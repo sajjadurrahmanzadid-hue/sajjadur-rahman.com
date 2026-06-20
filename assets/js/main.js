@@ -198,3 +198,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* ── A11y enhancements (added by polish script) ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const ham = document.getElementById('hamburger');
+  const mNav = document.getElementById('mobileNav');
+  if (ham && mNav) {
+    ham.setAttribute('aria-controls', 'mobileNav');
+    if (!ham.hasAttribute('aria-expanded')) ham.setAttribute('aria-expanded', 'false');
+    const sync = () => ham.setAttribute('aria-expanded', mNav.classList.contains('open') ? 'true' : 'false');
+    ham.addEventListener('click', () => setTimeout(sync, 0));
+    document.addEventListener('click', () => setTimeout(sync, 0));
+  }
+  const root = document.documentElement;
+  const applyLangA11y = () => {
+    const bn = root.classList.contains('lang-bn');
+    root.setAttribute('lang', bn ? 'bn' : 'en');
+    const en = document.getElementById('langEN'), bnb = document.getElementById('langBN');
+    if (en)  en.setAttribute('aria-pressed', String(!bn));
+    if (bnb) bnb.setAttribute('aria-pressed', String(bn));
+  };
+  applyLangA11y();
+  const en = document.getElementById('langEN'), bnb = document.getElementById('langBN');
+  en  && en.addEventListener('click',  () => setTimeout(applyLangA11y, 0));
+  bnb && bnb.addEventListener('click', () => setTimeout(applyLangA11y, 0));
+});

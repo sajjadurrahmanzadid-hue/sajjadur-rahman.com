@@ -725,3 +725,14 @@ button, input, textarea, select { font-family: inherit; }
   .container { padding: 0 16px; }
   .page-hero h1 { font-size: 24px; }
 }
+
+/* ── A11y enhancements (added by polish script) ── */
+:focus-visible { outline: 2px solid #5a7a4a; outline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid #5a7a4a; outline-offset: 2px; }
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: #1e1c18; color: #faf8f3; padding: 10px 16px;
+  z-index: 99999; border-radius: 0 0 8px 0; text-decoration: none;
+  font-family: 'Raleway', sans-serif; font-size: 14px;
+}
+.skip-link:focus { left: 0; }
