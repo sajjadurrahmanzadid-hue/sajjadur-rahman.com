@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Tukey HSD explained clearly — the multiple comparisons problem it solves, the HSD formula, when to use it vs Bonferroni/LSD/Duncan/Dunnett, a fully worked example, and how to read the compact letter display."/>
+  <meta name="description" content="Tukey HSD explained: the multiple comparisons problem, the formula, when to choose it over Bonferroni, LSD, Duncan or Dunnett, and how to read compact letters."/>
   <meta name="author" content="Sajjadur Rahman"/>
   <meta name="keywords" content="Tukey HSD test explained, compact letter display, multiple comparisons, post-hoc test ANOVA, agricultural statistics R, Tukey honest significant difference, family-wise error rate"/>
   <meta property="og:title" content="Tukey HSD Test Explained — When to Use It and How to Interpret the Results — Sajjadur Rahman"/>
   <meta property="og:description" content="The multiple comparisons problem, the HSD formula, a fully worked example with five treatments, and how to read the compact letter display correctly."/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://sajjadur-rahman.com/blog-tukey-hsd-explained.html"/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:image:width" content="1165"/>
+  <meta property="og:image:height" content="632"/>
+  <meta property="og:image:alt" content="Sajjadur Rahman: research, writing and data analysis"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Tukey HSD Test Explained — When to Use It and How to Interpret the Results — Sajjadur Rahman"/>
+  <meta name="twitter:description" content="The multiple comparisons problem, the HSD formula, a fully worked example with five treatments, and how to read the compact letter display correctly."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
   <meta property="article:published_time" content="2026-06-01"/>
   <meta property="article:author" content="Sajjadur Rahman"/>
   <title>Tukey HSD Test Explained — When to Use It and How to Interpret the Results — Sajjadur Rahman</title>
@@ -379,25 +388,26 @@
     @media (max-width: 680px) { .article-h1 { font-size: 23px; } .article-deck { font-size: 15.5px; } .article-prose { font-size: 15.5px; } .article-bio { flex-direction: column; gap: 14px; } .formula-block { padding: 18px; } }
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Tukey HSD Test Explained",
-    "description": "Tukey HSD explained clearly — the multiple comparisons problem it solves, the HSD formula, when to use it vs Bonferroni/LSD/Duncan/Dunnett, a fully worked example, and how to read the compact letter d",
-    "url": "https://sajjadur-rahman.com/blog-tukey-hsd-explained.html",
-    "datePublished": "2026-06-01",
-    "dateModified": "2026-06-01",
-    "author": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com/about.html"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com"
-    }
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tukey HSD Test Explained",
+  "description": "Tukey HSD explained clearly — the multiple comparisons problem it solves, the HSD formula, when to use it vs Bonferroni/LSD/Duncan/Dunnett, a fully worked example, and how to read the compact letter d",
+  "url": "https://sajjadur-rahman.com/blog-tukey-hsd-explained.html",
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-01",
+  "author": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com/about.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com"
+  },
+  "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg"
+}
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"/>
@@ -526,7 +536,7 @@
           <p>If you ran a separate t-test for each of those ten pairs at α = 0.05, the chance of a false positive in any individual test is 5 percent. But the chance of getting at least one false positive somewhere across ten tests is much higher. The calculation is 1 minus 0.95 to the power of 10, which equals roughly 40 percent. Run ten tests and there is a 40 percent chance that at least one of your "significant" results is wrong.</p>
 
           <div class="fwer-box">
-            <span class="fwer-label">Family-Wise Error Rate — How It Inflates with More Groups</span>
+            <span class="fwer-label">Family-Wise Error Rate: How It Inflates with More Groups</span>
             <div class="fwer-row">
               <span class="fwer-k">3 groups<br/><span style="font-size:11px;color:var(--text-muted)">3 pairs</span></span>
               <div class="fwer-bar-wrap"><div class="fwer-bar" style="width:14%;background:#5a7a4a;"></div></div>
@@ -574,7 +584,7 @@
             <div class="formula-vars">
               <div class="fv-item">
                 <span class="fv-sym">q</span>
-                <span class="fv-desc">Critical value from the studentized range distribution, looked up using α, k, and df_error. This is not the same as the t-distribution — it accounts for the range of all group means at once.</span>
+                <span class="fv-desc">Critical value from the studentized range distribution, looked up using α, k, and df_error. This is not the same as the t-distribution: it accounts for the range of all group means at once.</span>
               </div>
               <div class="fv-item">
                 <span class="fv-sym">k</span>
@@ -598,7 +608,7 @@
           <p>Once HSD is computed, every pairwise difference is compared against it. If the absolute difference between two group means exceeds HSD, those groups are significantly different. The single HSD value acts as a universal threshold for the entire family of comparisons, which is how it controls the family-wise error rate.</p>
 
           <!-- S3 -->
-          <h2 id="s3"><span class="sec-badge">3</span>When to Use It — and When Not To</h2>
+          <h2 id="s3"><span class="sec-badge">3</span>When to Use It, and When Not To</h2>
 
           <p>Tukey HSD is the right choice for most agricultural experiments. But several alternatives exist for specific situations, and choosing the wrong one will draw questions from reviewers.</p>
 
@@ -675,27 +685,27 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>T1 — Control (no amendment)</td>
+                  <td>T1: Control (no amendment)</td>
                   <td class="dt-num">0.91</td><td class="dt-num">0.88</td><td class="dt-num">0.94</td>
                   <td class="dt-num">0.91</td>
                 </tr>
                 <tr>
-                  <td>T2 — Compost 2 t/ha</td>
+                  <td>T2: Compost 2 t/ha</td>
                   <td class="dt-num">1.24</td><td class="dt-num">1.18</td><td class="dt-num">1.21</td>
                   <td class="dt-num">1.21</td>
                 </tr>
                 <tr>
-                  <td>T3 — Biochar 2 t/ha</td>
+                  <td>T3: Biochar 2 t/ha</td>
                   <td class="dt-num">1.38</td><td class="dt-num">1.42</td><td class="dt-num">1.35</td>
                   <td class="dt-num">1.38</td>
                 </tr>
                 <tr>
-                  <td>T4 — Compost + Biochar</td>
+                  <td>T4: Compost + Biochar</td>
                   <td class="dt-num">1.67</td><td class="dt-num">1.71</td><td class="dt-num">1.64</td>
                   <td class="dt-num">1.67</td>
                 </tr>
                 <tr>
-                  <td>T5 — Cow dung 5 t/ha</td>
+                  <td>T5: Cow dung 5 t/ha</td>
                   <td class="dt-num">1.15</td><td class="dt-num">1.12</td><td class="dt-num">1.19</td>
                   <td class="dt-num">1.15</td>
                 </tr>
@@ -736,7 +746,7 @@
             </table>
           </div>
 
-          <p>Nine of ten pairs are significantly different. T2 (Compost alone) and T5 (Cow dung) are not — their difference of 0.057 falls below the HSD of 0.089.</p>
+          <p>Nine of ten pairs are significantly different. T2 (Compost alone) and T5 (Cow dung) are not: their difference of 0.057 falls below the HSD of 0.089.</p>
 
           <!-- S5 -->
           <h2 id="s5"><span class="sec-badge">5</span>Reading the Compact Letter Display</h2>
@@ -754,27 +764,27 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>T4 — Compost + Biochar</td>
+                  <td>T4: Compost + Biochar</td>
                   <td class="dt-num">1.67</td>
                   <td><span class="dt-cld">a</span></td>
                 </tr>
                 <tr>
-                  <td>T3 — Biochar 2 t/ha</td>
+                  <td>T3: Biochar 2 t/ha</td>
                   <td class="dt-num">1.38</td>
                   <td><span class="dt-cld">b</span></td>
                 </tr>
                 <tr>
-                  <td>T2 — Compost 2 t/ha</td>
+                  <td>T2: Compost 2 t/ha</td>
                   <td class="dt-num">1.21</td>
                   <td><span class="dt-cld">c</span></td>
                 </tr>
                 <tr>
-                  <td>T5 — Cow dung 5 t/ha</td>
+                  <td>T5: Cow dung 5 t/ha</td>
                   <td class="dt-num">1.15</td>
                   <td><span class="dt-cld">c</span></td>
                 </tr>
                 <tr>
-                  <td>T1 — Control</td>
+                  <td>T1: Control</td>
                   <td class="dt-num">0.91</td>
                   <td><span class="dt-cld">d</span></td>
                 </tr>
@@ -788,7 +798,7 @@
             <p>Two things about the CLD that frequently confuse readers. Sharing a letter means "not significantly different." It does not mean equal. And a treatment can carry multiple letters (like "ab") in larger designs, meaning it falls between two distinct groups.</p>
           </div>
 
-          <p><strong>On shared letters and statistical power:</strong> T2 and T5 share "c" because their difference (0.057) is smaller than HSD (0.089). This has two possible interpretations. The treatments may genuinely be similar in their effect on SOC. Alternatively, the experiment may not have had enough power to detect a real difference at this sample size and variance. Three replications is common in pot studies but rarely achieves high power. The CLD cannot tell you which interpretation is correct — only larger experiments can.</p>
+          <p><strong>On shared letters and statistical power:</strong> T2 and T5 share "c" because their difference (0.057) is smaller than HSD (0.089). This has two possible interpretations. The treatments may genuinely be similar in their effect on SOC. Alternatively, the experiment may not have had enough power to detect a real difference at this sample size and variance. Three replications is common in pot studies but rarely achieves high power. The CLD cannot tell you which interpretation is correct: only larger experiments can.</p>
 
           <p><strong>Multiple letters in larger designs:</strong> In a seven or eight treatment design, a treatment may carry letters "bc," meaning it does not differ significantly from groups holding "b" or "c," even if "b" and "c" groups differ from each other. This happens when a treatment falls between two statistically distinct clusters. The <code style="font-family:'Courier New',monospace;background:var(--parchment2);padding:1px 5px;border-radius:3px;font-size:13px;">HSD.test()</code> function in R's agricolae package assigns these multi-letter groups automatically.</p>
 
@@ -849,7 +859,7 @@ result &lt;- <span class="kw">HSD.test</span>(model, <span class="st">"trt"</spa
 
           <div class="mistake-box">
             <span class="mistake-label">Mistake 1</span>
-            <p>Running Tukey HSD without a significant ANOVA first. Tukey HSD is a protected post-hoc test. If the ANOVA is not significant, no post-hoc comparison is warranted — the ANOVA already tells you there is no detectable difference among group means. Running Tukey anyway is methodologically indefensible and reviewers will flag it.</p>
+            <p>Running Tukey HSD without a significant ANOVA first. Tukey HSD is a protected post-hoc test. If the ANOVA is not significant, no post-hoc comparison is warranted: the ANOVA already tells you there is no detectable difference among group means. Running Tukey anyway is methodologically indefensible and reviewers will flag it.</p>
           </div>
 
           <div class="mistake-box">
@@ -997,15 +1007,15 @@ result &lt;- <span class="kw">HSD.test</span>(model, <span class="st">"trt"</spa
             <div class="sb-body">
               <a href="blog-anova-r-tutorial.html" class="related-link">
                 <span class="rel-icon">📊</span>
-                <span class="rel-title">One-way ANOVA in R for agricultural research — a practical tutorial</span>
+                <span class="rel-title">One-way ANOVA in R for agricultural research: a practical tutorial</span>
               </a>
               <a href="blog-nue-indices-explained.html" class="related-link">
                 <span class="rel-icon">🌾</span>
-                <span class="rel-title">Understanding NUE indices — AE, RE, PE, and NHI explained</span>
+                <span class="rel-title">Understanding NUE indices; AE, RE, PE, and NHI explained</span>
               </a>
               <a href="blog-imrad-explained.html" class="related-link">
                 <span class="rel-icon">📝</span>
-                <span class="rel-title">IMRaD explained — how to structure a scientific research paper</span>
+                <span class="rel-title">IMRaD explained, how to structure a scientific research paper</span>
               </a>
             </div>
           </div>

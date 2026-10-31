@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="A complete PCA tutorial in R for environmental and soil science data — prcomp(), scree plot, loadings interpretation, biplot, and score extraction. Working example uses Haor basin paddy soil chemistry data from Bangladesh."/>
+  <meta name="description" content="PCA in R for soil and environmental data: prcomp(), scree plots, loadings, biplots and scores, worked through with paddy soil data from Bangladesh's haor basin."/>
   <meta name="author" content="Sajjadur Rahman"/>
   <meta name="keywords" content="PCA in R tutorial, principal component analysis environmental data, soil chemistry PCA Bangladesh, prcomp R, biplot R, multivariate analysis soil science"/>
   <meta property="og:title" content="Principal Component Analysis (PCA) in R for Environmental Data — Sajjadur Rahman"/>
   <meta property="og:description" content="Step-by-step PCA in R: data scaling, prcomp(), scree plot, loading interpretation, biplot, and score extraction. Worked example: Haor basin paddy soil chemistry (pH, EC, OM, Fe, Mn, Zn, Cu)."/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://sajjadur-rahman.com/blog-pca-r-environmental-data.html"/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:image:width" content="1165"/>
+  <meta property="og:image:height" content="632"/>
+  <meta property="og:image:alt" content="Sajjadur Rahman: research, writing and data analysis"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Principal Component Analysis (PCA) in R for Environmental Data — Sajjadur Rahman"/>
+  <meta name="twitter:description" content="Step-by-step PCA in R: data scaling, prcomp(), scree plot, loading interpretation, biplot, and score extraction. Worked example: Haor basin paddy soil chemistry (pH, EC, OM, Fe, Mn, Zn, Cu)."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
   <meta property="article:published_time" content="2026-06-19"/>
   <meta property="article:author" content="Sajjadur Rahman"/>
   <title>Principal Component Analysis (PCA) in R for Environmental Data — Sajjadur Rahman</title>
@@ -381,25 +390,26 @@
     }
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Principal Component Analysis (PCA) in R for Environmental Data",
-    "description": "Step-by-step PCA tutorial in R for environmental and soil science data — prcomp(), scree plot, loadings, biplot, and score extraction. Working example uses Haor basin paddy soil chemistry data from Bangladesh.",
-    "url": "https://sajjadur-rahman.com/blog-pca-r-environmental-data.html",
-    "datePublished": "2026-06-19",
-    "dateModified": "2026-06-19",
-    "author": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com/about.html"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com"
-    }
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Principal Component Analysis (PCA) in R for Environmental Data",
+  "description": "Step-by-step PCA tutorial in R for environmental and soil science data — prcomp(), scree plot, loadings, biplot, and score extraction. Working example uses Haor basin paddy soil chemistry data from Bangladesh.",
+  "url": "https://sajjadur-rahman.com/blog-pca-r-environmental-data.html",
+  "datePublished": "2026-06-19",
+  "dateModified": "2026-06-19",
+  "author": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com/about.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com"
+  },
+  "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg"
+}
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"/>
@@ -491,7 +501,7 @@
         <h1 class="article-h1">
           Principal Component Analysis<br/>in <em>R for Environmental Data</em>
         </h1>
-        <p class="article-deck">PCA in six steps — from raw soil chemistry data to interpreted components and a publication-ready biplot. Working example: paddy soil samples from the Haor basin, Sylhet, with ten variables measured across two seasons.</p>
+        <p class="article-deck">PCA in six steps: from raw soil chemistry data to interpreted components and a publication-ready biplot. Working example: paddy soil samples from the Haor basin, Sylhet, with ten variables measured across two seasons.</p>
         <div class="article-meta-bar">
           <div class="meta-author-block">
             <div class="meta-avatar">SR</div>
@@ -516,22 +526,22 @@
         <!-- PROSE -->
         <article class="article-prose" id="articleBody">
 
-          <p>The ANOVA tutorial covered one dependent variable against one categorical factor. The regression tutorial covered one outcome against one or more continuous predictors. Those tools handle most thesis analyses — but once you have ten soil parameters measured across twenty sites and two seasons, you need something different. You do not want ten separate ANOVAs. You want to know which variables move together, what patterns they form, and which sites or seasons drive those patterns. That is what PCA does.</p>
+          <p>The ANOVA tutorial covered one dependent variable against one categorical factor. The regression tutorial covered one outcome against one or more continuous predictors. Those tools handle most thesis analyses, but once you have ten soil parameters measured across twenty sites and two seasons, you need something different. You do not want ten separate ANOVAs. You want to know which variables move together, what patterns they form, and which sites or seasons drive those patterns. That is what PCA does.</p>
 
-          <p>PCA is the most commonly used multivariate method in soil and environmental science, and one of the most commonly misapplied. This tutorial walks through the complete procedure in R using a realistic paddy soil dataset from the Haor basin in Sylhet — ten chemical variables, twelve observations, two sampling seasons. By the end you will understand what each output means, how to interpret loadings and scores, and how to write the results for a manuscript.</p>
+          <p>PCA is the most commonly used multivariate method in soil and environmental science, and one of the most commonly misapplied. This tutorial walks through the complete procedure in R using a realistic paddy soil dataset from the Haor basin in Sylhet: ten chemical variables, twelve observations, two sampling seasons. By the end you will understand what each output means, how to interpret loadings and scores, and how to write the results for a manuscript.</p>
 
           <!-- S1 -->
           <h2 id="s1">When PCA Is the Right Tool</h2>
 
-          <p>Use PCA when you have multiple correlated continuous variables and you want to reduce them to a smaller number of uncorrelated dimensions that capture most of the variance in the data. The key word is <em>correlated</em>. If your variables are completely independent of each other, PCA produces nothing useful. If they share underlying structure — which soil chemistry variables almost always do — PCA reveals it.</p>
+          <p>Use PCA when you have multiple correlated continuous variables and you want to reduce them to a smaller number of uncorrelated dimensions that capture most of the variance in the data. The key word is <em>correlated</em>. If your variables are completely independent of each other, PCA produces nothing useful. If they share underlying structure (which soil chemistry variables almost always do) PCA reveals it.</p>
 
           <p>Common applications in environmental and agricultural research include: identifying which soil properties co-vary across sites (usually driven by parent material, drainage, or management); separating seasonal or land-use effects from site-level variation; generating input variables for cluster analysis or classification; and reducing multicollinearity before regression.</p>
 
-          <p>PCA is exploratory. It does not test a hypothesis. It does not tell you whether two groups differ significantly — that is what ANOVA does. It tells you about the structure of your data: which variables cluster together, and which observations are similar or different. The statistical test guide <a href="blog-statistical-test-decision-guide.html">in the previous post</a> covers when to use PCA versus when to use a test.</p>
+          <p>PCA is exploratory. It does not test a hypothesis. It does not tell you whether two groups differ significantly: that is what ANOVA does. It tells you about the structure of your data: which variables cluster together, and which observations are similar or different. The statistical test guide <a href="blog-statistical-test-decision-guide.html">in the previous post</a> covers when to use PCA versus when to use a test.</p>
 
           <div class="callout-box">
             <span class="callout-label">PCA requires continuous variables</span>
-            <p>PCA works on a correlation or covariance matrix and requires that all variables be continuous and measured on a meaningful numerical scale. Categorical variables (soil texture class, land use type, treatment group) cannot go into a PCA directly. Convert them to binary dummy variables only if you have a specific reason to do so — and be aware that the interpretation becomes more complex.</p>
+            <p>PCA works on a correlation or covariance matrix and requires that all variables be continuous and measured on a meaningful numerical scale. Categorical variables (soil texture class, land use type, treatment group) cannot go into a PCA directly. Convert them to binary dummy variables only if you have a specific reason to do so, and be aware that the interpretation becomes more complex.</p>
           </div>
 
           <!-- S2 -->
@@ -539,21 +549,21 @@
 
           <p>PCA rotates your original variable axes to find the directions of maximum variance in the data. The first principal component (PC1) is the axis that explains the most variance. PC2 is perpendicular to PC1 and explains the next most variance. PC3 is perpendicular to both, and so on. Each PC is a linear combination of the original variables.</p>
 
-          <p>The mathematical machinery is eigendecomposition of the correlation matrix (or covariance matrix, but correlation is almost always better for environmental data with mixed units and scales). Each PC corresponds to an eigenvector, and the eigenvalue tells you how much variance that component explains. A component with an eigenvalue above 1.0 explains more variance than any single original variable — this is the Kaiser criterion for deciding how many components to retain.</p>
+          <p>The mathematical machinery is eigendecomposition of the correlation matrix (or covariance matrix, but correlation is almost always better for environmental data with mixed units and scales). Each PC corresponds to an eigenvector, and the eigenvalue tells you how much variance that component explains. A component with an eigenvalue above 1.0 explains more variance than any single original variable: this is the Kaiser criterion for deciding how many components to retain.</p>
 
           <p>The <strong>loadings</strong> are the correlations between each original variable and each PC. A high positive loading means the variable contributes strongly and positively to that component. A high negative loading means strong negative contribution. Loadings close to zero mean the variable is essentially unrelated to that component.</p>
 
           <p>The <strong>scores</strong> are the coordinates of each observation (each soil sample, in our case) in the new PC coordinate system. They tell you where each sample sits relative to the patterns the PCA identified.</p>
 
           <!-- S3 -->
-          <h2 id="s3">The Dataset — Haor Basin Paddy Soils</h2>
+          <h2 id="s3">The Dataset: Haor Basin Paddy Soils</h2>
 
-          <p>The Haor basin in greater Sylhet is one of Bangladesh's largest freshwater wetland systems. Paddy cultivation in the basin alternates between an aman rice crop during the monsoon season (waterlogged conditions, June–November) and a dry period (December–May) when fields are partially drained. This seasonal alternation between flooded and aerobic conditions drives dramatic changes in soil redox chemistry — particularly iron (Fe) and manganese (Mn), which become highly soluble under waterlogging.</p>
+          <p>The Haor basin in greater Sylhet is one of Bangladesh's largest freshwater wetland systems. Paddy cultivation in the basin alternates between an aman rice crop during the monsoon season (waterlogged conditions, June–November) and a dry period (December–May) when fields are partially drained. This seasonal alternation between flooded and aerobic conditions drives dramatic changes in soil redox chemistry, particularly iron (Fe) and manganese (Mn), which become highly soluble under waterlogging.</p>
 
-          <p>The dataset below contains twelve soil samples from six sites, sampled once in the pre-monsoon period (January) and once post-monsoon (October). Ten variables were measured: pH, electrical conductivity (EC in dS/m), organic matter (OM in %), total nitrogen (TN in %), available phosphorus (Av-P in mg/kg), exchangeable potassium (Ex-K in cmol/kg), and four micronutrients — iron (Fe), manganese (Mn), zinc (Zn), and copper (Cu), all in mg/kg.</p>
+          <p>The dataset below contains twelve soil samples from six sites, sampled once in the pre-monsoon period (January) and once post-monsoon (October). Ten variables were measured: pH, electrical conductivity (EC in dS/m), organic matter (OM in %), total nitrogen (TN in %), available phosphorus (Av-P in mg/kg), exchangeable potassium (Ex-K in cmol/kg), and four micronutrients; iron (Fe), manganese (Mn), zinc (Zn), and copper (Cu), all in mg/kg.</p>
 
           <div class="data-table-wrap">
-            <table class="data-table" aria-label="Haor basin paddy soil chemistry data — 12 samples, 10 variables">
+            <table class="data-table" aria-label="Haor basin paddy soil chemistry data: 12 samples, 10 variables">
               <thead>
                 <tr>
                   <th>Site</th>
@@ -659,14 +669,14 @@
             </table>
           </div>
 
-          <p>S4 is the high-organic-matter site (rice straw incorporated for several seasons, lower pH from organic acid accumulation). S6 is sandier with lower nutrient status and higher pH. The post-monsoon samples consistently show lower pH, higher EC, higher Fe and Mn, and higher OM and nutrient values — the signature of waterlogging-driven reduction and organic matter decomposition.</p>
+          <p>S4 is the high-organic-matter site (rice straw incorporated for several seasons, lower pH from organic acid accumulation). S6 is sandier with lower nutrient status and higher pH. The post-monsoon samples consistently show lower pH, higher EC, higher Fe and Mn, and higher OM and nutrient values: the signature of waterlogging-driven reduction and organic matter decomposition.</p>
 
           <!-- S4 -->
           <h2 id="s4"><span class="step-badge">01</span> Prepare and Scale the Data</h2>
 
           <p>Enter the data into R and check it before running PCA. Two things matter here: making sure there are no missing values, and deciding whether to scale.</p>
 
-          <p>Scaling (standardising to mean = 0, variance = 1) is almost always necessary in environmental science because variables are on different scales and units. Without scaling, Fe (in mg/kg, values 176–418) would dominate the PCA simply because it has the largest numerical values — not because it explains the most meaningful variance. With scaling, each variable contributes based on its relative variability.</p>
+          <p>Scaling (standardising to mean = 0, variance = 1) is almost always necessary in environmental science because variables are on different scales and units. Without scaling, Fe (in mg/kg, values 176–418) would dominate the PCA simply because it has the largest numerical values, not because it explains the most meaningful variance. With scaling, each variable contributes based on its relative variability.</p>
 
           <div class="code-wrap" id="cw1">
             <div class="code-header">
@@ -702,7 +712,7 @@ soil_num &lt;- soil[, <span class="kw">c</span>(<span class="st">"pH","EC","OM",
           <!-- S5 -->
           <h2 id="s5"><span class="step-badge">02</span> Run PCA with prcomp()</h2>
 
-          <p>R has two PCA functions: <code>prcomp()</code> and <code>princomp()</code>. Use <code>prcomp()</code>. It uses singular value decomposition (SVD), which is numerically more stable than the eigenvalue decomposition that <code>princomp()</code> uses. Set <code>scale. = TRUE</code> to scale variables automatically — this is equivalent to running PCA on the correlation matrix.</p>
+          <p>R has two PCA functions: <code>prcomp()</code> and <code>princomp()</code>. Use <code>prcomp()</code>. It uses singular value decomposition (SVD), which is numerically more stable than the eigenvalue decomposition that <code>princomp()</code> uses. Set <code>scale. = TRUE</code> to scale variables automatically: this is equivalent to running PCA on the correlation matrix.</p>
 
           <div class="code-wrap" id="cw2">
             <div class="code-header">
@@ -729,14 +739,14 @@ Proportion of Variance 0.00020 0.00004 0.00002
 Cumulative Proportion  0.99995 0.99998 1.00000</pre>
           </div>
 
-          <p>PC1 alone explains 91.95% of the total variance. PC2 explains another 5.88%. Together, two components capture 97.83% of the information in ten variables. This is an exceptionally clean PCA result — it tells you that the ten soil properties are essentially varying along one dominant axis, with a secondary axis capturing most of the remaining structure.</p>
+          <p>PC1 alone explains 91.95% of the total variance. PC2 explains another 5.88%. Together, two components capture 97.83% of the information in ten variables. This is an exceptionally clean PCA result: it tells you that the ten soil properties are essentially varying along one dominant axis, with a secondary axis capturing most of the remaining structure.</p>
 
-          <p>This makes biological sense. Waterlogging during the post-monsoon season drives Fe, Mn, EC upward and pH downward simultaneously — one process affecting multiple variables at once. That shared driver is what PC1 is capturing.</p>
+          <p>This makes biological sense. Waterlogging during the post-monsoon season drives Fe, Mn, EC upward and pH downward simultaneously: one process affecting multiple variables at once. That shared driver is what PC1 is capturing.</p>
 
           <!-- S6 -->
-          <h2 id="s6"><span class="step-badge">03</span> Scree Plot — How Many Components?</h2>
+          <h2 id="s6"><span class="step-badge">03</span> Scree Plot: How Many Components?</h2>
 
-          <p>A scree plot graphs the eigenvalues (or variance proportions) for each component. You look for an "elbow" — the point where the curve flattens — and retain the components above it. The Kaiser criterion (eigenvalue &gt; 1.0) is the most commonly used cutoff in environmental science.</p>
+          <p>A scree plot graphs the eigenvalues (or variance proportions) for each component. You look for an "elbow" (the point where the curve flattens), and retain the components above it. The Kaiser criterion (eigenvalue &gt; 1.0) is the most commonly used cutoff in environmental science.</p>
 
           <div class="code-wrap" id="cw3">
             <div class="code-header">
@@ -766,10 +776,10 @@ scree_df$PC &lt;- <span class="kw">factor</span>(scree_df$PC, levels = scree_df$
 <span class="kw">ggsave</span>(<span class="st">"haor_scree_plot.png"</span>, dpi = <span class="nu">300</span>, width = <span class="nu">7</span>, height = <span class="nu">4.5</span>)</pre>
           </div>
 
-          <p>In this dataset, the scree plot shows a sharp drop after PC1 (which explains ~86%) and a much smaller contribution from PC2 (~16%). Components PC3 and beyond contribute less than 6% each and fall below the eigenvalue = 1.0 criterion. Retain PC1 and PC2 — they together explain over 97% of the total variance, which is exceptional for environmental data (60–80% cumulative across 2–3 PCs is more typical).</p>
+          <p>In this dataset, the scree plot shows a sharp drop after PC1 (which explains ~86%) and a much smaller contribution from PC2 (~16%). Components PC3 and beyond contribute less than 6% each and fall below the eigenvalue = 1.0 criterion. Retain PC1 and PC2: they together explain over 97% of the total variance, which is exceptional for environmental data (60–80% cumulative across 2–3 PCs is more typical).</p>
 
           <!-- S7 -->
-          <h2 id="s7"><span class="step-badge">04</span> Loadings — What Does Each Component Measure?</h2>
+          <h2 id="s7"><span class="step-badge">04</span> Loadings: What Does Each Component Measure?</h2>
 
           <p>Loadings are the most important part of interpreting a PCA. They tell you how strongly each original variable contributes to each PC, and in which direction. A loading &gt; 0.6 in absolute value is generally considered high; &gt; 0.4 is moderate.</p>
 
@@ -791,7 +801,7 @@ loadings_df &lt;- <span class="kw">data.frame</span>(
           </div>
 
           <div class="output-wrap">
-            <div class="output-header"><span>Output — PC1 and PC2 Loadings</span></div>
+            <div class="output-header"><span>Output: PC1 and PC2 Loadings</span></div>
             <pre class="output-pre">    Variable    PC1    PC2
 pH        pH  <span class="sig">0.300</span>  <span class="sig"> 0.102</span>
 EC        EC <span class="hi">-0.328</span>  <span class="sig">-0.001</span>
@@ -805,9 +815,9 @@ Zn        Zn <span class="hi">-0.328</span>  <span class="sig">-0.080</span>
 Cu        Cu <span class="hi">-0.329</span>  <span class="sig"> 0.036</span></pre>
           </div>
 
-          <p>The loading table reveals a clear story. <strong>PC1 — the waterlogging / redox axis:</strong> almost all variables load highly and negatively on PC1, except pH which loads positively (+0.300). This reflects the seasonal waterlogging effect: under post-monsoon flooding, Fe, Mn, EC, OM, TN, Av-P, and Ex-K all increase while pH drops — so post-monsoon samples score negatively on PC1, and pre-monsoon samples score positively. The sign of a PC is arbitrary in PCA; what matters is that PC1 cleanly separates the two seasons along a single redox-driven gradient.</p>
+          <p>The loading table reveals a clear story. <strong>PC1: the waterlogging / redox axis:</strong> almost all variables load highly and negatively on PC1, except pH which loads positively (+0.300). This reflects the seasonal waterlogging effect: under post-monsoon flooding, Fe, Mn, EC, OM, TN, Av-P, and Ex-K all increase while pH drops, so post-monsoon samples score negatively on PC1, and pre-monsoon samples score positively. The sign of a PC is arbitrary in PCA; what matters is that PC1 cleanly separates the two seasons along a single redox-driven gradient.</p>
 
-          <p><strong>PC2 — the site fertility axis:</strong> Av-P (+0.439), Ex-K (+0.321), OM (+0.211), and TN (+0.199) load positively on PC2, while Fe (−0.586) and Mn (−0.509) load strongly negatively. This separates high-nutrient sites (S4 pre-monsoon: high organic matter accumulation, elevated P and K) from sites where Fe and Mn dominate the chemistry (lower-nutrient, higher-reduction sites). PC2 is a site-level fertility signal independent of season.</p>
+          <p><strong>PC2: the site fertility axis:</strong> Av-P (+0.439), Ex-K (+0.321), OM (+0.211), and TN (+0.199) load positively on PC2, while Fe (−0.586) and Mn (−0.509) load strongly negatively. This separates high-nutrient sites (S4 pre-monsoon: high organic matter accumulation, elevated P and K) from sites where Fe and Mn dominate the chemistry (lower-nutrient, higher-reduction sites). PC2 is a site-level fertility signal independent of season.</p>
 
           <div class="data-table-wrap">
             <table class="data-table" aria-label="PCA loadings summary for Haor basin soil data">
@@ -848,7 +858,7 @@ Cu        Cu <span class="hi">-0.329</span>  <span class="sig"> 0.036</span></pr
                   <td>Av-P</td>
                   <td class="loading-neg">−0.309</td>
                   <td class="loading-high">+0.44</td>
-                  <td>Strongest positive PC2 loading — key site fertility indicator</td>
+                  <td>Strongest positive PC2 loading: key site fertility indicator</td>
                 </tr>
                 <tr>
                   <td>Ex-K</td>
@@ -860,7 +870,7 @@ Cu        Cu <span class="hi">-0.329</span>  <span class="sig"> 0.036</span></pr
                   <td>Fe</td>
                   <td class="loading-neg">−0.293</td>
                   <td class="loading-neg">−0.586</td>
-                  <td>Strongest negative PC2 loading — pure redox indicator</td>
+                  <td>Strongest negative PC2 loading: pure redox indicator</td>
                 </tr>
                 <tr>
                   <td>Mn</td>
@@ -937,12 +947,12 @@ loadings_plot$var &lt;- <span class="kw">rownames</span>(loadings_plot)
 <span class="kw">ggsave</span>(<span class="st">"haor_pca_biplot.png"</span>, dpi = <span class="nu">300</span>, width = <span class="nu">7</span>, height = <span class="nu">6</span>)</pre>
           </div>
 
-          <p>The biplot from this dataset shows a clear separation between pre-monsoon samples (positive PC1, right side) and post-monsoon samples (negative PC1, left side) along the horizontal axis. Because pH is the only variable with a positive loading on PC1, its arrow points right (pre-monsoon = higher pH), while Fe, Mn, EC, and all nutrient arrows point left (post-monsoon = more waterlogging, higher Fe/Mn/EC). Along the vertical axis (PC2), S4 pre-monsoon sits at the top (high Av-P, Ex-K, OM relative to Fe/Mn) — the fertility signal. S1 post-monsoon sits at the bottom of PC2 (Fe and Mn elevated relative to nutrients). This visual structure confirms what the loadings table told us arithmetically.</p>
+          <p>The biplot from this dataset shows a clear separation between pre-monsoon samples (positive PC1, right side) and post-monsoon samples (negative PC1, left side) along the horizontal axis. Because pH is the only variable with a positive loading on PC1, its arrow points right (pre-monsoon = higher pH), while Fe, Mn, EC, and all nutrient arrows point left (post-monsoon = more waterlogging, higher Fe/Mn/EC). Along the vertical axis (PC2), S4 pre-monsoon sits at the top (high Av-P, Ex-K, OM relative to Fe/Mn): the fertility signal. S1 post-monsoon sits at the bottom of PC2 (Fe and Mn elevated relative to nutrients). This visual structure confirms what the loadings table told us arithmetically.</p>
 
           <!-- S9 -->
           <h2 id="s9"><span class="step-badge">06</span> Extract Scores for Downstream Analysis</h2>
 
-          <p>PC scores are the coordinates of each observation in the PC space. You can extract them and use them as new variables — for example, as inputs to cluster analysis, as predictors in a regression, or simply to label which samples are most extreme on each axis.</p>
+          <p>PC scores are the coordinates of each observation in the PC space. You can extract them and use them as new variables: for example, as inputs to cluster analysis, as predictors in a regression, or simply to label which samples are most extreme on each axis.</p>
 
           <div class="code-wrap" id="cw6">
             <div class="code-header">
@@ -972,7 +982,7 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
           </div>
 
           <div class="output-wrap">
-            <div class="output-header"><span>Output — Scores (abbreviated)</span></div>
+            <div class="output-header"><span>Output: Scores (abbreviated)</span></div>
             <pre class="output-pre">   site season        PC1        PC2
 1    S1    Pre  <span class="sig"> 2.186</span>  <span class="sig"> 0.240</span>
 2    S1   Post  <span class="hi">-0.872</span>  <span class="hi">-1.055</span>  ← lowest PC2
@@ -988,7 +998,7 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
 12   S6   Post  <span class="sig"> 1.013</span>  <span class="sig">-0.699</span></pre>
           </div>
 
-          <p>S4 post-monsoon (row 8) has the most negative PC1 score (−6.94), making it the most waterlogging-affected sample in the dataset. S6 pre-monsoon has the highest PC1 score (+3.91), representing the most aerobic, pre-flood state. On PC2, S4 pre-monsoon scores highest (+1.57) — this site has high OM and nutrients accumulated from organic matter inputs, but measured before the onset of waterlogging so Fe and Mn are still low. S1 post-monsoon scores most negatively on PC2 (−1.06), reflecting Fe and Mn elevated relative to its nutrient status.</p>
+          <p>S4 post-monsoon (row 8) has the most negative PC1 score (−6.94), making it the most waterlogging-affected sample in the dataset. S6 pre-monsoon has the highest PC1 score (+3.91), representing the most aerobic, pre-flood state. On PC2, S4 pre-monsoon scores highest (+1.57): this site has high OM and nutrients accumulated from organic matter inputs, but measured before the onset of waterlogging so Fe and Mn are still low. S1 post-monsoon scores most negatively on PC2 (−1.06), reflecting Fe and Mn elevated relative to its nutrient status.</p>
 
           <p>The k-means clustering on PC scores mostly separates seasons (5 Pre in one cluster, 4 Post in another), though S4 Pre clusters with the post-monsoon group because its negative PC1 score reflects its characteristically higher OM and nutrients even before flooding. This imperfect separation confirms that site-level differences (PC2) add meaningful variation beyond the dominant seasonal signal.</p>
 
@@ -1007,33 +1017,33 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
           <h2 id="s11">Mistakes to Avoid</h2>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 1 — Not scaling the data</span>
+            <span class="mistake-box-label">Mistake 1: Not scaling the data</span>
             <p>Running PCA without scaling when variables have different units (Fe in mg/kg vs pH in log units) produces a PCA driven entirely by whichever variable has the largest numerical values. Always set <code>scale. = TRUE</code> in <code>prcomp()</code> unless you have a specific reason to use the covariance matrix and all variables are in the same units.</p>
           </div>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 2 — Retaining too many or too few components</span>
-            <p>Keeping only PC1 when PC2 explains meaningful variance (say, &gt;10%) discards important structure. Keeping six components when only two exceed eigenvalue 1.0 produces uninterpretable results. Use the scree plot and the Kaiser criterion together — and always check that the cumulative variance of retained components is at least 60–70%.</p>
+            <span class="mistake-box-label">Mistake 2, Retaining too many or too few components</span>
+            <p>Keeping only PC1 when PC2 explains meaningful variance (say, &gt;10%) discards important structure. Keeping six components when only two exceed eigenvalue 1.0 produces uninterpretable results. Use the scree plot and the Kaiser criterion together, and always check that the cumulative variance of retained components is at least 60–70%.</p>
           </div>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 3 — Calling loadings "factors" and scores "loadings"</span>
+            <span class="mistake-box-label">Mistake 3, Calling loadings "factors" and scores "loadings"</span>
             <p>The terminology in PCA gets confused with factor analysis in some textbooks. In <code>prcomp()</code>: <code>$rotation</code> contains the loadings (contribution of each variable to each PC); <code>$x</code> contains the scores (position of each observation on each PC). If you mix these up, your interpretation will be inverted.</p>
           </div>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 4 — Reporting PCA without the variance table</span>
-            <p>A biplot without a variance explanation table is incomplete. Always report the proportion of variance explained by each retained component, and the cumulative proportion. Readers need to know whether your PC1 explains 86% or 32% of total variance — the interpretation is very different.</p>
+            <span class="mistake-box-label">Mistake 4, Reporting PCA without the variance table</span>
+            <p>A biplot without a variance explanation table is incomplete. Always report the proportion of variance explained by each retained component, and the cumulative proportion. Readers need to know whether your PC1 explains 86% or 32% of total variance: the interpretation is very different.</p>
           </div>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 5 — Treating PCA as a hypothesis test</span>
-            <p>PCA tells you about structure, not about significance. If you want to test whether two groups (pre-monsoon vs post-monsoon) differ significantly in their multivariate soil chemistry, use MANOVA or PERMANOVA on the PC scores — not PCA alone. PCA is an exploratory first step; the test comes after.</p>
+            <span class="mistake-box-label">Mistake 5, Treating PCA as a hypothesis test</span>
+            <p>PCA tells you about structure, not about significance. If you want to test whether two groups (pre-monsoon vs post-monsoon) differ significantly in their multivariate soil chemistry, use MANOVA or PERMANOVA on the PC scores, not PCA alone. PCA is an exploratory first step; the test comes after.</p>
           </div>
 
           <div class="article-ornament">✦ ✦ ✦</div>
 
-          <p>PCA is one of the most useful tools in environmental data analysis once you understand what it is actually doing. If you have a multi-variable environmental or agricultural dataset and want PCA run properly — with interpretation, a publication-ready biplot, and a written results section — the <a href="services.html#data">data analysis service</a> covers exactly this.</p>
+          <p>PCA is one of the most useful tools in environmental data analysis once you understand what it is actually doing. If you have a multi-variable environmental or agricultural dataset and want PCA run properly (with interpretation, a publication-ready biplot, and a written results section) the <a href="services.html#data">data analysis service</a> covers exactly this.</p>
 
           <!-- Tags -->
           <div class="article-tags">
@@ -1111,7 +1121,7 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
               <ol class="toc-list">
                 <li><a href="#s1"  class="toc-link"><span class="toc-n">–</span>When to Use PCA</a></li>
                 <li><a href="#s2"  class="toc-link"><span class="toc-n">–</span>What PCA Actually Does</a></li>
-                <li><a href="#s3"  class="toc-link"><span class="toc-n">–</span>The Dataset — Haor Basin</a></li>
+                <li><a href="#s3"  class="toc-link"><span class="toc-n">–</span>The Dataset: Haor Basin</a></li>
                 <li><a href="#s4"  class="toc-link"><span class="toc-n">01</span>Prepare and Scale</a></li>
                 <li><a href="#s5"  class="toc-link"><span class="toc-n">02</span>Run prcomp()</a></li>
                 <li><a href="#s6"  class="toc-link"><span class="toc-n">03</span>Scree Plot</a></li>
@@ -1127,7 +1137,7 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
           <!-- CTA -->
           <div class="sb-cta">
             <h4>Need PCA run on <em>your data?</em></h4>
-            <p>I run PCA, cluster analysis, and MANOVA on environmental datasets — with loading tables, publication-ready biplots, and a written results section.</p>
+            <p>I run PCA, cluster analysis, and MANOVA on environmental datasets: with loading tables, publication-ready biplots, and a written results section.</p>
             <a href="services.html#data" class="btn btn-gold">Data Analysis Service →</a>
           </div>
 
@@ -1152,11 +1162,11 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
             <div class="sb-body">
               <a href="blog-statistical-test-decision-guide.html" class="related-link">
                 <span class="rel-icon">🗂️</span>
-                <span class="rel-title">How to choose the right statistical test — decision guide</span>
+                <span class="rel-title">How to choose the right statistical test: decision guide</span>
               </a>
               <a href="blog-anova-r-tutorial.html" class="related-link">
                 <span class="rel-icon">📊</span>
-                <span class="rel-title">One-Way ANOVA in R — complete practical tutorial</span>
+                <span class="rel-title">One-Way ANOVA in R; complete practical tutorial</span>
               </a>
               <a href="blog-ammonia-volatilisation-paddy-urea.html" class="related-link">
                 <span class="rel-icon">🌾</span>
@@ -1164,7 +1174,7 @@ scores$cluster &lt;- <span class="kw">as.factor</span>(km$cluster)
               </a>
               <a href="blog-heavy-metals-dhaka.html" class="related-link">
                 <span class="rel-icon">🔬</span>
-                <span class="rel-title">Heavy metals in Dhaka's urban environment — what active research shows</span>
+                <span class="rel-title">Heavy metals in Dhaka's urban environment, what active research shows</span>
               </a>
             </div>
           </div>

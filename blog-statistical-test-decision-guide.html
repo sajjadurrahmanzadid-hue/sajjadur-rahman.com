@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="A decision-tree guide to choosing the right statistical test for your thesis — one IV or many, categorical or continuous, normal or non-normal. Covers t-test, ANOVA, regression, Mann-Whitney, Kruskal-Wallis, and more."/>
+  <meta name="description" content="Choose the right statistical test for your thesis with a decision tree: t-test, ANOVA, regression, Mann-Whitney, Kruskal-Wallis and more, by data type."/>
   <meta name="author" content="Sajjadur Rahman"/>
   <meta name="keywords" content="statistical test selection, choose right statistical test thesis, ANOVA vs t-test, parametric vs non-parametric test, statistical test decision tree, research methods Bangladesh"/>
   <meta property="og:title" content="How to Choose the Right Statistical Test for Your Thesis — Sajjadur Rahman"/>
   <meta property="og:description" content="A decision-tree guide: describe your data and the flowchart walks you to the correct test. Covers all major parametric and non-parametric options used in thesis research."/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://sajjadur-rahman.com/blog-statistical-test-decision-guide.html"/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:image:width" content="1165"/>
+  <meta property="og:image:height" content="632"/>
+  <meta property="og:image:alt" content="Sajjadur Rahman: research, writing and data analysis"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="How to Choose the Right Statistical Test for Your Thesis — Sajjadur Rahman"/>
+  <meta name="twitter:description" content="A decision-tree guide: describe your data and the flowchart walks you to the correct test. Covers all major parametric and non-parametric options used in thesis research."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
   <meta property="article:published_time" content="2026-06-19"/>
   <meta property="article:author" content="Sajjadur Rahman"/>
   <title>How to Choose the Right Statistical Test for Your Thesis — A Decision Guide — Sajjadur Rahman</title>
@@ -478,25 +487,26 @@
     }
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "How to Choose the Right Statistical Test for Your Thesis — A Decision Guide",
-    "description": "A decision-tree guide to choosing the right statistical test — one IV or many, categorical or continuous, normal or non-normal. Covers t-test, ANOVA, regression, Mann-Whitney, Kruskal-Wallis, and more.",
-    "url": "https://sajjadur-rahman.com/blog-statistical-test-decision-guide.html",
-    "datePublished": "2026-06-19",
-    "dateModified": "2026-06-19",
-    "author": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com/about.html"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com"
-    }
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Choose the Right Statistical Test for Your Thesis — A Decision Guide",
+  "description": "A decision-tree guide to choosing the right statistical test — one IV or many, categorical or continuous, normal or non-normal. Covers t-test, ANOVA, regression, Mann-Whitney, Kruskal-Wallis, and more.",
+  "url": "https://sajjadur-rahman.com/blog-statistical-test-decision-guide.html",
+  "datePublished": "2026-06-19",
+  "dateModified": "2026-06-19",
+  "author": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com/about.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com"
+  },
+  "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg"
+}
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"/>
@@ -588,7 +598,7 @@
         <h1 class="article-h1">
           How to Choose the Right<br/><em>Statistical Test</em> for Your Thesis
         </h1>
-        <p class="article-deck">A decision guide for thesis researchers — describe your data type, number of variables, and distribution, and the flowchart walks you to the correct test. Includes a full reference table and assumption-checking code in R.</p>
+        <p class="article-deck">A decision guide for thesis researchers: describe your data type, number of variables, and distribution, and the flowchart walks you to the correct test. Includes a full reference table and assumption-checking code in R.</p>
         <div class="article-meta-bar">
           <div class="meta-author-block">
             <div class="meta-avatar">SR</div>
@@ -613,7 +623,7 @@
         <!-- PROSE -->
         <article class="article-prose" id="articleBody">
 
-          <p>Every week I get a version of the same question from thesis students: "I have my data — which test should I use?" Sometimes the data is right there in a spreadsheet. Sometimes the student has already run a test and wants to know if they chose correctly. Either way, the answer comes from the same four questions about the data, not from the test name itself.</p>
+          <p>Every week I get a version of the same question from thesis students: "I have my data, which test should I use?" Sometimes the data is right there in a spreadsheet. Sometimes the student has already run a test and wants to know if they chose correctly. Either way, the answer comes from the same four questions about the data, not from the test name itself.</p>
 
           <p>This post gives you a decision flowchart followed by a reference table covering every major test you are likely to encounter in an agricultural, environmental, or social science thesis. The flowchart is faster. The table has more detail. Use both.</p>
 
@@ -622,10 +632,10 @@
 
           <p>Using the wrong test does not just give you a wrong p-value. It can invalidate your entire analysis. A t-test used where ANOVA belongs inflates your Type I error rate. Running ANOVA on data that violates normality makes your F-statistic unreliable. Applying Pearson's correlation to ranked data misses the structure in your variables.</p>
 
-          <p>Reviewers catch this. The Methods section of any manuscript includes a statistical analysis subsection, and the first thing a reviewer checks is whether the test matches the data structure. Getting it right at the thesis stage means your results are defensible — and your published paper does not get a revision request about statistical methods.</p>
+          <p>Reviewers catch this. The Methods section of any manuscript includes a statistical analysis subsection, and the first thing a reviewer checks is whether the test matches the data structure. Getting it right at the thesis stage means your results are defensible, and your published paper does not get a revision request about statistical methods.</p>
 
           <div class="pull-quote">
-            <p>"The best statistical test is not the most sophisticated one — it is the one whose assumptions your data actually meets."</p>
+            <p>"The best statistical test is not the most sophisticated one: it is the one whose assumptions your data actually meets."</p>
           </div>
 
           <!-- S2 -->
@@ -637,7 +647,7 @@
 
           <p><strong>2. How many independent variables (IVs) do you have?</strong> One IV or multiple? One-IV situations use simpler tests. Multiple IVs open up regression models and factorial ANOVA designs.</p>
 
-          <p><strong>3. What type are your independent variables?</strong> Categorical IVs (treatment, group, variety) lead to t-tests and ANOVA. Continuous IVs (temperature, rainfall, dose) lead to regression and correlation. You can have both at once — that is ANCOVA.</p>
+          <p><strong>3. What type are your independent variables?</strong> Categorical IVs (treatment, group, variety) lead to t-tests and ANOVA. Continuous IVs (temperature, rainfall, dose) lead to regression and correlation. You can have both at once: that is ANCOVA.</p>
 
           <p><strong>4. Is your data normally distributed?</strong> This determines whether you use a parametric test (assumes normality, more statistical power) or a non-parametric alternative (no distribution assumption, but less power). Check this with a Shapiro-Wilk test for small samples (&lt;50) or a histogram/Q-Q plot for larger ones.</p>
 
@@ -646,7 +656,7 @@
 
           <p>Work through the questions in order. Each question branches you toward a smaller set of options until you reach a specific test.</p>
 
-          <!-- Decision tree — Q1 -->
+          <!-- Decision tree: Q1 -->
           <div class="dt-wrap">
             <div class="dt-q">
               <span class="dt-q-num">Q1</span>
@@ -727,7 +737,7 @@
             <div class="dt-answers">
               <div class="dt-answer">
                 <span class="dt-arrow">Predicting →</span>
-                <span class="dt-dest"><span class="test-pill">Simple Linear Regression</span> — use when IV causes or predicts DV. Assumes linear relationship and normal residuals.</span>
+                <span class="dt-dest"><span class="test-pill">Simple Linear Regression</span>: use when IV causes or predicts DV. Assumes linear relationship and normal residuals.</span>
               </div>
               <div class="dt-answer">
                 <span class="dt-arrow">Association only →</span>
@@ -949,9 +959,9 @@
           </div>
 
           <!-- S5 -->
-          <h2 id="s5">Parametric vs Non-Parametric — When Does It Matter?</h2>
+          <h2 id="s5">Parametric vs Non-Parametric: When Does It Matter?</h2>
 
-          <p>Parametric tests (t-test, ANOVA, linear regression) assume that your data, or more precisely your residuals, follow a roughly normal distribution. This assumption makes them more powerful — they detect real effects with smaller sample sizes. Non-parametric tests make no such assumption; they work on ranks rather than raw values, which makes them robust but slightly less sensitive when the normality assumption would actually hold.</p>
+          <p>Parametric tests (t-test, ANOVA, linear regression) assume that your data, or more precisely your residuals, follow a roughly normal distribution. This assumption makes them more powerful: they detect real effects with smaller sample sizes. Non-parametric tests make no such assumption; they work on ranks rather than raw values, which makes them robust but slightly less sensitive when the normality assumption would actually hold.</p>
 
           <p>In practice, with sample sizes above 30, the normality assumption matters less because the Central Limit Theorem ensures that sample means approach a normal distribution regardless of the underlying distribution. Below 30, check normality seriously. Below 15 (which happens a lot in pot experiments and small field trials), a non-parametric test is safer even if the Shapiro-Wilk p-value is above 0.05, because the test has low power to detect non-normality in small samples.</p>
 
@@ -961,24 +971,24 @@
           </div>
 
           <!-- S6 -->
-          <h2 id="s6">The Two-Group Situation — t-test vs Mann-Whitney U</h2>
+          <h2 id="s6">The Two-Group Situation: t-test vs Mann-Whitney U</h2>
 
           <p>You have two groups and a continuous DV. The two candidates are the independent t-test and the Mann-Whitney U test.</p>
 
           <p>The t-test compares group means and assumes that the data in each group are approximately normally distributed with similar variance. It produces an interpretable test statistic (t) and a confidence interval for the difference in means. When the assumptions hold, it is the right choice.</p>
 
-          <p>Mann-Whitney U compares the distributions of the two groups without assuming normality. It works by ranking all observations together, then testing whether one group tends to have higher ranks than the other. It does not test means — it tests whether one group stochastically dominates the other — so you need to be precise about what you claim in your results section.</p>
+          <p>Mann-Whitney U compares the distributions of the two groups without assuming normality. It works by ranking all observations together, then testing whether one group tends to have higher ranks than the other. It does not test means (it tests whether one group stochastically dominates the other), so you need to be precise about what you claim in your results section.</p>
 
           <p>One situation that trips people up: the paired vs independent distinction. If you are comparing the same subjects before and after a treatment, or matched pairs (plot A on soil type X and plot B on soil type Y, matched by other properties), you have paired data. Use the paired t-test or Wilcoxon Signed-Rank, not the independent versions. Using independent tests on paired data ignores within-subject correlation and loses statistical power.</p>
 
           <!-- S7 -->
-          <h2 id="s7">Three or More Groups — ANOVA vs Kruskal-Wallis</h2>
+          <h2 id="s7">Three or More Groups: ANOVA vs Kruskal-Wallis</h2>
 
-          <p>Most agricultural and environmental experiments compare more than two treatments. This is where one-way ANOVA becomes the standard choice — and where the most common error in thesis statistics shows up.</p>
+          <p>Most agricultural and environmental experiments compare more than two treatments. This is where one-way ANOVA becomes the standard choice, and where the most common error in thesis statistics shows up.</p>
 
-          <p>ANOVA tests whether any of the group means differ significantly. A significant F-statistic (p &lt; 0.05) tells you that not all means are equal, but it does not tell you which ones differ. That is what the post-hoc test does — and this is where you need Tukey HSD, LSD, or Duncan's test. See the <a href="blog-anova-r-tutorial.html">ANOVA tutorial</a> and the <a href="blog-tukey-hsd-explained.html">Tukey HSD post</a> for the full procedure.</p>
+          <p>ANOVA tests whether any of the group means differ significantly. A significant F-statistic (p &lt; 0.05) tells you that not all means are equal, but it does not tell you which ones differ. That is what the post-hoc test does, and this is where you need Tukey HSD, LSD, or Duncan's test. See the <a href="blog-anova-r-tutorial.html">ANOVA tutorial</a> and the <a href="blog-tukey-hsd-explained.html">Tukey HSD post</a> for the full procedure.</p>
 
-          <p>When normality fails (Shapiro-Wilk p &lt; 0.05 on residuals, or n is very small), Kruskal-Wallis is the right alternative. It is the non-parametric version of one-way ANOVA. A significant result tells you the groups differ in distribution — follow up with Dunn's test with Bonferroni correction for pairwise comparisons.</p>
+          <p>When normality fails (Shapiro-Wilk p &lt; 0.05 on residuals, or n is very small), Kruskal-Wallis is the right alternative. It is the non-parametric version of one-way ANOVA. A significant result tells you the groups differ in distribution: follow up with Dunn's test with Bonferroni correction for pairwise comparisons.</p>
 
           <div class="callout-box">
             <span class="callout-label">Check variance too</span>
@@ -1021,7 +1031,7 @@
 <span class="kw">dunn.test</span>(df$yield, df$treatment, method = <span class="st">"bonferroni"</span>)</pre>
           </div>
 
-          <p>For regression, the assumption checks are slightly different — you check residuals rather than raw data:</p>
+          <p>For regression, the assumption checks are slightly different: you check residuals rather than raw data:</p>
 
           <div class="code-wrap" id="cw2">
             <div class="code-header">
@@ -1059,37 +1069,37 @@ model &lt;- <span class="kw">lm</span>(yield ~ soil_ph, data = df)
 
           <p><strong>Linear regression:</strong> "Soil pH explained 68% of the variance in maize yield (R² = 0.68, F<sub>1,10</sub> = 21.4, p &lt; 0.001). For each unit increase in pH, yield increased by an estimated 0.84 t/ha (β = 0.84, 95% CI [0.52, 1.16], p &lt; 0.001)."</p>
 
-          <!-- S10 — common mistakes -->
+          <!-- S10: common mistakes -->
           <h2 id="s10">Five Mistakes That Show Up in Every Third Thesis</h2>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 1 — Multiple t-tests instead of ANOVA</span>
+            <span class="mistake-box-label">Mistake 1: Multiple t-tests instead of ANOVA</span>
             <p>Running three t-tests to compare three groups (T1 vs T2, T1 vs T3, T2 vs T3) is wrong. Each test carries a 5% Type I error risk, and running three of them inflates your overall error rate to roughly 14%. Use ANOVA, which tests all groups simultaneously while controlling this rate.</p>
           </div>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 2 — ANOVA without a post-hoc test</span>
-            <p>A significant ANOVA p-value only tells you that some groups differ — it does not tell you which ones. You must follow ANOVA with a post-hoc comparison (Tukey HSD, LSD, or Duncan depending on your context). Stopping at the F-statistic leaves the main scientific question unanswered.</p>
+            <span class="mistake-box-label">Mistake 2: ANOVA without a post-hoc test</span>
+            <p>A significant ANOVA p-value only tells you that some groups differ: it does not tell you which ones. You must follow ANOVA with a post-hoc comparison (Tukey HSD, LSD, or Duncan depending on your context). Stopping at the F-statistic leaves the main scientific question unanswered.</p>
           </div>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 3 — Pearson correlation on non-normal data</span>
+            <span class="mistake-box-label">Mistake 3: Pearson correlation on non-normal data</span>
             <p>Pearson's r assumes both variables are continuous and approximately normally distributed with a linear relationship. If your data is ordinal, heavily skewed, or shows a non-linear relationship, Spearman's ρ is the correct tool. Running Pearson on ranked data gives you a coefficient that is harder to interpret and potentially misleading.</p>
           </div>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 4 — Not checking assumptions at all</span>
+            <span class="mistake-box-label">Mistake 4: Not checking assumptions at all</span>
             <p>Assumption checking is not optional. Journals increasingly require you to state which normality and variance tests were performed and to report their results. Run Shapiro-Wilk and Levene's test, plot your residuals, and include the results in your Methods or as a supplementary table.</p>
           </div>
 
           <div class="mistake-box">
-            <span class="mistake-box-label">Mistake 5 — Ignoring paired structure in paired data</span>
-            <p>If your data has a paired structure — before/after measurements on the same plot, matched sites, repeated measures on the same plant — and you use an independent-samples test, you discard within-subject correlation and lose power. Always identify whether your design is independent or paired before choosing the test.</p>
+            <span class="mistake-box-label">Mistake 5, Ignoring paired structure in paired data</span>
+            <p>If your data has a paired structure (before/after measurements on the same plot, matched sites, repeated measures on the same plant), and you use an independent-samples test, you discard within-subject correlation and lose power. Always identify whether your design is independent or paired before choosing the test.</p>
           </div>
 
           <div class="article-ornament">✦ ✦ ✦</div>
 
-          <p>If you have a dataset in front of you right now and are unsure which test to use — or if you have already run an analysis and want a second pair of eyes — the <a href="services.html#data">data analysis service</a> on this site covers exactly this: test selection, assumption checking, running the analysis in R or SPSS, and writing up the statistical methods and results sections for you.</p>
+          <p>If you have a dataset in front of you right now and are unsure which test to use (or if you have already run an analysis and want a second pair of eyes) the <a href="services.html#data">data analysis service</a> on this site covers exactly this: test selection, assumption checking, running the analysis in R or SPSS, and writing up the statistical methods and results sections for you.</p>
 
           <!-- Tags -->
           <div class="article-tags">
@@ -1114,7 +1124,7 @@ model &lt;- <span class="kw">lm</span>(yield ~ soil_ph, data = df)
             <div class="bio-inner">
               <h4>Sajjadur Rahman</h4>
               <span class="bio-role-lbl">MSc Researcher · Data Analyst · University of Dhaka</span>
-              <p>NST Fellow and active researcher using R, SPSS, and Python across soil science and agricultural experiments. Developer of SPADE — open-source software for NUE analysis, ANOVA, and publication-ready figures. Available for statistical test selection, data analysis, and thesis consultation.</p>
+              <p>NST Fellow and active researcher using R, SPSS, and Python across soil science and agricultural experiments. Developer of SPADE: open-source software for NUE analysis, ANOVA, and publication-ready figures. Available for statistical test selection, data analysis, and thesis consultation.</p>
               <div class="bio-links">
                 <a href="services.html#data" class="bio-lnk">Data Analysis</a>
                 <a href="research.html#spade" class="bio-lnk">About SPADE</a>
@@ -1174,7 +1184,7 @@ model &lt;- <span class="kw">lm</span>(yield ~ soil_ph, data = df)
           <!-- CTA -->
           <div class="sb-cta">
             <h4>Not sure which test fits <em>your data?</em></h4>
-            <p>I help thesis students and researchers choose the right test, check assumptions, run the analysis, and write up the statistical methods section — in R, SPSS, or Python.</p>
+            <p>I help thesis students and researchers choose the right test, check assumptions, run the analysis, and write up the statistical methods section: in R, SPSS, or Python.</p>
             <a href="services.html#data" class="btn btn-gold">Data Analysis Service →</a>
           </div>
 
@@ -1199,19 +1209,19 @@ model &lt;- <span class="kw">lm</span>(yield ~ soil_ph, data = df)
             <div class="sb-body">
               <a href="blog-anova-r-tutorial.html" class="related-link">
                 <span class="rel-icon">📊</span>
-                <span class="rel-title">One-Way ANOVA in R — complete practical tutorial</span>
+                <span class="rel-title">One-Way ANOVA in R: complete practical tutorial</span>
               </a>
               <a href="blog-tukey-hsd-explained.html" class="related-link">
                 <span class="rel-icon">🔢</span>
-                <span class="rel-title">Tukey HSD test — when to use it and how to read the results</span>
+                <span class="rel-title">Tukey HSD test; when to use it and how to read the results</span>
               </a>
               <a href="blog-linear-regression-r-tutorial.html" class="related-link">
                 <span class="rel-icon">📈</span>
-                <span class="rel-title">Linear regression in R — step-by-step tutorial</span>
+                <span class="rel-title">Linear regression in R; step-by-step tutorial</span>
               </a>
               <a href="blog-pca-r-environmental-data.html" class="related-link">
                 <span class="rel-icon">🔬</span>
-                <span class="rel-title">PCA in R for environmental data — when one test isn't enough</span>
+                <span class="rel-title">PCA in R for environmental data; when one test isn't enough</span>
               </a>
             </div>
           </div>

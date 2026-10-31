@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SPADE: Free NUE Analysis Software for Field Trials | Sajjadur Rahman</title>
   <link rel="canonical" href="https://sajjadur-rahman.com/blog-spade-open-source.html"/>
-  <meta name="description" content="SPADE calculates all 5 NUE indices, assigns Tukey CLD letters correctly, and exports a Word report automatically. Free download for Windows. No R or Python needed."/>
+  <meta name="description" content="SPADE calculates all 5 NUE indices, assigns Tukey letters and exports a Word report automatically. Free Windows download, no R or Python needed."/>
   <meta property="og:title" content="SPADE: Free NUE Analysis Software for Field Trials"/>
   <meta property="og:description" content="SPADE calculates all 5 NUE indices, assigns Tukey CLD letters correctly, and exports a Word report in one click. Free for Windows — no R or Python needed."/>
   <meta property="og:type" content="article"/>
@@ -123,19 +123,46 @@
     .post-nav{margin-top:52px;padding-top:28px;border-top:1px solid var(--gold-pale);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "SPADE: Free NUE Analysis Software for Field Trials",
-    "description": "SPADE calculates all 5 NUE indices (AE, RE, PE, NHI, PFP), assigns Tukey CLD letters correctly, and exports a formatted Word report automatically. Free download for Windows. No R needed.",
-    "url": "https://sajjadur-rahman.com/blog-spade-open-source.html",
-    "datePublished": "2026-06-10",
-    "dateModified": "2026-06-10",
-    "author": { "@type": "Person", "name": "Sajjadur Rahman", "url": "https://sajjadur-rahman.com/about.html" },
-    "publisher": { "@type": "Person", "name": "Sajjadur Rahman", "url": "https://sajjadur-rahman.com" },
-    "keywords": ["NUE", "nitrogen use efficiency", "SPADE", "open source", "agronomic analysis", "field trials", "Python"],
-    "about": { "@type": "SoftwareApplication", "name": "SPADE", "applicationCategory": "Scientific Software", "operatingSystem": "Windows, macOS, Linux", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SPADE: Free NUE Analysis Software for Field Trials",
+  "description": "SPADE calculates all 5 NUE indices (AE, RE, PE, NHI, PFP), assigns Tukey CLD letters correctly, and exports a formatted Word report automatically. Free download for Windows. No R needed.",
+  "url": "https://sajjadur-rahman.com/blog-spade-open-source.html",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "author": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com/about.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com"
+  },
+  "keywords": [
+    "NUE",
+    "nitrogen use efficiency",
+    "SPADE",
+    "open source",
+    "agronomic analysis",
+    "field trials",
+    "Python"
+  ],
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "SPADE",
+    "applicationCategory": "Scientific Software",
+    "operatingSystem": "Windows, macOS, Linux",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg"
+}
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"/>
@@ -203,8 +230,9 @@
 
     <div class="post-hero">
       <div class="container">
-        <div class="post-breadcrumb"><a href="blog.html">Blog</a> &rsaquo; Research &amp; Science</div>
-        <span class="eyebrow">Research &amp; Science</span>
+        <div class="post-breadcrumb"><a href="blog.html">Blog</a> &rsaquo; Soil &amp; Environment
+        </div>
+        <span class="eyebrow">Soil &amp; Environment</span>
         <h1>SPADE: Why I Built an Analytics Dashboard<br/><em>for My Wheat Experiment, and What It Does Differently</em></h1>
         <div class="post-meta">
           <span>10 June 2026</span><span class="dot">·</span>
@@ -232,7 +260,7 @@
 
         <p>There is a workflow that almost every agricultural researcher knows. Data gets recorded in a field notebook, transferred to Excel, analysed in SPSS or R, figures get made in GraphPad or Excel again, tables get formatted manually in Word, and somewhere in that chain of copy-paste operations, a value gets transcribed wrong, a column gets misaligned, and a result that took three months of fieldwork to generate becomes unreliable for reasons that have nothing to do with the science.</p>
 
-        <p>I know this workflow intimately. My MSc research at the Dhaka University Nanotechnology Centre involves comparing nano-urea — nitrogen fertilizer processed into nanoparticles for foliar application — against conventional granular urea on wheat, across eight treatment combinations and 30 measured parameters. When I sat down to begin analysis I realised the fragmented pipeline would cost me more time than the lab work itself. So I built something different.</p>
+        <p>I know this workflow intimately. My MSc research at the Dhaka University Nanotechnology Centre involves comparing nano-urea (nitrogen fertilizer processed into nanoparticles for foliar application) against conventional granular urea on wheat, across eight treatment combinations and 30 measured parameters. When I sat down to begin analysis I realised the fragmented pipeline would cost me more time than the lab work itself. So I built something different.</p>
 
         <p>SPADE (Statistical Platform for Agronomic Data Evaluation) is the tool I wish had existed when I started.</p>
 
@@ -245,16 +273,16 @@
 
         <div class="inline-ref">
           <span class="inline-ref-icon">📖</span>
-          <p><span class="inline-ref-label">Related post</span><a href="blog-nue-indices-explained.html">NUE Indices: AE, RE, PE, and NHI Explained</a> — the five indices SPADE computes, with formulas and a worked example.</p>
+          <p><span class="inline-ref-label">Related post</span><a href="blog-nue-indices-explained.html">NUE Indices: AE, RE, PE, and NHI Explained</a>; the five indices SPADE computes, with formulas and a worked example.</p>
         </div>
 
-        <p>The second problem is statistical. The compact letter display — the system of letters (a, b, ab) used in agricultural publications to summarise which treatments are significantly different from each other — is routinely implemented incorrectly. The naive algorithm assigns letters by scanning treatments in order of their means, which produces wrong groupings whenever the significance pattern is non-monotonic, a very common situation in fertilizer dose-response experiments. SPADE implements the Piepho (2004) maximal clique method, which is mathematically guaranteed to produce correct letter assignments for any pattern. This is not a minor technical detail. Incorrect CLD letters in a published paper mean the conclusions about treatment comparisons are wrong.</p>
+        <p>The second problem is statistical. The compact letter display, the system of letters (a, b, ab) used in agricultural publications to summarise which treatments are significantly different from each other, is routinely implemented incorrectly. The naive algorithm assigns letters by scanning treatments in order of their means, which produces wrong groupings whenever the significance pattern is non-monotonic, a very common situation in fertilizer dose-response experiments. SPADE implements the Piepho (2004) maximal clique method, which is mathematically guaranteed to produce correct letter assignments for any pattern. This is not a minor technical detail. Incorrect CLD letters in a published paper mean the conclusions about treatment comparisons are wrong.</p>
 
-        <p>Third: with only three replicates per treatment, which is standard in pot experiments, most statistical tools will happily run tests that are statistically inappropriate. Shapiro-Wilk for normality at n=3 has almost no power — it almost never rejects regardless of the actual distribution, making the test meaningless. Dixon's Q test is built for samples of this size and is what SPADE uses instead. The outlier results include a plain-language explanation: not just "Q=0.987 &gt; Q_crit 0.970" but "R2 value (2.1) is the lowest replicate and deviates 92.7% below the other values (mean of others = 8.25). Q=0.9870 exceeds the critical value 0.970." You can read that sentence and understand what it is telling you.</p>
+        <p>Third: with only three replicates per treatment, which is standard in pot experiments, most statistical tools will happily run tests that are statistically inappropriate. Shapiro-Wilk for normality at n=3 has almost no power: it almost never rejects regardless of the actual distribution, making the test meaningless. Dixon's Q test is built for samples of this size and is what SPADE uses instead. The outlier results include a plain-language explanation: not just "Q=0.987 &gt; Q_crit 0.970" but "R2 value (2.1) is the lowest replicate and deviates 92.7% below the other values (mean of others = 8.25). Q=0.9870 exceeds the critical value 0.970." You can read that sentence and understand what it is telling you.</p>
 
         <div class="inline-ref">
           <span class="inline-ref-icon">📖</span>
-          <p><span class="inline-ref-label">Related posts</span><a href="blog-anova-r-tutorial.html">One-Way ANOVA in R for Agricultural Research</a> and <a href="blog-tukey-hsd-explained.html">Tukey HSD: Post-Hoc Testing After ANOVA</a> — the analytical steps SPADE automates, explained in full.</p>
+          <p><span class="inline-ref-label">Related posts</span><a href="blog-anova-r-tutorial.html">One-Way ANOVA in R for Agricultural Research</a> and <a href="blog-tukey-hsd-explained.html">Tukey HSD: Post-Hoc Testing After ANOVA</a>; the analytical steps SPADE automates, explained in full.</p>
         </div>
 
         <!-- WHAT SPADE CONTAINS -->
@@ -297,7 +325,7 @@
           <div class="tab-item">
             <span class="tab-num">Tab 06</span>
             <div class="tab-name">Outlier Tests</div>
-            <p>Runs Dixon's Q and Grubbs on every treatment group for any selected parameter, with the plain-language explanations described above. A full scan button tests all 30 parameters simultaneously. The results note explicitly that at n=3, both tests have very low power — a flag means something needs looking at, not that the value must be removed.</p>
+            <p>Runs Dixon's Q and Grubbs on every treatment group for any selected parameter, with the plain-language explanations described above. A full scan button tests all 30 parameters simultaneously. The results note explicitly that at n=3, both tests have very low power: a flag means something needs looking at, not that the value must be removed.</p>
           </div>
 
           <div class="tab-item">
@@ -315,7 +343,7 @@
         </div>
 
         <div class="sig-example">
-          <span class="sig-label">Generated output — ready to paste</span>
+          <span class="sig-label">Generated output: ready to paste</span>
           <p class="sig-text">"Grain yield was significantly affected by treatment (F(7,16) = 12.34, p &lt; 0.001 **, &#969;&#178; = 0.71 [large effect], LSD&#8320;.&#8320;&#8325; = 0.84). The highest mean was recorded in T3 (13.72 &plusmn; 0.21 SD), which was significantly superior to T1 (p = 0.001) and T6 (p = 0.023)."</p>
         </div>
 
@@ -331,11 +359,11 @@
 
         <p>This dashboard emerged from a specific experiment: nano-urea versus conventional urea on BARI Gom 33 wheat, eight treatments, Completely Randomised Design, 24 pots at the DUNTC facility. The research question is whether foliar nano-urea at 50 to 75% of the recommended nitrogen dose can maintain grain protein quality and nitrogen recovery equivalent to full-dose conventional urea. If it can, the implications for input costs, groundwater nitrate contamination, and greenhouse gas emissions from smallholder wheat production in Bangladesh are real and worth pursuing.</p>
 
-        <p>The experiment was interrupted by a hailstorm during grain-filling, which destroyed most of the grain in some pots. A lesser outcome would have been to discard the study. Instead, the analytical focus shifted to parameters the hail could not touch — tissue nitrogen partitioning, nitrogen harvest index, root:shoot ratio, and post-harvest soil nutrient dynamics. SPADE documents this explicitly: the field event is recorded, pots with total grain loss are excluded from yield analysis with a note, and all tissue and soil data are retained. This is how uncontrolled field events should be handled: transparently documented, not omitted.</p>
+        <p>The experiment was interrupted by a hailstorm during grain-filling, which destroyed most of the grain in some pots. A lesser outcome would have been to discard the study. Instead, the analytical focus shifted to parameters the hail could not touch: tissue nitrogen partitioning, nitrogen harvest index, root:shoot ratio, and post-harvest soil nutrient dynamics. SPADE documents this explicitly: the field event is recorded, pots with total grain loss are excluded from yield analysis with a note, and all tissue and soil data are retained. This is how uncontrolled field events should be handled: transparently documented, not omitted.</p>
 
         <div class="inline-ref">
           <span class="inline-ref-icon">📖</span>
-          <p><span class="inline-ref-label">Related post</span><a href="blog-nitrogen-cycling-urea.html">What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling</a> — the nitrogen loss pathways SPADE's NUE indices are designed to measure and report completely.</p>
+          <p><span class="inline-ref-label">Related post</span><a href="blog-nitrogen-cycling-urea.html">What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling</a>; the nitrogen loss pathways SPADE's NUE indices are designed to measure and report completely.</p>
         </div>
 
         <!-- GET IT -->
@@ -436,21 +464,21 @@
           <a href="blog-nue-indices-explained.html" class="related-card">
             <span class="rc-cat">Data Analysis &amp; Research</span>
             <div class="rc-title">Understanding NUE Indices: AE, RE, PE, and NHI Explained</div>
-            <p class="rc-excerpt">The five nitrogen use efficiency indices SPADE computes automatically — formulas, a worked example, and the relationship between them. The indices most published papers skip.</p>
+            <p class="rc-excerpt">The five nitrogen use efficiency indices SPADE computes automatically: formulas, a worked example, and the relationship between them. The indices most published papers skip.</p>
             <span class="rc-read">Read Post</span>
           </a>
 
           <a href="blog-anova-r-tutorial.html" class="related-card">
             <span class="rc-cat">Data Analysis</span>
             <div class="rc-title">One-Way ANOVA in R for Agricultural Research</div>
-            <p class="rc-excerpt">Step-by-step guide to the same ANOVA that SPADE automates — F-test, Tukey HSD, CLD letters, and effect sizes, with fertilizer trial data as the working example.</p>
+            <p class="rc-excerpt">Step-by-step guide to the same ANOVA that SPADE automates: F-test, Tukey HSD, CLD letters, and effect sizes, with fertilizer trial data as the working example.</p>
             <span class="rc-read">Read Post</span>
           </a>
 
           <a href="blog-nitrogen-cycling-urea.html" class="related-card">
             <span class="rc-cat">Research &amp; Science</span>
             <div class="rc-title">What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling</div>
-            <p class="rc-excerpt">The nitrogen loss pathways — volatilisation, leaching, denitrification — that SPADE's NUE indices are designed to detect, quantify, and report completely.</p>
+            <p class="rc-excerpt">The nitrogen loss pathways (volatilisation, leaching, denitrification) that SPADE's NUE indices are designed to detect, quantify, and report completely.</p>
             <span class="rc-read">Read Post</span>
           </a>
 

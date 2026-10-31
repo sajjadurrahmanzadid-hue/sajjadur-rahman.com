@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="A complete one-way ANOVA tutorial in R for agricultural researchers — data entry, assumption checks, Tukey HSD, compact letter display, and a publication-ready figure. Realistic dataset included."/>
+  <meta name="description" content="One-way ANOVA in R for agricultural trials: data entry, assumption checks, Tukey HSD with compact letters, and a publication-ready figure. Dataset included."/>
   <meta name="author" content="Sajjadur Rahman"/>
   <meta name="keywords" content="one-way ANOVA R tutorial, agricultural statistics R, Tukey HSD R, compact letter display agricolae, ANOVA agricultural research Bangladesh, R for researchers"/>
   <meta property="og:title" content="One-Way ANOVA in R for Agricultural Research — Sajjadur Rahman"/>
   <meta property="og:description" content="A complete ANOVA tutorial in R: data entry, assumption checks, Tukey HSD with compact letter display, and a publication-ready bar chart. Realistic agricultural dataset included."/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://sajjadur-rahman.com/blog-anova-r-tutorial.html"/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:image:width" content="1165"/>
+  <meta property="og:image:height" content="632"/>
+  <meta property="og:image:alt" content="Sajjadur Rahman: research, writing and data analysis"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="One-Way ANOVA in R for Agricultural Research — Sajjadur Rahman"/>
+  <meta name="twitter:description" content="A complete ANOVA tutorial in R: data entry, assumption checks, Tukey HSD with compact letter display, and a publication-ready bar chart. Realistic agricultural dataset included."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
   <meta property="article:published_time" content="2026-06-01"/>
   <meta property="article:author" content="Sajjadur Rahman"/>
   <title>One-Way ANOVA in R for Agricultural Research — A Practical Tutorial — Sajjadur Rahman</title>
@@ -442,25 +451,26 @@
     }
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "One-Way ANOVA in R for Agricultural Research",
-    "description": "A complete one-way ANOVA tutorial in R for agricultural researchers — data entry, assumption checks, Tukey HSD, compact letter display, and a publication-ready figure. Realistic dataset included.",
-    "url": "https://sajjadur-rahman.com/blog-anova-r-tutorial.html",
-    "datePublished": "2026-06-01",
-    "dateModified": "2026-06-01",
-    "author": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com/about.html"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com"
-    }
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "One-Way ANOVA in R for Agricultural Research",
+  "description": "A complete one-way ANOVA tutorial in R for agricultural researchers — data entry, assumption checks, Tukey HSD, compact letter display, and a publication-ready figure. Realistic dataset included.",
+  "url": "https://sajjadur-rahman.com/blog-anova-r-tutorial.html",
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-01",
+  "author": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com/about.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com"
+  },
+  "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg"
+}
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"/>
@@ -552,7 +562,7 @@
         <h1 class="article-h1">
           One-Way ANOVA in R<br/>for <em>Agricultural Research</em>
         </h1>
-        <p class="article-deck">A complete practical tutorial — data entry, assumption checks, Tukey HSD with compact letter display, and a publication-ready bar chart. All code is copy-paste ready and the dataset mirrors a real Bangladesh fertilizer experiment.</p>
+        <p class="article-deck">A complete practical tutorial: data entry, assumption checks, Tukey HSD with compact letter display, and a publication-ready bar chart. All code is copy-paste ready and the dataset mirrors a real Bangladesh fertilizer experiment.</p>
         <div class="article-meta-bar">
           <div class="meta-author-block">
             <div class="meta-avatar">SR</div>
@@ -577,7 +587,7 @@
         <!-- PROSE -->
         <article class="article-prose" id="articleBody">
 
-          <p>I run ANOVA on every fertilizer experiment I do. The BBCU thesis data, the nano-urea pot experiment at DUNTC, the yield prediction work from 2023 — all of it goes through ANOVA before anything gets reported. SPSS handles it fine, but R gives you more control, the output is reproducible from a script anyone can rerun, and the figures go straight into manuscripts without reformatting.</p>
+          <p>I run ANOVA on every fertilizer experiment I do. The BBCU thesis data, the nano-urea pot experiment at DUNTC, the yield prediction work from 2023: all of it goes through ANOVA before anything gets reported. SPSS handles it fine, but R gives you more control, the output is reproducible from a script anyone can rerun, and the figures go straight into manuscripts without reformatting.</p>
 
           <p>This tutorial walks through a complete one-way ANOVA in R using a realistic agricultural dataset: four fertilizer treatments, three replications each, grain yield as the outcome. By the end you will have run the test, verified the assumptions, done Tukey HSD with a compact letter display, and produced a bar chart with error bars ready for a journal submission.</p>
 
@@ -586,7 +596,7 @@
           <!-- S1 -->
           <h2 id="s1">When to Use One-Way ANOVA</h2>
 
-          <p>ANOVA tests whether the means of three or more groups are equal. You use it when you have one categorical independent variable — treatment, variety, location — and one continuous dependent variable: yield, NUE, nitrogen uptake. One-way means one grouping factor. If you have two factors (treatment and season, for example), you need two-way ANOVA instead.</p>
+          <p>ANOVA tests whether the means of three or more groups are equal. You use it when you have one categorical independent variable (treatment, variety, location), and one continuous dependent variable: yield, NUE, nitrogen uptake. One-way means one grouping factor. If you have two factors (treatment and season, for example), you need two-way ANOVA instead.</p>
 
           <p>For two groups only, a t-test is the right tool. For three or more, ANOVA is correct, and it controls the error rate better than running multiple t-tests in sequence.</p>
 
@@ -645,7 +655,7 @@
             </table>
           </div>
 
-          <p>Four treatments, twelve observations total. Small but typical for a pot study. The group means range from 3.83 to 6.40 — a spread that should produce a clear ANOVA result.</p>
+          <p>Four treatments, twelve observations total. Small but typical for a pot study. The group means range from 3.83 to 6.40: a spread that should produce a clear ANOVA result.</p>
 
           <!-- S3 -->
           <h2 id="s3"><span class="step-badge">01</span> Enter the Data</h2>
@@ -897,7 +907,7 @@ sum_df$cld &lt;- <span class="kw">c</span>(<span class="st">"c"</span>, <span cl
 
           <div class="code-wrap" id="code10">
             <div class="code-header">
-              <span class="code-lang">R — Complete Script</span>
+              <span class="code-lang">R: Complete Script</span>
               <button class="code-copy-btn" onclick="copyCode('code10')">Copy</button>
             </div>
             <pre class="code-pre"><span class="cm"># ── ONE-WAY ANOVA — Agricultural Data ─────────────────────────────</span>
@@ -951,7 +961,7 @@ sum_df$cld &lt;- <span class="kw">c</span>(<span class="st">"c"</span>, <span cl
 <span class="kw">ggsave</span>(<span class="st">"grain_yield_anova.png"</span>, dpi = <span class="nu">300</span>, width = <span class="nu">6</span>, height = <span class="nu">4.5</span>)</pre>
           </div>
 
-          <p>If you have a dataset that needs this kind of analysis and want a written results section and publication-ready figures alongside it, the <a href="services.html#data">data analysis service</a> on this site handles exactly that — using R, SPSS, or Python depending on your preference.</p>
+          <p>If you have a dataset that needs this kind of analysis and want a written results section and publication-ready figures alongside it, the <a href="services.html#data">data analysis service</a> on this site handles exactly that, using R, SPSS, or Python depending on your preference.</p>
 
           <!-- Tags -->
           <div class="article-tags">
@@ -977,7 +987,7 @@ sum_df$cld &lt;- <span class="kw">c</span>(<span class="st">"c"</span>, <span cl
             <div class="bio-inner">
               <h4>Sajjadur Rahman</h4>
               <span class="bio-role-lbl">MSc Researcher · Data Analyst · University of Dhaka</span>
-              <p>NST Fellow and active researcher using R, SPSS, and Python across soil science and agricultural experiments. Developer of SPADE — open-source software for nitrogen use efficiency analysis, ANOVA, and publication-ready figure export. Available for data analysis, manuscript editing, and thesis consultation.</p>
+              <p>NST Fellow and active researcher using R, SPSS, and Python across soil science and agricultural experiments. Developer of SPADE: open-source software for nitrogen use efficiency analysis, ANOVA, and publication-ready figure export. Available for data analysis, manuscript editing, and thesis consultation.</p>
               <div class="bio-links">
                 <a href="services.html#data" class="bio-lnk">Data Analysis</a>
                 <a href="research.html#spade" class="bio-lnk">About SPADE</a>
@@ -1078,15 +1088,15 @@ sum_df$cld &lt;- <span class="kw">c</span>(<span class="st">"c"</span>, <span cl
             <div class="sb-body">
               <a href="blog-nue-indices-explained.html" class="related-link">
                 <span class="rel-icon">📊</span>
-                <span class="rel-title">Understanding NUE indices — AE, RE, PE, and NHI explained</span>
+                <span class="rel-title">Understanding NUE indices: AE, RE, PE, and NHI explained</span>
               </a>
               <a href="blog.html" class="related-link">
                 <span class="rel-icon">🐍</span>
-                <span class="rel-title">SPSS vs R vs Python for agricultural data — which to use?</span>
+                <span class="rel-title">SPSS vs R vs Python for agricultural data, which to use?</span>
               </a>
               <a href="blog-imrad-explained.html" class="related-link">
                 <span class="rel-icon">📝</span>
-                <span class="rel-title">IMRaD explained — how to structure a scientific research paper</span>
+                <span class="rel-title">IMRaD explained, how to structure a scientific research paper</span>
               </a>
             </div>
           </div>

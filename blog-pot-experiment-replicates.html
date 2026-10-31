@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="How many pots do you actually need for a CRD experiment? The answer depends on four levers — effect size, variability, α, and power. This post walks through a power analysis in R using realistic wheat yield data, plus a reverse calculation for when your pot count is already fixed."/>
+  <meta name="description" content="How many pots does a CRD experiment need? A power analysis in R using wheat yield data, plus a reverse calculation for when your pot count is already fixed."/>
   <meta name="author" content="Sajjadur Rahman"/>
   <meta name="keywords" content="pot experiment replicates, sample size calculation plant science, power analysis R agriculture, pwr.anova.test tutorial, CRD experimental design, Cohen's f ANOVA, greenhouse experiment design, wheat pot experiment Bangladesh"/>
   <meta property="og:title" content="How Many Replicates Do You Actually Need for a Pot Experiment? — Sajjadur Rahman"/>
   <meta property="og:description" content="The four levers that determine your replicate count, a step-by-step power analysis in R with realistic wheat yield data, a reverse calculation for fixed pot counts, and a pre-planting checklist."/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://sajjadur-rahman.com/blog-pot-experiment-replicates.html"/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:image:width" content="1165"/>
+  <meta property="og:image:height" content="632"/>
+  <meta property="og:image:alt" content="Sajjadur Rahman: research, writing and data analysis"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="How Many Replicates Do You Actually Need for a Pot Experiment? — Sajjadur Rahman"/>
+  <meta name="twitter:description" content="The four levers that determine your replicate count, a step-by-step power analysis in R with realistic wheat yield data, a reverse calculation for fixed pot counts, and a pre-planting checklist."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
   <meta property="article:published_time" content="2026-06-21"/>
   <meta property="article:author" content="Sajjadur Rahman"/>
   <title>How Many Replicates Do You Actually Need for a Pot Experiment? — Sajjadur Rahman</title>
@@ -229,25 +238,26 @@
     }
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "How Many Replicates Do You Actually Need for a Pot Experiment?",
-    "description": "The four levers that determine your replicate count, a step-by-step power analysis in R with realistic wheat yield data, a reverse calculation for fixed pot counts, and a pre-planting checklist.",
-    "url": "https://sajjadur-rahman.com/blog-pot-experiment-replicates.html",
-    "datePublished": "2026-06-21",
-    "dateModified": "2026-06-21",
-    "author": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com/about.html"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Sajjadur Rahman",
-      "url": "https://sajjadur-rahman.com"
-    }
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Many Replicates Do You Actually Need for a Pot Experiment?",
+  "description": "The four levers that determine your replicate count, a step-by-step power analysis in R with realistic wheat yield data, a reverse calculation for fixed pot counts, and a pre-planting checklist.",
+  "url": "https://sajjadur-rahman.com/blog-pot-experiment-replicates.html",
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21",
+  "author": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com/about.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sajjadur Rahman",
+    "url": "https://sajjadur-rahman.com"
+  },
+  "image": "https://sajjadur-rahman.com/assets/img/og-cover.jpg"
+}
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"/>
@@ -336,7 +346,7 @@
         <h1 class="article-h1">
           How Many Replicates Do You<br/><em>Actually Need</em> for a Pot Experiment?
         </h1>
-        <p class="article-deck">The honest answer is somewhere between three and infinity, and "whatever the supervisor says" is not a power analysis. Here's how to make the decision with real numbers — before you plant anything.</p>
+        <p class="article-deck">The honest answer is somewhere between three and infinity, and "whatever the supervisor says" is not a power analysis. Here's how to make the decision with real numbers: before you plant anything.</p>
         <div class="article-meta-bar">
           <div class="meta-author-block">
             <div class="meta-avatar">SR</div>
@@ -366,11 +376,11 @@
 
           <p>Then a hailstorm hit mid-season and destroyed four pots. You don't get a do-over in a greenhouse experiment. You work with what survives, you run your ANOVA on reduced data, and you spend a long time wondering whether the non-significant result you got means the treatment didn't work or means you simply didn't have enough pots to see that it did.</p>
 
-          <p>That uncertainty — between "the effect is not there" and "the effect is there but I couldn't detect it" — is exactly what a power analysis is designed to prevent. It's the difference between planning your experiment and hoping your experiment. The cost of getting it wrong is measured in pots, soil, fertilizer, greenhouse time, months of your degree, and the specific kind of frustration that comes from results you can't trust in either direction.</p>
+          <p>That uncertainty (between "the effect is not there" and "the effect is there but I couldn't detect it") is exactly what a power analysis is designed to prevent. It's the difference between planning your experiment and hoping your experiment. The cost of getting it wrong is measured in pots, soil, fertilizer, greenhouse time, months of your degree, and the specific kind of frustration that comes from results you can't trust in either direction.</p>
 
           <p>So. How many replicates do you actually need?</p>
 
-          <p>The answer depends on four numbers, and you have to supply all four before the experiment starts — not after.</p>
+          <p>The answer depends on four numbers, and you have to supply all four before the experiment starts, not after.</p>
 
           <!-- S2 -->
           <h2 id="s2">The Four Levers</h2>
@@ -387,30 +397,30 @@
             <div class="lever-card">
               <span class="lever-num">Lever 2</span>
               <span class="lever-name">Variability (σ)</span>
-              <span class="lever-desc">How noisy your measurements are within a treatment group — the within-group standard deviation. Estimated from a pilot run, a similar published experiment, or a literature CV for the crop and variable.</span>
+              <span class="lever-desc">How noisy your measurements are within a treatment group: the within-group standard deviation. Estimated from a pilot run, a similar published experiment, or a literature CV for the crop and variable.</span>
               <span class="lever-direction ld-up">↑ noisier data → more pots</span>
             </div>
             <div class="lever-card">
               <span class="lever-num">Lever 3</span>
               <span class="lever-name">Significance Level (α)</span>
-              <span class="lever-desc">The false positive rate — the probability of concluding there's an effect when there isn't one. The 0.05 convention is arbitrary but standard. Lowering it to 0.01 requires more pots.</span>
+              <span class="lever-desc">The false positive rate: the probability of concluding there's an effect when there isn't one. The 0.05 convention is arbitrary but standard. Lowering it to 0.01 requires more pots.</span>
               <span class="lever-direction ld-up">↓ stricter α → more pots</span>
             </div>
             <div class="lever-card">
               <span class="lever-num">Lever 4</span>
               <span class="lever-name">Power (1−β)</span>
-              <span class="lever-desc">Your probability of detecting a real effect when it exists. The standard floor is 0.80 — meaning you accept a 1-in-5 chance of missing a true effect. Power = 0.90 requires more pots.</span>
+              <span class="lever-desc">Your probability of detecting a real effect when it exists. The standard floor is 0.80, meaning you accept a 1-in-5 chance of missing a true effect. Power = 0.90 requires more pots.</span>
               <span class="lever-direction ld-up">↑ higher power → more pots</span>
             </div>
           </div>
 
-          <p>The effect size lever (f) deserves the most attention because it's the one researchers most often set badly. Cohen's f — the conventional measure for ANOVA — is the standard deviation of the treatment group means divided by the within-group standard deviation. You calculate it by deciding what means you realistically expect to see and what the background variability is. Both of those come from your brain and your literature search, not from the data you haven't yet collected.</p>
+          <p>The effect size lever (f) deserves the most attention because it's the one researchers most often set badly. Cohen's f (the conventional measure for ANOVA) is the standard deviation of the treatment group means divided by the within-group standard deviation. You calculate it by deciding what means you realistically expect to see and what the background variability is. Both of those come from your brain and your literature search, not from the data you haven't yet collected.</p>
 
           <p>Cohen's conventional thresholds are f = 0.10 (small), f = 0.25 (medium), and f = 0.40 (large). In controlled greenhouse and pot conditions, agricultural effects tend to produce large f values because the within-pot variability is lower than field variability. This is one reason why pot experiments work at all with only 4–6 replicates. But "tends to produce large effects" is not a power analysis.</p>
 
           <div class="callout-box">
             <span class="callout-label">The honest calibration question</span>
-            <p>Before calculating n, ask yourself: if the treatment worked perfectly as expected, what would the group means look like, and what within-group SD would I expect? Write those numbers down. Your f is derived from them. If you can't answer those questions from the literature, the power analysis will tell you nothing useful — and that is information worth having before you plant.</p>
+            <p>Before calculating n, ask yourself: if the treatment worked perfectly as expected, what would the group means look like, and what within-group SD would I expect? Write those numbers down. Your f is derived from them. If you can't answer those questions from the literature, the power analysis will tell you nothing useful, and that is information worth having before you plant.</p>
           </div>
 
           <!-- S3 -->
@@ -418,7 +428,7 @@
 
           <p>The <code>pwr</code> package handles power calculations for common statistical tests, including one-way ANOVA. Install it once, then use <code>pwr.anova.test()</code> to find any one of the four parameters given the other three.</p>
 
-          <p>The running example: a 4-treatment CRD on BARI Gom 33 wheat, testing 0, 40, 80, and 120 kg N/ha as urea. From published studies on similar wheat varieties in Bangladesh, you estimate that grain yield will follow a diminishing-returns pattern with N: means approximately 2.8, 3.5, 3.9, 4.1 t/ha. You also estimate that within any single nitrogen treatment, pot-to-pot variation — due to minor soil differences, pot placement effects, and measurement error — will produce a standard deviation of about 0.55 t/ha. That SD is your estimate of σ.</p>
+          <p>The running example: a 4-treatment CRD on BARI Gom 33 wheat, testing 0, 40, 80, and 120 kg N/ha as urea. From published studies on similar wheat varieties in Bangladesh, you estimate that grain yield will follow a diminishing-returns pattern with N: means approximately 2.8, 3.5, 3.9, 4.1 t/ha. You also estimate that within any single nitrogen treatment, pot-to-pot variation (due to minor soil differences, pot placement effects, and measurement error) will produce a standard deviation of about 0.55 t/ha. That SD is your estimate of σ.</p>
 
           <div class="code-wrap" id="cw1">
             <div class="code-header">
@@ -463,9 +473,9 @@ Cohen's f:    <span class="hi">0.903</span>
 NOTE: n is number in each group</pre>
           </div>
 
-          <p>Round up to <strong>5 pots per group</strong>, giving 20 pots total. With the expected effect size in this scenario (f = 0.90, which is large — a consequence of the strong N response and controlled pot conditions), you need fewer replicates than you might expect. Your design is efficient precisely because you're working in a controlled environment.</p>
+          <p>Round up to <strong>5 pots per group</strong>, giving 20 pots total. With the expected effect size in this scenario (f = 0.90, which is large: a consequence of the strong N response and controlled pot conditions), you need fewer replicates than you might expect. Your design is efficient precisely because you're working in a controlled environment.</p>
 
-          <p>But notice how sensitive this is to σ. If the within-group variability is higher than you estimated — say σ = 0.75 t/ha instead of 0.55, because pot placement near the greenhouse wall or edge effects turn out to matter more than you thought:</p>
+          <p>But notice how sensitive this is to σ. If the within-group variability is higher than you estimated: say σ = 0.75 t/ha instead of 0.55, because pot placement near the greenhouse wall or edge effects turn out to matter more than you thought:</p>
 
           <div class="code-wrap" id="cw2">
             <div class="code-header">
@@ -489,7 +499,7 @@ f_high     &lt;- sigma_m / sigma_high
 NOTE: n is number in each group</pre>
           </div>
 
-          <p>Now you need 8 pots per group — 32 total. The same expected treatment effect, but noisier conditions, and the required n jumps by 60%. This is why your estimate of σ matters as much as your estimate of the treatment means, and why a small pilot run of 3–4 pots is worth the investment if you have no good literature estimate.</p>
+          <p>Now you need 8 pots per group: 32 total. The same expected treatment effect, but noisier conditions, and the required n jumps by 60%. This is why your estimate of σ matters as much as your estimate of the treatment means, and why a small pilot run of 3–4 pots is worth the investment if you have no good literature estimate.</p>
 
           <!-- S4 -->
           <h2 id="s4">How Required n Responds to Effect Size</h2>
@@ -523,7 +533,7 @@ f = 1.00 | n =  <span class="sig">4</span> per group |  <span class="sig">16</sp
           </div>
 
           <div class="data-table-wrap">
-            <table class="data-table" aria-label="Required pots by effect size — 4 treatments, α=0.05, 80% power">
+            <table class="data-table" aria-label="Required pots by effect size: 4 treatments, α=0.05, 80% power">
               <thead>
                 <tr>
                   <th>Cohen's f</th>
@@ -580,10 +590,10 @@ f = 1.00 | n =  <span class="sig">4</span> per group |  <span class="sig">16</sp
             </table>
           </div>
 
-          <p>The table makes the underlying logic visible. The 4–6 replicates that tradition prescribes are only appropriate when you expect a very large effect size (f ≥ 0.80). In highly controlled pot experiments with strong N response curves, that expectation is often justified — which is why the tradition holds. But if you're testing a subtle micronutrient interaction or a soil amendment that produces modest yield responses, 4–6 replicates may leave you fundamentally unable to see the effect you're looking for.</p>
+          <p>The table makes the underlying logic visible. The 4–6 replicates that tradition prescribes are only appropriate when you expect a very large effect size (f ≥ 0.80). In highly controlled pot experiments with strong N response curves, that expectation is often justified, which is why the tradition holds. But if you're testing a subtle micronutrient interaction or a soil amendment that produces modest yield responses, 4–6 replicates may leave you fundamentally unable to see the effect you're looking for.</p>
 
           <!-- S5 -->
-          <h2 id="s5">The Reverse Calculation — Working Back from Fixed Pots</h2>
+          <h2 id="s5">The Reverse Calculation, Working Back from Fixed Pots</h2>
 
           <p>Most graduate students don't choose their pot count from scratch. They inherit a greenhouse bay with space for 24 pots, or a supervisor who says "you can have 30 pots maximum." The more useful question then is not "how many do I need?" but "given what I have, what can I actually detect?"</p>
 
@@ -624,15 +634,15 @@ n = 10 per group (40 pots): min detectable f = <span class="sig">0.55</span></pr
 
           <p>The power analysis gives you the minimum n for the experiment you're planning. It does not account for the experiment you're actually running.</p>
 
-          <p>Pots fail. A fungal infection wipes out two replicates in the highest-N treatment. A pipe burst in mid-January floods one end of the greenhouse bay. A hailstorm — and yes, this happens to covered and semi-covered structures at DUNTC — dislodges several pots and compromises data quality in a way you only discover during harvest. Any experiment that runs from planting to harvest over 90–120 days is exposed to a hundred small disasters that your power calculation didn't model.</p>
+          <p>Pots fail. A fungal infection wipes out two replicates in the highest-N treatment. A pipe burst in mid-January floods one end of the greenhouse bay. A hailstorm (and yes, this happens to covered and semi-covered structures at DUNTC) dislodges several pots and compromises data quality in a way you only discover during harvest. Any experiment that runs from planting to harvest over 90–120 days is exposed to a hundred small disasters that your power calculation didn't model.</p>
 
           <div class="pull-quote">
-            <p>Plan for 15–20% more pots than your power analysis requires. You're not padding unnecessarily — you're buying a minimum viable experiment even if things go wrong.</p>
+            <p>Plan for 15–20% more pots than your power analysis requires. You're not padding unnecessarily: you're buying a minimum viable experiment even if things go wrong.</p>
           </div>
 
           <p>In practice: if your power analysis says 6 pots per group, plan for 7 or 8. If it says 20 total, prepare soil and procure materials for 24–26. The incremental cost of an extra pot at the planning stage is trivial compared to the cost of running a 90-day experiment and arriving at a result you can't defend.</p>
 
-          <p>For CRD experiments specifically, losing even one or two pots from one treatment group creates an unbalanced design. That's not catastrophic — unbalanced ANOVA is straightforward in R using <code>aov()</code> with Type III sums of squares — but it reduces your power in proportion to the imbalance, which is exactly the opposite direction from where you want to be going.</p>
+          <p>For CRD experiments specifically, losing even one or two pots from one treatment group creates an unbalanced design. That's not catastrophic (unbalanced ANOVA is straightforward in R using <code>aov()</code> with Type III sums of squares), but it reduces your power in proportion to the imbalance, which is exactly the opposite direction from where you want to be going.</p>
 
           <!-- S7 -->
           <h2 id="s7">The Pre-Planting Checklist</h2>
@@ -662,19 +672,19 @@ n = 10 per group (40 pots): min detectable f = <span class="sig">0.55</span></pr
             </li>
             <li>
               <span class="ck-box">6</span>
-              <div><strong>If fixed constraints apply, run the reverse calculation.</strong> Check whether the minimum detectable f is realistic for your system. If it isn't — if your available pots can only detect effects so large they'd be visible to the naked eye at harvest — revise the experimental question before planting.</div>
+              <div><strong>If fixed constraints apply, run the reverse calculation.</strong> Check whether the minimum detectable f is realistic for your system. If it isn't (if your available pots can only detect effects so large they'd be visible to the naked eye at harvest) revise the experimental question before planting.</div>
             </li>
           </ul>
 
-          <p>None of this is mathematically difficult. What it requires is the willingness to make explicit commitments before the data exist — to say, "I believe this treatment will produce roughly this much difference, with this much within-group variation, and I'm going to design around that belief." That is the scientific discipline that separates an experiment from an experience.</p>
+          <p>None of this is mathematically difficult. What it requires is the willingness to make explicit commitments before the data exist: to say, "I believe this treatment will produce roughly this much difference, with this much within-group variation, and I'm going to design around that belief." That is the scientific discipline that separates an experiment from an experience.</p>
 
           <p>If you find that your available resources can only detect very large effects, that's useful information too. Write a thesis chapter that uses a controlled, well-powered comparison of two treatments instead of an underpowered comparison of six. The quality of evidence you produce matters more than the number of treatments you test.</p>
 
-          <p>The <a href="blog-p-value-meaning.html">p-value post</a> explains what α and power mean in terms of the errors they control — false positives and false negatives. The <a href="blog-anova-r-tutorial.html">ANOVA tutorial</a> covers what you do with the data once you've collected it. This post is what goes in between: the moment before planting when you commit to a design that gives you a fair chance of finding what you're looking for.</p>
+          <p>The <a href="blog-p-value-meaning.html">p-value post</a> explains what α and power mean in terms of the errors they control: false positives and false negatives. The <a href="blog-anova-r-tutorial.html">ANOVA tutorial</a> covers what you do with the data once you've collected it. This post is what goes in between: the moment before planting when you commit to a design that gives you a fair chance of finding what you're looking for.</p>
 
           <div class="article-ornament">✦ ✦ ✦</div>
 
-          <p>If you're designing a pot experiment and want the power analysis run for your specific crop, variable, and constraint, that's the kind of pre-experiment consultation the <a href="services.html#data">data analysis service</a> covers — including the experimental design, not just the statistics at the end.</p>
+          <p>If you're designing a pot experiment and want the power analysis run for your specific crop, variable, and constraint, that's the kind of pre-experiment consultation the <a href="services.html#data">data analysis service</a> covers, including the experimental design, not just the statistics at the end.</p>
 
           <!-- Tags -->
           <div class="article-tags">
@@ -699,7 +709,7 @@ n = 10 per group (40 pots): min detectable f = <span class="sig">0.55</span></pr
             <div class="bio-inner">
               <h4>Sajjadur Rahman</h4>
               <span class="bio-role-lbl">MSc Researcher · University of Dhaka · DUNTC Field Experiments</span>
-              <p>NST Fellow who has run CRD and RCBD pot experiments on BARI Gom 33 and other varieties under controlled and semi-controlled conditions. Developer of SPADE. Available for pre-experiment design consultation — power analysis, replicate planning, and CRD/RCBD layout — as well as post-harvest data analysis.</p>
+              <p>NST Fellow who has run CRD and RCBD pot experiments on BARI Gom 33 and other varieties under controlled and semi-controlled conditions. Developer of SPADE. Available for pre-experiment design consultation (power analysis, replicate planning, and CRD/RCBD layout) as well as post-harvest data analysis.</p>
               <div class="bio-links">
                 <a href="services.html#data" class="bio-lnk">Data Analysis</a>
                 <a href="blog-spade-open-source.html" class="bio-lnk">SPADE Tool</a>
@@ -730,7 +740,7 @@ n = 10 per group (40 pots): min detectable f = <span class="sig">0.55</span></pr
               </div>
               <div class="cs-item">
                 <span class="cs-fn">α = 0.05</span>
-                <span class="cs-desc">False positive rate. Standard convention — lower threshold means more pots.</span>
+                <span class="cs-desc">False positive rate. Standard convention: lower threshold means more pots.</span>
                 <span class="cs-dir cs-dir-up">stricter α → more pots</span>
               </div>
               <div class="cs-item">
@@ -760,7 +770,7 @@ n = 10 per group (40 pots): min detectable f = <span class="sig">0.55</span></pr
           <!-- CTA -->
           <div class="sb-cta">
             <h4>Need help <em>designing</em> your experiment?</h4>
-            <p>I run pre-experiment power analyses and help design CRD/RCBD layouts — pot count, treatment structure, and sampling strategy — before you commit resources.</p>
+            <p>I run pre-experiment power analyses and help design CRD/RCBD layouts (pot count, treatment structure, and sampling strategy) before you commit resources.</p>
             <a href="services.html#data" class="btn btn-gold">Data Analysis Service →</a>
           </div>
 
@@ -785,19 +795,19 @@ n = 10 per group (40 pots): min detectable f = <span class="sig">0.55</span></pr
             <div class="sb-body">
               <a href="blog-p-value-meaning.html" class="related-link">
                 <span class="rel-icon">🎯</span>
-                <span class="rel-title">What a p-value actually means — and five things it doesn't</span>
+                <span class="rel-title">What a p-value actually means, and five things it doesn't</span>
               </a>
               <a href="blog-anova-r-tutorial.html" class="related-link">
                 <span class="rel-icon">📊</span>
-                <span class="rel-title">One-Way ANOVA in R — the test you're designing around</span>
+                <span class="rel-title">One-Way ANOVA in R: the test you're designing around</span>
               </a>
               <a href="blog-tukey-hsd-explained.html" class="related-link">
                 <span class="rel-icon">📐</span>
-                <span class="rel-title">Tukey HSD test — comparing treatment means after ANOVA</span>
+                <span class="rel-title">Tukey HSD test, comparing treatment means after ANOVA</span>
               </a>
               <a href="blog-spade-open-source.html" class="related-link">
                 <span class="rel-icon">🌾</span>
-                <span class="rel-title">SPADE — the open-source tool built for pot experiment data</span>
+                <span class="rel-title">SPADE; the open-source tool built for pot experiment data</span>
               </a>
             </div>
           </div>

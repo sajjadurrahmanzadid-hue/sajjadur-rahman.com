@@ -9,8 +9,20 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "Everything in one place: what IELTS is, Academic vs General Training, how each skill is scored, band requirements for UK/Germany/Australia/Canada, booking and fees in Bangladesh, One Skill Retake, and a preparation timeline.",
     "excerpt_bn": "IELTS কী, একাডেমিক বনাম জেনারেল ট্রেনিং, কীভাবে স্কোর হয়, UK/জার্মানি/অস্ট্রেলিয়া/কানাডার ব্যান্ড প্রয়োজনীয়তা, বাংলাদেশে বুকিং ও ফি এবং প্রস্তুতির টাইমলাইন।",
-    "tags_en": ["IELTS", "Complete Guide", "Bangladesh", "Band Score", "IELTS 2026"],
-    "tags_bn": ["IELTS", "সম্পূর্ণ গাইড", "বাংলাদেশ", "ব্যান্ড স্কোর", "IELTS 2026"],
+    "tags_en": [
+      "IELTS",
+      "Complete Guide",
+      "Bangladesh",
+      "Band Score",
+      "IELTS 2026"
+    ],
+    "tags_bn": [
+      "IELTS",
+      "সম্পূর্ণ গাইড",
+      "বাংলাদেশ",
+      "ব্যান্ড স্কোর",
+      "IELTS 2026"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 13
@@ -25,8 +37,20 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "The two test types share Listening and Speaking but differ in Reading and Writing Task 1. A decision framework for Bangladeshi candidates, including the UKVI variant and skilled migration guidance.",
     "excerpt_bn": "IELTS একাডেমিক ও জেনারেল ট্রেনিংয়ের পার্থক্য এবং বাংলাদেশি পরীক্ষার্থীদের জন্য সঠিক পরীক্ষার ধরন নির্বাচনের গাইড।",
-    "tags_en": ["IELTS", "Academic", "General Training", "UKVI", "Bangladesh"],
-    "tags_bn": ["IELTS", "একাডেমিক", "জেনারেল ট্রেনিং", "UKVI", "বাংলাদেশ"],
+    "tags_en": [
+      "IELTS",
+      "Academic",
+      "General Training",
+      "UKVI",
+      "Bangladesh"
+    ],
+    "tags_bn": [
+      "IELTS",
+      "একাডেমিক",
+      "জেনারেল ট্রেনিং",
+      "UKVI",
+      "বাংলাদেশ"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 8
@@ -41,8 +65,20 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "Computer-delivered format — no transfer window, answers typed directly. Distractor answers, spelling errors, singular/plural traps, word limit rules, and why Part 4 loses candidates the most marks.",
     "excerpt_bn": "কম্পিউটার-ডেলিভার্ড IELTS লিসেনিংয়ে ডিস্ট্র্যাক্টর ট্র্যাপ, বানান ভুল, এবং পার্ট ৪-এ কেন সবচেয়ে বেশি নম্বর হারায়।",
-    "tags_en": ["IELTS Listening", "Traps", "Computer Delivered", "Part 4", "Bangladesh"],
-    "tags_bn": ["IELTS লিসেনিং", "ফাঁদ", "কম্পিউটার ডেলিভার্ড", "পার্ট ৪", "বাংলাদেশ"],
+    "tags_en": [
+      "IELTS Listening",
+      "Traps",
+      "Computer Delivered",
+      "Part 4",
+      "Bangladesh"
+    ],
+    "tags_bn": [
+      "IELTS লিসেনিং",
+      "ফাঁদ",
+      "কম্পিউটার ডেলিভার্ড",
+      "পার্ট ৪",
+      "বাংলাদেশ"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 8
@@ -57,8 +93,20 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "60 minutes, 40 questions, 3 passages. Time allocation per passage, skim and scan technique, True/False/Not Given explained, Matching Headings strategy, and a full 60-minute time plan.",
     "excerpt_bn": "IELTS রিডিংয়ে সময় বরাদ্দ, স্কিম ও স্ক্যান কৌশল, True/False/Not Given-এর পার্থক্য এবং সম্পূর্ণ ৬০ মিনিটের পরিকল্পনা।",
-    "tags_en": ["IELTS Reading", "Time Management", "True False Not Given", "Skimming", "Bangladesh"],
-    "tags_bn": ["IELTS রিডিং", "টাইম ম্যানেজমেন্ট", "True False Not Given", "স্কিমিং", "বাংলাদেশ"],
+    "tags_en": [
+      "IELTS Reading",
+      "Time Management",
+      "True False Not Given",
+      "Skimming",
+      "Bangladesh"
+    ],
+    "tags_bn": [
+      "IELTS রিডিং",
+      "টাইম ম্যানেজমেন্ট",
+      "True False Not Given",
+      "স্কিমিং",
+      "বাংলাদেশ"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 9
@@ -73,8 +121,18 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "Template essays, Bengali-influenced article and preposition errors, reading every word, preparing for paper-based format, and underweighting Writing — each with a specific fix.",
     "excerpt_bn": "টেমপ্লেট রচনা, বাংলা প্রভাবিত ব্যাকরণ ভুল, পেপার-ভিত্তিক পরীক্ষার প্রস্তুতি এবং রাইটিং ব্যান্ডকে গুরুত্ব না দেওয়া।",
-    "tags_en": ["IELTS Bangladesh", "Common Mistakes", "IELTS Writing", "EFL Bangladesh"],
-    "tags_bn": ["IELTS বাংলাদেশ", "সাধারণ ভুল", "IELTS রাইটিং", "বাংলাদেশ"],
+    "tags_en": [
+      "IELTS Bangladesh",
+      "Common Mistakes",
+      "IELTS Writing",
+      "EFL Bangladesh"
+    ],
+    "tags_bn": [
+      "IELTS বাংলাদেশ",
+      "সাধারণ ভুল",
+      "IELTS রাইটিং",
+      "বাংলাদেশ"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 9
@@ -89,8 +147,18 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "The overview paragraph that separates Band 6 from Band 7, selecting key features, vocabulary for trends and static data, and what each visual type — graph, chart, table, map, process — requires.",
     "excerpt_bn": "ওভারভিউ প্যারাগ্রাফ কেন Band 6 থেকে Band 7 আলাদা করে, মূল বৈশিষ্ট্য নির্বাচন এবং ট্রেন্ড ভোকাবুলারি।",
-    "tags_en": ["IELTS Task 1", "Data Description", "Task Achievement", "Academic Writing"],
-    "tags_bn": ["IELTS টাস্ক ১", "ডেটা বর্ণনা", "টাস্ক অ্যাচিভমেন্ট", "একাডেমিক রাইটিং"],
+    "tags_en": [
+      "IELTS Task 1",
+      "Data Description",
+      "Task Achievement",
+      "Academic Writing"
+    ],
+    "tags_bn": [
+      "IELTS টাস্ক ১",
+      "ডেটা বর্ণনা",
+      "টাস্ক অ্যাচিভমেন্ট",
+      "একাডেমিক রাইটিং"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 9
@@ -105,8 +173,20 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "The four Speaking criteria, part-specific errors that pull scores below Band 7, the memorised-answer penalty, and why pronunciation is about intelligibility — not accent elimination.",
     "excerpt_bn": "IELTS স্পিকিংয়ের চারটি মানদণ্ড, পার্ট-নির্দিষ্ট ভুল এবং মুখস্থ উত্তর কেন ব্যান্ড কমায়।",
-    "tags_en": ["IELTS Speaking", "Band 7", "Fluency", "Pronunciation", "Bangladesh"],
-    "tags_bn": ["IELTS স্পিকিং", "ব্যান্ড ৭", "ফ্লুয়েন্সি", "উচ্চারণ", "বাংলাদেশ"],
+    "tags_en": [
+      "IELTS Speaking",
+      "Band 7",
+      "Fluency",
+      "Pronunciation",
+      "Bangladesh"
+    ],
+    "tags_bn": [
+      "IELTS স্পিকিং",
+      "ব্যান্ড ৭",
+      "ফ্লুয়েন্সি",
+      "উচ্চারণ",
+      "বাংলাদেশ"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 10
@@ -121,8 +201,20 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "Minimum vs target scores, how the overall band rounds from individual skills, requirements by destination (UK, Germany, Australia, Canada), the Writing sub-score trap, UKVI, and One Skill Retake.",
     "excerpt_bn": "ন্যূনতম বনাম লক্ষ্য ব্যান্ড স্কোর, গন্তব্য অনুযায়ী প্রয়োজনীয়তা, রাইটিং সাব-স্কোর ট্র্যাপ এবং One Skill Retake।",
-    "tags_en": ["IELTS Band Score", "Bangladesh", "UK Visa", "Germany", "Australia"],
-    "tags_bn": ["IELTS ব্যান্ড স্কোর", "বাংলাদেশ", "UK ভিসা", "জার্মানি", "অস্ট্রেলিয়া"],
+    "tags_en": [
+      "IELTS Band Score",
+      "Bangladesh",
+      "UK Visa",
+      "Germany",
+      "Australia"
+    ],
+    "tags_bn": [
+      "IELTS ব্যান্ড স্কোর",
+      "বাংলাদেশ",
+      "UK ভিসা",
+      "জার্মানি",
+      "অস্ট্রেলিয়া"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 9
@@ -137,8 +229,20 @@
     "category_bn": "IELTS প্রস্তুতি",
     "excerpt_en": "The four scoring criteria, a five-part essay structure, how to write Band 7 introductions and body paragraphs, the Band 6 vs Band 7 comparison, and why template essays hit a ceiling.",
     "excerpt_bn": "চারটি স্কোরিং মানদণ্ড, পাঁচ-অংশের রচনা কাঠামো এবং কেন টেমপ্লেট রচনা Band 6-এ আটকে থাকে।",
-    "tags_en": ["IELTS Writing", "Task 2", "Band 7", "Essay Structure", "Bangladesh"],
-    "tags_bn": ["IELTS রাইটিং", "টাস্ক ২", "ব্যান্ড ৭", "রচনা কাঠামো", "বাংলাদেশ"],
+    "tags_en": [
+      "IELTS Writing",
+      "Task 2",
+      "Band 7",
+      "Essay Structure",
+      "Bangladesh"
+    ],
+    "tags_bn": [
+      "IELTS রাইটিং",
+      "টাস্ক ২",
+      "ব্যান্ড ৭",
+      "রচনা কাঠামো",
+      "বাংলাদেশ"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 12
@@ -296,8 +400,8 @@
     "title_en": "Ammonia Volatilisation from Urea in Paddy Soils — Chemistry, Losses, and What Bangladesh Can Do",
     "title_bn": "ধানের জমিতে ইউরিয়া থেকে অ্যামোনিয়া বাষ্পীভবন — রসায়ন, ক্ষতি ও করণীয়",
     "date": "2026-06-18",
-    "category_en": "Soil Science",
-    "category_bn": "মৃত্তিকা বিজ্ঞান",
+    "category_en": "Soil & Environment",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
     "excerpt_en": "Why 10–40% of urea nitrogen escapes as ammonia gas before rice plants can use it — and the management strategies that reduce these losses in Bangladesh's paddy soils.",
     "excerpt_bn": "কেন ধানগাছ ব্যবহার করার আগেই ইউরিয়া নাইট্রোজেনের ১০–৪০% অ্যামোনিয়া গ্যাস হয়ে উড়ে যায় — এবং ক্ষতি কমানোর ব্যবস্থাপনা কৌশল।",
     "tags_en": [
@@ -327,8 +431,8 @@
     "title_en": "Heavy Metals in Dhaka's Urban Environment — What Active Research Shows",
     "title_bn": "ঢাকার নগর পরিবেশে ভারী ধাতু — সক্রিয় গবেষণা কী বলছে",
     "date": "2026-06-18",
-    "category_en": "Environmental Research",
-    "category_bn": "পরিবেশ গবেষণা",
+    "category_en": "Soil & Environment",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
     "excerpt_en": "Lead from battery recycling, chromium from tanneries, cadmium from textile effluents — how heavy metal contamination is measured, mapped, and understood in Dhaka's soils and water.",
     "excerpt_bn": "ব্যাটারি পুনর্ব্যবহার থেকে সীসা, ট্যানারি থেকে ক্রোমিয়াম, টেক্সটাইল বর্জ্য থেকে ক্যাডমিয়াম — ঢাকার মাটি ও পানিতে ভারী ধাতু দূষণ কীভাবে পরিমাপ ও বিশ্লেষণ করা হয়।",
     "tags_en": [
@@ -360,8 +464,8 @@
     "title_en": "Erasmus Mundus Scholarships for Bangladeshi Students — The Complete Guide",
     "title_bn": "বাংলাদেশি শিক্ষার্থীদের জন্য ইরাসমাস মুন্ডাস বৃত্তি — সম্পূর্ণ গাইড",
     "date": "2026-06-18",
-    "category_en": "Scholarships",
-    "category_bn": "বৃত্তি",
+    "category_en": "Scholarships & Career",
+    "category_bn": "বৃত্তি ও ক্যারিয়ার",
     "excerpt_en": "Everything Bangladeshi applicants need to know about Erasmus Mundus Joint Master Degrees — Category A funding, eligibility, the application calendar, SOP strategy, and how to choose programmes.",
     "excerpt_bn": "ইরাসমাস মুন্ডাস জয়েন্ট মাস্টার ডিগ্রি সম্পর্কে বাংলাদেশি আবেদনকারীদের যা জানা দরকার — ক্যাটাগরি এ বৃত্তি, যোগ্যতা, আবেদনের সময়সূচি এবং প্রোগ্রাম বেছে নেওয়ার উপায়।",
     "tags_en": [
@@ -418,8 +522,8 @@
     "title_en": "Erasmus Mundus for Environmental Researchers: 8 Programmes Worth Knowing",
     "title_bn": "পরিবেশ গবেষকদের জন্য ইরাসমাস মুন্ডাস: জানার মতো ৮টি প্রোগ্রাম",
     "date": "2026-06-15",
-    "category_en": "CV & Career",
-    "category_bn": "সিভি ও ক্যারিয়ার",
+    "category_en": "Scholarships & Career",
+    "category_bn": "বৃত্তি ও ক্যারিয়ার",
     "excerpt_en": "IMSOGLO, ECT+, MESPOM, MERGED, FLOODRisk, GroundwatCh, SUFONAMA, PlantHealth — what each programme is for and who should choose it.",
     "excerpt_bn": "IMSOGLO, ECT+, MESPOM, MERGED, FLOODRisk, GroundwatCh, SUFONAMA, PlantHealth — প্রতিটি প্রোগ্রাম কী এবং কাকে বেছে নেওয়া উচিত।",
     "tags_en": [
@@ -448,7 +552,7 @@
     "file": "blog-aq-khan.html",
     "title_en": "Abdul Qadir Khan: A Scientist, a Nation, and the Atom",
     "date": "2026-06-14",
-    "category_en": "Science & Biography",
+    "category_en": "Science Biography",
     "excerpt_en": "He built Pakistan's nuclear deterrent from stolen blueprints in under a decade. Then he sold the same knowledge to Iran, North Korea, and Libya.",
     "tags_en": [
       "A.Q. Khan",
@@ -460,14 +564,15 @@
     ],
     "featured": false,
     "status": "published",
-    "read_time_min": 8
+    "read_time_min": 8,
+    "category_bn": "বিজ্ঞানী জীবনী"
   },
   {
     "slug": "ahmed-zewail-femtochemistry",
     "file": "blog-ahmed-zewail-femtochemistry.html",
     "title_en": "Ahmed Zewail: The Man Who Filmed a Chemical Reaction",
     "date": "2026-06-14",
-    "category_en": "Science & Biography",
+    "category_en": "Science Biography",
     "excerpt_en": "Before Zewail, the middle of every chemical reaction was invisible. He built a camera that could catch it — at one quadrillionth of a second.",
     "tags_en": [
       "Ahmed Zewail",
@@ -479,14 +584,15 @@
     ],
     "featured": false,
     "status": "published",
-    "read_time_min": 9
+    "read_time_min": 9,
+    "category_bn": "বিজ্ঞানী জীবনী"
   },
   {
     "slug": "jamal-nazrul-islam",
     "file": "blog-jamal-nazrul-islam.html",
     "title_en": "Jamal Nazrul Islam: The Physicist Who Came Home",
     "date": "2026-06-14",
-    "category_en": "Science & Biography",
+    "category_en": "Science Biography",
     "excerpt_en": "He wrote about the fate of the universe before Hawking did. He published through the Royal Society on Hawking's recommendation. Then he came home to Chittagong on 2,800 taka a month.",
     "tags_en": [
       "Jamal Nazrul Islam",
@@ -498,14 +604,15 @@
     ],
     "featured": false,
     "status": "published",
-    "read_time_min": 10
+    "read_time_min": 10,
+    "category_bn": "বিজ্ঞানী জীবনী"
   },
   {
     "slug": "majidi-man",
     "file": "blog-majidi-man.html",
     "title_en": "Majid Majidi: The Man Behind the Camera",
     "date": "2026-06-13",
-    "category_en": "Film & Culture",
+    "category_en": "Film & Opinion",
     "excerpt_en": "His early theatre years at 14, his faith, the Denmark festival withdrawal, and why he only films people other directors walk past.",
     "tags_en": [
       "Majid Majidi",
@@ -516,14 +623,15 @@
     ],
     "featured": false,
     "status": "published",
-    "read_time_min": 7
+    "read_time_min": 7,
+    "category_bn": "চলচ্চিত্র ও মতামত"
   },
   {
     "slug": "majidi-films",
     "file": "blog-majidi-films.html",
     "title_en": "Majid Majidi's Cinema: Where Ordinary Life Is the Story",
     "date": "2026-06-13",
-    "category_en": "Film & Culture",
+    "category_en": "Film & Opinion",
     "excerpt_en": "Children of Heaven, Baran, The Color of Paradise — how an Iranian director built a filmography from ordinary people and incomplete endings.",
     "tags_en": [
       "Iranian cinema",
@@ -534,7 +642,8 @@
     ],
     "featured": false,
     "status": "published",
-    "read_time_min": 8
+    "read_time_min": 8,
+    "category_bn": "চলচ্চিত্র ও মতামত"
   },
   {
     "slug": "how-to-read-scientific-paper",
@@ -568,8 +677,8 @@
     "title_en": "SPADE: Why I Built an Analytics Dashboard for My Wheat Experiment, and What It Does Differently",
     "title_bn": "SPADE: কেন আমি আমার গম পরীক্ষার জন্য একটি অ্যানালিটিক্স ড্যাশবোর্ড তৈরি করলাম",
     "date": "2026-06-10",
-    "category_en": "Research & Science",
-    "category_bn": "গবেষণা ও বিজ্ঞান",
+    "category_en": "Soil & Environment",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
     "excerpt_en": "Most NUE studies report two of five indices. CLD letters are routinely wrong. Shapiro-Wilk is meaningless at n=3. SPADE fixes all three — open-source, MIT licence.",
     "excerpt_bn": "বেশিরভাগ NUE গবেষণা পাঁচটির মধ্যে দুটি সূচক রিপোর্ট করে। SPADE স্বয়ংক্রিয়ভাবে সব পাঁচটি গণনা করে।",
     "tags_en": [
@@ -599,8 +708,8 @@
     "title_en": "Biochar from Rice Husk: What It Does to Soil Chemistry",
     "title_bn": "ধানের তুষ থেকে বায়োচার: এটি মাটির রসায়নে কী করে",
     "date": "2026-06-10",
-    "category_en": "Research & Science",
-    "category_bn": "গবেষণা ও বিজ্ঞান",
+    "category_en": "Soil & Environment",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
     "excerpt_en": "Seven million tonnes of rice husk produced annually in Bangladesh. Converting it to biochar changes soil pH, nitrogen dynamics, CEC, and carbon storage — with output varying sharply by pyrolysis temperature.",
     "excerpt_bn": "বাংলাদেশে বার্ষিক সাত মিলিয়ন টন ধানের তুষ উৎপাদিত হয়। এটিকে বায়োচারে রূপান্তর করলে মাটির পিএইচ, নাইট্রোজেন গতিবিদ্যা এবং কার্বন সঞ্চয় পরিবর্তিত হয়।",
     "tags_en": [
@@ -652,37 +761,6 @@
     "read_time_min": 7
   },
   {
-    "slug": "daad-epos-guide",
-    "file": "blog-daad-epos-guide.html",
-    "title_en": "DAAD EPOS Scholarship: A Complete Guide for Bangladeshi Applicants",
-    "title_bn": "DAAD EPOS বৃত্তি: বাংলাদেশি আবেদনকারীদের জন্য সম্পূর্ণ গাইড",
-    "date": "2026-06-08",
-    "category_en": "CV & Career",
-    "category_bn": "সিভি ও ক্যারিয়ার",
-    "excerpt_en": "Who actually qualifies, which programmes fit environmental researchers, exact document requirements, motivation letter structure, and the mistakes that eliminate applications before DAAD sees them.",
-    "excerpt_bn": "কে আসলে যোগ্য, কোন প্রোগ্রামগুলো পরিবেশ গবেষকদের উপযুক্ত, নথির প্রয়োজনীয়তা এবং সেই ভুলগুলো যা আবেদন বাতিল করে।",
-    "tags_en": [
-      "DAAD",
-      "EPOS",
-      "scholarship",
-      "Germany",
-      "Bangladesh",
-      "graduate school",
-      "environmental science"
-    ],
-    "tags_bn": [
-      "DAAD",
-      "EPOS",
-      "বৃত্তি",
-      "জার্মানি",
-      "বাংলাদেশ",
-      "স্নাতকোত্তর"
-    ],
-    "featured": true,
-    "status": "published",
-    "read_time_min": 8
-  },
-  {
     "slug": "discussion-section-guide",
     "file": "blog-discussion-section-guide.html",
     "title_en": "How to Write the Discussion Section — The Hardest Part of Any Research Paper",
@@ -708,6 +786,37 @@
     "featured": true,
     "status": "published",
     "read_time_min": 11
+  },
+  {
+    "slug": "daad-epos-guide",
+    "file": "blog-daad-epos-guide.html",
+    "title_en": "DAAD EPOS Scholarship: A Complete Guide for Bangladeshi Applicants",
+    "title_bn": "DAAD EPOS বৃত্তি: বাংলাদেশি আবেদনকারীদের জন্য সম্পূর্ণ গাইড",
+    "date": "2026-06-08",
+    "category_en": "Scholarships & Career",
+    "category_bn": "বৃত্তি ও ক্যারিয়ার",
+    "excerpt_en": "Who actually qualifies, which programmes fit environmental researchers, exact document requirements, motivation letter structure, and the mistakes that eliminate applications before DAAD sees them.",
+    "excerpt_bn": "কে আসলে যোগ্য, কোন প্রোগ্রামগুলো পরিবেশ গবেষকদের উপযুক্ত, নথির প্রয়োজনীয়তা এবং সেই ভুলগুলো যা আবেদন বাতিল করে।",
+    "tags_en": [
+      "DAAD",
+      "EPOS",
+      "scholarship",
+      "Germany",
+      "Bangladesh",
+      "graduate school",
+      "environmental science"
+    ],
+    "tags_bn": [
+      "DAAD",
+      "EPOS",
+      "বৃত্তি",
+      "জার্মানি",
+      "বাংলাদেশ",
+      "স্নাতকোত্তর"
+    ],
+    "featured": true,
+    "status": "published",
+    "read_time_min": 8
   },
   {
     "slug": "literature-review-guide",
@@ -737,13 +846,41 @@
     "read_time_min": 7
   },
   {
+    "slug": "nue-indices-explained",
+    "file": "blog-nue-indices-explained.html",
+    "title_en": "Understanding NUE Indices — AE, RE, PE, and NHI Explained",
+    "title_bn": "NUE সূচক বোঝা — AE, RE, PE এবং NHI ব্যাখ্যা",
+    "date": "2026-06-07",
+    "category_en": "Soil & Environment",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
+    "excerpt_en": "Agronomic efficiency, recovery efficiency, physiological efficiency, and nitrogen harvest index — how to calculate each NUE index and what it tells you about nitrogen use in crop systems.",
+    "excerpt_bn": "অ্যাগ্রোনমিক ইফিশিয়েন্সি, রিকভারি ইফিশিয়েন্সি, ফিজিওলজিক্যাল ইফিশিয়েন্সি এবং নাইট্রোজেন হার্ভেস্ট ইনডেক্স — প্রতিটি NUE সূচক কীভাবে গণনা করবেন।",
+    "tags_en": [
+      "NUE",
+      "Nitrogen",
+      "Fertilizer Efficiency",
+      "Agriculture",
+      "Research Methods"
+    ],
+    "tags_bn": [
+      "NUE",
+      "নাইট্রোজেন",
+      "সার দক্ষতা",
+      "কৃষি",
+      "গবেষণা পদ্ধতি"
+    ],
+    "featured": false,
+    "status": "published",
+    "read_time_min": 7
+  },
+  {
     "slug": "statement-of-purpose-guide",
     "file": "blog-statement-of-purpose-guide.html",
     "title_en": "How to Write a Statement of Purpose for an Environmental Science MSc",
     "title_bn": "পরিবেশ বিজ্ঞান এমএস-এর জন্য স্টেটমেন্ট অব পারপাস কীভাবে লিখবেন",
     "date": "2026-06-06",
-    "category_en": "CV & Career",
-    "category_bn": "সিভি ও ক্যারিয়ার",
+    "category_en": "Scholarships & Career",
+    "category_bn": "বৃত্তি ও ক্যারিয়ার",
     "excerpt_en": "Structure, specificity, and what sinks good applications. Includes vague vs specific examples, the bridge paragraph most SOPs are missing, and a WHAT/WHY/HOW self-edit test.",
     "excerpt_bn": "কাঠামো, নির্দিষ্টতা এবং কোন ভুলগুলো ভালো আবেদন নষ্ট করে। অস্পষ্ট বনাম নির্দিষ্ট উদাহরণ সহ।",
     "tags_en": [
@@ -769,7 +906,7 @@
     "file": "blog-nitrogen-n2o-climate.html",
     "title_en": "Nitrogen Pollution is Bangladesh's Hidden Climate Problem",
     "date": "2026-06-05",
-    "category_en": "Research & Science",
+    "category_en": "Soil & Environment",
     "excerpt_en": "N₂O from paddy fields is 273× more warming than CO₂. Bangladesh's agricultural mitigation opportunity is hiding in nitrogen management.",
     "tags_en": [
       "nitrogen",
@@ -781,14 +918,15 @@
     ],
     "featured": true,
     "status": "published",
-    "read_time_min": 5
+    "read_time_min": 5,
+    "category_bn": "মৃত্তিকা ও পরিবেশ"
   },
   {
     "slug": "bangladesh-climate-crisis",
     "file": "blog-bangladesh-climate-crisis.html",
     "title_en": "Bangladesh Didn't Cause the Climate Crisis. It's Paying for It Anyway.",
     "date": "2026-06-05",
-    "category_en": "Opinion",
+    "category_en": "Film & Opinion",
     "excerpt_en": "Bangladesh contributes less than 0.3% of global GHG emissions. It ranks among the world's most climate-affected countries. The gap is the story of climate justice.",
     "tags_en": [
       "opinion",
@@ -799,7 +937,8 @@
     ],
     "featured": true,
     "status": "published",
-    "read_time_min": 6
+    "read_time_min": 6,
+    "category_bn": "চলচ্চিত্র ও মতামত"
   },
   {
     "slug": "soil-ph-bangladesh",
@@ -807,8 +946,8 @@
     "title_en": "Soil pH in Bangladesh: Why It Matters More Than Most Farmers Realize",
     "title_bn": "বাংলাদেশে মাটির পিএইচ: কেন এটি বেশিরভাগ কৃষকের ভাবনার চেয়ে বেশি গুরুত্বপূর্ণ",
     "date": "2026-06-04",
-    "category_en": "Research & Science",
-    "category_bn": "গবেষণা ও বিজ্ঞান",
+    "category_en": "Soil & Environment",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
     "excerpt_en": "Acidic soils in Barind and Sylhet, alkaline coasts, phosphorus lock-up, aluminium toxicity, and the lime application most farmers never make.",
     "excerpt_bn": "বরেন্দ্র ও সিলেটের অম্লীয় মাটি, উপকূলীয় ক্ষারীয় মাটি, ফসফরাস আটকে পড়া এবং চুন প্রয়োগ — যা বেশিরভাগ কৃষক কখনো করেন না।",
     "tags_en": [
@@ -836,8 +975,8 @@
     "title_en": "What Happens to Urea After It's Applied: A Visual Explainer of Nitrogen Cycling",
     "title_bn": "ইউরিয়া প্রয়োগের পরে কী হয়: নাইট্রোজেন চক্রের একটি দৃশ্যমান ব্যাখ্যা",
     "date": "2026-06-03",
-    "category_en": "Research & Science",
-    "category_bn": "গবেষণা ও বিজ্ঞান",
+    "category_en": "Soil & Environment",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
     "excerpt_en": "Volatilisation, leaching, denitrification — the three pathways that steal nitrogen before crops can use it, with reactions at every step and a soil cross-section diagram.",
     "excerpt_bn": "উদ্বায়ীকরণ, লিচিং, ডিনাইট্রিফিকেশন — তিনটি পথ যা ফসলের নাইট্রোজেন চুরি করে, প্রতিটি ধাপে রাসায়নিক সমীকরণ সহ।",
     "tags_en": [
@@ -866,8 +1005,8 @@
     "title_en": "Air Quality in Bangladesh — PM2.5, Brick Kilns, and a Pollution That Crosses Borders",
     "title_bn": "বাংলাদেশে বায়ু মান — পিএম২.৫, ইটভাটা এবং সীমান্ত পেরিয়ে দূষণ",
     "date": "2026-06-03",
-    "category_en": "Research & Science",
-    "category_bn": "গবেষণা ও বিজ্ঞান",
+    "category_en": "Soil & Environment",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
     "excerpt_en": "Bangladesh's deepening air quality crisis — what the data shows, where the pollution originates, why the northern districts bear the worst of it, and why no single country can solve this alone.",
     "excerpt_bn": "বাংলাদেশের গভীর হতে থাকা বায়ু মান সংকট — তথ্য কী বলছে, দূষণ কোথা থেকে আসছে, এবং কেন কোনো একটি দেশ একা এটি সমাধান করতে পারবে না।",
     "tags_en": [
@@ -889,33 +1028,27 @@
     "read_time_min": 12
   },
   {
-    "slug": "how-to-write-research-proposal",
-    "file": "blog-how-to-write-research-proposal.html",
-    "title_en": "How to Write a Research Proposal That Actually Gets Funded",
-    "title_bn": "কীভাবে একটি গবেষণা প্রস্তাব লিখবেন যা সত্যিই অনুদান পাবে",
-    "date": "2026-06-01",
-    "category_en": "Research & Career",
-    "category_bn": "গবেষণা ও ক্যারিয়ার",
-    "excerpt_en": "A section-by-section guide to writing a research proposal that gets funded — title, background, objectives, methodology, timeline, budget, and the interview.",
-    "excerpt_bn": "অনুদানপ্রাপ্তির জন্য গবেষণা প্রস্তাবের প্রতিটি অংশ — শিরোনাম, পটভূমি, উদ্দেশ্য, পদ্ধতি, টাইমলাইন এবং বাজেট।",
-    "tags_en": ["Research Proposal", "Funding", "Grant Writing", "Academic Career"],
-    "tags_bn": ["গবেষণা প্রস্তাব", "অনুদান", "একাডেমিক ক্যারিয়ার"],
-    "featured": true,
-    "status": "published",
-    "read_time_min": 10
-  },
-  {
     "slug": "grammar-mistakes-south-asian",
     "file": "blog-grammar-mistakes-south-asian.html",
     "title_en": "Common Grammar Mistakes in South Asian Academic Manuscripts",
     "title_bn": "দক্ষিণ এশিয়ার একাডেমিক পাণ্ডুলিপিতে সাধারণ ব্যাকরণ ভুল",
     "date": "2026-06-02",
-    "category_en": "Academic Writing",
-    "category_bn": "একাডেমিক লেখা",
+    "category_en": "Scientific Writing",
+    "category_bn": "বৈজ্ঞানিক লেখা",
     "excerpt_en": "Article use, preposition errors, tense consistency, and subject-verb agreement — the grammar patterns that most frequently slow South Asian manuscripts in peer review.",
     "excerpt_bn": "দক্ষিণ এশিয়ার পাণ্ডুলিপিতে সাধারণ ব্যাকরণ সমস্যা যা পিয়ার রিভিউ প্রক্রিয়াকে বিলম্বিত করে।",
-    "tags_en": ["Grammar", "Academic Writing", "Manuscript", "South Asia"],
-    "tags_bn": ["ব্যাকরণ", "একাডেমিক লেখা", "পাণ্ডুলিপি", "দক্ষিণ এশিয়া"],
+    "tags_en": [
+      "Grammar",
+      "Academic Writing",
+      "Manuscript",
+      "South Asia"
+    ],
+    "tags_bn": [
+      "ব্যাকরণ",
+      "একাডেমিক লেখা",
+      "পাণ্ডুলিপি",
+      "দক্ষিণ এশিয়া"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 9
@@ -930,8 +1063,18 @@
     "category_bn": "ডেটা বিশ্লেষণ",
     "excerpt_en": "Running a one-way ANOVA in R from data import through assumption checks to post-hoc testing with Tukey HSD — annotated R code for agricultural field and pot experiments.",
     "excerpt_bn": "R-এ One-Way ANOVA পরিচালনা — ডেটা ইমপোর্ট থেকে Tukey HSD পোস্ট-হক পরীক্ষা পর্যন্ত।",
-    "tags_en": ["ANOVA", "R", "Statistics", "Agriculture"],
-    "tags_bn": ["ANOVA", "R", "পরিসংখ্যান", "কৃষি"],
+    "tags_en": [
+      "ANOVA",
+      "R",
+      "Statistics",
+      "Agriculture"
+    ],
+    "tags_bn": [
+      "ANOVA",
+      "R",
+      "পরিসংখ্যান",
+      "কৃষি"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 10
@@ -942,15 +1085,50 @@
     "title_en": "How to Write an Academic CV for Graduate School Applications",
     "title_bn": "স্নাতক আবেদনের জন্য একাডেমিক CV লেখার গাইড",
     "date": "2026-06-02",
-    "category_en": "Research & Career",
-    "category_bn": "গবেষণা ও ক্যারিয়ার",
+    "category_en": "Scholarships & Career",
+    "category_bn": "বৃত্তি ও ক্যারিয়ার",
     "excerpt_en": "A section-by-section guide to the academic CV — education, research experience, publications, presentations, skills, and references — with annotated examples for graduate applicants.",
     "excerpt_bn": "একাডেমিক CV-এর প্রতিটি অংশ — শিক্ষা, গবেষণা অভিজ্ঞতা, প্রকাশনা, দক্ষতা — স্নাতক আবেদনকারীদের জন্য।",
-    "tags_en": ["Academic CV", "Graduate School", "Application", "Career"],
-    "tags_bn": ["একাডেমিক CV", "স্নাতক স্কুল", "আবেদন", "ক্যারিয়ার"],
+    "tags_en": [
+      "Academic CV",
+      "Graduate School",
+      "Application",
+      "Career"
+    ],
+    "tags_bn": [
+      "একাডেমিক CV",
+      "স্নাতক স্কুল",
+      "আবেদন",
+      "ক্যারিয়ার"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 9
+  },
+  {
+    "slug": "how-to-write-research-proposal",
+    "file": "blog-how-to-write-research-proposal.html",
+    "title_en": "How to Write a Research Proposal That Actually Gets Funded",
+    "title_bn": "কীভাবে একটি গবেষণা প্রস্তাব লিখবেন যা সত্যিই অনুদান পাবে",
+    "date": "2026-06-01",
+    "category_en": "Scientific Writing",
+    "category_bn": "বৈজ্ঞানিক লেখা",
+    "excerpt_en": "A section-by-section guide to writing a research proposal that gets funded — title, background, objectives, methodology, timeline, budget, and the interview.",
+    "excerpt_bn": "অনুদানপ্রাপ্তির জন্য গবেষণা প্রস্তাবের প্রতিটি অংশ — শিরোনাম, পটভূমি, উদ্দেশ্য, পদ্ধতি, টাইমলাইন এবং বাজেট।",
+    "tags_en": [
+      "Research Proposal",
+      "Funding",
+      "Grant Writing",
+      "Academic Career"
+    ],
+    "tags_bn": [
+      "গবেষণা প্রস্তাব",
+      "অনুদান",
+      "একাডেমিক ক্যারিয়ার"
+    ],
+    "featured": true,
+    "status": "published",
+    "read_time_min": 10
   },
   {
     "slug": "imrad-explained",
@@ -958,12 +1136,22 @@
     "title_en": "IMRaD Explained: How to Structure a Scientific Research Paper",
     "title_bn": "IMRaD ব্যাখ্যা: বৈজ্ঞানিক গবেষণাপত্র কীভাবে কাঠামোবদ্ধ করবেন",
     "date": "2026-06-01",
-    "category_en": "Academic Writing",
-    "category_bn": "একাডেমিক লেখা",
+    "category_en": "Scientific Writing",
+    "category_bn": "বৈজ্ঞানিক লেখা",
     "excerpt_en": "Introduction, Methods, Results, and Discussion — what goes in each section, what reviewers look for, and the most common structural errors that lead to rejection.",
     "excerpt_bn": "ভূমিকা, পদ্ধতি, ফলাফল, আলোচনা — প্রতিটি অংশে কী থাকে এবং কোন কাঠামোগত ভুলে প্রত্যাখ্যান আসে।",
-    "tags_en": ["IMRaD", "Research Paper", "Structure", "Academic Writing"],
-    "tags_bn": ["IMRaD", "গবেষণাপত্র", "কাঠামো", "একাডেমিক লেখা"],
+    "tags_en": [
+      "IMRaD",
+      "Research Paper",
+      "Structure",
+      "Academic Writing"
+    ],
+    "tags_bn": [
+      "IMRaD",
+      "গবেষণাপত্র",
+      "কাঠামো",
+      "একাডেমিক লেখা"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 9
@@ -978,27 +1166,23 @@
     "category_bn": "ডেটা বিশ্লেষণ",
     "excerpt_en": "The Tukey Honestly Significant Difference test for post-hoc pairwise comparisons after ANOVA — assumptions, R implementation, compact letter display, and interpretation for agricultural data.",
     "excerpt_bn": "ANOVA-পরবর্তী Tukey HSD পরীক্ষা — অনুমান, R কোড, compact letter display এবং কৃষি ডেটার ব্যাখ্যা।",
-    "tags_en": ["Tukey HSD", "ANOVA", "Post-hoc", "R", "Statistics"],
-    "tags_bn": ["Tukey HSD", "ANOVA", "পোস্ট-হক", "R", "পরিসংখ্যান"],
+    "tags_en": [
+      "Tukey HSD",
+      "ANOVA",
+      "Post-hoc",
+      "R",
+      "Statistics"
+    ],
+    "tags_bn": [
+      "Tukey HSD",
+      "ANOVA",
+      "পোস্ট-হক",
+      "R",
+      "পরিসংখ্যান"
+    ],
     "featured": true,
     "status": "published",
     "read_time_min": 8
-  },
-  {
-    "slug": "nue-indices-explained",
-    "file": "blog-nue-indices-explained.html",
-    "title_en": "Understanding NUE Indices — AE, RE, PE, and NHI Explained",
-    "title_bn": "NUE সূচক বোঝা — AE, RE, PE এবং NHI ব্যাখ্যা",
-    "date": "2026-06-07",
-    "category_en": "Research Methods",
-    "category_bn": "গবেষণা পদ্ধতি",
-    "excerpt_en": "Agronomic efficiency, recovery efficiency, physiological efficiency, and nitrogen harvest index — how to calculate each NUE index and what it tells you about nitrogen use in crop systems.",
-    "excerpt_bn": "অ্যাগ্রোনমিক ইফিশিয়েন্সি, রিকভারি ইফিশিয়েন্সি, ফিজিওলজিক্যাল ইফিশিয়েন্সি এবং নাইট্রোজেন হার্ভেস্ট ইনডেক্স — প্রতিটি NUE সূচক কীভাবে গণনা করবেন।",
-    "tags_en": ["NUE", "Nitrogen", "Fertilizer Efficiency", "Agriculture", "Research Methods"],
-    "tags_bn": ["NUE", "নাইট্রোজেন", "সার দক্ষতা", "কৃষি", "গবেষণা পদ্ধতি"],
-    "featured": false,
-    "status": "published",
-    "read_time_min": 7
   },
   {
     "slug": "slow-release-fertilizer",
@@ -1007,11 +1191,23 @@
     "title_bn": "স্লো-রিলিজ সার কী এবং বাংলাদেশের কেন এটি দরকার?",
     "date": "2026-06-01",
     "category_en": "Soil & Environment",
-    "category_bn": "মাটি ও পরিবেশ",
+    "category_bn": "মৃত্তিকা ও পরিবেশ",
     "excerpt_en": "Conventional urea is released faster than crops can absorb it, leading to nitrogen loss through volatilisation and leaching. Slow-release and controlled-release fertilizers reduce these losses and improve NUE.",
     "excerpt_bn": "প্রচলিত ইউরিয়া ফসল শোষণের চেয়ে দ্রুত নির্গত হয়, ফলে ভোলাটিলাইজেশন ও লিচিংয়ে নাইট্রোজেন নষ্ট হয়। স্লো-রিলিজ সার এই অপচয় কমায় এবং NUE উন্নত করে।",
-    "tags_en": ["Slow-Release Fertilizer", "NUE", "Nitrogen", "Bangladesh", "Soil Science"],
-    "tags_bn": ["স্লো-রিলিজ সার", "NUE", "নাইট্রোজেন", "বাংলাদেশ", "মাটি বিজ্ঞান"],
+    "tags_en": [
+      "Slow-Release Fertilizer",
+      "NUE",
+      "Nitrogen",
+      "Bangladesh",
+      "Soil Science"
+    ],
+    "tags_bn": [
+      "স্লো-রিলিজ সার",
+      "NUE",
+      "নাইট্রোজেন",
+      "বাংলাদেশ",
+      "মাটি বিজ্ঞান"
+    ],
     "featured": false,
     "status": "published",
     "read_time_min": 6

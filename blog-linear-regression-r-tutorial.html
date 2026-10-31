@@ -12,11 +12,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Linear Regression in R for Environmental Data: A Step-by-Step Tutorial — Sajjadur Rahman</title>
   <link rel="canonical" href="https://sajjadur-rahman.com/blog-linear-regression-r-tutorial.html"/>
-  <meta name="description" content="Run lm(), read the coefficients table, check the four diagnostic plots, and visualise with ggplot2. A complete linear regression walkthrough using soil pH and crop yield data."/>
+  <meta name="description" content="Linear regression in R step by step: run lm(), read the coefficients table, check the four diagnostic plots and plot with ggplot2, using soil pH and yield data."/>
   <meta property="og:title" content="Linear Regression in R for Environmental Data: A Step-by-Step Tutorial"/>
   <meta property="og:description" content="lm(), diagnostics, ggplot2 visualisation, and how to report the result in a manuscript. Working through soil pH vs. maize yield data from the Barind Tract."/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://sajjadur-rahman.com/blog-linear-regression-r-tutorial.html"/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:image:width" content="1165"/>
+  <meta property="og:image:height" content="632"/>
+  <meta property="og:image:alt" content="Sajjadur Rahman: research, writing and data analysis"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Linear Regression in R for Environmental Data: A Step-by-Step Tutorial"/>
+  <meta name="twitter:description" content="lm(), diagnostics, ggplot2 visualisation, and how to report the result in a manuscript. Working through soil pH vs. maize yield data from the Barind Tract."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
   <meta name="author" content="Sajjadur Rahman"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
   <script>
@@ -557,7 +566,7 @@ soil_data &lt;- <span class="fn">data.frame</span>(
   <span class="fn">theme_minimal</span>()</code></pre>
         </div>
 
-        <p>The scatter shows a positive relationship from pH 4.8 to about 6.5, with a slight levelling at higher values. A straight line is a reasonable approximation over most of this range. If you needed to model the full curve, a polynomial fit would be more suitable — but for the pH 5.0 to 6.5 range most farmers are working in, linear is defensible.</p>
+        <p>The scatter shows a positive relationship from pH 4.8 to about 6.5, with a slight levelling at higher values. A straight line is a reasonable approximation over most of this range. If you needed to model the full curve, a polynomial fit would be more suitable, but for the pH 5.0 to 6.5 range most farmers are working in, linear is defensible.</p>
 
         <!-- STEP 3 -->
         <div class="step-header">
@@ -613,7 +622,7 @@ F-statistic: 105.1 on 1 and 13 DF,  p-value: 1.8e-07</code></pre>
 
           <div class="ce-item">
             <div class="ce-name">Intercept: −1.2485</div>
-            <p>The predicted yield when pH equals zero. This is mathematically required but has no practical meaning — no soil has a pH of zero. Do not over-interpret the intercept in environmental models where the predictor never approaches zero in reality.</p>
+            <p>The predicted yield when pH equals zero. This is mathematically required but has no practical meaning: no soil has a pH of zero. Do not over-interpret the intercept in environmental models where the predictor never approaches zero in reality.</p>
           </div>
 
           <div class="ce-item">
@@ -628,7 +637,7 @@ F-statistic: 105.1 on 1 and 13 DF,  p-value: 1.8e-07</code></pre>
 
           <div class="ce-item">
             <div class="ce-name">R-squared: 0.89 (adjusted: 0.88)</div>
-            <p>The model explains 89% of the variation in yield. For field environmental data, this is a strong fit. In noisier datasets — atmospheric chemistry, urban runoff — an R² of 0.40 to 0.60 is often reasonable. Always report the adjusted value, not the multiple R².</p>
+            <p>The model explains 89% of the variation in yield. For field environmental data, this is a strong fit. In noisier datasets (atmospheric chemistry, urban runoff) an R² of 0.40 to 0.60 is often reasonable. Always report the adjusted value, not the multiple R².</p>
           </div>
 
         </div>
@@ -701,7 +710,7 @@ F-statistic: 105.1 on 1 and 13 DF,  p-value: 1.8e-07</code></pre>
   <span class="fn">theme_minimal</span>(base_size = <span class="nb">12</span>)</code></pre>
         </div>
 
-        <p>The shaded band is the 95% confidence interval around the regression line. Where it is narrow, the estimate is precise. Where it widens toward the extremes, uncertainty is higher — which is expected since fewer observations sit at the pH extremes of the dataset.</p>
+        <p>The shaded band is the 95% confidence interval around the regression line. Where it is narrow, the estimate is precise. Where it widens toward the extremes, uncertainty is higher, which is expected since fewer observations sit at the pH extremes of the dataset.</p>
 
         <!-- STEP 7 -->
         <div class="step-header">
@@ -722,7 +731,7 @@ F-statistic: 105.1 on 1 and 13 DF,  p-value: 1.8e-07</code></pre>
 
           <div class="limit-item">
             <div class="limit-title">Establish causation</div>
-            <p>A significant regression tells you that X and Y are associated. It does not tell you that X causes Y. Soil pH and yield are related, but the regression alone does not establish mechanism. The effect could run through direct pH effects on root chemistry, through nutrient availability, or through a third variable that correlates with both — organic matter content, for example, is linked to both pH and yield in degraded agricultural soils.</p>
+            <p>A significant regression tells you that X and Y are associated. It does not tell you that X causes Y. Soil pH and yield are related, but the regression alone does not establish mechanism. The effect could run through direct pH effects on root chemistry, through nutrient availability, or through a third variable that correlates with both: organic matter content, for example, is linked to both pH and yield in degraded agricultural soils.</p>
           </div>
 
           <div class="limit-item">
@@ -732,7 +741,7 @@ F-statistic: 105.1 on 1 and 13 DF,  p-value: 1.8e-07</code></pre>
 
           <div class="limit-item">
             <div class="limit-title">Work with spatially autocorrelated samples</div>
-            <p>Linear regression assumes that observations are independent. Soil samples taken close together are spatially autocorrelated — measurements near each other tend to be more similar than measurements far apart. If your sampling design violates independence, standard errors from <code style="font-family:'Courier New',monospace;font-size:13px;background:var(--parchment2);padding:1px 5px;border-radius:3px;">lm()</code> will be underestimated. For spatially structured environmental data, mixed models or geostatistical approaches handle this more accurately.</p>
+            <p>Linear regression assumes that observations are independent. Soil samples taken close together are spatially autocorrelated: measurements near each other tend to be more similar than measurements far apart. If your sampling design violates independence, standard errors from <code style="font-family:'Courier New',monospace;font-size:13px;background:var(--parchment2);padding:1px 5px;border-radius:3px;">lm()</code> will be underestimated. For spatially structured environmental data, mixed models or geostatistical approaches handle this more accurately.</p>
           </div>
 
         </div>

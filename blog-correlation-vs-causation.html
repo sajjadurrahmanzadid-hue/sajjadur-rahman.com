@@ -10,11 +10,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Correlation vs Causation in Environmental Research: A Practical Guide — Sajjadur Rahman</title>
   <link rel="canonical" href="https://sajjadur-rahman.com/blog-correlation-vs-causation.html"/>
-  <meta name="description" content="Why most observational environmental studies generate correlational evidence but use causal language — and how to tell the difference, spot confounders, and write accurately about your findings."/>
+  <meta name="description" content="Most observational environmental studies produce correlational evidence but use causal language. How to spot confounders and write about findings accurately."/>
   <meta property="og:title" content="Correlation vs Causation in Environmental Research: A Practical Guide"/>
   <meta property="og:description" content="Soil pH correlates with crop yield. That is not the same as soil pH causing yield changes. A practical guide to the difference, the confounders, and the language that matters."/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://sajjadur-rahman.com/blog-correlation-vs-causation.html"/>
+  <meta property="og:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
+  <meta property="og:image:width" content="1165"/>
+  <meta property="og:image:height" content="632"/>
+  <meta property="og:image:alt" content="Sajjadur Rahman: research, writing and data analysis"/>
+  <meta property="og:site_name" content="Sajjadur Rahman"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Correlation vs Causation in Environmental Research: A Practical Guide"/>
+  <meta name="twitter:description" content="Soil pH correlates with crop yield. That is not the same as soil pH causing yield changes. A practical guide to the difference, the confounders, and the language that matters."/>
+  <meta name="twitter:image" content="https://sajjadur-rahman.com/assets/img/og-cover.jpg"/>
   <meta name="author" content="Sajjadur Rahman"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFCD42G87F"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TFCD42G87F');</script>
@@ -223,7 +232,8 @@
 
     <div class="post-hero">
       <div class="container">
-        <div class="post-breadcrumb"><a href="blog.html">Blog</a> &rsaquo; Data Analysis</div>
+        <div class="post-breadcrumb"><a href="blog.html">Blog</a> &rsaquo; Data Analysis
+        </div>
         <span class="eyebrow">Data Analysis</span>
         <h1>Correlation vs Causation<br/><em>in Environmental Research: A Practical Guide</em></h1>
         <div class="post-meta">
@@ -250,7 +260,7 @@
 
         <div class="companion-callout">
           <span class="companion-icon">📊</span>
-          <p><strong>In this series:</strong> This post pairs with <a href="blog-linear-regression-r-tutorial.html">Linear Regression in R for Environmental Data</a> — regression quantifies relationships, but correctly interpreting what those relationships mean requires the framework covered here.</p>
+          <p><strong>In this series:</strong> This post pairs with <a href="blog-linear-regression-r-tutorial.html">Linear Regression in R for Environmental Data</a>; regression quantifies relationships, but correctly interpreting what those relationships mean requires the framework covered here.</p>
         </div>
 
         <!-- WHAT CORRELATION MEASURES -->
@@ -277,7 +287,7 @@
             <div class="exp-marker"><span class="exp-badge badge-b">Y → X</span></div>
             <div class="exp-content">
               <div class="exp-title">Y causes X</div>
-              <p>The direction is reversed. Less common in environmental soil-water research but not impossible — declining yields could drive land management changes that alter soil pH over time.</p>
+              <p>The direction is reversed. Less common in environmental soil-water research but not impossible, declining yields could drive land management changes that alter soil pH over time.</p>
             </div>
           </div>
           <div class="explanation-item">
@@ -299,13 +309,13 @@
         <!-- HOW IT APPEARS IN WRITING -->
         <h2>How it appears in environmental research writing</h2>
 
-        <p>The clearest sign of correlation-causation confusion in a results section is the verb. "Soil pH significantly affected grain yield" is a causal claim — it implies that changing pH would change yield, and requires experimental evidence: an intervention, a control, a randomised design. "Soil pH was significantly correlated with grain yield" is an associative claim. It requires only that the data showed co-variation.</p>
+        <p>The clearest sign of correlation-causation confusion in a results section is the verb. "Soil pH significantly affected grain yield" is a causal claim: it implies that changing pH would change yield, and requires experimental evidence: an intervention, a control, a randomised design. "Soil pH was significantly correlated with grain yield" is an associative claim. It requires only that the data showed co-variation.</p>
 
         <p>Most observational environmental studies generate the second kind of evidence and use language that implies the first. This matters because policy recommendations built on correlational evidence, presented as if causal, can lead to interventions that don't work.</p>
 
         <div class="callout-box">
           <span class="callout-label">A concrete example</span>
-          A study correlating distance from brick kilns with PM&#8322;.&#8325; concentration in Dhaka's air establishes that closer proximity is associated with higher pollution. It does not establish that closing a specific kiln would reduce PM&#8322;.&#8325; at a specific location by a specific amount — because wind direction, traffic, seasonal inversions, and other emission sources are all in the mix.
+          A study correlating distance from brick kilns with PM&#8322;.&#8325; concentration in Dhaka's air establishes that closer proximity is associated with higher pollution. It does not establish that closing a specific kiln would reduce PM&#8322;.&#8325; at a specific location by a specific amount: because wind direction, traffic, seasonal inversions, and other emission sources are all in the mix.
         </div>
 
         <!-- CONFOUNDING PROBLEM -->
@@ -313,7 +323,7 @@
 
         <p>Confounders are variables that correlate with both the predictor and the outcome you are studying. In soil science, organic matter is a confounder in almost every agronomic correlation because it affects soil pH, water retention, nutrient cycling, microbial activity, and yield through multiple pathways at once.</p>
 
-        <p>The practical test: ask whether the correlation disappears, weakens, or reverses when you control for candidate third variables. In multiple regression, adding organic matter as a predictor alongside pH often substantially reduces the pH coefficient. If it does, organic matter was confounding the pH-yield relationship. If the pH coefficient holds after controlling for organic matter, the causal inference is stronger — though still not confirmed without experimental manipulation.</p>
+        <p>The practical test: ask whether the correlation disappears, weakens, or reverses when you control for candidate third variables. In multiple regression, adding organic matter as a predictor alongside pH often substantially reduces the pH coefficient. If it does, organic matter was confounding the pH-yield relationship. If the pH coefficient holds after controlling for organic matter, the causal inference is stronger: though still not confirmed without experimental manipulation.</p>
 
         <!-- WHAT CAUSATION REQUIRES -->
         <h2>What causation actually requires</h2>
@@ -332,14 +342,14 @@
             <span class="causation-num">2</span>
             <div class="causation-content">
               <div class="causation-title">Plausible mechanism</div>
-              <p>There must be a biological, chemical, or physical process that explains how X produces Y. Aluminium toxicity is a well-characterised mechanism linking low pH to root damage. A correlation between soil colour index and crop yield has no known mechanism — it might reflect organic matter, drainage class, or mineralogy, any of which could be the actual driver.</p>
+              <p>There must be a biological, chemical, or physical process that explains how X produces Y. Aluminium toxicity is a well-characterised mechanism linking low pH to root damage. A correlation between soil colour index and crop yield has no known mechanism: it might reflect organic matter, drainage class, or mineralogy, any of which could be the actual driver.</p>
             </div>
           </div>
           <div class="causation-item">
             <span class="causation-num">3</span>
             <div class="causation-content">
               <div class="causation-title">Ruling out confounders</div>
-              <p>Ideally through randomisation, or through statistical control in observational studies — measuring and adjusting for the most likely alternative explanations.</p>
+              <p>Ideally through randomisation, or through statistical control in observational studies, measuring and adjusting for the most likely alternative explanations.</p>
             </div>
           </div>
         </div>
@@ -372,7 +382,7 @@
         <!-- LANGUAGE TABLE -->
         <h2>Language to use and avoid</h2>
 
-        <p>The shift from causal to associative language is not hedging — it is accurate reporting. If your study design can establish causation, use causal language. If it cannot, the associative framing is the correct one.</p>
+        <p>The shift from causal to associative language is not hedging: it is accurate reporting. If your study design can establish causation, use causal language. If it cannot, the associative framing is the correct one.</p>
 
         <div class="lang-table-wrap">
           <table class="lang-table">
@@ -494,7 +504,7 @@
           <a href="blog-soil-ph-bangladesh.html" class="related-card">
             <span class="rc-cat">Soil Science</span>
             <div class="rc-title">Soil pH in Bangladesh: Why It Matters More Than Most Farmers Realize</div>
-            <p class="rc-excerpt">The soil pH and crop yield relationship used as the running example in this post — the context for why distinguishing correlation from causation matters in agricultural soil research.</p>
+            <p class="rc-excerpt">The soil pH and crop yield relationship used as the running example in this post: the context for why distinguishing correlation from causation matters in agricultural soil research.</p>
             <span class="rc-read">Read Post</span>
           </a>
 
