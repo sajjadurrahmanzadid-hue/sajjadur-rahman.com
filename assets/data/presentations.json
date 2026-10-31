@@ -1,11 +1,31 @@
 {
   "_note": "Single source of truth for research.html and about.html. To link a downloadable file, set 'file' to its path under assets/presentations/ and set 'file_type' to paper | slides | poster. Leave null until the file is uploaded.",
-
   "conferences": [
-
+    {
+      "id": "C9",
+      "sort_order": 1,
+      "title_en": "The political economy of environmental governance failure: Spatial determinants, temporal persistence, and the limits of political change in Bangladesh",
+      "title_bn": null,
+      "authors": "Rahman, S.",
+      "event_en": "2nd International Conference on the July Revolution (ICJR-II)",
+      "event_bn": null,
+      "location_en": "University of Dhaka, Bangladesh",
+      "location_bn": "ঢাকা বিশ্ববিদ্যালয়, বাংলাদেশ",
+      "date": "2026-07",
+      "date_display_en": "July 2026",
+      "date_display_bn": "জুলাই ২০২৬",
+      "doi": null,
+      "proceedings": null,
+      "file": null,
+      "file_type": null,
+      "status": "published",
+      "type": "conference",
+      "country": "Bangladesh",
+      "flag": "🇧🇩"
+    },
     {
       "id": "C1",
-      "sort_order": 1,
+      "sort_order": 2,
       "title_en": "Nano-fertilizers in wheat cultivation: A comprehensive review and strategic framework for sustainable productivity and biofortification",
       "title_bn": "গম চাষে ন্যানো-সার: টেকসই উৎপাদনশীলতা ও বায়োফোর্টিফিকেশনের জন্য একটি কৌশলগত কাঠামো",
       "authors": "Rahman, S.",
@@ -25,10 +45,9 @@
       "country": "Bangladesh",
       "flag": "🇧🇩"
     },
-
     {
       "id": "C2",
-      "sort_order": 2,
+      "sort_order": 3,
       "title_en": "Economic viability and sustainability of hydroponics in flood-prone Bangladesh",
       "title_bn": "বন্যাপ্রবণ বাংলাদেশে হাইড্রোপনিক্সের অর্থনৈতিক সম্ভাব্যতা ও টেকসইতা",
       "authors": "Rahman, S., Fairuz, A., and Tahiyat, T.",
@@ -48,10 +67,9 @@
       "country": "Thailand",
       "flag": "🇹🇭"
     },
-
     {
       "id": "C3",
-      "sort_order": 3,
+      "sort_order": 4,
       "title_en": "Internet of Things (IoT) on the development of Agriculture 5.0: Prospects and challenges",
       "title_bn": "কৃষি ৫.০-এর উন্নয়নে ইন্টারনেট অব থিংস (আইওটি): সম্ভাবনা ও চ্যালেঞ্জ",
       "authors": "Rahman, S.",
@@ -71,10 +89,9 @@
       "country": "Turkey",
       "flag": "🇹🇷"
     },
-
     {
       "id": "C4",
-      "sort_order": 4,
+      "sort_order": 5,
       "title_en": "Climate change and resilient farming approaches in Bangladesh: A review of potential impacts and adaptation strategies",
       "title_bn": "বাংলাদেশে জলবায়ু পরিবর্তন ও কৃষির অভিযোজন: সম্ভাব্য প্রভাব ও কৌশলের পর্যালোচনা",
       "authors": "Rahman, S., Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., and Islam, R.",
@@ -94,10 +111,9 @@
       "country": "Turkey",
       "flag": "🇹🇷"
     },
-
     {
       "id": "C5",
-      "sort_order": 5,
+      "sort_order": 6,
       "title_en": "Developing a smart, sustainable agriculture initiative in Bangladesh: A data-driven approach to ensuring food security and minimizing environmental impact",
       "title_bn": "বাংলাদেশে স্মার্ট, টেকসই কৃষি উদ্যোগ: খাদ্য নিরাপত্তা ও পরিবেশ সংরক্ষণে ডেটা-চালিত পদ্ধতি",
       "authors": "Rahman, S., Hossain Rubab, M. M., and Payal, M. P.",
@@ -117,10 +133,9 @@
       "country": "Kazakhstan",
       "flag": "🇰🇿"
     },
-
     {
       "id": "C6",
-      "sort_order": 6,
+      "sort_order": 7,
       "title_en": "Navigating sustainability in urban landscapes: Assessing organic fertilizer adoption and challenges among farmers in the Dhaka region, Bangladesh",
       "title_bn": "নগর কৃষিতে টেকসইতা: ঢাকা অঞ্চলের কৃষকদের মধ্যে জৈব সার গ্রহণ ও চ্যালেঞ্জ মূল্যায়ন",
       "authors": "Rahman, S., Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., and Islam, R.",
@@ -140,10 +155,9 @@
       "country": "International",
       "flag": "🌐"
     },
-
     {
       "id": "C7",
-      "sort_order": 7,
+      "sort_order": 8,
       "title_en": "Improving crop productivity in Bangladesh through advanced yield prediction techniques",
       "title_bn": "উন্নত ফলন পূর্বাভাস কৌশলের মাধ্যমে বাংলাদেশে ফসল উৎপাদনশীলতা বৃদ্ধি",
       "authors": "Rahman, S., Hossain Rubab, M. M., and Payal, M. P.",
@@ -163,10 +177,9 @@
       "country": "Bangladesh",
       "flag": "🇧🇩"
     },
-
     {
       "id": "C8",
-      "sort_order": 8,
+      "sort_order": 9,
       "title_en": "An assessment and analysis of Bangladesh's agricultural approach based on technology",
       "title_bn": "প্রযুক্তি-ভিত্তিক বাংলাদেশের কৃষি পদ্ধতির মূল্যায়ন ও বিশ্লেষণ",
       "authors": "Rahman, S., Hossain Rubab, M. M., and Payal, M. P.",
@@ -186,41 +199,36 @@
       "country": "International",
       "flag": "🌐"
     }
-
   ],
-
   "manuscripts": [
-
     {
       "id": "M1",
       "sort_order": 1,
       "title_en": "Organic Fertilizer Adoption Completeness Among Urban Growers in Dhaka: Site Type as a Determinant of Exclusive Versus Mixed Organic-Synthetic Practice",
       "title_bn": "ঢাকার নগর কৃষকদের মধ্যে জৈব সার গ্রহণের সম্পূর্ণতা",
       "authors": "Rahman, S., Hossain Rubab, M. M., Payal, M. P., Maksud, F. H., and Islam, R.",
-      "target_journal": "Urban Agriculture & Regional Food Systems (Wiley/ASA-CSSA) or Sustainability (MDPI)",
-      "status": "in_preparation",
-      "date": "2026",
+      "target_journal": "SAARC Journal of Agriculture (SAARC Agriculture Centre)",
+      "status": "submitted",
+      "date": "2026-10",
       "doi": null,
       "file": null,
       "file_type": null,
       "type": "manuscript"
     },
-
     {
       "id": "M2",
       "sort_order": 2,
-      "title_en": "Environmental and Agricultural Governance in Post-July Bangladesh: Accountability, Reform and Sustainable Futures",
-      "title_bn": "জুলাই-পরবর্তী বাংলাদেশে পরিবেশ ও কৃষি শাসন: জবাবদিহিতা, সংস্কার ও টেকসই ভবিষ্যৎ",
+      "title_en": "The Political Economy of Environmental Governance Failure: Spatial Determinants, Temporal Persistence, and the Limits of Political Change in Bangladesh",
+      "title_bn": null,
       "authors": "Rahman, S.",
-      "target_journal": "Prepared for 2nd International Conference on the July Revolution (ICJR-II), 19 July 2026, University of Dhaka",
-      "status": "forthcoming",
-      "date": "2026-07-19",
+      "target_journal": "Global Environmental Change (Elsevier). Presented at ICJR-II, University of Dhaka, July 2026",
+      "status": "submitted",
+      "date": "2026-10",
       "doi": null,
       "file": null,
       "file_type": null,
       "type": "manuscript"
     },
-
     {
       "id": "M3",
       "sort_order": 3,
@@ -235,11 +243,8 @@
       "file_type": null,
       "type": "manuscript"
     }
-
   ],
-
   "software": [
-
     {
       "id": "S1",
       "name": "SPADE v1.0",
@@ -247,12 +252,11 @@
       "description_en": "Open-source Python/Streamlit application for integrated NUE computation (five indices: AE, RE, PE, NHI, PFP), factorial ANOVA with Tukey HSD and compact letter display, outlier detection (Dixon's Q, Grubbs), and publication-ready PNG/JPG figure export.",
       "description_bn": "সমন্বিত এনইউই গণনা, ফ্যাক্টোরিয়াল এ্যানোভা, আউটলায়ার সনাক্তকরণ এবং প্রকাশনা-উপযোগী চিত্র রপ্তানির জন্য ওপেন-সোর্স পাইথন/স্ট্রিমলিট অ্যাপ্লিকেশন।",
       "authors": "Rahman, S.",
-      "github_url": null,
+      "github_url": "https://github.com/sajjadurrahmanzadid-hue",
       "doi": null,
       "status": "forthcoming",
       "manuscript_id": "M3",
       "type": "software"
     }
-
   ]
 }
